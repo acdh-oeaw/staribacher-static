@@ -8,7 +8,7 @@ from acdh_tei_pyutils.tei import TeiReader
 from tqdm import tqdm
 
 
-files = glob.glob("./data/editions/*/*.xml")
+files = glob.glob("./data/editions/*.xml")
 
 
 try:
@@ -30,8 +30,8 @@ current_schema = {
             "facet": True,
         },
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
-        {"name": "places", "type": "string[]", "facet": True, "optional": True},
-        {"name": "orgs", "type": "string[]", "facet": True, "optional": True},
+        #{"name": "places", "type": "string[]", "facet": True, "optional": True},
+        #{"name": "orgs", "type": "string[]", "facet": True, "optional": True},
     ],
 }
 
@@ -108,27 +108,27 @@ for x in tqdm(files, total=len(files)):
             )
             cfts_record["persons"] = record["persons"]
             # get unique places per page
-            ent_type = "place"
-            ent_name = "placeName"
-            record["places"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-            cfts_record["places"] = record["places"]
+            #ent_type = "place"
+            #ent_name = "placeName"
+            #record["places"] = get_entities(
+            #    ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
+            #)
+            #cfts_record["places"] = record["places"]
             # get unique orgs per page
-            ent_type = "org"
-            ent_name = "orgName"
-            record["orgs"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-            cfts_record["orgs"] = record["orgs"]
+            #ent_type = "org"
+            #ent_name = "orgName"
+            #record["orgs"] = get_entities(
+            #    ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
+            #)
+            #cfts_record["orgs"] = record["orgs"]
             # get unique bibls per page
-            ent_type = "lit_work"
-            ent_name = "title"
-            ent_node = "bibl"
-            record["works"] = get_entities(
-                ent_type=ent_type, ent_node=ent_node, ent_name=ent_name
-            )
-            cfts_record["works"] = record["works"]
+            #ent_type = "lit_work"
+            #ent_name = "title"
+            #ent_node = "bibl"
+            #record["works"] = get_entities(
+            #    ent_type=ent_type, ent_node=ent_node, ent_name=ent_name
+            #)
+            #cfts_record["works"] = record["works"]
             record["full_text"] = "\n".join(
                 " ".join("".join(p.itertext()).split()) for p in body
             )
