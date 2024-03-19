@@ -44,7 +44,7 @@ except ObjectNotFound:
     pass
 
 # %%
-client.collections["STB"].delete()
+# client.collections["STB"].delete()
 
 # %%
 client.collections.create(current_schema)
@@ -81,7 +81,7 @@ for x in tqdm(files, total=len(files)):
         body = doc.any_xpath(p_group)
         pages += 1
         cfts_record = {
-            "project": "STB",                                                                                            
+            "project": "STB",
         }
         record = {}
         record["id"] = os.path.split(x)[-1].replace(".xml", f".html?tab={str(pages)}")
@@ -117,16 +117,16 @@ for x in tqdm(files, total=len(files)):
             record["persons"] = get_entities(
                 ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
             )
-        if len(body) > 0:                                                                                                
-            # get unique persons per page                                                                                
-            ent_type = "person"                                                                                          
-            ent_name = "persName"                                                                                        
-            record["persons"] = get_entities(                                                                            
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name                                                  
-            )                                                                                                            
+        if len(body) > 0:
+            # get unique persons per page
+            ent_type = "person"
+            ent_name = "persName"
+            record["persons"] = get_entities(
+                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
+            )
             cfts_record["persons"] = record["persons"]
-            print(type(body))                                                           
-            record["full_text"] = extract_fulltext(doc.any_xpath(".//tei:body")[0])                                         
+            print(type(body))
+            record["full_text"] = extract_fulltext(doc.any_xpath(".//tei:body")[0])
             if len(record["full_text"]) > 0:
                 records.append(record)
                 cfts_record["full_text"] = record["full_text"]
@@ -140,8 +140,9 @@ print(make_index)
 print("done with indexing STB")
 
 # %%
-make_index = CFTS_COLLECTION.documents.import_(cfts_records, {"action": "upsert"})
+# make_index = CFTS_COLLECTION.documents.import_(cfts_records, {"action": "upsert"})
 
+make_index = client.collections["STB"].documents.import_(cfts_records, {"action": "upsert"})
 # %%
 print(make_index)
 print("done with cfts-index STB")
