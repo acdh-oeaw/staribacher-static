@@ -15,13 +15,12 @@ os.environ['TYPESENSE_API_KEY'] = 'JyGrjgl9YvrWJNIQp9a4qrUv85UZNZWiW5H9h9soa3wob
 # %%
 from typesense.api_call import ObjectNotFound
 from acdh_cfts_pyutils import TYPESENSE_CLIENT as client
-from acdh_cfts_pyutils import CFTS_COLLECTION
+# from acdh_cfts_pyutils import CFTS_COLLECTION
 from acdh_tei_pyutils.tei import TeiReader
 from acdh_tei_pyutils.utils import extract_fulltext
 from tqdm import tqdm
 
 dateformat = "%Y-%m-%d"
-datetime.strptime(string, dateformat).timestamp()
 # %%
 current_schema = {
     "name": "STB",
@@ -30,21 +29,21 @@ current_schema = {
         {"name": "rec_id", "type": "string"},
         {"name": "title", "type": "string"},
         {"name": "full_text", "type": "string"},
-        {
-            "name": "year",
-            "fields": [
-                {"name": "isodate",
-                 "type": "string",
-                 "facet": True},
-                {"name": "timestamp",
-                 "type": "int64",
-                 "index": True,
-                 "optional": True}
-            ]
-        }
+        {"name": "notbefore",
+         "type": "int32",
+         "optional": True,
+         "facet": True},
+        {"name": "notafter",
+         "type": "int32",
+         "optional": True,
+         "facet": True},
+        {"name": "year",
+         "type": "string",
+         "facet": True},
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
 }
+
 
 # %%
 try:
@@ -57,6 +56,7 @@ except ObjectNotFound:
 
 # %%
 client.collections.create(current_schema)
+
 
 # %%
 def get_entities(ent_type, ent_node, ent_name):
@@ -76,6 +76,7 @@ def get_entities(ent_type, ent_node, ent_name):
                     with open("log-entities.txt", "a") as f:
                         f.write(f"{r} in {record['id']}\n")
     return [ent for ent in sorted(set(entities))]
+
 
 # %%
 records = []
@@ -106,17 +107,23 @@ for x in tqdm(files, total=len(files)):
         record["title"] = f"{r_title} Page {str(pages)}"
         cfts_record["title"] = record["title"]
         try:
-            date_str = doc.any_xpath("//tei:creation/tei:date/@when")[0]
+            if doc.any_xpath("//tei:creation/tei:date/@from"):
+                nb = doc.any_xpath("//tei:creation/tei:date/@from")[0]
+                na = doc.any_xpath("//tei:creation/tei:date/@to")[0]
+                date_str = f'{doc.any_xpath("//tei:creation/tei:date/@from")[0]}/{doc.any_xpath("//tei:creation/tei:date/@to")[0]}'
+            else:
+                nb = na = date_str = doc.any_xpath("//tei:creation/tei:date/@when")[0]
         except IndexError:
             date_str = doc.any_xpath("//tei:creation/tei:date/text()")[0]
             data_str = date_str.split("--")[0]
             if len(date_str) > 3:
-                date_str = date_str
+                date_str = na = nb = date_str
             else:
-                date_str = "1982-03-23"
+                date_str = na = nb = "1982-03-23"
         try:
-            record["year"] = datetime.strptime(string, dateformat).timestamp()
-            cfts_record["year"] = datetime.strptime(string, dateformat).timestamp()
+            record["year"] = cfts_record["year"] = date_str
+            record["notbefore"] = cfts_record["notbefore"] = datetime.strptime(nb, dateformat).timestamp()
+            record["notafter"] = cfts_record["notafter"] = datetime.strptime(na, dateformat).timestamp()
         except ValueError:
             pass
         if len(body) > 0:
@@ -157,6 +164,3 @@ print(make_index)
 print("done with cfts-index STB")
 
 # %%
-
-
-
