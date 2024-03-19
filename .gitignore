@@ -10,7 +10,10 @@ html/static-search
 __pycache__/
 *.py[cod]
 *$py.class
-
+.in
+.out
+*.swp
+*.ipynb
 # C extensions
 *.so
 
