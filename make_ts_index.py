@@ -2,6 +2,7 @@
 # %%
 import glob
 import os
+from datetime import datetime
 files = glob.glob("./data/editions/*.xml")
 
 # %%
@@ -19,6 +20,8 @@ from acdh_tei_pyutils.tei import TeiReader
 from acdh_tei_pyutils.utils import extract_fulltext
 from tqdm import tqdm
 
+dateformat = "%Y-%m-%d"
+datetime.strptime(string, dateformat).timestamp()
 # %%
 current_schema = {
     "name": "STB",
@@ -29,10 +32,16 @@ current_schema = {
         {"name": "full_text", "type": "string"},
         {
             "name": "year",
-            "type": "int32",
-            "optional": True,
-            "facet": True,
-        },
+            "fields": [
+                {"name": "isodate",
+                 "type": "string",
+                 "facet": True},
+                {"name": "timestamp",
+                 "type": "int64",
+                 "index": True,
+                 "optional": True}
+            ]
+        }
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
 }
@@ -104,10 +113,10 @@ for x in tqdm(files, total=len(files)):
             if len(date_str) > 3:
                 date_str = date_str
             else:
-                date_str = "1970"
+                date_str = "1982-03-23"
         try:
-            record["year"] = int(date_str[:4])
-            cfts_record["year"] = int(date_str[:4])
+            record["year"] = datetime.strptime(string, dateformat).timestamp()
+            cfts_record["year"] = datetime.strptime(string, dateformat).timestamp()
         except ValueError:
             pass
         if len(body) > 0:

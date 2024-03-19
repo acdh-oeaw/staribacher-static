@@ -1,12 +1,12 @@
-var project_collection_name = "bundes_verfassung_oesterreich"
+var project_collection_name = "STB"
 const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
   server: {
-    apiKey: "9KuQLxkcSSBjYobV50wKv6KBJFz9DzjO",
+    apiKey: "JyGrjgl9YvrWJNIQp9a4qrUv85UZNZWiW5H9h9soa3wobRCm",
     nodes: [
       {
-        host: "typesense.acdh-dev.oeaw.ac.at",
-        port: "443",
-        protocol: "https",
+        host: "localhost",
+        port: "8108",
+        protocol: "http",
       },
     ],
   },
@@ -75,7 +75,7 @@ search.addWidgets([
 
   instantsearch.widgets.refinementList({
     container: "#refinement-list-persons",
-    attribute: "Personen",
+    attribute: "persons",
     searchable: true,
     searchablePlaceholder: "Suchen",
     cssClasses: {
@@ -90,49 +90,9 @@ search.addWidgets([
     },
   }),
 
-  instantsearch.widgets.refinementList({
-    container: "#refinement-list-doc-material",
-    attribute: "Materialart",
-    searchable: false,
-    cssClasses: {
-      showMore: "btn btn-secondary btn-sm align-content-center",
-      list: "list-unstyled",
-      count: "badge ml-2 badge-secondary hideme",
-      label: "d-flex align-items-center text-capitalize",
-      checkbox: "mr-2",
-    },
-  }),
-
-  instantsearch.widgets.refinementList({
-    container: "#refinement-list-doc-title",
-    attribute: "Dokumententitel",
-    searchable: true,
-    searchablePlaceholder: "Suchen",
-    cssClasses: {
-      showMore: "btn btn-secondary btn-sm align-content-center",
-      list: "list-unstyled",
-      count: "badge ml-2 badge-secondary hideme",
-      label: "d-flex align-items-center text-capitalize",
-      checkbox: "mr-2",
-    },
-  }),
-
-  instantsearch.widgets.refinementList({
-    container: "#refinement-list-doc-type",
-    attribute: "Dokumententyp",
-    searchable: false,
-    cssClasses: {
-      showMore: "btn btn-secondary btn-sm align-content-center",
-      list: "list-unstyled",
-      count: "badge ml-2 badge-secondary hideme",
-      label: "d-flex align-items-center text-capitalize",
-      checkbox: "mr-2",
-    },
-  }),
-
   instantsearch.widgets.rangeInput({
     container: "#refinement-range-year",
-    attribute: "creation_year",
+    attribute: "notbefore",
     templates: {
       separatorText: "to",
       submitText: "Suchen",
