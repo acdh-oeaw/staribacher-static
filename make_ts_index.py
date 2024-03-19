@@ -65,7 +65,8 @@ for x in tqdm(files, total=len(files)):
     facs = doc.any_xpath(".//tei:body/tei:div/tei:pb/@facs")
     pages = 0
     for v in facs:
-        p_group = f".//tei:body/tei:div/tei:p[preceding-sibling::tei:pb[1]/@facs='{v}']|.//tei:body/tei:div/tei:lg[preceding-sibling::tei:pb[1]/@facs='{v}']"
+        p_group = f".//tei:body/tei:div/tei:p[preceding-sibling::tei:pb[1]/@facs='{v}']|"\
+            f".//tei:body/tei:div/tei:lg[preceding-sibling::tei:pb[1]/@facs='{v}']"
         body = doc.any_xpath(p_group)
         pages += 1
         cfts_record = {
@@ -138,9 +139,7 @@ for x in tqdm(files, total=len(files)):
                 cfts_record["full_text"] = record["full_text"]
                 cfts_records.append(cfts_record)
 
-make_index = client.collections[
-    "STB"
-].documents.import_(records)
+make_index = client.collections["STB"].documents.import_(records)
 print(make_index)
 print("done with indexing STB")
 
