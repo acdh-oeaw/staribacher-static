@@ -2,7 +2,12 @@
 # %%
 import glob
 import os
-from datetime import datetime
+from acdh_tei_pyutils.tei import TeiReader, ET
+from acdh_tei_pyutils.utils import extract_fulltext
+from tqdm import tqdm
+from typesense.api_call import ObjectNotFound
+
+
 files = glob.glob("./data/editions/*.xml")
 
 # %%
@@ -13,13 +18,8 @@ os.environ['TYPESENSE_API_KEY'] = 'JyGrjgl9YvrWJNIQp9a4qrUv85UZNZWiW5H9h9soa3wob
 # os.environ['TYPESENSE_SEARCH_KEY'] = 'xyz'
 
 # %%
-from typesense.api_call import ObjectNotFound
 from acdh_cfts_pyutils import TYPESENSE_CLIENT as client
 # from acdh_cfts_pyutils import CFTS_COLLECTION
-from acdh_tei_pyutils.tei import TeiReader
-from acdh_tei_pyutils.utils import extract_fulltext
-from tqdm import tqdm
-
 dateformat = "%Y-%m-%d"
 # %%
 current_schema = {
@@ -50,16 +50,17 @@ except ObjectNotFound:
 client.collections.create(current_schema)
 
 
-# %%
-def get_entities(ent_type, ent_node, ent_name):
+# ent_type="person", ent_node="person", ent_name="persName", index_file=persons_idx, modifier='@type="label"'
+# %% person ??person  persName
+def get_entities(ent_type, ent_node, ent_name, index_file, modifier):
     entities = []
     e_path = f'.//tei:rs[@type="{ent_type}"]/@ref'
     for p in body:
         ent = p.xpath(e_path, namespaces={"tei": "http://www.tei-c.org/ns/1.0"})
         ref = [ref.replace("#", "") for e in ent if len(ent) > 0 for ref in e.split()]
         for r in ref:
-            p_path = f'.//tei:{ent_node}[@xml:id="{r}"]//tei:{ent_name}[1]'
-            en = doc.any_xpath(p_path)
+            p_path = f'.//tei:{ent_node}[@xml:id="{r}"]//tei:{ent_name}[{modifier}][1]'
+            en = index_file.any_xpath(p_path)
             if en:
                 entity = " ".join(" ".join(en[0].xpath(".//text()")).split())
                 if len(entity) != 0:
@@ -73,6 +74,7 @@ def get_entities(ent_type, ent_node, ent_name):
 # %%
 records = []
 cfts_records = []
+persons_idx = TeiReader(xml="./data/indices/listperson.xml")
 for x in tqdm(files, total=len(files)):
     doc = TeiReader(xml=x)
     facs = doc.any_xpath(".//tei:body/tei:div/tei:pb/@facs")
@@ -120,31 +122,24 @@ for x in tqdm(files, total=len(files)):
             pass
         if len(body) > 0:
             # get unique persons per page
-            ent_type = "person"
-            ent_name = "persName"
             record["persons"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-        if len(body) > 0:
-            # get unique persons per page
-            ent_type = "person"
-            ent_name = "persName"
-            record["persons"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
+                ent_type="person", ent_node="person", ent_name="persName",
+                index_file=persons_idx, modifier='@type="label"'
             )
             cfts_record["persons"] = record["persons"]
-            print(type(body))
+            # # print(type(body))
             record["full_text"] = extract_fulltext(doc.any_xpath(".//tei:body")[0])
             if len(record["full_text"]) > 0:
                 records.append(record)
                 cfts_record["full_text"] = record["full_text"]
                 cfts_records.append(cfts_record)
 
+
 # %%
 make_index = client.collections["STB"].documents.import_(records)
 
 # %%
-print(make_index)
+# print(make_index)
 print("done with indexing STB")
 
 # %%
@@ -152,7 +147,7 @@ print("done with indexing STB")
 
 make_index = client.collections["STB"].documents.import_(cfts_records, {"action": "upsert"})
 # %%
-print(make_index)
+# print(make_index)
 print("done with cfts-index STB")
 
 # %%
