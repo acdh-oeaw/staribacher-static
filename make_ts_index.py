@@ -2,7 +2,8 @@
 # %%
 import glob
 import os
-from acdh_tei_pyutils.tei import TeiReader, ET
+from datetime import datetime
+from acdh_tei_pyutils.tei import TeiReader
 from acdh_tei_pyutils.utils import extract_fulltext
 from tqdm import tqdm
 from typesense.api_call import ObjectNotFound
@@ -29,8 +30,8 @@ current_schema = {
         {"name": "rec_id", "type": "string"},
         {"name": "title", "type": "string"},
         {"name": "full_text", "type": "string"},
-        {"name": "notbefore", "type": "string", "facet": True},
-        {"name": "notafter", "type": "string", "optional": True, "facet": True},
+        {"name": "notbefore", "type": "int32", "facet": True},
+        {"name": "notafter", "type": "int32", "facet": True},
         {"name": "year", "type": "string", "facet": True},
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
@@ -114,11 +115,12 @@ for x in tqdm(files, total=len(files)):
             else:
 
                 date_str = na_str = nb_str = "1970-12-31"
-        print(date_str, nb_str, na_str)
+        nb_tst = datetime.strptime(date_str, "%Y-%m-%d").timestamp()
+        na_tst = datetime.strptime(date_str, "%Y-%m-%d").timestamp()
         try:
             record["year"] = cfts_record["year"] = date_str
-            record["notbefore"] = cfts_record["notbefore"] = nb_str
-            record["notafter"] = cfts_record["notafter"] = na_str
+            record["notbefore"] = cfts_record["notbefore"] = nb_tst
+            record["notafter"] = cfts_record["notafter"] = na_tst
         except ValueError:
             pass
         if len(body) > 0:
