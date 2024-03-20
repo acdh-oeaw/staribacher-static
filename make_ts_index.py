@@ -29,17 +29,9 @@ current_schema = {
         {"name": "rec_id", "type": "string"},
         {"name": "title", "type": "string"},
         {"name": "full_text", "type": "string"},
-        {"name": "notbefore",
-         "type": "int32",
-         "optional": True,
-         "facet": True},
-        {"name": "notafter",
-         "type": "int32",
-         "optional": True,
-         "facet": True},
-        {"name": "year",
-         "type": "string",
-         "facet": True},
+        {"name": "notbefore", "type": "string", "facet": True},
+        {"name": "notafter", "type": "string", "optional": True, "facet": True},
+        {"name": "year", "type": "string", "facet": True},
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
 }
@@ -108,22 +100,22 @@ for x in tqdm(files, total=len(files)):
         cfts_record["title"] = record["title"]
         try:
             if doc.any_xpath("//tei:creation/tei:date/@from"):
-                nb = doc.any_xpath("//tei:creation/tei:date/@from")[0]
-                na = doc.any_xpath("//tei:creation/tei:date/@to")[0]
-                date_str = f'{doc.any_xpath("//tei:creation/tei:date/@from")[0]}/{doc.any_xpath("//tei:creation/tei:date/@to")[0]}'
+                nb_str = date_str = doc.any_xpath("//tei:creation/tei:date/@from")[0]
+                na_str = doc.any_xpath("//tei:creation/tei:date/@to")[0]
             else:
                 nb = na = date_str = doc.any_xpath("//tei:creation/tei:date/@when")[0]
         except IndexError:
             date_str = doc.any_xpath("//tei:creation/tei:date/text()")[0]
             data_str = date_str.split("--")[0]
             if len(date_str) > 3:
-                date_str = na = nb = date_str
+                na_str = nb = date_str
             else:
-                date_str = na = nb = "1982-03-23"
+
+                date_str = na_str = nb_str = "1970-12-31"
         try:
             record["year"] = cfts_record["year"] = date_str
-            record["notbefore"] = cfts_record["notbefore"] = datetime.strptime(nb, dateformat).timestamp()
-            record["notafter"] = cfts_record["notafter"] = datetime.strptime(na, dateformat).timestamp()
+            record["notbefore"] = cfts_record["notbefore"] = nb_str
+            record["notafter"] = cfts_record["notafter"] = na_str
         except ValueError:
             pass
         if len(body) > 0:
