@@ -105,7 +105,7 @@ for x in tqdm(files, total=len(files)):
                 nb_str = date_str = doc.any_xpath("//tei:creation/tei:date/@from")[0]
                 na_str = doc.any_xpath("//tei:creation/tei:date/@to")[0]
             else:
-                nb = na = date_str = doc.any_xpath("//tei:creation/tei:date/@when")[0]
+                nb_str = na_str = date_str = doc.any_xpath("//tei:creation/tei:date/@when")[0]
         except IndexError:
             date_str = doc.any_xpath("//tei:creation/tei:date/text()")[0]
             data_str = date_str.split("--")[0]
@@ -114,6 +114,7 @@ for x in tqdm(files, total=len(files)):
             else:
 
                 date_str = na_str = nb_str = "1970-12-31"
+        print(date_str, nb_str, na_str)
         try:
             record["year"] = cfts_record["year"] = date_str
             record["notbefore"] = cfts_record["notbefore"] = nb_str
