@@ -90,12 +90,14 @@ search.addWidgets([
     },
   }),
 
-  instantsearch.widgets.rangeInput({
+  instantsearch.widgets.rangeSlider({
     container: "#refinement-range-year",
     attribute: "notbefore",
-    templates: {
-      separatorText: "to",
-      submitText: "Suchen",
+    pips: false,
+    min: 9673200.0,
+    max: 422575200.0,
+    tooltips: {
+	    format: value => `${Date(value).toLocaleString("de-AT")}`,
     },
     cssClasses: {
       form: "form-inline",
