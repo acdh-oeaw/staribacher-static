@@ -30,9 +30,9 @@ current_schema = {
         {"name": "rec_id", "type": "string"},
         {"name": "title", "type": "string"},
         {"name": "full_text", "type": "string"},
-        {"name": "notbefore", "type": "int32", "facet": True},
-        {"name": "notafter", "type": "int32", "facet": True},
-        {"name": "year", "type": "string", "facet": True},
+        #{"name": "notbefore", "type": "int32", "facet": True},
+        #{"name": "notafter", "type": "int32", "facet": True},
+        {"name": "year", "type": "string", "facet": True, "optional": True},
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
 }
@@ -115,12 +115,12 @@ for x in tqdm(files, total=len(files)):
             else:
 
                 date_str = na_str = nb_str = "1970-12-31"
-        nb_tst = datetime.strptime(date_str, "%Y-%m-%d").timestamp()
-        na_tst = datetime.strptime(date_str, "%Y-%m-%d").timestamp()
+        nb_tst = datetime.strptime(nb_str, "%Y-%m-%d").timestamp()
+        na_tst = datetime.strptime(na_str, "%Y-%m-%d").timestamp()
         try:
             record["year"] = cfts_record["year"] = date_str
-            record["notbefore"] = cfts_record["notbefore"] = nb_tst
-            record["notafter"] = cfts_record["notafter"] = na_tst
+            # record["notbefore"] = cfts_record["notbefore"] = nb_tst
+            # record["notafter"] = cfts_record["notafter"] = na_tst
         except ValueError:
             pass
         if len(body) > 0:
@@ -131,7 +131,8 @@ for x in tqdm(files, total=len(files)):
             )
             cfts_record["persons"] = record["persons"]
             # # print(type(body))
-            record["full_text"] = extract_fulltext(doc.any_xpath(".//tei:body")[0])
+            record["full_text"] = ' '.join([extract_fulltext(p) for p in doc.any_xpath(".//tei:p")])
+            # record["full_text"] = extract_fulltext(doc.any_xpath(".//tei:body")[0])
             if len(record["full_text"]) > 0:
                 records.append(record)
                 cfts_record["full_text"] = record["full_text"]
