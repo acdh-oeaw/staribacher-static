@@ -30,8 +30,8 @@ current_schema = {
         {"name": "rec_id", "type": "string"},
         {"name": "title", "type": "string"},
         {"name": "full_text", "type": "string"},
-        #{"name": "notbefore", "type": "int32", "facet": True},
-        #{"name": "notafter", "type": "int32", "facet": True},
+        {"name": "notbefore", "type": "int32", "facet": True},
+        {"name": "notafter", "type": "int32", "facet": True},
         {"name": "year", "type": "string", "facet": True, "optional": True},
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
@@ -119,8 +119,8 @@ for x in tqdm(files, total=len(files)):
         na_tst = datetime.strptime(na_str, "%Y-%m-%d").timestamp()
         try:
             record["year"] = cfts_record["year"] = date_str
-            # record["notbefore"] = cfts_record["notbefore"] = nb_tst
-            # record["notafter"] = cfts_record["notafter"] = na_tst
+            record["notbefore"] = cfts_record["notbefore"] = nb_tst
+            record["notafter"] = cfts_record["notafter"] = na_tst
         except ValueError:
             pass
         if len(body) > 0:
