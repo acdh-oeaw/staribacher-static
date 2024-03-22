@@ -25,6 +25,15 @@ const search = instantsearch({
   indexName: project_collection_name,
 });
 
+function formatDate(timestamp) {
+	date = Date(timestamp)
+	var new year = date.getYear()
+	var new month  = date.getMonth()
+	var new day = date.getDay()
+
+  return day + "-" + month + "-" + year
+}
+
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
@@ -93,11 +102,13 @@ search.addWidgets([
   instantsearch.widgets.rangeSlider({
     container: "#refinement-range-year",
     attribute: "notbefore",
-    pips: false,
-    min: 9673200.0,
-    max: 422575200.0,
+    pips: true,
+	  min: -3600,
+	  max: 629420400,
     tooltips: {
-	    format: value => `${Date(value).toLocaleString("de-AT")}`,
+	    format: function(value) {
+		    formatDate(value) ;
+        },
     },
     cssClasses: {
       form: "form-inline",
