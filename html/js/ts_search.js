@@ -1,12 +1,12 @@
 var project_collection_name = "STB"
 const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
   server: {
-    apiKey: "JyGrjgl9YvrWJNIQp9a4qrUv85UZNZWiW5H9h9soa3wobRCm",
+    apiKey: "VSMye2GdRZvBRkpYnjXMUfZpOCiSOFLO",
     nodes: [
       {
-        host: "localhost",
-        port: "8108",
-        protocol: "http",
+        host: "typesense.acdh-dev.oeaw.ac.at",
+        port: "443",
+        protocol: "https",
       },
     ],
   },
