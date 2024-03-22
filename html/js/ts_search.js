@@ -26,11 +26,10 @@ const search = instantsearch({
 });
 
 function formatDate(timestamp) {
-	date = Date(timestamp)
-	var new year = date.getYear()
-	var new month  = date.getMonth()
-	var new day = date.getDay()
-
+	var date = new Date(timestamp * 1000)
+	let year = date.getFullYear()
+	let month  = date.getMonth()
+	let day = date.getDay()
   return day + "-" + month + "-" + year
 }
 
@@ -102,13 +101,11 @@ search.addWidgets([
   instantsearch.widgets.rangeSlider({
     container: "#refinement-range-year",
     attribute: "notbefore",
-    pips: true,
+    pips: false,
 	  min: -3600,
 	  max: 629420400,
     tooltips: {
-	    format: function(value) {
-		    formatDate(value) ;
-        },
+      format: v => formatDate(v),
     },
     cssClasses: {
       form: "form-inline",
