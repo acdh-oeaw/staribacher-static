@@ -7,19 +7,6 @@ from acdh_tei_pyutils.tei import TeiReader
 from acdh_tei_pyutils.utils import extract_fulltext
 from tqdm import tqdm
 from typesense.api_call import ObjectNotFound
-
-
-files = glob.glob("./data/editions/*.xml")
-
-# %%
-os.environ['TYPESENSE_HOST'] = 'localhost'
-os.environ['TYPESENSE_PORT'] = '8108'
-os.environ['TYPESENSE_PROTOCOL'] = 'http'
-os.environ['TYPESENSE_API_KEY'] = 'JyGrjgl9YvrWJNIQp9a4qrUv85UZNZWiW5H9h9soa3wobRCm'
-# os.environ['TYPESENSE_SEARCH_KEY'] = 'xyz'
-
-# %%
-# This import needs the OS environment variables. If they are defined, the variables above become redundant
 from acdh_cfts_pyutils import TYPESENSE_CLIENT as client
 # from acdh_cfts_pyutils import CFTS_COLLECTION
 
