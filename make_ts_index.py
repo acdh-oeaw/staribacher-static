@@ -19,8 +19,11 @@ os.environ['TYPESENSE_API_KEY'] = 'JyGrjgl9YvrWJNIQp9a4qrUv85UZNZWiW5H9h9soa3wob
 # os.environ['TYPESENSE_SEARCH_KEY'] = 'xyz'
 
 # %%
+# This import needs the OS environment variables. If they are defined, the variables above become redundant
 from acdh_cfts_pyutils import TYPESENSE_CLIENT as client
 # from acdh_cfts_pyutils import CFTS_COLLECTION
+
+files = glob.glob("./data/editions/*.xml")
 dateformat = "%Y-%m-%d"
 # %%
 current_schema = {
@@ -30,8 +33,8 @@ current_schema = {
         {"name": "rec_id", "type": "string"},
         {"name": "title", "type": "string"},
         {"name": "full_text", "type": "string"},
-        {"name": "notbefore", "type": "int32", "facet": True},
-        {"name": "notafter", "type": "int32", "facet": True},
+        {"name": "notbefore", "type": "int32", "facet": True, "optional": True},
+        {"name": "notafter", "type": "int32", "facet": True, "optional": True},
         {"name": "year", "type": "string", "facet": True, "optional": True},
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
@@ -73,6 +76,7 @@ def get_entities(ent_type, ent_node, ent_name, index_file, modifier):
 
 
 # %%
+
 records = []
 cfts_records = []
 persons_idx = TeiReader(xml="./data/indices/listperson.xml")
@@ -115,8 +119,8 @@ for x in tqdm(files, total=len(files)):
             else:
 
                 date_str = na_str = nb_str = "1970-12-31"
-        nb_tst = datetime.strptime(nb_str, "%Y-%m-%d").timestamp()
-        na_tst = datetime.strptime(na_str, "%Y-%m-%d").timestamp()
+        nb_tst = int(datetime.strptime(nb_str, "%Y-%m-%d").timestamp())
+        na_tst = int(datetime.strptime(na_str, "%Y-%m-%d").timestamp())
         try:
             record["year"] = cfts_record["year"] = date_str
             record["notbefore"] = cfts_record["notbefore"] = nb_tst
@@ -138,7 +142,6 @@ for x in tqdm(files, total=len(files)):
                 cfts_record["full_text"] = record["full_text"]
                 cfts_records.append(cfts_record)
 
-
 # %%
 make_index = client.collections["STB"].documents.import_(records)
 
@@ -153,5 +156,7 @@ make_index = client.collections["STB"].documents.import_(cfts_records, {"action"
 # %%
 # print(make_index)
 print("done with cfts-index STB")
+errors = [msg for msg in make_index if (msg != '"{\\"success\\":true}"' and msg != '""')]
+[print(err) if errors else print("No errors") for err in errors]
 
 # %%
