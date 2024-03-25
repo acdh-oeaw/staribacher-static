@@ -22,8 +22,8 @@
         <xsl:value-of select="replace(tokenize(data(tei:TEI/@next), '/')[last()], '.xml', '.html')"/>
     </xsl:variable>
     <xsl:variable name="teiSource">
-        <xsl:value-of select="data(tei:TEI/@xml:id)"/>
-    </xsl:variable>
+        <xsl:value-of select="concat(data(tei:TEI/@xml:id), '.xml')"/>
+    </xsl:variable>   
     <xsl:variable name="link">
         <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
     </xsl:variable>
@@ -127,7 +127,7 @@
                     </xsl:for-each>
                 </main>
                 <xsl:call-template name="html_footer"/>
-                <script src="https://unpkg.com/de-micro-editor@0.2.6/dist/de-editor.min.js"></script>
+                <script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script>
                 <script type="text/javascript" src="js/run.js"></script>
                 
 
