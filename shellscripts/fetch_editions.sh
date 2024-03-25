@@ -9,6 +9,7 @@ mkdir $temp_path
 # # fetch data from repo, unzip, and move to destination
 wget https://github.com/fun-with-editions/staribacher-data/archive/refs/heads/main.zip -O $zip_file
 unzip $zip_file -d $temp_path
-cp -r $fetched_data_path ./
+cp -r "${fetched_data_path}/editions" ./data/
+cp -r "${fetched_data_path}/indices" ./data/
 # # remove temp folder
 rm -rf $temp_path

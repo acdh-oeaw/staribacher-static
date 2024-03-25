@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
 # %%
+=======
+>>>>>>> main
 import glob
 import os
 from datetime import datetime
@@ -134,11 +137,16 @@ for x in tqdm(files, total=len(files)):
                 cfts_record["full_text"] = record["full_text"]
                 cfts_records.append(cfts_record)
 
+<<<<<<< HEAD
 # %%
 make_index = client.collections["STB"].documents.import_(records)
 
 # %%
 # print(make_index)
+=======
+make_index = client.collections["STB"].documents.import_(records)
+print(make_index)
+>>>>>>> main
 print("done with indexing STB")
 
 # %%
