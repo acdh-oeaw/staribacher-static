@@ -8,27 +8,26 @@
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
-    <xsl:import href="./partials/osd-container.xsl"/>
+   <!--  <xsl:import href="./partials/osd-container.xsl"/> -->
     <xsl:import href="partials/tei-facsimile.xsl"/>
     <xsl:import href="./partials/aot-options.xsl"/>
+  
     <xsl:variable name="prev">
-        <xsl:value-of
-            select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
+        <xsl:value-of select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
     </xsl:variable>
     <xsl:variable name="next">
-        <xsl:value-of select="replace(tokenize(data(tei:TEI/@next), '/')[last()], '.xml', '.html')"
-        />
+        <xsl:value-of select="replace(tokenize(data(tei:TEI/@next), '/')[last()], '.xml', '.html')"/>
     </xsl:variable>
     <xsl:variable name="teiSource">
-        <xsl:value-of select="data(tei:TEI/@xml:id)"/>
-        <xsl:text>.xml</xsl:text>
+        <xsl:value-of select="concat(data(tei:TEI/@xml:id), '.xml')"/>
+    </xsl:variable>   
+    <xsl:variable name="link">
+        <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
     </xsl:variable>
     <xsl:variable name="doc_title">
         <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
     </xsl:variable>
-    <xsl:variable name="link">
-        <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
-    </xsl:variable>
+    
     <xsl:param name="mybreak"><![CDATA[<br/>]]></xsl:param>
     <xsl:param name="mytab"><![CDATA[&emsp;]]></xsl:param>
     <xsl:param name="myplaceholder"><![CDATA[&zwnj;]]></xsl:param>
@@ -112,13 +111,14 @@
                                 </div>
                             </div>
                             <!-- create list* elements for entities bs-modal -->
+                            <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
                         </div>
                     </div>
                 </div>
                 <xsl:call-template name="html_footer"/>
                 <script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"/>
-                <script type="text/javascript" src="js/osd_scroll.js"/>
+                <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"/> 
+                <script type="text/javascript" src="js/osd_scroll.js"/> -->
                 <!-- <script type="text/javascript" src="js/run.js"/> 
                 <script type="text/javascript" src="js/offcanvastoggler.js"/> -->
             </body>
