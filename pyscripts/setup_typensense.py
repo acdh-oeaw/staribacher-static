@@ -7,7 +7,7 @@ from acdh_cfts_pyutils import TYPESENSE_CLIENT as client
 from acdh_tei_pyutils.tei import TeiReader
 from tqdm import tqdm
 
-
+# Local server
 page_base_url = "http://0.0.0.0:8000"
 typesense_collection_name = "staribacher"
 xml_path = "./data/editions/staribacher_*.xml"
