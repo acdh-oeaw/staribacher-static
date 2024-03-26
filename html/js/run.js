@@ -23,11 +23,11 @@ var editor = new LoadEditor({
           opt: "prs",
           color: "blue",
           title: "Persons",
-          html_class: "persons",
+          html_class: "person",
           css_class: "pers",
           hide: {
             hidden: false,
-            class: "persons .entity",
+            class: "person .entity",
           },
           chg_citation: "citation-url",
           features: {
