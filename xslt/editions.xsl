@@ -13,6 +13,7 @@
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
+    <xsl:import href="partials/tei-facsimile.xsl"/> 
     <xsl:import href="./partials/aot-options.xsl"/>
 
     <xsl:variable name="prev">
@@ -118,7 +119,24 @@
                                 </div>
                             </xsl:for-each>
                         </p>
-
+                            <div id="container-resize" class="row transcript active">                                                                                                                                                                          
+                                <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
+                                    <div id="viewer">
+                                        <div id="container_facs_1"/>
+                                        <!-- container and facs handling in js -->
+                                    </div>
+                                </div>
+                                <div id="text-resize" lang="de"
+                                    class="col-md-6 col-lg-6 col-sm-12 text yes-index">
+                                    <div id="section">
+                                        <xsl:for-each select="//tei:body/tei:div" >
+                                            <div class="card-body non_mimetic_lbs" >
+                                                <xsl:apply-templates/>
+                                            </div>
+                                        </xsl:for-each>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                     <xsl:for-each select="//tei:back">
                         <div class="tei-back">
@@ -128,9 +146,8 @@
                 </main>
                 <xsl:call-template name="html_footer"/>
                 <script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"/>
                 <script type="text/javascript" src="js/run.js"></script>
-                
-
                 <script type="text/javascript" src="js/osd_scroll.js"></script>
                 
             </body>

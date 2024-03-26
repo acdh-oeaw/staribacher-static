@@ -139,7 +139,7 @@
             <xsl:when test="count(tokenize(@ref, ' ')) > 1">
                 <xsl:choose>
                     <xsl:when test="@type='person'">
-                        <span class="persons {substring-after(@rendition, '#')}" id="{@xml:id}">
+                        <span class="person {substring-after(@rendition, '#')}" id="{@xml:id}">
                             <xsl:apply-templates/>
                             <xsl:for-each select="tokenize(@ref, ' ')">
                                 <sup class="entity" data-bs-toggle="modal" data-bs-target="{.}">
@@ -195,7 +195,7 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="@type='person'">
-                        <span class="persons entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
+                        <span class="person {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>

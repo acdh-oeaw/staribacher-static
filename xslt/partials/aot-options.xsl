@@ -30,20 +30,11 @@
                 <li class="dropdown-item">
                     <font-family opt="ff"></font-family>
                 </li>
-                <li class="dropdown-item" style="border-top: 5px dashed lightgrey !important;">
+                <!-- <li class="dropdown-item" style="border-top: 5px dashed lightgrey !important;">
                     <annotation-slider opt="ef"></annotation-slider>
-                </li>
+                </li> -->
                 <li class="dropdown-item">
                     <annotation-slider opt="prs"></annotation-slider>
-                </li>
-                <li class="dropdown-item">
-                    <annotation-slider opt="plc"></annotation-slider>
-                </li>
-                <li class="dropdown-item">
-                    <annotation-slider opt="wrk"></annotation-slider>
-                </li>
-                <li class="dropdown-item">
-                    <annotation-slider opt="org"></annotation-slider>
                 </li>
             </ul>                                                    
         </div>
