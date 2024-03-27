@@ -1,6 +1,7 @@
 var tsInput = document.querySelector("input[type='search']");
 tsInput.addEventListener("input", updateHeaderUrl);
 
+
 function listenToPagination() {
   setTimeout(() => {
     var tsPagination = document.querySelectorAll(".ais-Pagination-link");
@@ -19,6 +20,10 @@ function updateHeaderUrl() {
 
     var urlToUpdate = document.querySelectorAll(".ais-Hits-item h5 a");
     var tsInputVal = tsInput.value;
+    console.log("aaaa") ;
+    console.log(tsInputVal) ;
+    console.log(urlToUpdate) ;
+    console.log("bbb") ;
 
     urlToUpdate.forEach((el) => {
       var urlToUpdateHref = el.getAttribute("href");
@@ -27,6 +32,7 @@ function updateHeaderUrl() {
           /&mark=\.+$/,
           `&mark=${tsInputVal}`
         );
+        console.log(el)
         el.setAttribute("href", newUrl);
       } else {
         var newUrl = `${urlToUpdateHref}&mark=${tsInputVal}`;
