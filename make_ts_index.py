@@ -141,7 +141,6 @@ for xml_filepath in tqdm(files, total=len(files)):
                 cfts_record["anchor_link"] = pid
                 records.append(record)
                 cfts_record["full_text"] = record["full_text"]
-                print(cfts_record)
                 cfts_records.append(cfts_record)
 
 # %%
