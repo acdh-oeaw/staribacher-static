@@ -132,8 +132,8 @@ for x in tqdm(files, total=len(files)):
             )
             cfts_record["persons"] = record["persons"]
             # # print(type(body))
-            record["full_text"] = ' '.join([extract_fulltext(p) for p in doc.any_xpath(".//tei:p")])
-            # record["full_text"] = extract_fulltext(doc.any_xpath(".//tei:body")[0])
+            #record["full_text"] = ' '.join([extract_fulltext(p) for p in doc.any_xpath(".//tei:p")])
+            record["full_text"] = extract_fulltext(doc.any_xpath(p_group)[0])
             if len(record["full_text"]) > 0:
                 records.append(record)
                 cfts_record["full_text"] = record["full_text"]
