@@ -97,11 +97,11 @@ for x in tqdm(files, total=len(files)):
                 doc.any_xpath('.//tei:titleStmt/tei:title[@type="main"]/text()')
             ).split()
         )
-        record["title"] = f"{r_title} Page {str(pages)}"
+        record["title"] = f"{r_title}"  # + " Page {str(pages)}"
+        anchor =  doc.any_xpath('.//tei:p/@id')
         cfts_record["title"] = record["title"]
-        record["anchor_link"] = f"./{head_path.replace('.xml#', '.html#', 1)}"
-        cfts_record["anchor_link"] = record["anchor_link"]
-        cfts_record["title"] = record["title"]
+        record["anchor_link"] = anchor
+        cfts_record["anchor_link"] = anchor
         try:
             if doc.any_xpath("//tei:creation/tei:date/@from"):
                 nb_str = date_str = doc.any_xpath("//tei:creation/tei:date/@from")[0]
