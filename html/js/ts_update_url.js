@@ -19,20 +19,17 @@ function updateHeaderUrl() {
   setTimeout(() => {
 
     var urlToUpdate = document.querySelectorAll(".ais-Hits-item h5 a");
+    console.log(urlToUpdate)
     var tsInputVal = tsInput.value;
-    console.log("aaaa") ;
-    console.log(tsInputVal) ;
-    console.log(urlToUpdate) ;
-    console.log("bbb") ;
 
     urlToUpdate.forEach((el) => {
       var urlToUpdateHref = el.getAttribute("href");
+      console.log(urlToUpdateHref)
       if (urlToUpdateHref.includes("&mark=")) {
         var newUrl = urlToUpdateHref.replace(
           /&mark=\.+$/,
           `&mark=${tsInputVal}`
         );
-        console.log(el)
         el.setAttribute("href", newUrl);
       } else {
         var newUrl = `${urlToUpdateHref}&mark=${tsInputVal}`;
