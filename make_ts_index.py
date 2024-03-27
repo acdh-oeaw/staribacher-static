@@ -3,7 +3,7 @@
 import glob
 import os
 from datetime import datetime
-from acdh_tei_pyutils.tei import TeiReader, ET
+from acdh_tei_pyutils.tei import TeiReader
 from acdh_tei_pyutils.utils import extract_fulltext
 from tqdm import tqdm
 from typesense.api_call import ObjectNotFound
@@ -100,7 +100,7 @@ for xml_filepath in tqdm(files, total=len(files)):
             ).split()
         )
         record["title"] = f"{r_title}"  # + " Page {str(pages)}"
-       
+
         cfts_record["title"] = record["title"]
         try:
             if doc.any_xpath("//tei:creation/tei:date/@from"):
@@ -132,22 +132,21 @@ for xml_filepath in tqdm(files, total=len(files)):
             )
             cfts_record["persons"] = record["persons"]
             # # print(type(body))
-            #record["full_text"] = ' '.join([extract_fulltext(p) for p in doc.any_xpath(".//tei:p")])
+            # record["full_text"] = ' '.join([extract_fulltext(p) for p in doc.any_xpath(".//tei:p")])
             p_aragraph = doc.any_xpath(p_group)[0]
-            pid = f'p__{p_aragraph.xpath("./@xml:id")[0].split("_")[-1]}'
+            pid = p_aragraph.xpath("./@xml:id")[0]
             record["full_text"] = extract_fulltext(p_aragraph)
             if len(record["full_text"]) > 0:
                 record["anchor_link"] = pid
                 cfts_record["anchor_link"] = pid
                 records.append(record)
                 cfts_record["full_text"] = record["full_text"]
-                print(cfts_record)
                 cfts_records.append(cfts_record)
 
 # %%
 # print(make_index)
 make_index = client.collections["STB"].documents.import_(records)
-#print(make_index)
+# print(make_index)
 print("done with indexing STB")
 
 # %%
@@ -156,7 +155,7 @@ print("done with indexing STB")
 make_index = client.collections["STB"].documents.import_(cfts_records, {"action": "upsert"})
 # %%
 # print(make_index)
-#print("done with cfts-index STB")
+# print("done with cfts-index STB")
 errors = [msg for msg in make_index if (msg != '"{\\"success\\":true}"' and msg != '""')]
 [print(err) if errors else print("No errors") for err in errors]
 
