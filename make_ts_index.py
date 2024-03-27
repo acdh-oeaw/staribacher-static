@@ -134,7 +134,7 @@ for xml_filepath in tqdm(files, total=len(files)):
             # # print(type(body))
             #record["full_text"] = ' '.join([extract_fulltext(p) for p in doc.any_xpath(".//tei:p")])
             p_aragraph = doc.any_xpath(p_group)[0]
-            pid = p_aragraph.xpath("./@xml:id")[0]
+            pid = f'p__{p_aragraph.xpath("./@xml:id")[0].split("_")[-1]}'
             record["full_text"] = extract_fulltext(p_aragraph)
             if len(record["full_text"]) > 0:
                 record["anchor_link"] = pid
