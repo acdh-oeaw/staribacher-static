@@ -24,6 +24,7 @@ current_schema = {
         {"name": "id", "type": "string"},
         {"name": "rec_id", "type": "string"},
         {"name": "title", "type": "string"},
+        {"name": "anchor_link", "type": "string"},
         {"name": "full_text", "type": "string"},
         {"name": "notbefore", "type": "int32", "facet": True, "optional": True},
         {"name": "notafter", "type": "int32", "facet": True, "optional": True},
@@ -85,17 +86,21 @@ for x in tqdm(files, total=len(files)):
             "project": "STB",
         }
         record = {}
-        record["id"] = os.path.split(x)[-1].replace(".xml", f".html?tab={str(pages)}")
-        cfts_record["id"] = record["id"]
-        cfts_record["resolver"] = f"/{record['id']}"
+        head_path = os.path.split(x)[-1].replace(".xml", f".html?tab={str(pages)}")
+        record["id"] = head_path
+        cfts_record["id"] = head_path
+        cfts_record["resolver"] = f"/{head_path}"
         record["rec_id"] = os.path.split(x)[-1]
         cfts_record["rec_id"] = record["rec_id"]
         r_title = " ".join(
             " ".join(
-                doc.any_xpath('.//tei:titleStmt/tei:title[@level="a"]/text()')
+                doc.any_xpath('.//tei:titleStmt/tei:title[@type="main"]/text()')
             ).split()
         )
         record["title"] = f"{r_title} Page {str(pages)}"
+        cfts_record["title"] = record["title"]
+        record["anchor_link"] = f"./{head_path.replace('.xml#', '.html#', 1)}"
+        cfts_record["anchor_link"] = record["anchor_link"]
         cfts_record["title"] = record["title"]
         try:
             if doc.any_xpath("//tei:creation/tei:date/@from"):
