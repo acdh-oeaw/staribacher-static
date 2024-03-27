@@ -73,8 +73,8 @@ def get_entities(ent_type, ent_node, ent_name, index_file, modifier):
 records = []
 cfts_records = []
 persons_idx = TeiReader(xml="./data/indices/listperson.xml")
-for x in tqdm(files, total=len(files)):
-    doc = TeiReader(xml=x)
+for xml_filepath in tqdm(files, total=len(files)):
+    doc = TeiReader(xml=xml_filepath)
     facs = doc.any_xpath(".//tei:body/tei:div/tei:pb/@facs")
     pages = 0
     for v in facs:
@@ -86,11 +86,13 @@ for x in tqdm(files, total=len(files)):
             "project": "STB",
         }
         record = {}
-        head_path = os.path.split(x)[-1].replace(".xml", f".html?tab={str(pages)}")
-        record["id"] = head_path
-        cfts_record["id"] = head_path
-        cfts_record["resolver"] = f"/{head_path}"
-        record["rec_id"] = os.path.split(x)[-1]
+        xml_file = os.path.basename(xml_filepath)
+        html_file = xml_file.replace(".xml", ".html")
+        id = os.path.splitext(xml_file)[0]
+        record["id"] = id
+        cfts_record["id"] = id
+        cfts_record["resolver"] = f"/{html_file}"
+        record["rec_id"] = os.path.split(xml_file)[-1]
         cfts_record["rec_id"] = record["rec_id"]
         r_title = " ".join(
             " ".join(
@@ -98,10 +100,8 @@ for x in tqdm(files, total=len(files)):
             ).split()
         )
         record["title"] = f"{r_title}"  # + " Page {str(pages)}"
-        anchor =  doc.any_xpath('.//tei:p/@id')
+       
         cfts_record["title"] = record["title"]
-        record["anchor_link"] = anchor
-        cfts_record["anchor_link"] = anchor
         try:
             if doc.any_xpath("//tei:creation/tei:date/@from"):
                 nb_str = date_str = doc.any_xpath("//tei:creation/tei:date/@from")[0]
@@ -133,11 +133,15 @@ for x in tqdm(files, total=len(files)):
             cfts_record["persons"] = record["persons"]
             # # print(type(body))
             #record["full_text"] = ' '.join([extract_fulltext(p) for p in doc.any_xpath(".//tei:p")])
-            record["full_text"] = extract_fulltext(doc.any_xpath(p_group)[0])
-            print(record["full_text"])
+            p_aragraph = doc.any_xpath(p_group)[0]
+            pid = p_aragraph.xpath("./@xml:id")[0]
+            record["full_text"] = extract_fulltext(p_aragraph)
             if len(record["full_text"]) > 0:
+                record["anchor_link"] = pid
+                cfts_record["anchor_link"] = pid
                 records.append(record)
                 cfts_record["full_text"] = record["full_text"]
+                print(cfts_record)
                 cfts_records.append(cfts_record)
 
 # %%
