@@ -158,5 +158,5 @@ search.addWidgets([
   }),
 
 ]);
-
+console.log("{$id}.html#{$anchor_link}");
 search.start();
