@@ -16,11 +16,20 @@
     <xsl:import href="partials/tabulator_dl_buttons.xsl"/>
     <xsl:import href="partials/tabulator_js.xsl"/>
 
+    <xsl:template name="getDate">
+        <xsl:variable name="dateAttr" select=".//tei:creation/tei:date/@*"/>
+        <xsl:choose>
+            <xsl:when test="count($dateAttr) = 1"> <!-- only "when" attribute -->
+                <xsl:value-of select="$dateAttr"/>
+            </xsl:when>
+            <xsl:otherwise> <!-- "from" and "to" attributes -->
+                <xsl:value-of select="concat($dateAttr[1], ' bis ', $dateAttr[2])"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
 
     <xsl:template match="/">
         <xsl:variable name="doc_title" select="'Inhaltsverzeichnis'"/>
-
-
     
         <html class="h-100">
     
@@ -40,7 +49,8 @@
                                 <tr>
                                     <th scope="col" width="20" tabulator-formatter="html" tabulator-headerSort="false" tabulator-download="false">#</th>
                                     <th scope="col" tabulator-headerFilter="input">Titel</th>
-                                    <th scope="col" tabulator-headerFilter="input">Dateinname</th>
+                                    <th scope="col" tabulator-headerFilter="input">Datum</th>
+                                    <th scope="col" tabulator-headerFilter="input">Dateiname</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,19 +64,19 @@
                                             <a>
                                                 <xsl:attribute name="href">
                                                   <xsl:value-of
-                                                  select="replace(tokenize($full_path, '/')[last()], '.xml', '.html')"
-                                                  />
+                                                  select="replace(tokenize($full_path, '/')[last()], '.xml', '.html')"/>
                                                 </xsl:attribute>
                                                 <i class="bi bi-link-45deg"/>
                                             </a>
                                         </td>
                                         <td>
-                                            <xsl:value-of
-                                                select=".//tei:titleStmt/tei:title[1]/text()"/>
+                                            <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
                                         </td>
                                         <td>
-                                            <xsl:value-of select="tokenize($full_path, '/')[last()]"
-                                            />
+                                            <xsl:call-template name="getDate"/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="tokenize($full_path, '/')[last()]"/>
                                         </td>
                                     </tr>
                                 </xsl:for-each>
