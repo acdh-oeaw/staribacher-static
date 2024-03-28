@@ -33,7 +33,7 @@ function updateHeaderUrl() {
         el.setAttribute("href", newUrl);
       } else {
         var newUrl = `${urlToUpdateHref}&mark=${tsInputVal}`;
-        el.setAttribute("href", newUrl);
+        //el.setAttribute("href", newUrl);
       }
     });
 

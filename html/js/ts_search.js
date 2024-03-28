@@ -158,5 +158,4 @@ search.addWidgets([
   }),
 
 ]);
-
 search.start();
