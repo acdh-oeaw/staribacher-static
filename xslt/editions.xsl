@@ -52,8 +52,6 @@
                 <xsl:call-template name="nav_bar"/>
                 <main class="flex-shrink-0">
                     <div class="container">
-
-
                         <div class="row">
                             <div class="col-md-2 col-lg-2 col-sm-12">
                                 <xsl:if test="ends-with($prev,'.html')">
@@ -155,12 +153,18 @@
     </xsl:template>
 
     <xsl:template match="tei:p">
-        <p id="{local:makeId(.)}" class="yes-index">
+        <xsl:variable name="pid">
+            <xsl:value-of select="./@xml:id"/>
+        </xsl:variable>
+        <p id="{$pid}" class="yes-index">
             <xsl:apply-templates/>
         </p>
     </xsl:template>
     <xsl:template match="tei:div">
-        <div id="{local:makeId(.)}">
+	<xsl:variable name="pid">
+		<xsl:value-of select="./@xml:id"/>
+	</xsl:variable>
+        <div id="{$pid}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>  
