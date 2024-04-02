@@ -145,11 +145,17 @@ search.addWidgets([
 
   instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
-    cssClasses: {
-      delete: "btn",
-      label: "badge",
-      // formatDate here somehow?
-    },
+    //cssClasses: {
+   //   delete: "btn",
+   //   label: "badge",
+    //},
+    transformItems(items){
+      console.log(items) ;
+      console.log("aaaaa") ;
+      return items.map(item  => ({
+        item,
+        label: formatDate(item)})) ;
+      },
   }),
 
   /*instantsearch.widgets.sortBy({
