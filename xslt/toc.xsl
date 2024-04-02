@@ -50,7 +50,6 @@
                                     <th scope="col" width="20" tabulator-formatter="html" tabulator-headerSort="false" tabulator-download="false">#</th>
                                     <th scope="col" tabulator-headerFilter="input">Titel</th>
                                     <th scope="col" tabulator-headerFilter="input">Datum</th>
-                                    <th scope="col" tabulator-headerFilter="input">Dateiname</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,7 +62,7 @@
                                         <td>
                                             <a>
                                                 <xsl:attribute name="href">
-                                                  <xsl:value-of
+                                                  <xsl:value-of 
                                                   select="replace(tokenize($full_path, '/')[last()], '.xml', '.html')"/>
                                                 </xsl:attribute>
                                                 <i class="bi bi-link-45deg"/>
@@ -74,9 +73,6 @@
                                         </td>
                                         <td>
                                             <xsl:call-template name="getDate"/>
-                                        </td>
-                                        <td>
-                                            <xsl:value-of select="tokenize($full_path, '/')[last()]"/>
                                         </td>
                                     </tr>
                                 </xsl:for-each>
