@@ -149,16 +149,22 @@ search.addWidgets([
       delete: "btn",
       label: "badge",
     },
-   transformItems(items){
-      console.log(items) ;  
-      return items.map(item  => ({
-        ...item,
-        label: "Datum",
-        value: 123,
-      })
+    transformItems(items) {
+      return items.map(
+        item => (
+          {
+            ...item,
+            label: "Datum" ,
+            refinements: item.refinements.map(
+              iitem => (
+                {...iitem,
+                label: formatDate(iitem.value),}
+              ),
+            ),
+          }
+        ),
       ) ;
-  //return items ; 
-   },
+    },
   }),
 
   /*instantsearch.widgets.sortBy({
