@@ -143,7 +143,7 @@ search.addWidgets([
     },
   }),
 
- instantsearch.widgets.currentRefinements({
+  instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
     cssClasses: {
       delete: "btn",
