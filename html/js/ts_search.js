@@ -143,19 +143,28 @@ search.addWidgets([
     },
   }),
 
-  instantsearch.widgets.currentRefinements({
+ instantsearch.widgets.currentRefinements({
     container: "#current-refinements",
-    //cssClasses: {
-   //   delete: "btn",
-   //   label: "badge",
-    //},
-    transformItems(items){
-      console.log(items) ;
-      console.log("aaaaa") ;
-      return items.map(item  => ({
-        item,
-        label: formatDate(item)})) ;
-      },
+    cssClasses: {
+      delete: "btn",
+      label: "badge",
+    },
+    transformItems(items) {
+      return items.map(
+        item => (
+          {
+            ...item,
+            label: "Datum" ,
+            refinements: item.refinements.map(
+              iitem => (
+                {...iitem,
+                label: formatDate(iitem.value),}
+              ),
+            ),
+          }
+        ),
+      ) ;
+    },
   }),
 
   /*instantsearch.widgets.sortBy({
