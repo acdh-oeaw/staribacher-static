@@ -72,25 +72,6 @@
                                             <i class="bi bi-download" title="TEI/XML"/>
                                         </a>
                                     </h3>
-                                    <p class="document_info archival_small" align="center">
-                                        <xsl:value-of
-                                            select="normalize-space(//tei:profileDesc/tei:creation/tei:date[1])"
-                                        />
-                                    </p>
-                                    <p class="document_info archival_small" align="center">
-                                        <xsl:value-of select="//tei:text/@type"/>
-                                        <xsl:value-of
-                                            select="concat(' (', normalize-space($doc_type)), ')'"/>
-                                    </p>
-                                    <p class="document_info archival_small" align="center">
-                                        <xsl:value-of
-                                            select='//tei:msDesc/tei:msIdentifier/tei:idno[@type = "archive"]/text()[1]/normalize-space()'
-                                        />
-                                    </p>
-                                    <xsl:variable name="text_status"
-                                        select="//tei:teiHeader/tei:revisionDesc/@status"/>
-                                    <xsl:variable name="changes"
-                                        select="//tei:teiHeader/tei:revisionDesc/tei:change"/> 
                                 </div>
                             </div>
                             <div id="container-resize" class="row transcript active">
@@ -139,9 +120,10 @@
         <!-- needed for scrolling / numbering -->
         <span class="anchor-pb"/>
         <!-- determine img src -->
-        <xsl:variable name="pbId"><xsl:value-of select="replace(data(@facs), '#', '')"/></xsl:variable>
-        <xsl:variable name="surfaceNode" as="node()"><xsl:value-of select="//tei:graphic[@xml:id = $pbId]"/></xsl:variable>
-        <xsl:variable name="facsUrl"><xsl:value-of select="data(//tei:surface[@xml:id = $pbId]/tei:graphic/@url)"/></xsl:variable>
+        <xsl:variable name="pbId"><xsl:value-of select="data(@facs)"/></xsl:variable>
+        <xsl:variable name="surfaceNode" as="node()"><xsl:value-of select="data(@n)"/></xsl:variable>
+        
+        <xsl:variable name="facsUrl"><xsl:value-of select="data(@facs)"/></xsl:variable> <!-- <xsl:value-of select="data(//tei:surface[@xml:id = $pbId]/tei:graphic/@url)"/></xsl:variable> -->
         <xsl:variable name="page_number"><xsl:number level="any"/></xsl:variable>
         <span class="pb" source="{$facsUrl}" n="{$page_number}"
             style="--page_before: '{($page_number - 1)}'; --beginning_page: '{$page_number}';"> </span>
