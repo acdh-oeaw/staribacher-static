@@ -9,7 +9,6 @@
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="yes" omit-xml-declaration="yes" />
     
     
-    <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
@@ -37,9 +36,9 @@
     <xsl:param name="mytab"><![CDATA[&emsp;]]></xsl:param>
     <xsl:param name="myplaceholder"><![CDATA[&zwnj;]]></xsl:param>
     <xsl:param name="myline"><![CDATA[<hr />]]></xsl:param>
-    <xsl:template match="/">
-        <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-        <html class="page"  lang="de">
+   
+    <xsl:template match="/">    
+        <html class="page" lang="de">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>
@@ -83,6 +82,7 @@
                                 </div>
                                 <div id="text-resize" lang="de"
                                     class="col-md-6 col-lg-6 col-sm-12 text yes-index">
+                                    <xsl:apply-templates/>
                                     <div id="section">
                                         <xsl:for-each select="//tei:body/tei:div" >
                                             <div class="card-body non_mimetic_lbs" >
@@ -105,90 +105,24 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:template match="tei:div[parent::tei:div]">
-        <!-- this is for sections, subsections and articles-->
-        <xsl:variable name="type_attrib" select="@type"/>
-        <div>
-            <xsl:attribute name="class">
-                <xsl:value-of select="$type_attrib"/>
-            </xsl:attribute>
+    <xsl:template match="tei:p">
+        <xsl:variable name="pid">
+            <xsl:value-of select="./@xml:id"/>
+        </xsl:variable>
+        <p id="{$pid}" class="yes-index">
             <xsl:apply-templates/>
-        </div>
+        </p>
     </xsl:template>
     <xsl:template match="tei:pb">
-        <xsl:value-of select="$myline" disable-output-escaping="yes"/>
-        <!-- needed for scrolling / numbering -->
-        <span class="anchor-pb"/>
-        <!-- determine img src -->
-        <xsl:variable name="pbId"><xsl:value-of select="data(@facs)"/></xsl:variable>
-        <xsl:variable name="surfaceNode" as="node()"><xsl:value-of select="data(@n)"/></xsl:variable>
-        
-        <xsl:variable name="facsUrl"><xsl:value-of select="data(@facs)"/></xsl:variable> <!-- <xsl:value-of select="data(//tei:surface[@xml:id = $pbId]/tei:graphic/@url)"/></xsl:variable> -->
-        <xsl:variable name="page_number"><xsl:number level="any"/></xsl:variable>
-        <span class="pb" source="{$facsUrl}" n="{$page_number}"
-            style="--page_before: '{($page_number - 1)}'; --beginning_page: '{$page_number}';"> </span>
-        <span class="pb_marker" n="{$page_number}"/>
-    </xsl:template>   
-    <xsl:template match="tei:ab">
-        <xsl:value-of select="normalize-space(.)"/>
-        <br />
-        <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+        <span class="anchor-pb" />
+        <span class="pb" source="{@facs}"><xsl:value-of select="./@n" /></span>
     </xsl:template>
-    <xsl:template match="tei:ab/tei:lb">
-        <xsl:apply-templates/>
+    <xsl:template match="tei:div">
+        <xsl:variable name="pid">
+            <xsl:value-of select="./@xml:id"/>
+        </xsl:variable>
+        <div id="{$pid}">
+            <xsl:apply-templates/>
+        </div>
     </xsl:template>  
-    <!-- simply keep paragraphs -->
-    <!-- <xsl:template match="tei:p | tei:lg">
-        <p>    
-        </p> 
-        <xsl:apply-templates/>
-    </xsl:template> -->
-    <!-- delete empty p/hi/div elements 
-    <xsl:template match="
-            *[
-            (
-            local-name() = 'p'
-            or local-name() = 'hi'
-            or local-name() = 'div'
-            )
-            and
-            not(@* | * | comment() | processing-instruction())
-            and normalize-space() = '']"/>-->
-    <xsl:template match="//tei:body//tei:head"> 
-        <!-- find level of head between 1 and 6, the level is not semantical, the hirarchy never interruptet-->
-        <xsl:variable name="head_level_number_raw"
-            select="count(ancestor::tei:div[ancestor::tei:body/tei:div])"/>
-        <xsl:variable name="head_level_number">
-            <xsl:choose>
-                <xsl:when test="$head_level_number_raw gt 6">6</xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="$head_level_number_raw"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <!-- determine if article or section -->
-        <xsl:variable name="item_class">
-            <xsl:choose>
-                <xsl:when test="ancestor::tei:div[1][@type = 'article']">
-                    <xsl:value-of select="'article'"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="ancestor::tei:div[1]/@type"/>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <!-- create hn element -->
-        <xsl:variable name="head_name" select="concat('h', $head_level_number)"/>
-        <xsl:element name="{$head_name}">
-            <xsl:attribute name="class">
-                <xsl:value-of select="$item_class"/>
-            </xsl:attribute>
-            <xsl:apply-templates/>
-        </xsl:element>
-    </xsl:template>
-    <xsl:template match="tei:a[contains(@class, 'navigation_')]">
-        <a class="{@class}" id="{@xml:id}">
-            <xsl:apply-templates/>
-        </a>
-    </xsl:template>
 </xsl:stylesheet>
