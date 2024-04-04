@@ -79,19 +79,21 @@
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
                                     <div id="viewer">
                                         <div id="container_facs_1"/>
+                                       
                                         <!-- container and facs handling in js -->
                                     </div>
                                 </div>
                                 <div id="text-resize" lang="de"
                                     class="col-md-6 col-lg-6 col-sm-12 text yes-index">
                                     <xsl:apply-templates/>
-                                    <div id="section">
+                                    <!--    <div id="section">
                                         <xsl:for-each select="//tei:body/tei:div" >
                                             <div class="card-body non_mimetic_lbs" />
-                                             <!--    <xsl:apply-templates/>
-                                            </div> -->
+                                             <xsl:apply-templates/>
+                                            </div> 
                                         </xsl:for-each>
-                                    </div>
+                                    </div>-->
+                                    <p style="margin-bottom:10cm;margin-top:10cm;"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
                                 </div>
                             </div>
                             <!-- create list* elements for entities bs-modal -->
@@ -107,13 +109,13 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:template match="tei:rs">
-        <xsl:variable name="ppid">
-            <xsl:value-of select="./@ref"/>
-        </xsl:variable>
-        <span id="{$ppid}" class="person">
-		<xsl:apply-templates/></span>
-    </xsl:template>  
+    <xsl:template match="tei:lb">
+     <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+     </xsl:template>
+    <xsl:template match="tei:pb">        
+        <span class="pb" source="{@facs}" style="margin-bottom:5cm;"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="./@n" /><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
+    </xsl:template>
+
     <xsl:template match="tei:p">
         <xsl:variable name="pid">
             <xsl:value-of select="./@xml:id"/>
@@ -122,10 +124,13 @@
             <xsl:apply-templates/>
         </p>
     </xsl:template>
-    <xsl:template match="tei:pb">
-        <span class="anchor-pb" />
-        <span class="pb" source="{@facs}"><xsl:value-of select="./@n" /></span>
-    </xsl:template>
+    <xsl:template match="tei:rs">
+        <xsl:variable name="ppid">
+            <xsl:value-of select="./@ref"/>
+        </xsl:variable>
+        <span id="{$ppid}" class="person">
+		<xsl:apply-templates/></span>
+    </xsl:template> 
 <xsl:template match="tei:a[contains(@class, 'navigation_')]">
         <a class="{@class}" id="{@xml:id}">
             <xsl:apply-templates/>
