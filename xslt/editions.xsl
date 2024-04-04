@@ -61,7 +61,7 @@
                                 <xsl:call-template name="annotation-options"></xsl:call-template>
                                 </div>
                         <div class="wp-transcript">
-                            <div class="row" id="edition_metadata">
+                            <!-- <div class="row" id="edition_metadata">
                                 <div class="col-md-8 col-lg-8 col-sm-12 docinfo">
                                     <xsl:variable name="doc_type"
                                         select="//tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/@form[1]"/>
@@ -74,29 +74,19 @@
                                         </a>
                                     </h3>
                                 </div>
-                            </div>
+                            </div> -->
                             <div id="container-resize" class="row transcript active">
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
                                     <div id="viewer">
                                         <div id="container_facs_1"/>
-                                       
-                                        <!-- container and facs handling in js -->
                                     </div>
                                 </div>
-                                <div id="text-resize" lang="de"
+                                 <div id="text-resize" lang="de"
                                     class="col-md-6 col-lg-6 col-sm-12 text yes-index">
-                                    <xsl:apply-templates/>
-                                    <!--    <div id="section">
-                                        <xsl:for-each select="//tei:body/tei:div" >
-                                            <div class="card-body non_mimetic_lbs" />
-                                             <xsl:apply-templates/>
-                                            </div> 
-                                        </xsl:for-each>
-                                    </div>-->
+                                   <xsl:apply-templates/>
                                     <p style="margin-bottom:5cm;margin-top:5cm"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
-                                </div>
+                                </div> 
                             </div>
-                            <!-- create list* elements for entities bs-modal -->
                         </div>
                     </div>
                 </div>
@@ -112,6 +102,7 @@
     <xsl:template match="tei:pb">        
         <span class="pb" source="{@facs}"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="./@n" /><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
     </xsl:template>
+    <xsl:template match="tei:teiHeader" />
 
     <xsl:template match="tei:p">
         <xsl:variable name="pid">
@@ -131,7 +122,6 @@
 <xsl:template match="tei:a[contains(@class, 'navigation_')]">
         <a class="{@class}" id="{@xml:id}">
             <xsl:apply-templates/>
-        </a>
-    
+        </a> 
 </xsl:template>
 </xsl:stylesheet>
