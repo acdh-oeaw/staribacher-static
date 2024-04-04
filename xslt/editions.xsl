@@ -26,7 +26,7 @@
         <xsl:text>.xml</xsl:text>
     </xsl:variable>
     <xsl:variable name="doc_title">
-        <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
+        <xsl:value-of select=".//tei:titleStmt/tei:title[@type='main']/text()"/>
     </xsl:variable>
     <xsl:variable name="link">
         <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
@@ -84,7 +84,6 @@
                                 </div>
                                 <div id="text-resize" lang="de"
                                     class="col-md-6 col-lg-6 col-sm-12 text yes-index">
-                                    
                                     <xsl:apply-templates/>
                                     <div id="section">
                                         <xsl:for-each select="//tei:body/tei:div" >
@@ -112,8 +111,8 @@
         <xsl:variable name="ppid">
             <xsl:value-of select="./@ref"/>
         </xsl:variable>
-        <rs id="{$ppid}" type="person">
-		<xsl:apply-templates/></rs>
+        <span id="{$ppid}" class="person">
+		<xsl:apply-templates/></span>
     </xsl:template>  
     <xsl:template match="tei:p">
         <xsl:variable name="pid">
