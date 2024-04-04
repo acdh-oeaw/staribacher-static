@@ -93,7 +93,7 @@
                                             </div> 
                                         </xsl:for-each>
                                     </div>-->
-                                    <p style="margin-bottom:10cm;margin-top:10cm;"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
+                                    <p style="margin-bottom:5cm;margin-top:5cm"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
                                 </div>
                             </div>
                             <!-- create list* elements for entities bs-modal -->
@@ -109,11 +109,8 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:template match="tei:lb">
-     <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-     </xsl:template>
     <xsl:template match="tei:pb">        
-        <span class="pb" source="{@facs}" style="margin-bottom:5cm;"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="./@n" /><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
+        <span class="pb" source="{@facs}"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="./@n" /><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
     </xsl:template>
 
     <xsl:template match="tei:p">
