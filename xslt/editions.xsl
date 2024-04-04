@@ -8,12 +8,12 @@
     
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="yes" omit-xml-declaration="yes" />
     
-    
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/osd-container.xsl"/>
     <xsl:import href="partials/tei-facsimile.xsl"/>
+    <xsl:import href="./partials/aot-options.xsl"/>
     <xsl:variable name="prev">
         <xsl:value-of
             select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
@@ -97,14 +97,21 @@
                     </div>
                 </div>
                 <xsl:call-template name="html_footer"/>
-                <script src="https://unpkg.com/de-micro-editor@0.3.2/dist/de-editor.min.js"/>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"/>
                 <script type="text/javascript" src="js/osd_scroll.js"/>
-                <!-- <script type="text/javascript" src="js/run.js"/> -->
-                <script type="text/javascript" src="js/offcanvastoggler.js"/>
+		<script src="https://unpkg.com/de-micro-editor@0.3.1/dist/de-editor.min.js" />
+                <script type="text/javascript" src="js/run.js"/> 
+                <!-- <script type="text/javascript" src="js/offcanvastoggler.js"/> -->
             </body>
         </html>
     </xsl:template>
+    <xsl:template match="tei:rs">
+        <xsl:variable name="ppid">
+            <xsl:value-of select="./@ref"/>
+        </xsl:variable>
+        <rs id="{$ppid}" type="person">
+		<xsl:apply-templates/></rs>
+    </xsl:template>  
     <xsl:template match="tei:p">
         <xsl:variable name="pid">
             <xsl:value-of select="./@xml:id"/>
@@ -117,12 +124,10 @@
         <span class="anchor-pb" />
         <span class="pb" source="{@facs}"><xsl:value-of select="./@n" /></span>
     </xsl:template>
-    <xsl:template match="tei:div">
-        <xsl:variable name="pid">
-            <xsl:value-of select="./@xml:id"/>
-        </xsl:variable>
-        <div id="{$pid}">
+<xsl:template match="tei:a[contains(@class, 'navigation_')]">
+        <a class="{@class}" id="{@xml:id}">
             <xsl:apply-templates/>
-        </div>
-    </xsl:template>  
+        </a>
+    
+</xsl:template>
 </xsl:stylesheet>
