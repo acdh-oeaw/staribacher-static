@@ -154,7 +154,6 @@ search.addWidgets([
         item => (
           {
             ...item,
-            label: "Datum" ,
             refinements: item.refinements.map(
               iitem => (
                 {...iitem,

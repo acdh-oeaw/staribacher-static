@@ -151,6 +151,15 @@ input[type=checkbox] {
 	border-radius: 5px;
 }
 
+.ais-CurrentRefinements-label.badge {
+	background-color: #525252;
+}
+
+.ais-CurrentRefinements-categoryLabel {
+	padding-top: 2px;
+	color:#525252;
+}
+
 /* change button collor */
 .ais-RangeInput-submit:hover, .ais-RangeInput-submit:focus {
 	background-color: var(--bv-small-highlight);
