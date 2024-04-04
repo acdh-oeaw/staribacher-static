@@ -23,15 +23,13 @@ def setup_collection():
         "fields": [
             {"name": "doc_internal_orderval", "type": "int32"},
             {"name": "record_type", "type": "string", "facet": True},
-            {"name": "ofm_doc_id", "type": "string"},
-            {"name": "ofm_doc_id_num", "type": "int32"},
+            {"name": "stb_doc_id", "type": "string"},
+            {"name": "stb_doc_id_num", "type": "int32"},
             {"name": "Dokumententitel", "type": "string", "facet": True},
             {"name": "title", "type": "string"},
             {"name": "full_text", "type": "string"},
             {"name": "record_id", "type": "string"},
             {"name": "anchor_link", "type": "string"},
-            #{"name": "Materialart", "type": "string", "facet": True},
-            #{"name": "Dokumententyp", "type": "string", "facet": True},
             {"name": "Personen", "type": "string[]", "facet": True, "optional": True},
             {"name": "creation_year", "type": "int32", "facet": True},
             {"name": "creation_date", "type": "int32"},
@@ -74,11 +72,9 @@ def create_record(
     head,
     creation_date,
     doc_title: str,
-    ofm_doc_id: str,
+    stb_doc_id: str,
     authors,
     file_name,
-    material_doc_type,
-    doc_content_type,
 ):
     record = {}
     full_text = get_full_text(head)
@@ -95,8 +91,8 @@ def create_record(
             raise ValueError
         record["record_type"] = _type
     # "Dokumententitel" if head_index == 0 else head.attrib["class"]
-    record["ofm_doc_id"] = ofm_doc_id
-    record["ofm_doc_id_num"] = int(ofm_doc_id.split("_")[-1])
+    record["stb_doc_id"] = stb_doc_id
+    record["stb_doc_id_num"] = int(stb_doc_id.split("_")[-1])
     record["Dokumententitel"] = doc_title
     if head is not None:
         title = f"{doc_title}: {head.text}"
@@ -121,8 +117,6 @@ def create_record(
         record["creation_date"] = 99991224
         record["creation_date_autopsic"] = "unbekannt"
         record["creation_year"] = 1900
-    record["Materialart"] = material_doc_type
-    record["Dokumententyp"] = doc_content_type
     return record
 
 
@@ -138,7 +132,7 @@ def create_records():
         global tei_ns
         tei_ns = xml_doc.ns_tei
         xml_doc_root = xml_doc.tree.getroot()
-        ofm_doc_id = xml_doc_root.attrib[f'{{{xml_doc.ns_xml.get("xml")}}}id'].replace(
+        stb_doc_id = xml_doc_root.attrib[f'{{{xml_doc.ns_xml.get("xml")}}}id'].replace(
             ".xml", ""
         )
         authors = xml_doc.any_xpath(
@@ -167,7 +161,7 @@ def create_records():
             None,
             creation_date,
             doc_title,
-            ofm_doc_id,
+            stb_doc_id,
             authors,
             file_name,
             material_doc_type,
@@ -181,7 +175,7 @@ def create_records():
                 head,
                 creation_date,
                 doc_title,
-                ofm_doc_id,
+                stb_doc_id,
                 authors,
                 file_name,
                 material_doc_type,
@@ -214,7 +208,7 @@ def add_sort_val_2_records(records):
     records.sort(
         key=lambda x: (
             x["creation_date"],  # creation_date:asc
-            x["ofm_doc_id_num"],  # bv_doc_id_num:asc
+            x["stb_doc_id_num"],  # stb_doc_id_num:asc
             x["doc_internal_orderval"],  # doc_internal_orderval:asc
         )
     )
