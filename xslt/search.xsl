@@ -38,12 +38,6 @@
                                         <div id="clear-refinements"></div>
                                         <h4>Beteiligte Personen</h4>
                                         <div id="refinement-list-persons"></div>
-                                        <h4>Dokumente</h4>
-                                        <div id="refinement-list-doc-title"/>
-                                        <!-- <h4>Dokumententyp</h4>
-                                        <div id="refinement-list-doc-type"></div>
-                                        <h4>Materialart</h4>
-                                        <div id="refinement-list-doc-material"></div> -->
                                         <h4>Datum</h4>
                                         <div id="refinement-range-year"></div>
                                     </div>
