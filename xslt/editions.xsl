@@ -78,7 +78,7 @@
                             <div id="container-resize" class="row transcript active">
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
                                     <div id="viewer">
-                                        <div id="container_facs_1"/>
+                                        <div id="container_facs_1" class="osd-container"/>
                                     </div>
                                 </div>
                                  <div id="text-resize" lang="de"
@@ -113,6 +113,7 @@
     <span class="pb" source="{@facs}">
         <xsl:value-of select="./@n" />
     </span>
+    
     <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
     <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
