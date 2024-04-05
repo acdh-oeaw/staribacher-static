@@ -22,7 +22,6 @@
     
 }
 
-
 body {
     display: flex;
     min-height:100vh;
@@ -102,6 +101,10 @@ div#navbarSupportedContent div#navbar_right_spacer {
 div#places_div{
         min-height: 40vh;
 
+}
+
+.ais-CurrentRefinements-label {
+	color: black;
 }
 
 #viewer {
