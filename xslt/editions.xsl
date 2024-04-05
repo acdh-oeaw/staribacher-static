@@ -120,24 +120,9 @@
         </xsl:variable> -->
         <p class="yes-index">
             <xsl:apply-templates/>
+            <xsl:for-each select="1 to 25">
             <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            </xsl:for-each>
         </p>
     </xsl:template>
     <xsl:template match="tei:rs">
