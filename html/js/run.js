@@ -5,6 +5,23 @@ var editor = new LoadEditor({
     title: "Text Annotations",
     variants: [
       {
+        opt: "entities-features",
+        opt_slider: "entities-features-slider",
+        title: "Alle Inhalte",
+        color: "grey",
+        html_class: "undefined",
+        css_class: "undefined",
+        chg_citation: "citation-url",
+        hide: {
+          hidden: false,
+          class: "undefined",
+        },
+        features: {
+          all: true,
+          class: "features-2",
+        },
+      },
+      {
         opt: "prs",
         color: "blue",
         title: "Persons",
@@ -12,44 +29,44 @@ var editor = new LoadEditor({
         css_class: "pers",
         hide: {
           hidden: false,
-          class: "persons .entity",
+          class: "person .entity",
         },
         chg_citation: "citation-url",
         features: {
           all: false,
-          class: "features-1",
+          class: "features-2",
         },
       },
       {
-        opt: "cor",
+        opt: "crt",
         color: "red",
         title: "Korrektionen",
-        html_class: "cor",
+        html_class: "corr",
         css_class: "cor",
         hide: {
           hidden: true,
-          class: "cor .entity",
+          class: "corr .entity",
         },
         chg_citation: "citation-url",
         features: {
           all: false,
-          class: "features-1",
+          class: "features-2",
         },
       },
       {
-        opt: "add",
+        opt: "anm",
         color: "green",
         title: "Anmerkungen",
         html_class: "add",
-        css_class: "add",
+        css_class: "ad",
         hide: {
           hidden: true,
           class: "add .entity",
         },
         chg_citation: "citation-url",
         features: {
-          all: true,
-          class: "features-1",
+          all: false,
+          class: "features-2",
         },
       },
     ],
