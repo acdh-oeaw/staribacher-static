@@ -61,7 +61,7 @@
                                 <xsl:call-template name="annotation-options"></xsl:call-template>
                                 </div>
                         <div class="wp-transcript">
-                            <div class="row" id="edition_metadata">
+                           <div class="row" id="edition_metadata">
                                 <div class="col-md-8 col-lg-8 col-sm-12 docinfo">
                                     <xsl:variable name="doc_type"
                                         select="//tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/@form[1]"/>
@@ -79,22 +79,14 @@
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
                                     <div id="viewer">
                                         <div id="container_facs_1"/>
-                                        <!-- container and facs handling in js -->
                                     </div>
                                 </div>
-                                <div id="text-resize" lang="de"
+                                 <div id="text-resize" lang="de"
                                     class="col-md-6 col-lg-6 col-sm-12 text yes-index">
-                                    <xsl:apply-templates/>
-                                    <div id="section">
-                                        <xsl:for-each select="//tei:body/tei:div" >
-                                            <div class="card-body non_mimetic_lbs" />
-                                             <!--    <xsl:apply-templates/>
-                                            </div> -->
-                                        </xsl:for-each>
-                                    </div>
-                                </div>
+                                   <xsl:apply-templates/>
+                                    <p style="margin-bottom:5cm;margin-top:5cm"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
+                                </div> 
                             </div>
-                            <!-- create list* elements for entities bs-modal -->
                         </div>
                     </div>
                 </div>
@@ -107,13 +99,13 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:template match="tei:rs">
-        <xsl:variable name="ppid">
-            <xsl:value-of select="./@ref"/>
-        </xsl:variable>
-        <span id="{$ppid}" class="person">
-		<xsl:apply-templates/></span>
-    </xsl:template>  
+    <xsl:template match="tei:pb">        
+        <span class="pb" source="{@facs}"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="./@n" /><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
+    </xsl:template>
+    <xsl:template match="tei:teiHeader" />
+<xsl:template match="tei:lb">
+     <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+     </xsl:template>
     <xsl:template match="tei:p">
         <xsl:variable name="pid">
             <xsl:value-of select="./@xml:id"/>
@@ -122,14 +114,25 @@
             <xsl:apply-templates/>
         </p>
     </xsl:template>
-    <xsl:template match="tei:pb">
-        <span class="anchor-pb" />
-        <span class="pb" source="{@facs}"><xsl:value-of select="./@n" /></span>
+    <xsl:template match="tei:head">
+    <!-- There is no transcription here, making an id for the TS search unnecessary, as there are not full_text paragraphs to index -->
+        <p class="yes-index">
+            <xsl:apply-templates/>
+            <xsl:for-each select="1 to 25">
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            </xsl:for-each>
+        </p>
     </xsl:template>
+    <xsl:template match="tei:rs">
+        <xsl:variable name="ppid">
+            <xsl:value-of select="./@ref"/>
+        </xsl:variable>
+        <span id="{$ppid}" class="person">
+		<xsl:apply-templates/></span>
+    </xsl:template> 
 <xsl:template match="tei:a[contains(@class, 'navigation_')]">
         <a class="{@class}" id="{@xml:id}">
             <xsl:apply-templates/>
-        </a>
-    
+        </a> 
 </xsl:template>
 </xsl:stylesheet>
