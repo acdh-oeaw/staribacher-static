@@ -154,18 +154,20 @@ accesses osd viewer prev and next button to switch image and
 scrolls to next or prev span element with class pb (pagebreak)
 ##################################################################
 */
-var element_a = document.getElementsByClassName('anchor-pb');
+var element_a = document.getElementsByClassName('pb');
 var prev = document.querySelector("div[title='Previous page']");
 var next = document.querySelector("div[title='Next page']");
 prev.style.opacity = 1;
 next.style.opacity = 1;
 prev.addEventListener("click", () => {
-    if (idx == 0) {
-        element_a[idx].scrollIntoView();
-    } else {
+    if (prev_idx >= 0) {
         element_a[prev_idx].scrollIntoView();
+    } else {
+        element_a[0].scrollIntoView();
     }
 });
+
+
 next.addEventListener("click", () => {
     if (idx < element_a.length) {
         element_a[idx].scrollIntoView();
