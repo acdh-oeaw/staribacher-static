@@ -33,7 +33,7 @@
                 <!-- <li class="dropdown-item" style="border-top: 5px dashed lightgrey !important;">
                     <annotation-slider opt="ef"></annotation-slider>
                 </li> -->
-                <li class="dropdown-item">
+                <li class="dropdown-item" style="border-top: 2px dashed lightgrey !important;">
                     <annotation-slider opt="entities-features"></annotation-slider>
                 </li>
                 <li class="dropdown-item">
