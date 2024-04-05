@@ -99,29 +99,58 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:template match="tei:pb">        
-        <span class="pb" source="{@facs}"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="./@n" /><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
-    </xsl:template>
-    <xsl:template match="tei:teiHeader" />
+
+<xsl:template match="tei:teiHeader" />
+
+
+
+<xsl:template match="tei:pb">
+    <xsl:choose>
+        <xsl:when test="preceding-sibling::tei:lb or preceding-sibling::tei:p or ancestor::tei:back">
+            <xsl:for-each select="1 to 5"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
+        </xsl:when>
+    </xsl:choose>
+    <span class="pb" source="{@facs}">
+        <xsl:value-of select="./@n" />
+    </span>
+    <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+    <xsl:choose>
+        <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
+            <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
+        </xsl:when>
+    </xsl:choose>
+</xsl:template>
 <xsl:template match="tei:lb">
      <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+     <xsl:choose>
+        <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
+            <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
+        </xsl:when>
+    </xsl:choose>
      </xsl:template>
-    <xsl:template match="tei:p">
-        <xsl:variable name="pid">
-            <xsl:value-of select="./@xml:id"/>
-        </xsl:variable>
-        <p id="{$pid}" class="yes-index">
-            <xsl:apply-templates/>
-        </p>
-    </xsl:template>
+<xsl:template match="tei:p">
+    <xsl:variable name="pid">
+        <xsl:value-of select="./@xml:id"/>
+    </xsl:variable>
+    <p id="{$pid}" class="yes-index">
+        <xsl:apply-templates/>
+    </p>
+    <xsl:choose>
+        <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
+            <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
+        </xsl:when>
+    </xsl:choose>
+</xsl:template>
     <xsl:template match="tei:head">
     <!-- There is no transcription here, making an id for the TS search unnecessary, as there are not full_text paragraphs to index -->
         <p class="yes-index">
-            <xsl:apply-templates/>
-            <xsl:for-each select="1 to 25">
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            </xsl:for-each>
+            <xsl:apply-templates/> 
         </p>
+        <xsl:choose>
+        <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
+            <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
+        </xsl:when>
+    </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:rs">
         <xsl:variable name="ppid">
