@@ -115,9 +115,7 @@
         </p>
     </xsl:template>
     <xsl:template match="tei:head">
-        <!-- <xsl:variable name="pid">
-            <xsl:value-of select="./@xml:id"/>
-        </xsl:variable> -->
+    <!-- There is no transcription here, making an id for the TS search unnecessary, as there are not full_text paragraphs to index -->
         <p class="yes-index">
             <xsl:apply-templates/>
             <xsl:for-each select="1 to 25">
