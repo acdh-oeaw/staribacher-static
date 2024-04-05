@@ -20,6 +20,38 @@ var editor = new LoadEditor({
           class: "features-1",
         },
       },
+      {
+        opt: "cor",
+        color: "red",
+        title: "Korrektionen",
+        html_class: "cor",
+        css_class: "cor",
+        hide: {
+          hidden: true,
+          class: "cor .entity",
+        },
+        chg_citation: "citation-url",
+        features: {
+          all: false,
+          class: "features-1",
+        },
+      },
+      {
+        opt: "add",
+        color: "green",
+        title: "Anmerkungen",
+        html_class: "add",
+        css_class: "add",
+        hide: {
+          hidden: true,
+          class: "add .entity",
+        },
+        chg_citation: "citation-url",
+        features: {
+          all: true,
+          class: "features-1",
+        },
+      },
     ],
     span_element: {
       css_class: "badge-item",
