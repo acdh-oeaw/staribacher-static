@@ -38,11 +38,11 @@
                 </li>
                 <li class="dropdown-item">
                     <annotation-slider opt="prs"></annotation-slider>
-                    <annotation-slider opt="cor"></annotation-slider>
-                    <annotation-slider opt="add"></annotation-slider>
+                    <annotation-slider opt="crt"></annotation-slider>
+                    <annotation-slider opt="anm"></annotation-slider>
                 </li>
             </ul>                                                    
         </div>
-        
+         
     </xsl:template>
 </xsl:stylesheet>
