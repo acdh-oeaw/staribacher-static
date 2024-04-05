@@ -61,7 +61,7 @@
                                 <xsl:call-template name="annotation-options"></xsl:call-template>
                                 </div>
                         <div class="wp-transcript">
-                            <!-- <div class="row" id="edition_metadata">
+                           <div class="row" id="edition_metadata">
                                 <div class="col-md-8 col-lg-8 col-sm-12 docinfo">
                                     <xsl:variable name="doc_type"
                                         select="//tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/@form[1]"/>
@@ -74,7 +74,7 @@
                                         </a>
                                     </h3>
                                 </div>
-                            </div> -->
+                            </div>
                             <div id="container-resize" class="row transcript active">
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
                                     <div id="viewer">
@@ -103,13 +103,41 @@
         <span class="pb" source="{@facs}"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="./@n" /><xsl:value-of select="$mybreak" disable-output-escaping="yes"/><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
     </xsl:template>
     <xsl:template match="tei:teiHeader" />
-
+<xsl:template match="tei:lb">
+     <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+     </xsl:template>
     <xsl:template match="tei:p">
         <xsl:variable name="pid">
             <xsl:value-of select="./@xml:id"/>
         </xsl:variable>
         <p id="{$pid}" class="yes-index">
             <xsl:apply-templates/>
+        </p>
+    </xsl:template>
+    <xsl:template match="tei:head">
+        <!-- <xsl:variable name="pid">
+            <xsl:value-of select="./@xml:id"/>
+        </xsl:variable> -->
+        <p class="yes-index">
+            <xsl:apply-templates/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
         </p>
     </xsl:template>
     <xsl:template match="tei:rs">
