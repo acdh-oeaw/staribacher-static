@@ -167,7 +167,12 @@ prev.addEventListener("click", () => {
     }
 });
 next.addEventListener("click", () => {
-    element_a[idx].scrollIntoView();
+    if (idx < element_a.length) {
+        element_a[idx].scrollIntoView();
+    } else {
+        element_a[idx-1].scrollIntoView();
+    }
+    
 });
 
 /*
