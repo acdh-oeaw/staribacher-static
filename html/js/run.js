@@ -18,7 +18,7 @@ var editor = new LoadEditor({
         },
         features: {
           all: true,
-          class: "features-2",
+          class: "features-1",
         },
       },
       {
@@ -34,7 +34,7 @@ var editor = new LoadEditor({
         chg_citation: "citation-url",
         features: {
           all: false,
-          class: "features-2",
+          class: "features-1",
         },
       },
       {
@@ -50,7 +50,7 @@ var editor = new LoadEditor({
         chg_citation: "citation-url",
         features: {
           all: false,
-          class: "features-2",
+          class: "features-1",
         },
       },
       {
@@ -66,7 +66,7 @@ var editor = new LoadEditor({
         chg_citation: "citation-url",
         features: {
           all: false,
-          class: "features-2",
+          class: "features-1",
         },
       },
     ],
