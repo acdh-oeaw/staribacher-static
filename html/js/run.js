@@ -50,25 +50,40 @@ var editor = new LoadEditor({
         chg_citation: "citation-url",
         features: {
           all: false,
-          class: "features-1",
+          class: "features-2",
         },
       },
       {
-        opt: "anm",
-        color: "green",
-        title: "Anmerkungen",
-        html_class: "add",
-        css_class: "ad",
+        opt: "del",
+        opt_slider: "deleted-slider",
+        title: "Streichung",
+        color: "black",
+        html_class: "del",
         hide: {
-          hidden: true,
-          class: "add .entity",
+            hidden: true,
+            class: "del"
         },
-        chg_citation: "citation-url",
+        css_class: "strikethrough",
         features: {
-          all: false,
-          class: "features-1",
+            all: false,
+            class: "features-2"
+        }
+    }, {
+        opt: "add",
+        opt_slider: "addition-slider",
+        title: "Hinzufügungen",
+        color: "green",
+        html_class: "add",
+        hide: {
+            hidden: true,
+            class: "add-zeichen"
         },
-      },
+        css_class: "add-zeichen",
+        features: {
+            all: false,
+            class: "features-2"
+        }
+    }, 
     ],
     span_element: {
       css_class: "badge-item",
