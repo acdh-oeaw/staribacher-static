@@ -110,18 +110,21 @@ div#places_div{
     padding: 2em;
     padding-top: 0rem;
     padding-bottom: 2em;
-    max-width: 60vw;
+    /* max-width: 60vw; */
     margin-left: auto;
-    max-height: 900px;
+    /* max-height: 900px; */
 }
 
+
+.osd-container {
+	height: 80vh!important;
+}
 
 #tabulator.table:not(.thead-light) .tabulator-header, .tabulator.table:not(.thead-light) .tabulator-header .tabulator-col {
 	/*border-color: var(--ofm-contrast);
 	background-color: var(--ofm-bg);
 	color: #212529; */
 	border:0;
-	background-color: var(--ofm-bg);
 }
 
 .tabulator .tabulator-header {
