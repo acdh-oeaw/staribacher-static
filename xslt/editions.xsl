@@ -99,11 +99,23 @@
             </body>
         </html>
     </xsl:template>
-
 <xsl:template match="tei:teiHeader" />
+<xsl:template match="tei:add">
+    <span class="add">
+     <xsl:value-of select="." />
+     </span>
+</xsl:template>
+<xsl:template match="tei:sic">
+    <span class="sic">
+     <xsl:value-of select="." />
+     </span>
+</xsl:template>
 
-
-
+<xsl:template match="tei:corr">
+    <span class="corr">
+     <xsl:value-of select="." />
+     </span>
+</xsl:template>
 <xsl:template match="tei:pb">
     <xsl:choose>
         <xsl:when test="preceding-sibling::tei:lb or preceding-sibling::tei:p or ancestor::tei:back">
