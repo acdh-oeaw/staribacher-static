@@ -33,11 +33,16 @@
                 <!-- <li class="dropdown-item" style="border-top: 5px dashed lightgrey !important;">
                     <annotation-slider opt="ef"></annotation-slider>
                 </li> -->
+                <li class="dropdown-item" style="border-top: 2px dashed lightgrey !important;">
+                    <annotation-slider opt="entities-features"></annotation-slider>
+                </li>
                 <li class="dropdown-item">
                     <annotation-slider opt="prs"></annotation-slider>
+                    <annotation-slider opt="crt"></annotation-slider>
+                    <annotation-slider opt="add"></annotation-slider>
                 </li>
             </ul>                                                    
         </div>
-        
+         
     </xsl:template>
 </xsl:stylesheet>

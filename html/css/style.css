@@ -13,3 +13,37 @@
 .osd-container {
 	height: 80vh!important;
 }
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+
+.subst-add {
+    color: #88dbdf;
+}
+
+.subst-del {
+    color:chartreuse;
+}
+
+.add-zeichen {
+    color: black;
+    vertical-align: super;
+    font-size: x-small;
+    font-weight: bold;
+
+}
+
+.cor-zeichen {
+    color: black;
+    vertical-align: super;
+    font-size: x-small;
+    font-weight: bold;
+
+}
+
+.sic-zeichen {
+    color: black;
+    text-decoration: line-through;
+}

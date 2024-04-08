@@ -1,9 +1,24 @@
 var editor = new LoadEditor({
-  
-
   aot: {
     title: "Text Annotations",
     variants: [
+      {
+        opt: "entities-features",
+        opt_slider: "entities-features-slider",
+        title: "Alle Inhalte",
+        color: "grey",
+        html_class: "undefined",
+        css_class: "undefined",
+        chg_citation: "citation-url",
+        hide: {
+          hidden: false,
+          class: "undefined",
+        },
+        features: {
+          all: true,
+          class: "features-1",
+        },
+      },
       {
         opt: "prs",
         color: "blue",
@@ -12,7 +27,7 @@ var editor = new LoadEditor({
         css_class: "pers",
         hide: {
           hidden: false,
-          class: "persons .entity",
+          class: "person .entity",
         },
         chg_citation: "citation-url",
         features: {
@@ -20,6 +35,53 @@ var editor = new LoadEditor({
           class: "features-1",
         },
       },
+      /*{
+        opt: "del",
+        opt_slider: "deleted-slider",
+        title: "Streichung",
+        color: "black",
+        html_class: "del",
+        hide: {
+            hidden: true,
+            class: "del"
+        },
+        css_class: "strikethrough",
+        features: {
+            all: false,
+            class: "features-2"
+        }
+    }, */ {
+        opt: "add",
+        opt_slider: "addition-slider",
+        title: "Hinzufügungen",
+        color: "green",
+        html_class: "add",
+        hide: {
+            hidden: true,
+            class: "add"
+        },
+        css_class: "add-zeichen",
+        features: {
+            all: false,
+            class: "features-2"
+        }
+    },
+    {
+      opt: "crt",
+      // opt_slider: "add-slider"
+      title: "Korrektionen",
+      color: "red",
+      html_class: "cor",
+      hide: {
+        hidden: true,
+        class: "cor",
+      },
+      css_class: "cor-zeichen",
+      features: {
+        all: false,
+        class: "features-2",
+      },
+    },
     ],
     span_element: {
       css_class: "badge-item",
@@ -97,4 +159,5 @@ var editor = new LoadEditor({
     // stylesheet provided by bootstrap
     html_class: "custom-select"
 },
+
 })

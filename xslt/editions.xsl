@@ -7,7 +7,7 @@
     version="2.0" exclude-result-prefixes="xsl tei xs local">
     
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="yes" omit-xml-declaration="yes" />
-    
+    <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
@@ -99,11 +99,22 @@
             </body>
         </html>
     </xsl:template>
-
 <xsl:template match="tei:teiHeader" />
-
-
-
+<xsl:template match="tei:add">
+    <span class="add" style="display:none;">
+     <xsl:value-of select="." />
+     </span>
+</xsl:template>
+<xsl:template match="tei:sic">
+    <span class="sic">
+     <xsl:value-of select="." />
+     </span>
+</xsl:template>
+<xsl:template match="tei:corr">
+    <span class="cor" style="display:none;">
+     <xsl:value-of select="." />
+     </span>
+</xsl:template>
 <xsl:template match="tei:pb">
     <xsl:choose>
         <xsl:when test="preceding-sibling::tei:lb or preceding-sibling::tei:p or ancestor::tei:back">
