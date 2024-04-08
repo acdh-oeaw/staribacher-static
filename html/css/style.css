@@ -34,3 +34,16 @@
     font-weight: bold;
 
 }
+
+.cor-zeichen {
+    color: black;
+    vertical-align: super;
+    font-size: x-small;
+    font-weight: bold;
+
+}
+
+.sic-zeichen {
+    color: black;
+    text-decoration: line-through;
+}
