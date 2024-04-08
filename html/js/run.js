@@ -39,11 +39,15 @@ var editor = new LoadEditor({
         opt: "crt",
         color: "red",
         title: "Korrektionen",
-        html_class: "corr",
-        css_class: "cor",
+        html_class: "cor",
+        css_class: "corr",
         hide: {
           hidden: true,
-          class: "corr .entity",
+          class: "cor .entity",
+        },
+        hide: {
+          hidden: false,
+          class: "sic .entity"
         },
         chg_citation: "citation-url",
         features: {
