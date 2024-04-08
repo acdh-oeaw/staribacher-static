@@ -1,6 +1,4 @@
 var editor = new LoadEditor({
-  
-
   aot: {
     title: "Text Annotations",
     variants: [
@@ -76,7 +74,7 @@ var editor = new LoadEditor({
         html_class: "add",
         hide: {
             hidden: true,
-            class: "add-zeichen"
+            class: "add"
         },
         css_class: "add-zeichen",
         features: {
@@ -161,4 +159,6 @@ var editor = new LoadEditor({
     // stylesheet provided by bootstrap
     html_class: "custom-select"
 },
+wr: false,
+up: true,
 })
