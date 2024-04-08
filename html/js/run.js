@@ -35,27 +35,7 @@ var editor = new LoadEditor({
           class: "features-1",
         },
       },
-      {
-        opt: "crt",
-        color: "red",
-        title: "Korrektionen",
-        html_class: "cor",
-        css_class: "corr",
-        hide: {
-          hidden: true,
-          class: "cor .entity",
-        },
-        hide: {
-          hidden: false,
-          class: "sic .entity"
-        },
-        chg_citation: "citation-url",
-        features: {
-          all: false,
-          class: "features-2",
-        },
-      },
-      {
+      /*{
         opt: "del",
         opt_slider: "deleted-slider",
         title: "Streichung",
@@ -70,7 +50,7 @@ var editor = new LoadEditor({
             all: false,
             class: "features-2"
         }
-    }, {
+    }, */ {
         opt: "add",
         opt_slider: "addition-slider",
         title: "Hinzufügungen",
@@ -85,7 +65,23 @@ var editor = new LoadEditor({
             all: false,
             class: "features-2"
         }
-    }, 
+    },
+    {
+      opt: "crt",
+      // opt_slider: "add-slider"
+      title: "Korrektionen",
+      color: "red",
+      html_class: "cor",
+      hide: {
+        hidden: true,
+        class: "cor",
+      },
+      css_class: "cor-zeichen",
+      features: {
+        all: false,
+        class: "features-2",
+      },
+    },
     ],
     span_element: {
       css_class: "badge-item",
@@ -163,6 +159,5 @@ var editor = new LoadEditor({
     // stylesheet provided by bootstrap
     html_class: "custom-select"
 },
-wr: false,
-up: true,
+
 })
