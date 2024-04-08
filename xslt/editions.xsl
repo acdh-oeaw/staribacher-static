@@ -110,7 +110,6 @@
      <xsl:value-of select="." />
      </span>
 </xsl:template>
-
 <xsl:template match="tei:corr">
     <span class="cor" style="display:none;">
      <xsl:value-of select="." />
