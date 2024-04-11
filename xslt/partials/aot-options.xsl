@@ -36,9 +36,14 @@
                 <li class="dropdown-item" style="border-top: 2px dashed lightgrey !important;">
                     <annotation-slider opt="entities-features"></annotation-slider>
                 </li>
-                <li class="dropdown-item">
+                </li>
+		<li class="dropdown-item"><li class="dropdown-item">
                     <annotation-slider opt="prs"></annotation-slider>
+		</li>
+		<li class="dropdown-item">
                     <annotation-slider opt="crt"></annotation-slider>
+                </li>
+                <li class="dropdown-item">
                     <annotation-slider opt="add"></annotation-slider>
                 </li>
             </ul>                                                    
