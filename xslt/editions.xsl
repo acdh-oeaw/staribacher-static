@@ -118,7 +118,9 @@
 <xsl:template match="tei:pb">
     <xsl:choose>
         <xsl:when test="preceding-sibling::tei:lb or preceding-sibling::tei:p or ancestor::tei:back">
-            <xsl:for-each select="1 to 5"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <hr/>
+            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
         </xsl:when>
     </xsl:choose>
     <span class="pb" source="{@facs}">
