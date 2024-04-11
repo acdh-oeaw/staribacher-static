@@ -133,6 +133,9 @@
     </xsl:choose>
 </xsl:template>
 <xsl:template match="tei:lb">
+    <xsl:if test="@break='no'">
+        <xsl:text>-</xsl:text>
+    </xsl:if>
      <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
      <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
