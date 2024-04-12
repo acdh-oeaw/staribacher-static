@@ -18,6 +18,10 @@ body * {
 	--bs-bg-opacity: 0;
 }
 
+nav {
+	height: 50px;
+	border-bottom: 1px solid #B3915F;
+}
 
 #viewer {
     position: sticky;
