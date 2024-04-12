@@ -1,3 +1,50 @@
+body {
+	background-image: url("/images/staribacher_hintergrund_final.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 1.2em;
+	line-height: 1.6;
+	font-weight: 400;
+	color: #222;
+}
+
+body * {
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+.bg-body-tertiary {
+	--bs-bg-opacity: 0!important;
+}
+
+#myTable {
+	background-color:rgba(255, 255, 255, 0);
+         --bs-bg-opacity: 0!important;
+}
+
+
+
+#myTable * {
+	background-color:rgba(255, 255, 255, 0);
+         --bs-bg-opacity: 0;
+}
+
+
+.tabulator-header-filter{
+	background-color:rgba(255, 255, 255, 1)!important;
+	--bs-bg-opacity: 1!important;
+}
+
+nav {
+	height: 50px;
+	border-bottom: 1px solid #B3915F;
+}
+
+.dropdown-menu {
+	background: rgba(176, 88, 3, 0.45) none repeat scroll 0% 0%;
+}
+
 #viewer {
     position: sticky;
     top: 10%;
@@ -7,6 +54,16 @@
     /* max-width: 60vw; */
     margin-left: auto;
     /* max-height: 900px; */
+}
+
+.col-md-6.col-lg-6.col-sm-12.text {
+	background: #ffecb3;
+	max-width: 35vw;
+	font-family: "Courier New";
+}
+
+.col-md-6.col-lg-6.col-sm-12.text *{
+	font-family: "Courier New";
 }
 
 
