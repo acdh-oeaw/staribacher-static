@@ -15,12 +15,34 @@ body * {
 }
 
 .bg-body-tertiary {
-	--bs-bg-opacity: 0;
+	--bs-bg-opacity: 0!important;
+}
+
+#myTable {
+	background-color:rgba(255, 255, 255, 0);
+         --bs-bg-opacity: 0!important;
+}
+
+
+
+#myTable * {
+	background-color:rgba(255, 255, 255, 0);
+         --bs-bg-opacity: 0;
+}
+
+
+.tabulator-header-filter{
+	background-color:rgba(255, 255, 255, 1)!important;
+	--bs-bg-opacity: 1!important;
 }
 
 nav {
 	height: 50px;
 	border-bottom: 1px solid #B3915F;
+}
+
+.dropdown-menu {
+	background: rgba(176, 88, 3, 0.45) none repeat scroll 0% 0%;
 }
 
 #viewer {
