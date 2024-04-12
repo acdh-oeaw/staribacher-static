@@ -22,6 +22,9 @@
                                         <a class="dropdown-item" href="about.html">Über das Projekt</a>
                                     </li>
                                     <li>
+                                        <a class="dropdown-item" href="contact.html">Kontakt</a>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="imprint.html">Impressum</a>
                                     </li>
                                 </ul>

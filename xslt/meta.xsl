@@ -46,13 +46,19 @@
     <xsl:template match="tei:div">
         <div id="{generate-id()}"><xsl:apply-templates/></div>
     </xsl:template>
+    <xsl:template match="tei:div[@class = 'scrolltext']">
+        <div id="{generate-id()}" class="scrolltext"><xsl:apply-templates/></div>
+    </xsl:template>
     <xsl:template match="tei:lb">
         <br/>
     </xsl:template>
-    <xsl:template match="tei:unclear">
-        <abbr title="unclear"><xsl:apply-templates/></abbr>
+    <xsl:template match="tei:li">
+        <li><xsl:apply-templates/></li>
     </xsl:template>
-    <xsl:template match="tei:del">
-        <del><xsl:apply-templates/></del>
-    </xsl:template>    
+    <xsl:template match="tei:ul">
+        <ul><xsl:apply-templates/></ul>
+    </xsl:template>
+    <xsl:template match="tei:a">
+        <a><xsl:copy-of select="@*"/><xsl:apply-templates/></a>
+    </xsl:template>
 </xsl:stylesheet>
