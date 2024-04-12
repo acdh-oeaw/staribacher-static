@@ -56,6 +56,15 @@ nav {
     /* max-height: 900px; */
 }
 
+.col-md-6.col-lg-6.col-sm-12.text {
+	background: #ffecb3;
+	max-width: 35vw;
+}
+
+.col-md-6.col-lg-6.col-sm-12.text *{
+	font-family: "Courier New";
+}
+
 
 .osd-container {
 	height: 80vh!important;
