@@ -6,6 +6,10 @@ body {
 	font-family: 'Alegreya Sans', sans-serif;
 }
 
+body * {
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
 #viewer {
     position: sticky;
     top: 10%;
