@@ -1,6 +1,6 @@
 :root {
     --st-fg-color: #222;
-    --st-bg-color: #fde1a7;
+    --st-bg-color: #ffecb3;
     --st-bg-secondary:  #B3915F;
 }
 body {
@@ -42,6 +42,11 @@ body * {
 	--bs-bg-opacity: 1!important;
 }
 
+.ais-SearchBox-input {
+    background-color:rgba(255, 255, 255, 1)!important;
+    --bs-bg-opacity: 1!important;
+}
+
 nav {
 	height: 50px;
 	border-bottom: 1px solid #B3915F;
@@ -68,7 +73,7 @@ nav {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text {
-	background: #ffecb3;
+	background: var(--st-bg-color) ;
 	max-width: 35vw;
 	font-family: "Courier New";
 }
