@@ -104,3 +104,17 @@ nav {
     color: black;
     text-decoration: line-through;
 }
+
+.scrolltext {
+    overflow-y: scroll;
+    height:80vh;
+    width:35vw;
+    padding-right:20px;
+    padding-top:10px;
+    text-align: justify;
+}
+
+h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
