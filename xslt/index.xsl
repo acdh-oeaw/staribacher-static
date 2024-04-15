@@ -30,9 +30,11 @@
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
                 <main class="flex-shrink-0">
-                    <div class="container">
-                        <h1><xsl:value-of select="$project_short_title"/></h1>
-                        <h2><xsl:value-of select="$project_title"/></h2>
+                    <div class="container" style="width:40%; padding:5rem 0 0 0;margin-left:15vh;">
+                        <h1><xsl:value-of select="$project_title"/></h1>
+                        <p>Dies sind die digitalisierten Tagebücher von Josef Staribacher, österreichischer Handelsminister von 1970 bis 1983.
+                        <lb/>Sie umfassen rund 20.000 Seiten und spiegeln Staribachers 13-jährige Ministertätigkeit unter Bundeskanzler Bruno Kreisky in den Kabinetten Kreisky I bis IV wider.
+                        </p>
                     </div>
                 </main>
                 <xsl:call-template name="html_footer"/>
