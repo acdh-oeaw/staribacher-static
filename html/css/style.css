@@ -1,3 +1,8 @@
+:root {
+    --st-fg-color: #222;
+    --st-bg-color: #E3C18F;
+    --st-bg-secondary:  #B3915F;
+}
 body {
 	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
 	background-size: cover;
@@ -43,6 +48,11 @@ nav {
 
 .dropdown-menu {
 	background: rgba(176, 88, 3, 0.45) none repeat scroll 0% 0%;
+}
+
+.dropdown-menu a:hover{
+    background-color: var(--st-fg-color);
+    color:  var(--st-bg-secondary);
 }
 
 #viewer {
