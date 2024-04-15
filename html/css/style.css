@@ -1,7 +1,8 @@
 :root {
     --st-fg-color: #222;
-    --st-bg-color: #ffecb3;
+    --st-bg-color: #e3c18F;
     --st-bg-secondary:  #B3915F;
+    --st-bg-text: #fffce3; 
 }
 body {
 	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
@@ -49,7 +50,8 @@ body * {
 
 nav {
 	height: 50px;
-	border-bottom: 1px solid #B3915F;
+	border-bottom: 1px solid var(--st-bg-secondary);
+    background-color:  var(--st-bg-secondary);
 }
 
 .dropdown-menu {
@@ -73,7 +75,7 @@ nav {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text {
-	background: var(--st-bg-color) ;
+	background: var(--st-bg-text) ;
 	max-width: 35vw;
 	font-family: "Courier New";
 }
