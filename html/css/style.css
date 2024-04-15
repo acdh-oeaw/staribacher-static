@@ -1,6 +1,6 @@
 :root {
     --st-fg-color: #222;
-    --st-bg-color: #E3C18F;
+    --st-bg-color: #fde1a7;
     --st-bg-secondary:  #B3915F;
 }
 body {
@@ -12,7 +12,8 @@ body {
 	font-size: 1.2em;
 	line-height: 1.6;
 	font-weight: 400;
-	color: #222;
+	color: var(--st-fg-color);
+    background: var(--st-bg-color) ;
 }
 
 body * {
@@ -127,4 +128,17 @@ nav {
 h1 {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+footer {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 1.2em;
+	line-height: 1.6;
+	font-weight: 400;
+	color: var(--st-fg-color);
+    background: var(--st-bg-color) ;
+}
+
+footer * {
+	font-family: 'Alegreya Sans', sans-serif;
 }
