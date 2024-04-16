@@ -122,6 +122,10 @@ nav {
 	border-bottom: 1px solid #888 ;
 }
 
+.date {
+	text-decoration: underline;
+}
+
 .pb {
 	font-family: "Times New-Roman"!important ;
 	text-align:right;
