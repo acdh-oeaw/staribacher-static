@@ -155,7 +155,7 @@
     <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
     <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
-            <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
+            <xsl:for-each select="1 to 25"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
         </xsl:when>
     </xsl:choose>
 </xsl:template>
