@@ -48,17 +48,17 @@
                     <xsl:call-template name="nav_bar"/>
                     <div class="row" id="edition_metadata">
                         <div class="col-md-2 col-lg-2 col-sm-12">
-                            <xsl:if test="$prev">
-                                <h1>
-                                    <a>
-                                        <xsl:attribute name="href">
-                                            <xsl:value-of select="$prev"/>
-                                        </xsl:attribute>
-                                        <i class="bi bi-chevron-left" title="zurück"/>
-                                    </a>
-                                </h1>
-                            </xsl:if>
-                        </div>
+                                <xsl:if test="ends-with($prev,'.html')">
+                                    <h1>
+                                        <a>
+                                            <xsl:attribute name="href">
+                                                <xsl:value-of select="$prev"/>
+                                            </xsl:attribute>
+                                            <i class="bi bi-chevron-left" title="zurück"/>
+                                        </a>
+                                    </h1>
+                                </xsl:if>
+                            </div>
                         <div class="col-md-8 col-lg-8 col-sm-12 docinfo">
                             <xsl:variable name="doc_type"
                                 select="//tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/@form[1]"/>
@@ -72,7 +72,7 @@
                             </h3>
                         </div>
                         <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right">
-                                <xsl:if test="$next">
+                                <xsl:if test="ends-with($next, '.html')">
                                     <h1>
                                         <a>
                                             <xsl:attribute name="href">
