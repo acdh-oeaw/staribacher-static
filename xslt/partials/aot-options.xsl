@@ -38,7 +38,11 @@
                 </li>
                 <li class="dropdown-item">
                     <annotation-slider opt="prs"></annotation-slider>
+                </li>
+                <li class="dropdown-item">
                     <annotation-slider opt="crt"></annotation-slider>
+                </li>
+                <li class="dropdown-item">
                     <annotation-slider opt="add"></annotation-slider>
                 </li>
             </ul>                                                    
