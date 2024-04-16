@@ -46,6 +46,45 @@
             <body class="d-flex flex-column">
                 <div class="hfeed site flex-grow-1" id="page">
                     <xsl:call-template name="nav_bar"/>
+                    <div class="row" id="edition_metadata">
+                        <div class="col-md-2 col-lg-2 col-sm-12">
+                            <xsl:if test="$prev">
+                                <h1>
+                                    <a>
+                                        <xsl:attribute name="href">
+                                            <xsl:value-of select="$prev"/>
+                                        </xsl:attribute>
+                                        <i class="bi bi-chevron-left" title="zurück"/>
+                                    </a>
+                                </h1>
+                            </xsl:if>
+                        </div>
+                        <div class="col-md-8 col-lg-8 col-sm-12 docinfo">
+                            <xsl:variable name="doc_type"
+                                select="//tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/@form[1]"/>
+                            <h1 align="center">
+                                <xsl:value-of select="$doc_title"/>
+                            </h1>
+                            <h3 align="center">
+                                <a href="{$teiSource}">
+                                    <i class="bi bi-download" title="TEI/XML"/>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right">
+                                <xsl:if test="$next">
+                                    <h1>
+                                        <a>
+                                            <xsl:attribute name="href">
+                                                <xsl:value-of select="$next"/>
+                                            </xsl:attribute>
+                                            <i class="bi bi-chevron-right" title="weiter"/>
+                                        </a>
+                                    </h1>
+                                </xsl:if>
+                            </div>
+                    </div>
+                        
                     <div class="edition_container ">
                         <div class="offcanvas offcanvas-start" tabindex="-1"
                             id="offcanvasNavigation" aria-labelledby="offcanvasNavigationLabel"
@@ -61,20 +100,6 @@
                                 <xsl:call-template name="annotation-options"></xsl:call-template>
                                 </div>
                         <div class="wp-transcript">
-                           <div class="row" id="edition_metadata">
-                                <div class="col-md-8 col-lg-8 col-sm-12 docinfo">
-                                    <xsl:variable name="doc_type"
-                                        select="//tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/@form[1]"/>
-                                    <h1 align="center">
-                                        <xsl:value-of select="$doc_title"/>
-                                    </h1>
-                                    <h3 align="center">
-                                        <a href="{$teiSource}">
-                                            <i class="bi bi-download" title="TEI/XML"/>
-                                        </a>
-                                    </h3>
-                                </div>
-                            </div>
                             <div id="container-resize" class="row transcript active">
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
                                     <div id="viewer">
