@@ -1,3 +1,9 @@
+:root {
+    --st-fg-color: #222;
+    --st-bg-color: #e3c18F;
+    --st-bg-secondary:  #B3915F;
+    --st-bg-text: #fffce3; 
+}
 body {
 	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
 	background-size: cover;
@@ -7,7 +13,8 @@ body {
 	font-size: 1.2em;
 	line-height: 1.6;
 	font-weight: 400;
-	color: #222;
+	color: var(--st-fg-color);
+    background: var(--st-bg-color) ;
 }
 
 body * {
@@ -17,6 +24,35 @@ body * {
 .bg-body-tertiary {
 	--bs-bg-opacity: 0!important;
 }
+
+
+.times-new-roman * {
+    font-family: "Times New Roman", serif !important;
+  }
+  .courier-new {
+    font-family: "Courier New", monospace !important;
+  }
+  
+  .arial-serif * {
+    font-family: "Arial", serif !important;
+  }
+  
+  .font-size-26 * {
+    font-size: 26px !important;
+  }
+  
+  .font-size-22 * {
+    font-size: 22px !important;
+  }
+  
+  .font-size-18 * {
+    font-size: 18px !important;
+  }
+  
+  .font-size-14 * {
+    font-size: 14px !important;
+  }
+
 
 #myTable {
 	background-color:rgba(255, 255, 255, 0);
@@ -36,13 +72,24 @@ body * {
 	--bs-bg-opacity: 1!important;
 }
 
+.ais-SearchBox-input {
+    background-color:rgba(255, 255, 255, 1)!important;
+    --bs-bg-opacity: 1!important;
+}
+
 nav {
 	height: 50px;
-	border-bottom: 1px solid #B3915F;
+	border-bottom: 1px solid var(--st-bg-secondary);
+    background-color:  var(--st-bg-secondary);
 }
 
 .dropdown-menu {
 	background: rgba(176, 88, 3, 0.45) none repeat scroll 0% 0%;
+}
+
+.dropdown-menu a:hover{
+    background-color: var(--st-fg-color);
+    color:  var(--st-bg-secondary);
 }
 
 #viewer {
@@ -57,7 +104,7 @@ nav {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text {
-	background: #ffecb3;
+	background: var(--st-bg-text) ;
 	max-width: 35vw;
 	font-family: "Courier New";
 }
@@ -117,4 +164,17 @@ nav {
 h1 {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+footer {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 1.2em;
+	line-height: 1.6;
+	font-weight: 400;
+	color: var(--st-fg-color);
+    background: var(--st-bg-color) ;
+}
+
+footer * {
+	font-family: 'Alegreya Sans', sans-serif;
 }
