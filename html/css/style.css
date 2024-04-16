@@ -14,7 +14,7 @@ body {
 	line-height: 1.6;
 	font-weight: 400;
 	color: var(--st-fg-color);
-    background: var(--st-bg-color) ;
+    background-color: var(--st-bg-color) ;
 }
 
 body * {
@@ -104,7 +104,7 @@ nav {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text {
-	background: var(--st-bg-text) ;
+	background-color: var(--st-bg-text) ;
 	max-width: 35vw;
 	font-family: "Courier New";
 }
