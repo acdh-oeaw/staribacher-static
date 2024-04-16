@@ -114,7 +114,20 @@ nav {
 	 font-size: 14px ;
 }
 
+.hline:after {
+	width:100%;
+	content: "";
+	display: inline-block ; 
+	border-bottom: 1px solid #888 ;
+}
 
+.pb {
+	font-family: "Times New-Roman"!important ;
+	text-align:right;
+	font-weight: bold ;
+	display: block ; 
+
+}
 .osd-container {
 	height: 80vh!important;
 }
