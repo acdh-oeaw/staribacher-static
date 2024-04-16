@@ -144,8 +144,8 @@
     <xsl:choose>
         <xsl:when test="preceding-sibling::tei:lb or preceding-sibling::tei:p or ancestor::tei:back">
             <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <hr/>
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+            <span class="hline"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
+            
         </xsl:when>
     </xsl:choose>
     <span class="pb" source="{@facs}">
