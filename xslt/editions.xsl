@@ -174,9 +174,18 @@
     <xsl:variable name="pid">
         <xsl:value-of select="./@xml:id"/>
     </xsl:variable>
-    <p id="{$pid}" class="yes-index">
-        <xsl:apply-templates/>
-    </p>
+    <xsl:choose>
+    <xsl:when test="count(preceding-sibling::*) &lt; 1"> <!-- test="preceding::*[1]/self::tei:div"> -->
+        <p id="{$pid}" class="yes-index date">
+            <xsl:apply-templates/>
+        </p>
+    </xsl:when>
+    <xsl:otherwise>
+        <p id="{$pid}" class="yes-index">
+            <xsl:apply-templates/>
+        </p>
+    </xsl:otherwise>
+    </xsl:choose>
     <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
             <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
