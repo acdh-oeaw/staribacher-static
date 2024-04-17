@@ -23,7 +23,7 @@ body * {
 }
 
 .bg-body-tertiary {
-	--bs-bg-opacity: 0!important;
+	opacity: 1!important;
 }
 
 
@@ -56,32 +56,33 @@ body * {
 
 
 #myTable {
-	background-color:rgba(255, 255, 255, 0);
-         --bs-bg-opacity: 0!important;
+	background-color: var(--st-bg-color);
+         opacity: .95!important;
 }
 
 
 
 #myTable * {
-	background-color:rgba(255, 255, 255, 0);
-         --bs-bg-opacity: 0;
+	background-color: var(--st-bg-color);
+         opacity: .95;
 }
 
 
 .tabulator-header-filter{
-	background-color:rgba(255, 255, 255, 1)!important;
-	--bs-bg-opacity: 1!important;
+	background-color: var(--st-bg-color);
+	opacity: .95!important;
 }
 
 .ais-SearchBox-input {
-    background-color:rgba(255, 255, 255, 1)!important;
-    --bs-bg-opacity: 1!important;
+    background-color:rgba(255, 255, 255)!important;
 }
 
 nav {
+	z-index: 1;
 	height: 50px;
 	border-bottom: 1px solid var(--st-bg-secondary);
     background-color:  var(--st-bg-secondary);
+    opacity: 1;
 }
 
 .dropdown-menu {
@@ -210,6 +211,7 @@ footer {
 	font-weight: 400;
 	color: var(--st-fg-color);
     background: var(--st-bg-color) ;
+    opacity: 1;
 }
 
 footer * {
