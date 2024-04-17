@@ -5,7 +5,8 @@
     --st-bg-text: #fffcf3; 
 }
 body {
-	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
+	background-image: url("/images/staribacher_hintergrund_final.jpg");
+	/* background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg"); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -84,7 +85,11 @@ nav {
 }
 
 .dropdown-menu {
-	background: rgba(176, 88, 3, 0.45) none repeat scroll 0% 0%;
+	background: rgba(176, 88, 3, 1) none repeat scroll 0% 0%;
+}
+
+div.container-fluid:nth-child(1) {
+	background: rgba(176, 88, 3, 1) none repeat scroll 0% 0%;
 }
 
 .dropdown-menu a:hover{
@@ -104,9 +109,13 @@ nav {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text {
-	padding:10vh;
+	padding-left:8rem;
+	padding-top:3rem;
+	padding-bottom:30rem;
+	padding-right:2rem;
+	opacity: 0.95!important ;
 	background-color: var(--st-bg-text) ;
-	max-width: 35vw;
+	max-width: 45rem;
 	font-family: "Courier New";
 }
 
@@ -178,6 +187,15 @@ nav {
     padding-right:20px;
     padding-top:10px;
     text-align: justify;
+}
+
+.ais-Hits {
+	max-width: 35rem ;
+}
+
+.ais-Hits-item {
+	background-color: var(--st-bg-color)!important ;
+	opacity: 0.95!important ;
 }
 
 h1 {
