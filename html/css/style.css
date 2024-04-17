@@ -189,6 +189,10 @@ div.container-fluid:nth-child(1) {
     text-align: justify;
 }
 
+.ais-Hits {
+	max-width: 35rem ;
+}
+
 .ais-Hits-item {
 	background-color: var(--st-bg-color)!important ;
 	opacity: 0.95!important ;
