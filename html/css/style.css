@@ -2,7 +2,8 @@
     --st-fg-color: #222;
     --st-bg-color: #e3c18F;
     --st-bg-secondary:  #B3915F;
-    --st-bg-text: #fffcf3; 
+    --st-bg-text: #fffcf3;
+    --ed-font-size: 14px;
 }
 body {
 	background-image: url("/images/staribacher_hintergrund_final.jpg");
@@ -40,18 +41,22 @@ body * {
   
   .font-size-26 * {
     font-size: 26px !important;
+    --ed-font-size: 26px ; 
   }
   
   .font-size-22 * {
     font-size: 22px !important;
+    --ed-font-size: 22px ;
   }
   
   .font-size-18 * {
     font-size: 18px !important;
+    --ed-font-size: 18px ;
   }
   
   .font-size-14 * {
     font-size: 14px !important;
+    --ed-font-size: 14px ;
   }
 
 
@@ -77,8 +82,14 @@ body * {
     background-color:rgba(255, 255, 255)!important;
 }
 
+.navbar.navbar-expand-lg {
+	z-index: 2;
+    background-color:  solid var(--st-bg-secondary)!important;
+    opacity: 1!important;
+}
+
 nav {
-	z-index: 1;
+    z-index: 1;
 	height: 50px;
 	border-bottom: 1px solid var(--st-bg-secondary);
     background-color:  var(--st-bg-secondary);
@@ -110,19 +121,15 @@ div.container-fluid:nth-child(1) {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text {
-	padding-left:8rem;
-	padding-top:3rem;
-	padding-bottom:30rem;
-	padding-right:2rem;
+	font-size: var(--ed-font-size) ;
+	padding-left: calc(6*var(--ed-font-size)) ;
+	padding-top: calc(2*var(--ed-font-size)) ;
+	padding-bottom: calc(10*var(--ed-font-size)) ;
+	padding-right: calc(2*var(--ed-font-size)) ;
 	opacity: 0.95!important ;
 	background-color: var(--st-bg-text) ;
-	max-width: 45rem;
-	font-family: "Courier New";
-}
-
-.col-md-6.col-lg-6.col-sm-12.text *{
-	font-family: "Courier New";
-	 font-size: 14px ;
+	max-width: calc(42 * var(--ed-font-size))  ;
+	font-family: "Courier New" ; 
 }
 
 .hline:after {
