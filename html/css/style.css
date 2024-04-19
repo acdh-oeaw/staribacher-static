@@ -2,6 +2,7 @@
     --st-fg-color: #222;
     --st-bg-color: #e3c18F;
     --st-bg-secondary:  #B3915F;
+    --st-bg-color2: rgba(176, 88, 3, 1);
     --st-bg-text: #fffcf3;
     --ed-font-size: 14px;
 }
@@ -98,11 +99,11 @@ nav {
 }
 
 .dropdown-menu {
-	background: rgba(176, 88, 3, 1) none repeat scroll 0% 0%;
+	background: var(--st-bg-color2) none repeat scroll 0% 0%;
 }
 
 div.container-fluid:nth-child(1) {
-	background: rgba(176, 88, 3, 1) none repeat scroll 0% 0%;
+	background: var(--st-bg-color2) none repeat scroll 0% 0%;
 }
 
 .dropdown-menu a:hover{
@@ -237,4 +238,8 @@ footer * {
     opacity: .95!important;
     max-width: 40vw;
     padding: 10px;
+}
+
+a {
+    color: var(--st-bg-color2)
 }
