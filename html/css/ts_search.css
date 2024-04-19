@@ -1,3 +1,7 @@
+:root {
+    --st-bg-color2: rgba(176, 88, 3, 1);
+}
+
 #hits {
     padding: 1em 0;
 }
@@ -62,13 +66,13 @@ li.ais-Pagination-item.page-item > a {
 }
 
 ul .ais-Pagination-item--selected .ais-Pagination-link {
-    background-color: #615a60 !important;
-    border-color: #615a60 !important;
+    background-color: var(--st-bg-color2)!important;
+    border-color: var(--st-bg-color2) !important;
 }
 
 ul .ais-Pagination-item .ais-Pagination-link:hover {
-    background-color: #615a60 !important;
-    border-color: #615a60 !important;
+    background-color: var(--st-bg-color2) !important;
+    border-color: var(--st-bg-color2) !important;
     color: #fff !important;
 }
 
@@ -152,12 +156,12 @@ input[type=checkbox] {
 }
 
 .ais-CurrentRefinements-label.badge {
-	background-color: #525252;
+	background-color: var(--st-bg-color2);
 }
 
 .ais-CurrentRefinements-categoryLabel {
 	padding-top: 2px;
-	color:#525252;
+	color:var(--st-bg-color2);
 }
 
 /* change button collor */
