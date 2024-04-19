@@ -1,0 +1,245 @@
+:root {
+    --st-fg-color: #222;
+    --st-bg-color: #e3c18F;
+    --st-bg-secondary:  #B3915F;
+    --st-bg-color2: rgba(176, 88, 3, 1);
+    --st-bg-text: #fffcf3;
+    --ed-font-size: 14px;
+}
+body {
+	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
+	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    min-height: 137vh;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 1.2em;
+	line-height: 1.6;
+	font-weight: 400;
+	color: var(--st-fg-color);
+    background-color: var(--st-bg-color) ;
+}
+
+body * {
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+.bg-body-tertiary {
+	opacity: 1!important;
+}
+
+
+.times-new-roman * {
+    font-family: "Times New Roman", serif !important;
+  }
+  .courier-new {
+    font-family: "Courier New", monospace !important;
+  }
+  
+  .arial-serif * {
+    font-family: "Arial", serif !important;
+  }
+  
+  .font-size-26 * {
+    font-size: 26px !important;
+    --ed-font-size: 26px!important ; 
+  }
+  
+  .font-size-22 * {
+    font-size: 22px !important;
+    --ed-font-size: 22px!important ;
+  }
+  
+  .font-size-18 * {
+    font-size: 18px !important;
+    --ed-font-size: 18px!important ;
+  }
+  
+  .font-size-14 * {
+    font-size: 14px !important;
+    --ed-font-size: 14px!important ;
+  }
+
+
+#myTable {
+	background-color: var(--st-bg-color);
+         opacity: .95!important;
+}
+
+
+
+#myTable * {
+	background-color: var(--st-bg-color);
+         opacity: .95;
+}
+
+
+.tabulator-header-filter{
+	background-color: var(--st-bg-color);
+	opacity: .95!important;
+}
+
+.ais-SearchBox-input {
+    background-color:rgba(255, 255, 255)!important;
+}
+
+.navbar.navbar-expand-lg {
+	z-index: 2;
+    background-color:  solid var(--st-bg-secondary)!important;
+    opacity: 1!important;
+}
+
+nav {
+    z-index: 1;
+	height: 50px;
+	border-bottom: 1px solid var(--st-bg-secondary);
+    background-color:  var(--st-bg-secondary);
+    opacity: 1;
+}
+
+.dropdown-menu {
+	background: var(--st-bg-color2) none repeat scroll 0% 0%;
+}
+
+div.container-fluid:nth-child(1) {
+	background: var(--st-bg-color2) none repeat scroll 0% 0%;
+}
+
+.dropdown-menu a:hover{
+    background-color: var(--st-fg-color);
+    color:  var(--st-bg-secondary);
+}
+
+#viewer {
+    position: sticky;
+    top: 10%;
+    padding: 2em;
+    padding-top: 0rem;
+    padding-bottom: 2em;
+    /* max-width: 60vw; */
+    margin-left: auto;
+    /* max-height: 900px; */
+}
+
+.col-md-6.col-lg-6.col-sm-12.text {
+	font-size: var(--ed-font-size) ;
+	padding-left: calc(6*var(--ed-font-size)) ;
+	padding-top: calc(2*var(--ed-font-size)) ;
+	padding-bottom: calc(10*var(--ed-font-size)) ;
+	padding-right: calc(2*var(--ed-font-size)) ;
+	opacity: 0.95!important ;
+	background-color: var(--st-bg-text) ;
+	max-width: calc(42 * var(--ed-font-size))  ;
+	font-family: "Courier New" ; 
+}
+
+.col-md-6.col-lg-6.col-sm-12.text * {
+	font-size: var(--ed-font-size) ;
+	font-family: "Courier New" ; 
+}
+
+
+.hline:after {
+	width:100%;
+	content: "";
+	display: inline-block ; 
+	border-bottom: 1px solid #888 ;
+}
+
+.date {
+	text-decoration: underline;
+}
+
+.pb {
+	font-family: "Times New-Roman"!important ;
+	text-align:right;
+	font-weight: bold ;
+	display: block ; 
+
+}
+.osd-container {
+	height: 80vh!important;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+
+.subst-add {
+    color: #88dbdf;
+}
+
+.subst-del {
+    color:chartreuse;
+}
+
+.add-zeichen {
+    color: black;
+    vertical-align: super;
+    font-size: x-small;
+    font-weight: bold;
+
+}
+
+.cor-zeichen {
+    color: black;
+    vertical-align: super;
+    font-size: x-small;
+    font-weight: bold;
+
+}
+
+.sic-zeichen {
+    color: black;
+    text-decoration: line-through;
+}
+
+.scrolltext {
+    overflow-y: scroll;
+    height:80vh;
+    width:35vw;
+    padding-right:20px;
+    padding-top:10px;
+    text-align: justify;
+}
+
+.ais-Hits {
+	max-width: 35rem ;
+}
+
+.ais-Hits-item {
+	background-color: var(--st-bg-color)!important ;
+	opacity: 0.95!important ;
+}
+
+h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer {
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size: 1.0em;
+	line-height: 1.6;
+	font-weight: 400;
+	color: var(--st-fg-color);
+    background: var(--st-bg-color) ;
+    opacity: 1;
+}
+
+footer * {
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+.metatext {
+    background-color: var(--st-bg-color);
+    opacity: .95!important;
+    max-width: 40vw;
+    padding: 10px;
+}
+
+a {
+    color: var(--st-bg-color2)
+}
