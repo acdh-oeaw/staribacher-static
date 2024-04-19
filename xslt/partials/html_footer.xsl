@@ -6,7 +6,7 @@
    exclude-result-prefixes="#all"
    version="2.0">
    <xsl:template match="/" name="html_footer">
-      <footer class="footer mt-auto py-3 bg-body-tertiary">
+      <footer class="footer mt-auto py-3">
          <div class="wrapper" id="wrapper-footer-full">
             <div class="container" id="footer-full-content" tabindex="-1">
                <div class="footer-separator">
@@ -54,7 +54,5 @@
         </footer>
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        
-        
     </xsl:template>
 </xsl:stylesheet>
