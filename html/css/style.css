@@ -6,11 +6,12 @@
     --ed-font-size: 14px;
 }
 body {
-	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
-	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg"); */
+	/*background-image: url("/images/staribacher_hintergrund_final.jpg"); */
+	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+    min-height: 137vh;
 	font-family: 'Alegreya Sans', sans-serif;
 	font-size: 1.2em;
 	line-height: 1.6;
@@ -219,7 +220,7 @@ h1 {
 
 footer {
 	font-family: 'Alegreya Sans', sans-serif;
-	font-size: 1.2em;
+	font-size: 1.0em;
 	line-height: 1.6;
 	font-weight: 400;
 	color: var(--st-fg-color);
