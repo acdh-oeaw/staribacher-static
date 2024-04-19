@@ -37,7 +37,7 @@
                                 <xsl:copy-of select="."/>
                             </xsl:copy>
                         </xsl:for-each>                          
-                    </div>
+                    </div><br/><br/>
                 </main>
                 <xsl:call-template name="html_footer"/>
             </body>

@@ -16,17 +16,12 @@
         <xsl:variable name="doc_title">
             <xsl:value-of select=".//tei:title[@type='main'][1]/text()"/>
         </xsl:variable>
-
-
-    
         <html class="h-100">
-    
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
                 </xsl:call-template>
             </head>
-            
             <body class="d-flex flex-column h-100">
             <xsl:call-template name="nav_bar"/>
                 <main>
@@ -46,8 +41,8 @@
     <xsl:template match="tei:div">
         <div id="{generate-id()}"><xsl:apply-templates/></div>
     </xsl:template>
-    <xsl:template match="tei:div[@class = 'scrolltext']">
-        <div id="{generate-id()}" class="scrolltext"><xsl:apply-templates/></div>
+    <xsl:template match="tei:div[@class = 'metatext']">
+        <div id="{generate-id()}" class="metatext"><xsl:apply-templates/></div>
     </xsl:template>
     <xsl:template match="tei:lb">
         <br/>
