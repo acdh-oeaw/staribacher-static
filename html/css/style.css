@@ -85,18 +85,13 @@ body * {
 }
 
 .navbar.navbar-expand-lg {
-	z-index: 2;
-    background-color:  solid var(--st-bg-secondary)!important;
+	z-index: 99 ;
+    background-color:  solid var(--st-bg-color2)!important;
     opacity: 1!important;
+    margin: 0 ;
+    padding: 0; 
 }
 
-nav {
-    z-index: 1;
-	height: 50px;
-	border-bottom: 1px solid var(--st-bg-secondary);
-    background-color:  var(--st-bg-secondary);
-    opacity: 1;
-}
 
 .dropdown-menu {
 	background: var(--st-bg-color2) none repeat scroll 0% 0%;
