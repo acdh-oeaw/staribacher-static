@@ -6,7 +6,7 @@
     --ed-font-size: 14px;
 }
 body {
-	/*background-image: url("/images/staribacher_hintergrund_final.jpg"); */
+	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
 	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -230,4 +230,11 @@ footer {
 
 footer * {
 	font-family: 'Alegreya Sans', sans-serif;
+}
+
+.metatext {
+    background-color: var(--st-bg-color);
+    opacity: .95!important;
+    max-width: 40vw;
+    padding: 10px;
 }

@@ -14,7 +14,7 @@
     </teiHeader>
     <text>
         <body>
-            <div>
+            <div class="metatext">
                 <div class="archivecontact">
                     <p>Für inhaltliche Fragen und Korrekturhinweise wenden Sie sich bitte an:</p>
                     <p>Kreisky-Archiv<lb/>Rechte Wienzeile 97<lb/>A-1050 Wien</p>
@@ -41,6 +41,7 @@
                     </ul>
                 </div>
             </div>
+            <lb/><lb/>
         </body>
     </text>
   </TEI>
