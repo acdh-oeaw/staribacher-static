@@ -181,11 +181,11 @@
         </p>
     </xsl:otherwise>
     </xsl:choose>
-    <xsl:choose>
+    <!-- <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
             <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
         </xsl:when>
-    </xsl:choose>
+    </xsl:choose> -->
 </xsl:template>
     <xsl:template match="tei:head">
     <!-- There is no transcription here, making an id for the TS search unnecessary, as there are not full_text paragraphs to index -->
@@ -194,7 +194,9 @@
         </p>
         <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
-            <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
+            <!-- <xsl:for-each select="1 to 45"> -->
+		<xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+	    <!-- </xsl:for-each> -->
         </xsl:when>
     </xsl:choose>
     </xsl:template>
