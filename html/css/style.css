@@ -62,11 +62,23 @@ body * {
   }
 
 
-#myTable {
-	background-color: var(--st-bg-color);
-         opacity: .95!important;
+
+
+
+.tabulator-headers {
+    background-color: var(--st-bg-color)!important ;
+    opacity: .95;
 }
 
+.tabulator-col {
+    background-color: var(--st-bg-color)!important ;
+    opacity: .95;
+}
+
+.tabulator-row {
+    background-color: var(--st-bg-color)!important ;
+    opacity: .95;
+}
 
 td {
     background-color: var(--st-bg-color)!important;
