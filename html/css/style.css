@@ -68,6 +68,10 @@ body * {
 }
 
 
+.table * {
+	background-color: var(--st-bg-color)!important;
+         opacity: .95!important;
+}
 
 #myTable * {
 	background-color: var(--st-bg-color);
