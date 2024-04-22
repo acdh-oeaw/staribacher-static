@@ -75,9 +75,8 @@ body * {
 }
 
 
-.tabulator-header-filter{
-	background-color: var(--st-bg-color);
-	opacity: .95!important;
+.tabulator-header-filter * {
+	background-color: rgba(255, 255, 255)!important; 
 }
 
 .ais-SearchBox-input {
