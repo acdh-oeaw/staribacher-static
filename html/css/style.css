@@ -116,6 +116,17 @@ div.container-fluid:nth-child(1) {
     /* max-height: 900px; */
 }
 
+.col-md-4 {
+    padding: 4rem ;
+    max-width: 30rem;
+}
+
+.col-md-8 {
+    padding: 4rem ;
+    max-width: 40rem ;
+}
+
+
 .col-md-6.col-lg-6.col-sm-12.text {
 	resize: horizontal;
 	font-size: var(--ed-font-size) ;
@@ -200,9 +211,6 @@ div.container-fluid:nth-child(1) {
     text-align: justify;
 }
 
-.ais-Hits {
-	max-width: 35rem ;
-}
 
 .ais-Hits-item {
 	background-color: var(--st-bg-color)!important ;
