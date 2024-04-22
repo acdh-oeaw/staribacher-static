@@ -27,6 +27,16 @@
                     </td>
                 </tr>
                 </xsl:if>
+                 <xsl:if test="./tei:occupation/text()">
+                    <tr>
+                        <th>
+                           Tätigkeit
+                        </th>
+                        <td>
+                                <xsl:value-of select="tokenize(./tei:occupation, '/')[last()]"/>
+                        </td>
+                    </tr>
+                </xsl:if>
                 <xsl:if test="./tei:idno[@type='GND']/text()">
                     <tr>
                         <th>
