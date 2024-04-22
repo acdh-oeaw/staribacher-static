@@ -151,7 +151,6 @@
     <span class="pb" source="{@facs}">
         <xsl:value-of select="./@n" />
     </span>
-    
     <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
 </xsl:template>
 <xsl:template match="tei:lb">
@@ -159,11 +158,11 @@
         <xsl:text>-</xsl:text>
     </xsl:if>
      <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-     <xsl:choose>
+     <!-- <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
             <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
         </xsl:when>
-    </xsl:choose>
+    </xsl:choose> -->
      </xsl:template>
 <xsl:template match="tei:p">
     <xsl:variable name="pid">
