@@ -7,8 +7,8 @@
     --ed-font-size: 14px;
 }
 body {
-	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
-	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
+	/* background-image: url("/images/staribacher_hintergrund_final.jpg");  staribacher-static//table */
+	background-image: url("/images/staribacher_hintergrund_final.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -68,19 +68,19 @@ body * {
 }
 
 
-.table * {
-	background-color: var(--st-bg-color)!important;
-         opacity: .95!important;
+td {
+    background-color: var(--st-bg-color)!important;
+    border-bottom: 2pt solid #dee2e6;
 }
 
-#myTable * {
-	background-color: var(--st-bg-color);
-         opacity: .95;
+th {
+    background-color: var(--st-bg-color)!important;
+    border-bottom: 2pt solid #dee2e6;
 }
-
 
 .tabulator-header-filter * {
 	background-color: rgba(255, 255, 255)!important; 
+    
 }
 
 .ais-SearchBox-input {
