@@ -121,9 +121,15 @@ div.container-fluid:nth-child(1) {
     max-width: 30rem;
 }
 
+.col-md-2 {
+    padding: 4rem ;
+    max-width: 25% ;
+}
+
+
 .col-md-8 {
     padding: 4rem ;
-    max-width: 40rem ;
+    max-width: 50% ;
 }
 
 
