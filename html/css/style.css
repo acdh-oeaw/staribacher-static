@@ -85,11 +85,11 @@ body * {
 }
 
 .navbar.navbar-expand-lg {
-	z-index: 99 ;
-    background-color:  solid var(--st-bg-color2)!important;
+    z-index: 99 ;
+    padding: 0;
     opacity: 1!important;
-    margin: 0 ;
-    padding: 0; 
+    border: 1rem solid var(--st-bg-color2);
+    background-color:  solid var(--st-bg-color2)!important;
 }
 
 
@@ -118,6 +118,7 @@ div.container-fluid:nth-child(1) {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text {
+	resize: horizontal;
 	font-size: var(--ed-font-size) ;
 	padding-left: calc(6*var(--ed-font-size)) ;
 	padding-top: calc(2*var(--ed-font-size)) ;
@@ -125,7 +126,7 @@ div.container-fluid:nth-child(1) {
 	padding-right: calc(2*var(--ed-font-size)) ;
 	opacity: 0.95!important ;
 	background-color: var(--st-bg-text) ;
-	max-width: calc(42 * var(--ed-font-size))  ;
+	width: calc(50 * var(--ed-font-size))  ;
 	font-family: "Courier New" ; 
 }
 
