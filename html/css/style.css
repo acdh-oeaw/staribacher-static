@@ -25,6 +25,10 @@ body * {
 	font-family: 'Alegreya Sans', sans-serif;
 }
 
+.metatext{
+    padding: 4rem; 
+}
+
 .bg-body-tertiary {
 	opacity: 1!important;
 }
