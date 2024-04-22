@@ -61,21 +61,39 @@ body * {
     --ed-font-size: 14px!important ;
   }
 
+  .tabulator.table:not(.thead-light) .tabulator-header, .tabulator.table:not(.thead-light) .tabulator-header .tabulator-col {
+    border-top: 0!important ;
+	border-bottom: 2pt solid var(--st-bg-color2)!important;
+	background-color: var(--st-bg-color)!important;
+}
 
-#myTable {
-	background-color: var(--st-bg-color);
-         opacity: .95!important;
+.tabulator-headers {
+    background-color: var(--st-bg-color)!important ;
+    opacity: .95;
 }
 
 
+
+.tabulator-col {
+    background-color: var(--st-bg-color)!important ;
+    opacity: .95;
+    border-bottom: 2pt solid var(--st-bg-color2)!important;
+}
+
+.tabulator-row {
+    background-color: var(--st-bg-color)!important ;
+    opacity: .95;
+    border-bottom: 2pt solid var(--st-bg-color2)!important;
+}
+
 td {
     background-color: var(--st-bg-color)!important;
-    border-bottom: 2pt solid #dee2e6;
+    border-bottom: 2pt solid var(--st-bg-color2)!important;
 }
 
 th {
     background-color: var(--st-bg-color)!important;
-    border-bottom: 2pt solid #dee2e6;
+    border-bottom: 2pt solid var(--st-bg-color2)!important;
 }
 
 .tabulator-header-filter * {
