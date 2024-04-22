@@ -61,10 +61,6 @@ body * {
     --ed-font-size: 14px!important ;
   }
 
-
-
-
-
 .tabulator-headers {
     background-color: var(--st-bg-color)!important ;
     opacity: .95;
@@ -82,12 +78,12 @@ body * {
 
 td {
     background-color: var(--st-bg-color)!important;
-    border-bottom: 2pt solid #dee2e6;
+    border-bottom: 2pt solid var(--st-bg-color2)!important;
 }
 
 th {
     background-color: var(--st-bg-color)!important;
-    border-bottom: 2pt solid #dee2e6;
+    border-bottom: 2pt solid var(--st-bg-color2)!important;
 }
 
 .tabulator-header-filter * {
