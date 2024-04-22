@@ -63,7 +63,7 @@ var editor = new LoadEditor({
         css_class: "add-zeichen",
         features: {
             all: false,
-            class: "features-2"
+            class: "features-1"
         }
     },
     {
@@ -79,7 +79,7 @@ var editor = new LoadEditor({
       css_class: "cor-zeichen",
       features: {
         all: false,
-        class: "features-2",
+        class: "features-1",
       },
     },
     ],
