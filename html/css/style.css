@@ -25,10 +25,6 @@ body * {
 	font-family: 'Alegreya Sans', sans-serif;
 }
 
-.metatext{
-    padding: 4rem; 
-}
-
 .bg-body-tertiary {
 	opacity: 1!important;
 }
@@ -272,7 +268,7 @@ footer * {
     background-color: var(--st-bg-color);
     opacity: .95!important;
     max-width: 40vw;
-    padding: 10px;
+    padding: 4rem;
 }
 
 a {
