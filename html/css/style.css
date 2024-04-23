@@ -248,6 +248,10 @@ div.container-fluid:nth-child(1) {
 	box-shadow: 0 2px 5px 0px var(--st-bg-color2-shadow)!important;
 }
 
+.ais-RangeSlider .rheostat-progress {
+	background-color: var(--st-bg-color2)!important;
+}
+
 h1 {
     padding-top: 20px;
     padding-bottom: 20px;
