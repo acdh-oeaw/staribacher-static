@@ -9,7 +9,7 @@
 }
 body {
 	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
-	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
+	background-image: url("/images/staribacher_hintergrund_final.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -62,28 +62,66 @@ body * {
     --ed-font-size: 14px!important ;
   }
 
+  .table {
+	  	font-size: 1.1rem!important;
+	font-weight: 560;
+	border-radius: 1em ;
+}
+
+  .table * {
+	  	font-size: 1.1rem!important;
+	font-weight: 560;
+	line-height: 1.6;
+}
+
+
   .tabulator.table:not(.thead-light) .tabulator-header, .tabulator.table:not(.thead-light) .tabulator-header .tabulator-col {
     border-top: 0!important ;
 	border-bottom: 1pt solid var(--st-bg-color2)!important;
 	background-color: var(--st-bg-color)!important;
+	opacity: .95!important;
+	font-size: 1.1em!important;
+    font-weight: 560;
 }
+
+
+
+.tabulator {
+	font-size: 1.1rem!important;
+	font-weight: 560;
+	opacity: .95!important;
+}
+
+
+.tabulator-row .tabulator-cell {
+	--rem: 16;
+	font-family: 'Alegreya Sans', sans-serif;
+font-size: 1em!important;
+font-weight: 570!important;
+padding: .5rem .5rem!important;
+line-height: 1.6!important;
+opacity: .95!important;
+}
+
 
 .tabulator-headers {
     background-color: var(--st-bg-color)!important ;
-    opacity: .95;
+    opacity: .95!important;
+    font-size: 1rem!important;
 }
 
 
 
 .tabulator-col {
     background-color: var(--st-bg-color)!important ;
-    opacity: .95;
+    opacity: .95!important;
     border-bottom: 1pt solid var(--st-bg-color2)!important;
 }
 
 .tabulator-row {
     background-color: var(--st-bg-color)!important ;
-    opacity: .95;
+    opacity: .95!important;
+    padding: 0!important ;
     border-bottom: 1pt solid var(--st-bg-color2)!important;
 }
 
@@ -245,6 +283,7 @@ div.container-fluid:nth-child(1) {
 	background-color: var(--st-bg-color)!important ;
 	opacity: 0.95!important ;
 	border: 2pt solid var(--st-bg-color2)!important;
+	border-radius: 1em ;
 	box-shadow: 0 2px 5px 0px var(--st-bg-color2-shadow)!important;
 }
 
@@ -276,6 +315,7 @@ footer * {
     opacity: .95!important;
     max-width: 40vw;
     padding: 4rem;
+    border-radius: 1em ;
 }
 
 a {
