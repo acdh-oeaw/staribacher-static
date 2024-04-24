@@ -33,9 +33,7 @@
     </xsl:variable>
     <xsl:param name="mybreak"><![CDATA[<br/>]]></xsl:param>
     <xsl:param name="mytab"><![CDATA[&emsp;]]></xsl:param>
-    <xsl:param name="myplaceholder"><![CDATA[&zwnj;]]></xsl:param>
-    <xsl:param name="myline"><![CDATA[<hr />]]></xsl:param>
-   
+    <xsl:param name="myplaceholder"><![CDATA[&zwnj;]]></xsl:param>   
     <xsl:template match="/">    
         <html class="page" lang="de">
             <head>
