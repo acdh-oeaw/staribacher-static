@@ -65,7 +65,6 @@ body * {
   .table {
 	background-color: var(--st-bg-color)!important ;
 	opacity: 0.95!important ;
-	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
 	font-size: 1.1rem!important;
 	font-weight: 560;
 }
