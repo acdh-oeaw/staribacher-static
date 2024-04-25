@@ -235,10 +235,10 @@ div.container-fluid:nth-child(1) {
 	height: 80vh!important;
 }
 .container {
-width: 100% !important;
-padding: 0!important;
-margin-left: 0!important;
+width: 100% ;
+padding: .2rem;
 }
+
 .strikethrough {
     text-decoration: line-through;
 }
@@ -317,8 +317,7 @@ footer * {
 .metatext {
     background-color: var(--st-bg-color);
     opacity: .95!important;
-    max-width: 40vw;
-    padding: 4rem;
+    padding: 0.2rem;
     border-radius: 1em ;
 }
 
