@@ -234,7 +234,11 @@ div.container-fluid:nth-child(1) {
 .osd-container {
 	height: 80vh!important;
 }
-
+.container {
+width: 100% !important;
+padding: 0!important;
+margin-left: 0!important;
+}
 .strikethrough {
     text-decoration: line-through;
 }
