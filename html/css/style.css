@@ -240,6 +240,14 @@ div.container-fluid:nth-child(1) {
 .container {
 width: 100% ;
 padding: .2rem;
+    background-color: var(--st-bg-color);
+    opacity: .95!important;
+    padding: 0.2rem;
+    padding-top: 1rem ;
+    padding-bottom: 1rem ;
+    border-bottom-left-radius: 1em ; 
+    border-bottom-right-radius: 1em ; 
+
 }
 
 .strikethrough {
@@ -298,11 +306,6 @@ padding: .2rem;
 	background-color: var(--st-bg-color2)!important;
 }
 
-h1 {
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-}
-
 footer {
 	font-family: 'Alegreya Sans', sans-serif;
 	font-size: 1.0em;
@@ -315,14 +318,6 @@ footer {
 
 footer * {
 	font-family: 'Alegreya Sans', sans-serif;
-}
-
-.metatext {
-    background-color: var(--st-bg-color);
-    opacity: .95!important;
-    padding: 0.2rem;
-    padding-top: 2rem ;
-    padding-bottom: 2rem ;
 }
 
 a {
