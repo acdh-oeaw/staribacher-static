@@ -63,9 +63,11 @@ body * {
   }
 
   .table {
-	  	font-size: 1.1rem!important;
+	background-color: var(--st-bg-color)!important ;
+	opacity: 0.95!important ;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
+	font-size: 1.1rem!important;
 	font-weight: 560;
-	border-radius: 1em ;
 }
 
   .table * {
@@ -77,11 +79,12 @@ body * {
 
   .tabulator.table:not(.thead-light) .tabulator-header, .tabulator.table:not(.thead-light) .tabulator-header .tabulator-col {
     border-top: 0!important ;
-	border-bottom: 1pt solid var(--st-bg-color2)!important;
+	border-bottom: 0.1em solid var(--st-bg-color2)!important;
 	background-color: var(--st-bg-color)!important;
 	opacity: .95!important;
 	font-size: 1.1em!important;
     font-weight: 560;
+
 }
 
 
@@ -217,7 +220,7 @@ div.container-fluid:nth-child(1) {
 	width:100%;
 	content: "";
 	display: inline-block ; 
-	border-bottom: 1px solid #888 ;
+	border-bottom: 0.1rem solid #888 ;
 }
 
 .date {
@@ -277,8 +280,8 @@ padding: .2rem;
     overflow-y: scroll;
     height:80vh;
     width:35vw;
-    padding-right:20px;
-    padding-top:10px;
+    padding-right:2rem;
+    padding-top:1rem;
     text-align: justify;
 }
 
@@ -288,7 +291,7 @@ padding: .2rem;
 	opacity: 0.95!important ;
 	border: 2pt solid var(--st-bg-color2)!important;
 	border-radius: 1em ;
-	box-shadow: 0 2px 5px 0px var(--st-bg-color2-shadow)!important;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
 }
 
 .ais-RangeSlider .rheostat-progress {
@@ -296,8 +299,8 @@ padding: .2rem;
 }
 
 h1 {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }
 
 footer {
@@ -318,7 +321,8 @@ footer * {
     background-color: var(--st-bg-color);
     opacity: .95!important;
     padding: 0.2rem;
-    border-radius: 1em ;
+    padding-top: 2rem ;
+    padding-bottom: 2rem ;
 }
 
 a {
