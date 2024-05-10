@@ -318,17 +318,14 @@ padding: .2rem;
 
 footer {
 	font-family: 'Alegreya Sans', sans-serif;
-	font-size: 1.0em;
-	line-height: 1.6;
-	font-weight: 400;
+	font-size: 0.75em;
+	line-height: 0.8em;
+	font-weight: 300;
 	color: var(--st-fg-color);
-    background: var(--st-bg-color) ;
-    opacity: 1;
+    	background: var(--st-bg-color) ;
+    	opacity: 1;
 }
 
-footer * {
-	font-family: 'Alegreya Sans', sans-serif;
-}
 
 a {
     color: var(--st-bg-color2)
