@@ -318,18 +318,35 @@ padding: .2rem;
 
 footer {
 	font-family: 'Alegreya Sans', sans-serif;
-	font-size: 1.0em;
-	line-height: 1.6;
-	font-weight: 400;
+	font-size: 0.75em;
+	line-height: 0.8em;
+	font-weight: 300;
 	color: var(--st-fg-color);
-    background: var(--st-bg-color) ;
-    opacity: 1;
+    	background: var(--st-bg-color) ;
+    	opacity: 1;
 }
 
-footer * {
-	font-family: 'Alegreya Sans', sans-serif;
+.col-lg-1.col-md-2.col-sm-2.col-xs-6 {
+	padding-top: 0;
+	padding-bottom: 1em;
+}
+
+.col-lg-3.col-md-4.col-sm-4 {
+	padding-top: 0 ;
+	padding-bottom: 1em; 
+}
+
+.col-lg-2.col-md-2.col-xs-6 {
+	padding-top: 0 ;
+	padding-bottom: 1em;
+}
+
+.col-lg-2.col-md-3.col-sm-3 {
+	padding-top: 0 ;
+	padding-bottom: 1em;
 }
 
 a {
     color: var(--st-bg-color2)
+
 }
