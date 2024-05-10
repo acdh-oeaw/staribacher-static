@@ -249,6 +249,17 @@ padding: .2rem;
 
 }
 
+.container .metatext {
+	padding-left: 2rem ;
+	padding-right: 2rem ;
+}
+
+.container h1 {
+	padding-left: 2rem ;
+	padding-right: 2rem ;
+255 }
+
+}
 .strikethrough {
     text-decoration: line-through;
 }
