@@ -48,7 +48,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" width="20" tabulator-formatter="html" tabulator-headerSort="false" tabulator-download="false" tabulator-responsive="0">#</th>
-                                    <th scope="col" tabulator-headerFilter="input"  tabulator-responsive="3" tabulator-minWidth="3000px">Titel</th>
+                                    <th scope="col" tabulator-headerFilter="input"  tabulator-responsive="3" tabulator-minWidth="300px">Titel</th>
                                     <th scope="col" tabulator-headerFilter="input">Datum</th>
                                 </tr>
                             </thead>
