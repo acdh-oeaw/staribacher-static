@@ -350,3 +350,19 @@ a {
     color: var(--st-bg-color2)
 
 }
+
+
+@media screen and (max-width: 639px) {
+	.facsimiles {
+		visibility: hidden;
+		padding: 0;
+		max-height: 0;
+	}
+
+	.facsimiles * {
+		visibility: hidden;
+		position: static;
+		padding: 0;
+		max-height: 0;
+	}
+}
