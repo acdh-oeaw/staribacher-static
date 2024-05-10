@@ -365,4 +365,17 @@ a {
 		padding: 0;
 		max-height: 0;
 	}
+
+	.col-md-2.col-lg-2.col-sm-12{
+		padding: 0;
+		max-width: 2em;
+	}
+	.col-md-8.col-lg-8.col-sm-12{
+		max-width: 80%;
+		padding: 0;
+	}
+	.text {
+		padding-left: 2em!important;
+		padding-right: 1em!important;
+	}
 }
