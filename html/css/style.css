@@ -370,12 +370,28 @@ a {
 		padding: 0;
 		max-width: 2em;
 	}
+	.text {
+		padding-left: 2em!important;
+		padding-right: 1em!important;
+	}
+
+	.col-md-4 {
+		padding-left: 1em;
+		padding-right: 1em ;
+	}
+
+	.col-md-8 {
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-left: 1em;
+		padding-right: 1em ;
+		max-width: 100% ;
+	}
 	.col-md-8.col-lg-8.col-sm-12{
 		max-width: 80%;
 		padding: 0;
 	}
-	.text {
-		padding-left: 2em!important;
-		padding-right: 1em!important;
+	#Hits {
+		width: 100%;
 	}
 }
