@@ -14,7 +14,7 @@
                   <hr/>
                </div>
                <div class="row">
-                  <div class="col-lg-1 col-md-2 col-sm-2 col-xs-6 ml-auto text-center">
+                  <div class="col-lg-1 col-md-auto col-sm-2 col-xs-6 ml-auto text-center">
                      <div class="py-3">
                         <a href="https://www.oeaw.ac.at/acdh"><img src="images/acdh_logo-VECTOR_white.png" width="40"/></a>
                      </div>

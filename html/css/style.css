@@ -328,19 +328,25 @@ footer {
 
 .col-lg-1.col-md-2.col-sm-2.col-xs-6 {
 	padding-top: 0;
-	padding-bottom: 0;
+	padding-bottom: 1em;
 }
 
 .col-lg-3.col-md-4.col-sm-4 {
 	padding-top: 0 ;
-	padding-bottom: 0; 
+	padding-bottom: 1em; 
 }
 
 .col-lg-2.col-md-2.col-xs-6 {
 	padding-top: 0 ;
-	padding-bottom: 0;
+	padding-bottom: 1em;
+}
+
+.col-lg-2.col-md-3.col-sm-3 {
+	padding-top: 0 ;
+	padding-bottom: 1em;
 }
 
 a {
     color: var(--st-bg-color2)
+
 }
