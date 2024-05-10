@@ -42,7 +42,7 @@
                                     <th scope="col" width="20" tabulator-formatter="html" tabulator-headerSort="false" tabulator-download="false">#</th>
                                     <th scope="col" tabulator-headerFilter="input">Nachname</th>
                                     <th scope="col" tabulator-headerFilter="input">Vorname</th>
-                                    <th scope="col" tabulator-headerFilter="input">ID</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-visible="false">ID</th>
                                 </tr>
                             </thead>
                             <tbody>
