@@ -353,6 +353,9 @@ a {
 
 
 @media screen and (max-width: 639px) {
+	.row {
+		margin: 0;
+	}
 	.facsimiles {
 		visibility: hidden;
 		padding: 0;
