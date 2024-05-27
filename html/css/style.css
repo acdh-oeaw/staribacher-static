@@ -7,6 +7,7 @@
     --st-bg-text: #fffcf3;
     --ed-font-size: 14px;
 }
+
 body {
 	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
 	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
@@ -22,10 +23,7 @@ body {
     overflow: visible ;
 }
 
-.h-100 {
-	overflow: visible ;
 
-}
 
 body * {
 	font-family: sans-serif;
@@ -34,7 +32,6 @@ body * {
 .bg-body-tertiary {
 	opacity: 1!important;
 }
-
 
 .times-new-roman * {
     font-family: "Times New Roman", serif !important;
@@ -152,10 +149,8 @@ th {
 }
 
 nav {
-  border: 5px solid red!important;
-  position:-webkit-sticky;
+  position:-webkit-sticky!important;
   position: sticky!important;
-  position: -webkit-sticky;
   top: 0; /* required */
   z-index: 99; /* Ensure it's on top of other content */
   background-color: var(--st-bg-color2); /* Ensure it has a background */
