@@ -19,6 +19,12 @@ body {
 	font-weight: 400;
 	color: var(--st-fg-color);
     background-color: var(--st-bg-color) ;
+    overflow: visible ;
+}
+
+.h-100 {
+	overflow: visible ;
+
 }
 
 body * {
@@ -146,8 +152,9 @@ th {
 }
 
 nav {
-	 border: 5px solid red!important;
-  position: sticky;
+  border: 5px solid red!important;
+  position:-webkit-sticky;
+  position: sticky!important;
   position: -webkit-sticky;
   top: 0; /* required */
   z-index: 99; /* Ensure it's on top of other content */
