@@ -29,7 +29,7 @@
             </head>            
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                <main class="flex-shrink-0">
+                <main class="flex-grow-1">
                     <div class="container">
                         <h1><xsl:value-of select="$project_title"/></h1>
 			<div class="metatext">
