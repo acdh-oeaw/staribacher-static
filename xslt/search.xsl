@@ -24,7 +24,7 @@
                         <div class="search-panel">
                             <div class="search-panel__results">
                                 <div class="row">
-                                    <div class="col-md-2 col-lg-2 col-sm-12" />         
+                                    <!-- <div class="col-md-2 col-lg-2 col-sm-12" />      -->    
                                     <div class="col-md-4">
                                         <div id="stats-container" />
                                         <h4>Volltextsuche</h4>
@@ -41,7 +41,7 @@
                                         <div id="hits" />
                                         <div id="pagination" />
                                     </div>
-                                    <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right" />
+                                    <!-- <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right" /> -->
                                 </div>
                             </div>
                         </div>
