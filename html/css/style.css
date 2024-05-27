@@ -154,10 +154,8 @@ nav {
   background-color: var(--st-bg-color2); /* Ensure it has a background */
 }
 
+
 .navbar.navbar-expand-lg {
-  position: sticky;
-  top: 0 ; 
-  z-index: 99; /* Ensure it's on top of other content */
   padding: 0;
   opacity: 1 !important;
   border: 1rem solid var(--st-bg-color2);
@@ -371,6 +369,12 @@ a {
 
 
 @media screen and (max-width: 639px) {
+	body {
+		/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
+		background-image: none;
+		background-size: 0;
+	}
+
 	.row {
 		margin: 0;
 	}
