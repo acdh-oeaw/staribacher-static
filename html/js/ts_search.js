@@ -124,8 +124,6 @@ search.addWidgets([
     container: "#refinement-range-year",
     attribute: "notbefore",
     pips: false,
-	  min: -3600,
-	  max: 629420400,
     tooltips: {
       format: v => formatDate(v),
     },
