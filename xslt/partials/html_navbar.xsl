@@ -4,7 +4,6 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="#all" version="2.0">
     <xsl:template match="/" name="nav_bar">
-        <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                     <a href="index.html" class="navbar-brand custom-logo-link" rel="home" itemprop="url">
@@ -62,6 +61,5 @@
                     </div>
                 </div>
             </nav>
-        </header>
     </xsl:template>
 </xsl:stylesheet>
