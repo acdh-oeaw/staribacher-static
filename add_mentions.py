@@ -13,9 +13,13 @@ sender = set()
 receiver = set()
 send_place = set()
 for edition in tqdm(files, total=len(files)):
+    print(edition)
     doc = TeiReader(edition)
-    persons = doc.any_xpath('.//tei:rs[type=""person"]')
-    persons_id = [person.attrib["ref"] for person in persons if person.attrib["ref"] not in persons]
+    persons = doc.any_xpath('.//tei:rs[@type="person"]')
+    persons_id = []
+    for person in persons:
+        print(person.attrib["ref"])
+    persons_id = [person.attrib["ref"] for person in persons if person.attrib["ref"] not in persons_id]
     for person in persons_id:
         if person in mentions:
             mentions[person].append(edition)
