@@ -138,7 +138,7 @@
                                     </xsl:call-template>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="close" data-toggle="modal">Schließen</button>
+                                    <button type="button" class="btn btn-secondary close" data-toggle="modal" target="#{$xmlId}">Schließen</button>
                                 </div>
                             </div>
                         </div>
