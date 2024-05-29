@@ -120,7 +120,7 @@
                             <xsl:value-of select="data(./@xml:id)"/>
                     </xsl:variable>
 
-                    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="{$xmlId}">
+                    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"  id="{$xmlId}">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -138,7 +138,7 @@
                                     </xsl:call-template>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary close" data-toggle="modal" target="#{$xmlId}">Schließen</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
                                 </div>
                             </div>
                         </div>
