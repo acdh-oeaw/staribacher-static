@@ -16,6 +16,8 @@ jobs:
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v4
+    - name: install required libs
+      run: pip install -r requirements.txt
     - name: fetch data
       run: | 
         ./shellscripts/fetch_data.sh
