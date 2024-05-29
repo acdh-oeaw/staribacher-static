@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v4
     - name: fetch data
       run: | 
-        ./shellscripts/data.sh
+        ./shellscripts/fetch_data.sh
     - name: Fetch imprint
       run: |
         shellscripts/dl_imprint.sh
