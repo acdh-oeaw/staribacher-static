@@ -39,13 +39,23 @@
                 <legend>erwähnt in</legend>
                 <ul>
                     <xsl:for-each select="./tei:noteGrp/tei:note">
-                        <li>
-                            <a href="{replace(./@target, '.xml', '.html')}">
-                                <xsl:value-of select="./text()"/>
-                            </a>
-                        </li>
+                        <xsl:variable name="linkToDocument">
+                            <xsl:value-of select="replace(./@target, '.xml', '.html')"/>
+                        </xsl:variable>
+                        <xsl:choose>
+                            <xsl:when test="position() lt $showNumberOfMentions + 1">
+                                <li>
+                                    <a href="{$linkToDocument}">
+                                        <xsl:value-of select="./text()"/>
+                                    </a>
+                                </li>
+                            </xsl:when>
+                        </xsl:choose>  
                     </xsl:for-each>
                 </ul>
+                <xsl:if test="count(.//tei:noteGrp/tei:note) gt $showNumberOfMentions + 1">
+                    <p>Anzahl der Erwähnungen limitiert, klicke <a href="{$selfLink}">hier</a> für eine vollständige Auflistung</p>
+                </xsl:if>
             </div>
         </div>
     </xsl:template>
