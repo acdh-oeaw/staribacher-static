@@ -5,93 +5,58 @@
     version="2.0" exclude-result-prefixes="xsl tei xs">
     
     <xsl:template match="tei:person" name="person_detail">
-        <table class="table entity-table">
-            <tbody>
-                <xsl:if test="./tei:birth/tei:date">
-                <tr>
-                    <th>
-                        Geburtsdatum
-                    </th>
-                    <td>
-                        <xsl:value-of select="./tei:birth/tei:date"/>
-                    </td>
-                </tr>
-                </xsl:if>
-                <xsl:if test="./tei:death/tei:date">
-                <tr>
-                    <th>
-                        Sterbedatum
-                    </th>
-                    <td>
-                        <xsl:value-of select="./tei:death/tei:date"/>
-                    </td>
-                </tr>
-                </xsl:if>
-                 <xsl:if test="./tei:occupation/text()">
-                    <tr>
-                        <th>
-                           Tätigkeit
-                        </th>
-                        <td>
-                                <xsl:value-of select="tokenize(./tei:occupation, '/')[last()]"/>
-                        </td>
-                    </tr>
-                </xsl:if>
-                <xsl:if test="./tei:idno[@type='GND']/text()">
-                    <tr>
-                        <th>
-                            GND ID
-                        </th>
-                        <td>
-                            <a href="{./tei:idno[@type='GND']}" target="_blank">
-                                <xsl:value-of select="tokenize(./tei:idno[@type='GND'], '/')[last()]"/>
-                            </a>
-                        </td>
-                    </tr>
-                </xsl:if>
-                <xsl:if test="./tei:idno[@type='WIKIDATA']/text()">
-                    <tr>
-                        <th>
-                            Wikidata ID
-                        </th>
-                        <td>
-                            <a href="{./tei:idno[@type='WIKIDATA']}" target="_blank">
-                                <xsl:value-of select="tokenize(./tei:idno[@type='WIKIDATA'], '/')[last()]"/>
-                            </a>
-                        </td>
-                    </tr>
-                </xsl:if>
-                <xsl:if test="./tei:idno[@type='GEONAMES']/text()">
-                    <tr>
-                        <th>
-                            Geonames ID
-                        </th>
-                        <td>
-                            <a href="{./tei:idno[@type='GEONAMES']}" target="_blank">
-                                <xsl:value-of select="tokenize(./tei:idno[@type='GEONAMES'], '/')[4]"/>
-                            </a>
-                        </td>
-                    </tr>
-                </xsl:if>
-                <xsl:if test="./tei:listEvent">
-                <tr>
-                    <th>
-                        Erwähnt in
-                    </th>
-                    <td>
-                        <ul>
-                            <xsl:for-each select="./tei:listEvent/tei:event">
+        <xsl:param name="showNumberOfMentions" as="xs:integer" select="50000" />
+        <xsl:variable name="selfLink">
+            <xsl:value-of select="concat(data(@xml:id), '.html')"/>
+        </xsl:variable>
+        <div class="card-body">
+            <xsl:if test="./tei:birth/tei:date">
+                    <small>Geburtsdatum:</small> <xsl:value-of select="./tei:birth/tei:date"/><br/>
+            
+            </xsl:if>
+            <xsl:if test="./tei:birth/tei:death">
+                    <small>Todesdatum:</small> <xsl:value-of select="./tei:death/tei:date"/><br/>
+                
+            </xsl:if>
+            <xsl:if test="./tei:occupation/text()">
+                <small>Tätigkeit:</small> <xsl:value-of select="tokenize(./tei:occupation, '/')[last()]"/><br/>
+
+            </xsl:if>
+            <xsl:if test="./tei:idno[@type='GND']/text()">
+                <small>GND ID:</small> <a href="{./tei:idno[@type='GND']}" target="_blank"><xsl:value-of select="tokenize(./tei:idno[@type='GND'], '/')[last()]"/></a><br/>
+
+            </xsl:if>
+            <xsl:if test="./tei:idno[@type='WIKIDATA']/text()">
+                <small>Wikidata ID:</small>
+                <a href="{./tei:idno[@type='WIKIDATA']}" target="_blank">
+                    <xsl:value-of select="tokenize(./tei:idno[@type='WIKIDATA'], '/')[last()]"/>
+                </a><br/>
+
+            </xsl:if>
+            <br/>
+            <hr />
+            <div id="mentions">
+                <legend>erwähnt in</legend>
+                <ul>
+                    <xsl:for-each select="./tei:noteGrp/tei:note">
+                        <xsl:variable name="linkToDocument">
+                            <xsl:value-of select="replace(./@target, '.xml', '.html')"/>
+                        </xsl:variable>
+                        <xsl:choose>
+                            <xsl:when test="position() lt $showNumberOfMentions + 1">
                                 <li>
-                                    <a href="{replace(./tei:linkGrp/tei:link/@target, '.xml', '.html')}">
-                                        <xsl:value-of select="./tei:p/tei:title"/>
+                                    <a href="{$linkToDocument}">
+                                        <xsl:value-of select="./text()"/>
                                     </a>
                                 </li>
-                            </xsl:for-each>
-                        </ul>
-                    </td>
-                </tr>
+                            </xsl:when>
+                        </xsl:choose>  
+                    </xsl:for-each>
+                </ul>
+                <xsl:if test="count(.//tei:noteGrp/tei:note) gt $showNumberOfMentions + 1">
+                    <p>Anzahl der Erwähnungen limitiert, klicke <a href="{$selfLink}">hier</a> für eine vollständige Auflistung</p>
                 </xsl:if>
-            </tbody>
-        </table>
+            </div>
+        </div>
     </xsl:template>
 </xsl:stylesheet>

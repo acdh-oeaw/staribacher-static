@@ -244,6 +244,37 @@ div.container-fluid:nth-child(1) {
 .osd-container {
 	height: 80vh!important;
 }
+
+.card {
+	margin-top: 1em;
+}
+
+
+.index-card {
+	border-top: 5px solid #88dbdf; 
+	transition: transform .2s;
+}
+
+
+.index-card:hover {
+	transform: scale(1.05);
+}
+
+
+.card {
+	overflow: hidden;
+}
+
+#text-resize .card-body{
+	display: none!important ;
+}
+.card h3::after {
+	content: '';
+	display: block;
+	width: 50px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+
 .container {
 width: 100% ;
 padding: .2rem;

@@ -13,6 +13,7 @@
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/osd-container.xsl"/>
     <xsl:import href="./partials/aot-options.xsl"/>
+    <xsl:import href="./partials/person.xsl"/>
     <xsl:variable name="prev">
         <xsl:value-of
             select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
@@ -23,7 +24,7 @@
     </xsl:variable>
     <xsl:variable name="teiSource">
         <xsl:value-of select="data(tei:TEI/@xml:id)"/>
-        <xsl:text>.xml</xsl:text>
+        <!-- <xsl:text>.xml</xsl:text> -->
     </xsl:variable>
     <xsl:variable name="doc_title">
         <xsl:value-of select=".//tei:titleStmt/tei:title[@type='main']/text()"/>
@@ -113,6 +114,36 @@
                         </div>
                     </div>
                 </div>
+                 
+                <xsl:for-each select=".//tei:back//tei:person[@xml:id]">
+                    <xsl:variable name="xmlId">
+                            <xsl:value-of select="data(./@xml:id)"/>
+                    </xsl:variable>
+
+                    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"  id="{$xmlId}">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        <xsl:value-of select="normalize-space(string-join(.//tei:persName[1]//text()))"/>
+                                        <xsl:text> </xsl:text>
+                                        <a href="{concat($xmlId, '.html')}">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                    </h5>                                
+                                </div>
+                                <div class="modal-body">
+                                    <xsl:call-template name="person_detail">
+                                        <xsl:with-param name="showNumberOfMentions" select="5"/>
+                                    </xsl:call-template>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xsl:for-each>
                 <xsl:call-template name="html_footer"/>
              
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"/>
@@ -183,7 +214,22 @@
         </xsl:when>
     </xsl:choose> -->
 </xsl:template>
-    <xsl:template match="tei:head">
+
+
+<xsl:template match="tei:div">
+        <div id="{local:makeId(.)}">
+            <xsl:if test="./@xml:id">
+                <a>
+                    <xsl:attribute name="name">
+                        <xsl:value-of select="lower-case(./@xml:id)"/>
+                    </xsl:attribute>
+                </a>
+            </xsl:if>
+            <xsl:apply-templates/>
+        </div>
+    </xsl:template>
+
+<xsl:template match="tei:head">
     <!-- There is no transcription here, making an id for the TS search unnecessary, as there are not full_text paragraphs to index -->
         <p class="yes-index">
             <xsl:apply-templates/> 
@@ -195,14 +241,14 @@
 	    <!-- </xsl:for-each> -->
         </xsl:when>
     </xsl:choose>
-    </xsl:template>
-    <xsl:template match="tei:rs">
+</xsl:template>
+   <!-- <xsl:template match="tei:rs">
         <xsl:variable name="ppid">
             <xsl:value-of select="./@ref"/>
         </xsl:variable>
         <span id="{$ppid}" class="person">
 		<xsl:apply-templates/></span>
-    </xsl:template> 
+    </xsl:template>  -->
 <xsl:template match="tei:a[contains(@class, 'navigation_')]">
         <a class="{@class}" id="{@xml:id}">
             <xsl:apply-templates/>
