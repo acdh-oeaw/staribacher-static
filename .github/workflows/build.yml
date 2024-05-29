@@ -19,6 +19,18 @@ jobs:
     - name: fetch data
       run: | 
         ./shellscripts/fetch_editions.sh
+    - name: Complete editions
+      run: |
+        add-attributes -g "./data/editions/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
+    - name: Complete meta
+      run: |
+        add-attributes -g "./data/meta/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
+    - name: complete indices
+      run: |
+        add-attributes -g "./data/indices/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
+    - name: Denormalise indices:
+      run: |
+        denormalize-indices -f "./data/editions/*.xml" -i "./data/indices/*.xml" -m ".//*[@ref]/@ref | .//*/@source" -x ".//tei:titleStmt/tei:title[@type='main']/text()"
     - name: Install Saxon, Ant and Python
       run: |
         apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
