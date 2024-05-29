@@ -28,7 +28,7 @@ jobs:
     - name: complete indices
       run: |
         add-attributes -g "./data/indices/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
-    - name: Denormalise indices:
+    - name: Denormalise indices
       run: |
         denormalize-indices -f "./data/editions/*.xml" -i "./data/indices/*.xml" -m ".//*[@ref]/@ref | .//*/@source" -x ".//tei:titleStmt/tei:title[@type='main']/text()"
     - name: Install Saxon, Ant and Python
