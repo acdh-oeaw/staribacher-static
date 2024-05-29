@@ -18,7 +18,10 @@ jobs:
       uses: actions/checkout@v4
     - name: fetch data
       run: | 
-        ./shellscripts/fetch_editions.sh
+        ./shellscripts/data.sh
+    - name: Fetch imprint
+      run: |
+        shellscripts/dl_imprint.sh
     - name: Complete editions
       run: |
         add-attributes -g "./data/editions/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
@@ -40,7 +43,7 @@ jobs:
       run: |
         ant
     - name: Update Favicons
-      run: python update_favicons.py
+      run: shellscript/update_favicons.py
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
