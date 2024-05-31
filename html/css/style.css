@@ -199,9 +199,9 @@ nav {
     border-bottom-right-radius: 1em ; 
 }
 
-div.container-fluid:nth-child(1) {
-	background: var(--st-bg-color2) none repeat scroll 0% 0%;
-}
+
+
+
 
 .footer {
 	width: 100% ;
