@@ -34,7 +34,7 @@
                 <script src="js-data/calendarData.js"></script>
                 <main class="flex-grow-1">   
                    
-                    <div class="container-fluid">                        
+                    <div class="hfeed site flex-grow-1" id="page">                  
                         
                         <h1 class="text-center display-3 p-3">
                                     Kalender</h1>
@@ -58,16 +58,6 @@
                                                 <p style="text-align:center;font-weight:bold;margin-top:1rem;margin-bottom:0;" data-i18n="calendar__legendtitle"></p>
                                             </div>
                                         </div>
-                                     
-                                            <div class="row d-flex flex-row flex-nowrap align-items-baseline mt-2" id="calendar-legend">
-                                                <span style="position: relative; height: 0.64rem; width: 0.64rem; background-color: #A63437; border-radius: 50%; margin-right: 1rem;"></span>
-                                                <span style="flex: 1;" data-i18n="calendar__legendextant"></span>
-                                            </div>
-                                            <div class="row d-flex flex-row flex-nowrap  align-items-baseline" id="calendar-legend">
-                                                <span style="display: inline-block; position: relative; height: 0.64rem; width: 0.64rem; background-color: #BADA55; border-radius: 50%; margin-right: 1rem;"></span>
-                                                <span style="flex: 1;" data-i18n="calendar__legendrefd"></span>
-                                            </div>
-                                        
                                     </div>
                                     <div class="col-sm-10">
                                         <div id="calendar"/>
