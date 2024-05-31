@@ -33,6 +33,9 @@ jobs:
     - name: Denormalise indices
       run: |
         denormalize-indices -f "./data/editions/*.xml" -i "./data/indices/*.xml" -m ".//*[@ref]/@ref | .//*/@source" -x ".//tei:titleStmt/tei:title[@type='main']/text()"
+    - name: Add dates for calendar
+      run: |
+        pyscripts/make_calendar_data.py
     - name: Install Saxon, Ant and Python
       run: |
         apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend

@@ -54,6 +54,9 @@
                              <li class="nav-item">
                                 <a title="Personen" class="nav-link" href="listperson.html">Personen</a>
                             </li>
+			    <li class="nav-item">
+                                <a title="Kalender" class="nav-link" href="calendar.html">Kalender</a>
+                            </li>
                             <li class="nav-item">
                                 <a title="Suche" class="nav-link" href="search.html">Suche</a>
                             </li>

@@ -23,8 +23,6 @@ body {
     overflow: visible ;
 }
 
-
-
 body * {
 	font-family: sans-serif;
 }
@@ -33,6 +31,30 @@ body * {
 	opacity: 1!important;
 }
 
+#page a {
+		color: var(--st-bg-color2) ;
+}
+
+.modal a {
+	color: var(--st-bg-color2) ;
+}
+.container .metatext {
+	padding-left: 2rem ;
+	padding-right: 2rem ;
+}
+
+.container h1 {
+	padding-left: 2rem ;
+	padding-right: 2rem ;
+}
+
+main a {
+		color: var(--st-bg-color2)!important ;
+}
+
+footer a {
+	color: var(--st-bg-color2)!important ;
+}
 .times-new-roman * {
     font-family: "Times New Roman", serif !important;
   }
@@ -168,8 +190,29 @@ nav {
 	background: var(--st-bg-color2) none repeat scroll 0% 0%;
 }
 
-div.container-fluid:nth-child(1) {
-	background: var(--st-bg-color2) none repeat scroll 0% 0%;
+.container {
+	width: 100% ;
+	padding: .2rem;
+    background-color: var(--st-bg-color);
+    opacity: .95!important;
+    padding: 0.2rem;
+    padding-top: 1rem ;
+    padding-bottom: 1rem ;
+    border-bottom-left-radius: 1em ; 
+    border-bottom-right-radius: 1em ; 
+}
+
+.footer {
+	width: 100% ;
+	font-family: sans-serif;
+	font-size: 0.75em;
+	line-height: 0.8em;
+	padding-top: 0;
+	margin-top: 0;
+	font-weight: 300;
+	color: var(--st-fg-color);
+    	background: var(--st-bg-color) ;
+    	opacity: 1;
 }
 
 .dropdown-menu a:hover{
@@ -203,9 +246,7 @@ div.container-fluid:nth-child(1) {
     padding: 4rem ;
 }
 
-a {
-	color: var(--st-bg-color2);
-}
+
 .col-md-6.col-lg-6.col-sm-12.text {
 	resize: horizontal;
 	font-size: var(--ed-font-size) ;
@@ -231,6 +272,7 @@ a {
 	display: inline-block ; 
 	border-bottom: 0.1rem solid #888 ;
 }
+
 
 .date {
 	text-decoration: underline;
@@ -276,33 +318,11 @@ a {
 	width: 50px;
 	margin-top: 15px;
 	margin-bottom: 15px;
-
-.container {
-width: 100% ;
-padding: .2rem;
-    background-color: var(--st-bg-color);
-    opacity: .95!important;
-    padding: 0.2rem;
-    padding-top: 1rem ;
-    padding-bottom: 1rem ;
-    border-bottom-left-radius: 1em ; 
-    border-bottom-right-radius: 1em ; 
-
 }
 
-.container .metatext {
-	padding-left: 2rem ;
-	padding-right: 2rem ;
-}
-
-.container h1 {
-	padding-left: 2rem ;
-	padding-right: 2rem ;
-}
 .strikethrough {
     text-decoration: line-through;
 }
-
 
 .subst-add {
     color: #88dbdf;
@@ -343,6 +363,19 @@ padding: .2rem;
 }
 
 
+.months-container {
+	background-color: var(--st-bg-color)!important ;
+	padding: 1em;
+	opacity: 0.95!important ;
+	border: 2pt solid var(--st-bg-color2)!important;
+	border-radius: 1em ;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
+}
+
+.month-container {
+	width: 16.66666667% ;
+}
+
 .ais-Hits-item {
 	background-color: var(--st-bg-color)!important ;
 	opacity: 0.95!important ;
@@ -355,19 +388,59 @@ padding: .2rem;
 	background-color: var(--st-bg-color2)!important;
 }
 
-.footer {
-	width: 100% ;
-	font-family: sans-serif;
-	font-size: 0.75em;
-	line-height: 0.8em;
-	padding-top: 0;
-	margin-top: 0;
-	font-weight: 300;
-	color: var(--st-fg-color);
-    	background: var(--st-bg-color) ;
-    	opacity: 1;
+.yearscol {
+	background-color: var(--st-bg-color) ;
+	opacity: 0.95!important ;
+	border: 2pt solid var(--st-bg-color2) ;
+	border-radius: 1em ;
+	height: min-content ;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ;
 }
 
+.yearbtn{
+	border: 0;
+	background-color:  inherit;
+}
+
+.btn {
+    color: unset;
+    background-color: unset;
+    border-color: unset;
+}
+.btn:hover {
+    color: unset;
+    background-color: unset;
+    border-color: unset;
+}
+
+
+.containingloader {
+	padding: 2em;
+}
+#years-table {
+	margin: 0 ; 
+}
+
+#years-table .col-xs-6 {
+	width: auto;
+	padding: 0;
+	margin: 0 ; 
+}
+
+#years-table .col-xs-6:hover {
+    background: rgba(0,0,0,.2);
+	border-radius: 1em;
+}
+
+.col-xs-6 .btn{
+	padding: .5em;
+	margin: 0 ;
+}
+
+.tabulator-row:hover {
+    background: rgba(0,0,0,.2);
+	border-radius: 1em;
+}
 .mt-auto.py-3 {
 	padding-top: 0!important;
 	margin-top: 0!important;
@@ -394,10 +467,8 @@ padding: .2rem;
 	padding-bottom: 1em;
 }
 
-a {
-    color: var(--st-bg-color2)
 
-}
+
 
 
 @media screen and (max-width: 639px) {

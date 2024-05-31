@@ -36,15 +36,15 @@
     <xsl:param name="mytab"><![CDATA[&emsp;]]></xsl:param>
     <xsl:param name="myplaceholder"><![CDATA[&zwnj;]]></xsl:param>   
     <xsl:template match="/">    
-        <html class="page" lang="de">
+        <html class="h-100" lang="de">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>
                 </xsl:call-template>
             </head>
             <body class="d-flex flex-column">
+                <xsl:call-template name="nav_bar"/>
                 <div class="hfeed site flex-grow-1" id="page">
-                    <xsl:call-template name="nav_bar"/>
                     <div class="row" id="edition_metadata">
                         <div class="col-md-2 col-lg-2 col-sm-12">
                                 <xsl:if test="ends-with($prev,'.html')">
