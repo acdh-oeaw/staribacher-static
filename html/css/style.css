@@ -363,6 +363,19 @@ nav {
 }
 
 
+.months-container {
+	background-color: var(--st-bg-color)!important ;
+	padding: 1em;
+	opacity: 0.95!important ;
+	border: 2pt solid var(--st-bg-color2)!important;
+	border-radius: 1em ;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
+}
+
+.month-container {
+	width: 16.66666667% ;
+}
+
 .ais-Hits-item {
 	background-color: var(--st-bg-color)!important ;
 	opacity: 0.95!important ;
@@ -375,8 +388,40 @@ nav {
 	background-color: var(--st-bg-color2)!important;
 }
 
+#years-table {
+	background-color: var(--st-bg-color) ;
+	opacity: 0.95!important ;
+	border: 2pt solid var(--st-bg-color2) ;
+	border-radius: 1em ;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ;
+	margin: .2em!important;
+}
 
+.yearbtn{
+	border: 0;
+	background-color:  inherit;
+}
 
+.btn {
+    color: unset;
+    background-color: unset;
+    border-color: unset;
+}
+.btn:hover {
+    color: unset;
+    background-color: unset;
+    border-color: unset;
+}
+
+.col-xs-6:hover {
+    background: rgba(0,0,0,.2);
+	border-radius: 1em;
+}
+
+.tabulator-row:hover {
+    background: rgba(0,0,0,.2);
+	border-radius: 1em;
+}
 .mt-auto.py-3 {
 	padding-top: 0!important;
 	margin-top: 0!important;
@@ -402,6 +447,9 @@ nav {
 	padding-top: 0 ;
 	padding-bottom: 1em;
 }
+
+
+
 
 
 @media screen and (max-width: 639px) {
