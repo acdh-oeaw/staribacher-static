@@ -18,7 +18,7 @@ var calendarTypeData = calendarData.map(r =>
 }));
 
 
-var startYear = 1677;
+var startYear = 1970;
 
 var years = Array.from(new Set(calendarData.map(getYear))).sort();
 var yearsTable = document.getElementById('years-table');
@@ -100,7 +100,7 @@ const calendar = new Calendar('#calendar', {
     document.getElementById(`ybtn${e.currentYear}`).classList.add("focus");
   }
 });
-removeBlackDaysFromCalendar();
+/*removeBlackDaysFromCalendar(); */
 
 function updateyear(year) {
   calendar.setYear(year);
