@@ -21,9 +21,9 @@ for file_name in tqdm(file_list, total=len(file_list)):
 
     # correspAction/date
     try:
-        sent_date_node = doc.any_xpath("//tei:correspAction/tei:date")[0]
+        sent_date_node = doc.any_xpath("//tei:creation/tei:date")[0]
     except IndexError:
-        broken.append(f"missing '//tei:correspAction/tei:date' in file: {file_name}")
+        broken.append(f"missing '//tei:creation/tei:date' in file: {file_name}")
         continue
     is_valid_date = False
     if "when-iso" in sent_date_node.attrib:
@@ -31,6 +31,12 @@ for file_name in tqdm(file_list, total=len(file_list)):
         is_valid_date = True
     elif "when" in sent_date_node.attrib:
         ca_date_when = sent_date_node.attrib["when"]
+        is_valid_date = True
+    elif "from" in sent_date_node.attrib:
+        ca_date_when = sent_date_node.attrib["from"]
+        is_valid_date = True
+    elif "to" in sent_date_node.attrib:
+        ca_date_when = sent_date_node.attrib["to"]
         is_valid_date = True
     else:
         no_dates.append(tail)
@@ -43,29 +49,6 @@ for file_name in tqdm(file_list, total=len(file_list)):
         }
         data.append(item)
 
-    # body/date
-    body_dates = doc.any_xpath("//tei:body//tei:date[@type='letter']")
-    for body_date_node in body_dates:
-        if "when-iso" in body_date_node.attrib:
-            body_date_when = body_date_node.attrib["when-iso"]
-        elif "when" in body_date_node.attrib:
-            body_date_when = body_date_node.attrib["when"]
-        else:
-            print(f"{id}: invalid date node in body", body_date_node.attrib)
-            continue
-        if (
-            is_valid_date and body_date_when == ca_date_when
-        ):  # ignore in-body authoring date
-            continue
-
-        body_date_item = {
-            "name": "Brief erschlossen",
-            "date": body_date_when,
-            "id": False,
-            "ref_by_id": id,
-            "ref_by_date": ca_date_when if is_valid_date else None,
-        }
-        data.append(body_date_item)
 
 
 print(f"{len(data)} Datumsangaben aus {len(file_list)} Dateien extrahiert")
