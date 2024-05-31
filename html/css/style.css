@@ -362,20 +362,6 @@ nav {
     text-align: justify;
 }
 
-
-.months-container {
-	background-color: var(--st-bg-color)!important ;
-	padding: 1em;
-	opacity: 0.95!important ;
-	border: 2pt solid var(--st-bg-color2)!important;
-	border-radius: 1em ;
-	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
-}
-
-.month-container {
-	width: 16.66666667% ;
-}
-
 .ais-Hits-item {
 	background-color: var(--st-bg-color)!important ;
 	opacity: 0.95!important ;
@@ -388,6 +374,9 @@ nav {
 	background-color: var(--st-bg-color2)!important;
 }
 
+.containingloader{
+	padding:1em;
+}
 .yearscol {
 	background-color: var(--st-bg-color) ;
 	opacity: 0.95!important ;
@@ -395,6 +384,23 @@ nav {
 	border-radius: 1em ;
 	height: min-content ;
 	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ;
+}
+
+.calendar {
+	background-color: var(--st-bg-color)!important ;
+	opacity: 0.95!important ;
+	border: 2pt solid var(--st-bg-color2)!important;
+	border-radius: 1em!important ;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
+	padding-right: calc(var(--bs-gutter-x) * .5)!important;
+	padding-left: calc(var(--bs-gutter-x) * .5)!important;
+	padding-top: 0!important ;
+	padding-bottom: 0!important ;
+	margin-left: 1em;
+	max-width: 68vw ; 
+}
+.month-container {
+	width: 16.66666667% ;
 }
 
 .yearbtn{
@@ -521,5 +527,13 @@ nav {
 	}
 	#Hits {
 		width: 100%;
+	}
+	.yearscol {
+		margin-right: unset;
+		margin-bottom: 1em;
+	}
+	.calendar {
+		max-width: unset ;
+		margin-left: unset ;  
 	}
 }
