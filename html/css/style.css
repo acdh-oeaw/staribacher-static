@@ -35,6 +35,9 @@ body * {
 		color: var(--st-bg-color2) ;
 }
 
+.modal a {
+	color: var(--st-bg-color2) ;
+}
 .container .metatext {
 	padding-left: 2rem ;
 	padding-right: 2rem ;
