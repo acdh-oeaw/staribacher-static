@@ -24,6 +24,8 @@ jobs:
     needs: fetch_data
     runs-on: ubuntu-latest
     steps:
+      - name: Perform Checkout
+        uses: actions/checkout@v4
       - name: install required libs
         run: pip install -r requirements.txt
       - name: Complete editions
