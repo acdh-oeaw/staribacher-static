@@ -11,7 +11,7 @@ jobs:
   build_pages:
     name: Publish Edition as GitHub Pages Website
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     env:
       ANT_OPTS: -Xmx10g
     steps:
