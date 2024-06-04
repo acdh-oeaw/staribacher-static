@@ -21,6 +21,7 @@ jobs:
           shellscripts/fetch_data.sh
   fill_pages:
     name: Fill pages with new data
+    needs: fetch_data
     runs-on: ubuntu-latest
     steps:
       - name: install required libs
@@ -42,6 +43,7 @@ jobs:
           pyscripts/make_calendar_data.py
   build_pages:
     name: Publish Edition as GitHub Pages Website
+    needs: fill_pages
     runs-on: ubuntu-latest
     env:
       ANT_OPTS: -Xmx10g
