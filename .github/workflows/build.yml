@@ -23,8 +23,6 @@ jobs:
     name: Fill pages with new data
     runs-on: ubuntu-latest
     steps:
-      - name: Perform Checkout
-        uses: actions/checkout@v4
       - name: install required libs
         run: pip install -r requirements.txt
       - name: Complete editions
@@ -48,8 +46,6 @@ jobs:
     env:
       ANT_OPTS: -Xmx10g
     steps:
-    - name: Perform Checkout
-      uses: actions/checkout@v4
     - name: Build
       run: |
         ant
