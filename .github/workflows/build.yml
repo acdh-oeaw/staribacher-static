@@ -50,6 +50,8 @@ jobs:
     env:
       ANT_OPTS: -Xmx10g
     steps:
+    - name: Perform Checkout
+      uses: actions/checkout@v4
     - name: Build
       run: |
         ant
