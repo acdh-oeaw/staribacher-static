@@ -8,42 +8,48 @@ on:
   
 
 jobs:
+  fetch_data:
+    name: Fetch data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Perform Checkout
+        uses: actions/checkout@v4
+      - name: Clear all
+        run: rm -rf data
+      - name: fetch data
+        run: |
+          /shellscripts/fetch_data.sh
+  fill_pages:
+    name: Fill pages with new data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Perform Checkout
+        uses: actions/checkout@v4
+      - name: install required libs
+        run: pip install -r requirements.txt
+      - name: Complete editions
+        run: |
+          add-attributes -g "./data/editions/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
+      - name: Complete meta
+        run: |
+          add-attributes -g "./data/meta/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
+      - name: complete indices
+        run: |
+          add-attributes -g "./data/indices/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
+      - name: Denormalise indices
+        run: |
+          denormalize-indices -f "./data/editions/*.xml" -i "./data/indices/*.xml" -m ".//*[@ref]/@ref | .//*/@source" -x ".//tei:titleStmt/tei:title[@type='main']/text()"
+      - name: Add dates for calendar
+        run: |
+          pyscripts/make_calendar_data.py
   build_pages:
     name: Publish Edition as GitHub Pages Website
     runs-on: ubuntu-latest
-    timeout-minutes: 120
     env:
       ANT_OPTS: -Xmx10g
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v4
-    - name: install required libs
-      run: pip install -r requirements.txt
-    - name: Clear all
-      run: rm -rf data
-    - name: fetch data
-      run: | 
-        ./shellscripts/fetch_data.sh
-    - name: Complete editions
-      run: |
-        add-attributes -g "./data/editions/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
-    - name: Complete meta
-      run: |
-        add-attributes -g "./data/meta/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
-    - name: complete indices
-      run: |
-        add-attributes -g "./data/indices/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
-    - name: Denormalise indices
-      run: |
-        denormalize-indices -f "./data/editions/*.xml" -i "./data/indices/*.xml" -m ".//*[@ref]/@ref | .//*/@source" -x ".//tei:titleStmt/tei:title[@type='main']/text()"
-    - name: Add dates for calendar
-      run: |
-        pyscripts/make_calendar_data.py
-    - name: Install Saxon, Ant and Python
-      run: |
-        apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
-        ./shellscripts/script.sh
-        pip install -r requirements.txt
     - name: Build
       run: |
         ant
