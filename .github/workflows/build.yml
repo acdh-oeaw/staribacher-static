@@ -8,9 +8,11 @@ on:
   
 
 jobs:
-  fetch_data:
+  build_pages:
     name: Fetch data
     runs-on: ubuntu-latest
+    env:
+      ANT_OPTS: -Xmx10g
     steps:
       - name: Perform Checkout
         uses: actions/checkout@v4
@@ -19,13 +21,6 @@ jobs:
       - name: fetch data
         run: |
           shellscripts/fetch_data.sh
-  fill_pages:
-    name: Fill pages with new data
-    needs: fetch_data
-    runs-on: ubuntu-latest
-    steps:
-      - name: Perform Checkout
-        uses: actions/checkout@v4
       - name: install required libs
         run: pip install -r requirements.txt
       - name: Complete editions
@@ -43,27 +38,17 @@ jobs:
       - name: Add dates for calendar
         run: |
           pyscripts/make_calendar_data.py
-  build_pages:
-    name: Publish Edition as GitHub Pages Website
-    needs: fill_pages
-    runs-on: ubuntu-latest
-    env:
-      ANT_OPTS: -Xmx10g
-    steps:
-    - name: Perform Checkout
-      uses: actions/checkout@v4
-    - name: Install Saxon, Ant and Python
-      run: |
-        apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
-        ./shellscripts/script.sh
-        pip install -r requirements.txt
-    - name: Build
-      run: |
-        ant
-    - name: Update Favicons
-      run: pyscripts/update_favicons.py
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{secrets.GITHUB_TOKEN}}
-        publish_dir: ./html
+      - name: Install Saxon, Ant and Python
+        run: |
+          apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
+          ./shellscripts/script.sh
+      - name: Build
+        run: |
+          ant
+      - name: Update Favicons
+        run: pyscripts/update_favicons.py
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publish_dir: ./html
