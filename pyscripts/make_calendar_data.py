@@ -14,7 +14,7 @@ out_file = os.path.join(data_dir, "calendarData.js")
 no_dates = []
 data = []
 broken = []
-for file_name in tqdm(file_list, total=len(file_list)):
+for file_name in file_list: # tqdm(file_list, total=len(file_list)):
     print(file_name)
     doc = TeiReader(file_name)
     head, tail = os.path.split(file_name)
@@ -42,6 +42,9 @@ for file_name in tqdm(file_list, total=len(file_list)):
     else:
         no_dates.append(tail)
 
+
+    print('ich bin here')
+
     if is_valid_date:
         item = {
             "id": id + ".html",
@@ -49,6 +52,7 @@ for file_name in tqdm(file_list, total=len(file_list)):
             "date": ca_date_when,
         }
         data.append(item)
+    print(f'ende {file_name}')
 
 
 print(f"{len(data)} Datumsangaben aus {len(file_list)} Dateien extrahiert")
