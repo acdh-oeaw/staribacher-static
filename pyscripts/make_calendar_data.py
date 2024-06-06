@@ -15,7 +15,6 @@ no_dates = []
 data = []
 broken = []
 for file_name in file_list: # tqdm(file_list, total=len(file_list)):
-    print(f"«{file_name}»\n")
     doc = TeiReader(file_name)
     head, tail = os.path.split(file_name)
     id = tail.replace(".xml", "")
@@ -43,8 +42,6 @@ for file_name in file_list: # tqdm(file_list, total=len(file_list)):
         no_dates.append(tail)
 
 
-    print('ich bin here')
-
     if is_valid_date:
         item = {
             "id": id + ".html",
@@ -52,7 +49,6 @@ for file_name in file_list: # tqdm(file_list, total=len(file_list)):
             "date": ca_date_when,
         }
         data.append(item)
-    print(f'ende {file_name}')
 
 
 print(f"{len(data)} Datumsangaben aus {len(file_list)} Dateien extrahiert")
