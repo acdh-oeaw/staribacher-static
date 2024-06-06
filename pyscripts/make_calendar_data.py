@@ -50,7 +50,7 @@ for file_name in file_list:  # tqdm(file_list, total=len(file_list)):
         }
         data.append(item)
     print(f"end '{file_name}'\n")
-
+print("Loop has finished")
 
 print(f"{len(data)} Datumsangaben aus {len(file_list)} Dateien extrahiert")
 
