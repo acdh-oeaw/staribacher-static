@@ -19,15 +19,15 @@
                 
             </xsl:if>
             <xsl:if test="./tei:occupation/text()">
-                <small>Tätigkeit:</small> <xsl:value-of select="tokenize(./tei:occupation, '/')[last()]"/><br/>
+                <small>Tätigkeit: </small> <xsl:value-of select="tokenize(./tei:occupation, '/')[last()]"/><br/>
 
             </xsl:if>
             <xsl:if test="./tei:idno[@type='GND']/text()">
-                <small>GND ID:</small> <a href="{./tei:idno[@type='GND']}" target="_blank"><xsl:value-of select="tokenize(./tei:idno[@type='GND'], '/')[last()]"/></a><br/>
+                <small>GND ID: </small> <a href="{./tei:idno[@type='GND']}" target="_blank"><xsl:value-of select="tokenize(./tei:idno[@type='GND'], '/')[last()]"/></a><br/>
 
             </xsl:if>
             <xsl:if test="./tei:idno[@type='WIKIDATA']/text()">
-                <small>Wikidata ID:</small>
+                <small>Wikidata ID: </small>
                 <a href="{./tei:idno[@type='WIKIDATA']}" target="_blank">
                     <xsl:value-of select="tokenize(./tei:idno[@type='WIKIDATA'], '/')[last()]"/>
                 </a><br/>
