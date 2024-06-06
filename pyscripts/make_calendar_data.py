@@ -23,7 +23,9 @@ chunks = [file_list[x:x+10] for x in range(0, len(file_list), 10)]
 
 
 
+print("List loop starts here")
 for chunk in chunks:
+    print(f"Chunk '{chunk}' loop starts here")
     for file_name in chunk:  # tqdm(file_list, total=len(file_list)):
         print(f"begin '{file_name}'\n")
         doc = TeiReader(file_name)
