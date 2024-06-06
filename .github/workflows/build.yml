@@ -12,7 +12,7 @@ jobs:
     name: Fetch data
     runs-on: ubuntu-latest
     env:
-      ANT_OPTS: -Xmx10g
+      ANT_OPTS: -Xmx5g
     steps:
       - name: Perform Checkout
         uses: actions/checkout@v4
