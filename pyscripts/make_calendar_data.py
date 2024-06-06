@@ -65,7 +65,8 @@ for chunk in chunks:
         del ca_date_when
         del is_valid_date
         del item
-    print("Loop has finished")
+    print("Chunk loop has finished")
+print("List loop has finished")
 
 print(f"{len(data)} Datumsangaben aus {len(file_list)} Dateien extrahiert")
 
