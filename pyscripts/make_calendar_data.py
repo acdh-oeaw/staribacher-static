@@ -15,45 +15,52 @@ no_dates = []
 data = []
 broken = []
 
-for file in file_list:
-    print(file)
-for file_name in file_list:  # tqdm(file_list, total=len(file_list)):
-    print(f"begin '{file_name}'\n")
-    doc = TeiReader(file_name)
-    head, tail = os.path.split(file_name)
-    id = tail.replace(".xml", "")
 
-    # correspAction/date
-    try:
-        sent_date_node = doc.any_xpath("//tei:creation/tei:date")[0]
-    except IndexError:
-        broken.append(f"missing '//tei:creation/tei:date' in file: {file_name}")
-        continue
-    is_valid_date = False
-    if "when-iso" in sent_date_node.attrib:
-        ca_date_when = sent_date_node.attrib["when-iso"]
-        is_valid_date = True
-    elif "when" in sent_date_node.attrib:
-        ca_date_when = sent_date_node.attrib["when"]
-        is_valid_date = True
-    elif "from" in sent_date_node.attrib:
-        ca_date_when = sent_date_node.attrib["from"]
-        is_valid_date = True
-    elif "to" in sent_date_node.attrib:
-        ca_date_when = sent_date_node.attrib["to"]
-        is_valid_date = True
-    else:
-        no_dates.append(tail)
 
-    if is_valid_date:
-        item = {
-            "id": id + ".html",
-            "name": doc.any_xpath("//tei:title[@type='main']/text()")[0],
-            "date": ca_date_when,
-        }
-        data.append(item)
-    print(f"end '{file_name}'\n")
-print("Loop has finished")
+
+
+chunks = [file_list[x:x+300] for x in range(0, len(file_list), 300)]
+
+
+
+for chunk in chunks:
+    for file_name in chunk:  # tqdm(file_list, total=len(file_list)):
+        print(f"begin '{file_name}'\n")
+        doc = TeiReader(file_name)
+        head, tail = os.path.split(file_name)
+        id = tail.replace(".xml", "")
+
+        # correspAction/date
+        try:
+            sent_date_node = doc.any_xpath("//tei:creation/tei:date")[0]
+        except IndexError:
+            broken.append(f"missing '//tei:creation/tei:date' in file: {file_name}")
+            continue
+        is_valid_date = False
+        if "when-iso" in sent_date_node.attrib:
+            ca_date_when = sent_date_node.attrib["when-iso"]
+            is_valid_date = True
+        elif "when" in sent_date_node.attrib:
+            ca_date_when = sent_date_node.attrib["when"]
+            is_valid_date = True
+        elif "from" in sent_date_node.attrib:
+            ca_date_when = sent_date_node.attrib["from"]
+            is_valid_date = True
+        elif "to" in sent_date_node.attrib:
+            ca_date_when = sent_date_node.attrib["to"]
+            is_valid_date = True
+        else:
+            no_dates.append(tail)
+
+        if is_valid_date:
+            item = {
+                "id": id + ".html",
+                "name": doc.any_xpath("//tei:title[@type='main']/text()")[0],
+                "date": ca_date_when,
+            }
+            data.append(item)
+        print(f"end '{file_name}'\n")
+    print("Loop has finished")
 
 print(f"{len(data)} Datumsangaben aus {len(file_list)} Dateien extrahiert")
 
