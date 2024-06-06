@@ -61,10 +61,11 @@ for chunk in chunks:
                 "date": ca_date_when,
             }
             data.append(item)
-        print(f"end '{file_name}'\n")
-        del doc
-        del sent_date_node
+
+        print(f"end '{file_name}: {item}'\n")
         del ca_date_when
+        del sent_date_node
+        del doc
         del is_valid_date
         del item
     print("Chunk loop has finished")
