@@ -9,7 +9,7 @@ on:
 
 jobs:
   build_pages:
-    name: Fetch data
+    name: Fetch data, fill metadata, build
     runs-on: ubuntu-latest
     env:
       ANT_OPTS: -Xmx5g
