@@ -14,6 +14,9 @@ out_file = os.path.join(data_dir, "calendarData.js")
 no_dates = []
 data = []
 broken = []
+
+for file in file_list:
+    print(file)
 for file_name in file_list:  # tqdm(file_list, total=len(file_list)):
     print(f"begin '{file_name}'\n")
     doc = TeiReader(file_name)
