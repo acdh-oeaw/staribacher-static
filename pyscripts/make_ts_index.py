@@ -73,7 +73,7 @@ def get_entities(ent_type, ent_node, ent_name, index_file, modifier):
 records = []
 cfts_records = []
 persons_idx = TeiReader(xml="./data/indices/listperson.xml")
-for xml_filepath in files:  # tqdm(files, total=len(files)):
+for xml_filepath in tqdm(files, total=len(files)):
     doc = TeiReader(xml=xml_filepath)
     facs = doc.any_xpath(".//tei:body/tei:div/tei:pb/@facs")
     pages = 0
