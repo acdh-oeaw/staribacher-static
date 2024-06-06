@@ -42,7 +42,6 @@ for file_name in tqdm(file_list, total=len(file_list)):
     else:
         no_dates.append(tail)
 
-
     if is_valid_date:
         item = {
             "id": id + ".html",
