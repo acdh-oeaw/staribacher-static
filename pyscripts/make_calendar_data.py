@@ -15,7 +15,7 @@ no_dates = []
 data = []
 broken = []
 for file_name in file_list: # tqdm(file_list, total=len(file_list)):
-    print(f"«{filename}»")
+    print(f"«{file_name}»\n")
     doc = TeiReader(file_name)
     head, tail = os.path.split(file_name)
     id = tail.replace(".xml", "")
