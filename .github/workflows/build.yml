@@ -17,7 +17,7 @@ jobs:
       - name: Perform Checkout
         uses: actions/checkout@v4
       - name: Clear all
-        run: rm -rf data
+        run: rm -rf data ./html/js-data/calendarData.js
       - name: fetch data
         run: |
           shellscripts/fetch_data.sh
