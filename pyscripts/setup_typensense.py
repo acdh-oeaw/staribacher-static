@@ -125,7 +125,7 @@ def create_records():
     xml_files = glob.glob(xml_path)
     print(f"loaded total of {len(xml_files)} files")
     records = []
-    for xml_filepath in tqdm(xml_files, total=len(xml_files)):
+    for xml_filepath in xml_files:  # tqdm(xml_files, total=len(xml_files)):
         print("processing", xml_filepath)
         file_name = os.path.split(xml_filepath)[-1]
         xml_doc = TeiReader(xml_filepath)
