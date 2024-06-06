@@ -19,7 +19,7 @@ broken = []
 
 
 
-chunks = [file_list[x:x+300] for x in range(0, len(file_list), 300)]
+chunks = [file_list[x:x+10] for x in range(0, len(file_list), 10)]
 
 
 
@@ -60,6 +60,11 @@ for chunk in chunks:
             }
             data.append(item)
         print(f"end '{file_name}'\n")
+        del doc
+        del sent_date_node
+        del ca_date_when
+        del is_valid_date
+        del item
     print("Loop has finished")
 
 print(f"{len(data)} Datumsangaben aus {len(file_list)} Dateien extrahiert")
