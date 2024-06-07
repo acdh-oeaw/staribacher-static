@@ -30,8 +30,8 @@ jobs:
         run: add-attributes -g "./data/indices/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
       - name: Denormalise indices
         run: denormalize-indices -f "./data/editions/*.xml" -i "./data/indices/*.xml" -m ".//*[@ref]/@ref | .//*/@source" -x ".//tei:titleStmt/tei:title[@type='main']/text()"
-      - name: Add dates for calendar
-        run: python -v pyscripts/make_calendar_data.py
+      #- name: Add dates for calendar
+      #  run: python -v pyscripts/make_calendar_data.py
       - name: Build
         run: ant
       - name: Update Favicons
