@@ -108,7 +108,7 @@
                                  <div id="text-resize" lang="de"
                                     class="col-md-6 col-lg-6 col-sm-12 text yes-index">
                                    <xsl:apply-templates/>
-                                    <p style="margin-bottom:5cm;margin-top:5cm"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
+                                    <p style="margin-bottom:10vw;margin-top:5vw"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
                                 </div> 
                             </div>
                         </div>
