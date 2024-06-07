@@ -20,8 +20,8 @@ jobs:
         run: rm -rf data
       - name: fetch data
         run: ./shellscripts/fetch_data.sh
-      - run: Create files
-        ./shellscripts/script.sh
+      - name: Create files
+        run: ./shellscripts/script.sh
       - name: Complete editions
         run: add-attributes -g "./data/editions/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
       - name: Complete meta
