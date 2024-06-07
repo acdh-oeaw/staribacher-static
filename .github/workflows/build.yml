@@ -6,7 +6,7 @@ on:
 jobs:
   build_pages:
     name: Fetch data, fill metadata, build
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     env:
       ANT_OPTS: -Xmx10g
     steps:
