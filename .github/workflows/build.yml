@@ -15,12 +15,13 @@ jobs:
       - name: Install Saxon, Ant and Python
         run: |
           sudo apt-get update && sudo apt-get install  -y --no-install-recommends openjdk-11-jre-headless ant
-          ./shellscripts/script.sh
           pip install -r requirements.txt
       - name: Clear all
         run: rm -rf data
       - name: fetch data
         run: ./shellscripts/fetch_data.sh
+      - run: Create files
+        ./shellscripts/script.sh
       - name: Complete editions
         run: add-attributes -g "./data/editions/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
       - name: Complete meta
