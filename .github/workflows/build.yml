@@ -8,7 +8,7 @@ jobs:
     name: Fetch data, fill metadata, build
     runs-on: ubuntu-latest
     env:
-      ANT_OPTS: -Xmx5g
+      ANT_OPTS: -Xmx10g
     steps:
       - name: Perform Checkout
         uses: actions/checkout@v4
