@@ -80,9 +80,6 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
 	background-color: var(--bv-main-bg-color);
 }
 
-.ais-SearchBox-input {
-	background-color: var(--bv-main-bg-color);
-}
 
 .form-control:focus {
     color: #212529;
@@ -91,59 +88,6 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
     outline: 0;
     border: 0.02rem solid var(--bv-big-highlight);
 }
-
-input.ais-SearchBox-input:focus-visible {
-    outline: 0;
-    border: 0.02rem solid var(--bv-big-highlight);
-    box-shadow: 0px 0.1rem 0.4rem var(--bv-big-highlight);
-}
-
-input.ais-SearchBox-input:focus {
-    outline: 0;
-    border: 0px solid var(--bv-big-highlight);
-    box-shadow: 0px 0.1rem 0.4rem var(--bv-big-highlight);
-    border: 0.02rem solid var(--bv-big-highlight);
-}
-
-
-/* fix the checkboxes and the colors */
-
-input[type=checkbox] {
-    display: none;
-  }
-   
-  input[type=checkbox] + label,
-  input[type=checkbox] + span
-  {
-    display:inline-block;
-    padding-left: 20px;
-    position: relative;
-  }
-
-  input[type=checkbox] + label:before,
-  input[type=checkbox] + span:before
-  {
-    content: "";
-    background: lightgray;
-    position: absolute;
-    top: 0.25rem;
-    left: 0;
-    height: 1rem;
-    width: 1rem;
-    border-radius: 50%;
-  }
-
-  input[type=checkbox]:checked + label:before,
-  input[type=checkbox]:checked + span:before
-  {
-    content: "\f00c";
-    font-family: 'FontAwesome';
-    color: var(--bv-big-highlight);
-    font-size: 0.8rem;
-    line-height: 1rem;
-    display: flex; 
-    justify-content: center;
-  }
 
 /* change color of filters */
 .ais-CurrentRefinements-item {
@@ -175,23 +119,9 @@ input[type=checkbox] {
     color: #000;
 }
 
-.ais-SearchBox-submit {
-    background-color: transparent;
-    border-color: transparent;
-}
-
-.ais-SearchBox-submit:hover {
-    background-color: transparent !important;
-    border-color: transparent !important;
-}
-
 .btn:hover {
     color: #fff;
     background-color: var(--bv-small-highlight);
-}
-
-.search-panel {
-    margin: 2em auto;
 }
 
 .ais-RefinementList-label span {
