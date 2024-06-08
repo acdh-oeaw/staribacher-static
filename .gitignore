@@ -7,6 +7,8 @@ data/imprint.xml
 html/static-search
 /data/editions/*xml
 /data/indices/*xml
+/data/meta/*xml
+data/meta/arche_constants.rdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
