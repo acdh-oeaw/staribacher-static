@@ -49,5 +49,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
