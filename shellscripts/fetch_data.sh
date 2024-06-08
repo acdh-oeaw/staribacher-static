@@ -5,3 +5,5 @@ unzip ./main
 rm -rf data
 mv ./staribacher-data-main/data .
 rm -rf ./main.zip ./staribacher-data-main
+
+./shellscripts/dl_imprint.sh
