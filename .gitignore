@@ -9,6 +9,7 @@ html/static-search
 /data/indices/*xml
 /data/meta/*xml
 data/meta/arche_constants.rdf
+html/js-data/calendarData.js
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -148,3 +149,4 @@ desktop.ini
 
 # MacOS
 .DS_Store
+html/no_dates.csv
