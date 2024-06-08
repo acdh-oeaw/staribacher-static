@@ -10,7 +10,7 @@ echo "remove notegrps from index entries in editions"
 python pyscripts/rm_notegrps.py
 
 echo "populate html/js-data/calendarData.js"
-python python pyscripts/make_calendar_data.py
+python pyscripts/make_calendar_data.py
 
 echo "populate fulltext-search index"
 echo "call the correct srcipt" 

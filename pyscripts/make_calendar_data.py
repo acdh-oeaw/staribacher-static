@@ -15,14 +15,7 @@ no_dates = []
 data = []
 broken = []
 
-
-
-
-
 chunks = [file_list[x:x+10] for x in range(0, len(file_list), 10)]
-
-
-
 print("List loop starts here")
 for chunk in chunks:
     print(f"Chunk '{chunk}' loop starts here")
@@ -32,24 +25,25 @@ for chunk in chunks:
         head, tail = os.path.split(file_name)
         id = tail.replace(".xml", "")
 
-        # correspAction/date
         try:
-            sent_date_node = doc.any_xpath("//tei:creation/tei:date")[0]
+            date_node = doc.any_xpath("//tei:creation/tei:date")[0]
         except IndexError:
-            broken.append(f"missing '//tei:creation/tei:date' in file: {file_name}")
+            broken.append(
+                f"missing '//tei:creation/tei:date' in file: {file_name}"
+            )
             continue
         is_valid_date = False
-        if "when-iso" in sent_date_node.attrib:
-            ca_date_when = sent_date_node.attrib["when-iso"]
+        if "when-iso" in date_node.attrib:
+            ca_date_when = date_node.attrib["when-iso"]
             is_valid_date = True
-        elif "when" in sent_date_node.attrib:
-            ca_date_when = sent_date_node.attrib["when"]
+        elif "when" in date_node.attrib:
+            ca_date_when = date_node.attrib["when"]
             is_valid_date = True
-        elif "from" in sent_date_node.attrib:
-            ca_date_when = sent_date_node.attrib["from"]
+        elif "from" in date_node.attrib:
+            ca_date_when = date_node.attrib["from"]
             is_valid_date = True
-        elif "to" in sent_date_node.attrib:
-            ca_date_when = sent_date_node.attrib["to"]
+        elif "to" in date_node.attrib:
+            ca_date_when = date_node.attrib["to"]
             is_valid_date = True
         else:
             no_dates.append(tail)
@@ -64,7 +58,7 @@ for chunk in chunks:
 
         print(f"end '{file_name}: {item}'\n")
         del ca_date_when
-        del sent_date_node
+        del date_node
         del doc
         del is_valid_date
         del item
@@ -75,8 +69,8 @@ print(f"{len(data)} Datumsangaben aus {len(file_list)} Dateien extrahiert")
 
 print(f"writing calendar data to {out_file}")
 with open(out_file, "w", encoding="utf8") as f:
-    my_js_variable = f"var calendarData = {json.dumps(data, ensure_ascii=False)}"
-    f.write(my_js_variable)
+    js_data = f"var calendarData = {json.dumps(data, ensure_ascii=False)}"
+    f.write(js_data)
 
 no_dates_file = "./html/no_dates.csv"
 print(f"writing files without date to {no_dates_file}")

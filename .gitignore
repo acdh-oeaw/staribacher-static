@@ -11,6 +11,9 @@ html/static-search
 data/meta/arche_constants.rdf
 html/js-data/calendarData.js
 
+html/*.xml
+html/*.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
