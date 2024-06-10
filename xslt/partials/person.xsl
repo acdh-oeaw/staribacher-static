@@ -33,6 +33,7 @@
                 </a><br/>
 
             </xsl:if>
+            <xsl:if test="$showNumberOfMentions gt 0">
             <br/>
             <hr />
             <div id="mentions">
@@ -57,6 +58,7 @@
                     <p>Anzahl der Erwähnungen limitiert, klicke <a href="{$selfLink}">hier</a> für eine vollständige Auflistung</p>
                 </xsl:if>
             </div>
+            </xsl:if>
         </div>
     </xsl:template>
 </xsl:stylesheet>

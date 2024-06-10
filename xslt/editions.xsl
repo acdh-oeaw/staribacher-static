@@ -125,8 +125,9 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">
-                                        <xsl:value-of select="normalize-space(string-join(.//tei:persName[1]//text()))"/>
-                                        <xsl:text> </xsl:text>
+                                        <a href="{concat($xmlId, '.html')}">
+                                            <xsl:value-of select="normalize-space(string-join(.//tei:persName[1]//text()))"/>
+                                        </a>
                                         <a href="{concat($xmlId, '.html')}">
                                             <i class="fas fa-external-link-alt"></i>
                                         </a>
@@ -134,7 +135,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <xsl:call-template name="person_detail">
-                                        <xsl:with-param name="showNumberOfMentions" select="5"/>
+                                        <xsl:with-param name="showNumberOfMentions" select="-1"/>
                                     </xsl:call-template>
                                 </div>
                                 <div class="modal-footer">
