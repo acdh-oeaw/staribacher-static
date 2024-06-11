@@ -48,23 +48,13 @@
                                 <xsl:for-each select=".//tei:person[@xml:id]">
                                     <xsl:variable name="id">
                                         <xsl:value-of select="data(@xml:id)"/>
-                                    </xsl:variable>
+                                    </xsl:variable>            
                                     <tr>
                                         <td>
-                                            <a>
-                                              <xsl:attribute name="href">
-                                              <xsl:value-of select="concat($id, '.html')"/>
-                                              </xsl:attribute>
-                                              <xsl:value-of select=".//tei:surname/text()"/>
-                                            </a>
+                                            <xsl:value-of select=".//tei:surname/text()"/>
                                         </td>
                                         <td>
-                                            <a>
-                                              <xsl:attribute name="href">
-                                              <xsl:value-of select="concat($id, '.html')"/>
-                                              </xsl:attribute>
-                                              <xsl:value-of select=".//tei:forename/text()"/>
-                                            </a>
+                                            <xsl:value-of select=".//tei:forename/text()"/>
                                         </td>
                                         <td>
                                             <xsl:value-of select="$id"/>
