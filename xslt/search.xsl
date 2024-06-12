@@ -29,11 +29,11 @@
                                         <div id="stats-container" />
                                         <h4>Volltextsuche</h4>
                                         <div id="searchbox"/>
-                                        <div id="clear-refinements" />
                                         <h4>Beteiligte Personen</h4>
                                         <div id="refinement-list-persons" />
                                         <h4>Datum</h4>
                                         <div id="refinement-range-year" />
+                                        <div id="clear-refinements" />
                                     </div>
                                     <div class="col-md-8">
                                         <!--<div id="sort-by"></div>-->

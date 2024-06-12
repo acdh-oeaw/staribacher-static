@@ -10,7 +10,7 @@
 
 body {
 	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
-	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg"); 
+	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -359,13 +359,10 @@ nav {
 	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
 }
 
-.ais-RangeSlider .rheostat-progress {
-	background-color: var(--st-bg-color2)!important;
-}
-
 .containingloader{
 	padding:1em;
 }
+
 .yearscol {
 	background-color: var(--st-bg-color) ;
 	opacity: 0.95!important ;

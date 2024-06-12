@@ -100,14 +100,22 @@ search.addWidgets([
           `,
     },
   }),
-
-  instantsearch.widgets.refinementList({
+    
+    instantsearch.widgets.refinementList({
     container: "#refinement-list-persons",
     attribute: "persons",
     attributeName: 'Personen',
     searchable: true,
-    searchablePlaceholder: "Suchen",
+    searchablePlaceholder: "nach Person suchen",
     label: "Personen",
+    templates: {
+      showMoreText(data, { html }) {
+          return html`<span>${data.isShowingMore ? 'Weniger anzeigen' : 'Mehr anzeigen'}</span>`;
+        },
+    },
+    showMore: true,
+    showMoreLimit: 1000,
+    limit: 10,
     cssClasses: {
       searchableInput: "form-control form-control-sm mb-2 border-light-2",
       searchableSubmit: "d-none",
@@ -116,7 +124,7 @@ search.addWidgets([
       list: "list-unstyled",
       count: "badge ml-2 badge-secondary ",
       label: "d-flex align-items-center text-capitalize",
-      checkbox: "mr-2",
+      checkbox: "m-2",
     },
   }),
 

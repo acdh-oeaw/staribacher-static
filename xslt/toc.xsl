@@ -59,7 +59,7 @@
                                     </xsl:variable>
                                     <tr>
                                         <td>
-                                                <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
+                                            <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
                                         </td>
                                         <td>
                                             <xsl:call-template name="getDate"/>

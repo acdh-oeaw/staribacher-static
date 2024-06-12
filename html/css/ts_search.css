@@ -100,7 +100,8 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
   }
 }
 
-.ais-ClearRefinements-button.btn {
+.ais-ClearRefinements-button.btn,
+.ais-RefinementList-showMore.btn {
 	background-color: var(--st-bg-color);
 	color: #000;
   &:hover {
@@ -114,13 +115,27 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
     text-align: left;
 }
 
-.badge {
-    max-width: 100%;
-    overflow: hidden;
+.ais-RefinementList-list {
+    overflow:auto;
+	height: 19em;
 }
 
 .ais-RefinementList-labelText {
     max-width: 290px;
     overflow: hidden;
     text-align: right;
+}
+
+.badge {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.ais-RangeSlider .rheostat-progress {
+	background-color: var(--st-bg-color2)!important;
+}
+
+.ais-RangeSlider .rheostat-tooltip {
+	color: var(--st-fg-color);
+	min-width: 100px;
 }
