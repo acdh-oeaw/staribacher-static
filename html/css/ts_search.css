@@ -1,9 +1,17 @@
 :root {
+    --st-fg-color: #222;
+    --st-bg-color: #e3c18F;
+    --st-bg-secondary:  #B3915F;
     --st-bg-color2: rgba(176, 88, 3, 1);
+    --st-bg-text: #fffcf3;
 }
 
 #hits {
     padding: 1em 0;
+}
+
+a {
+	color: var(--st-bg-color2);
 }
 
 .hideme{
@@ -17,6 +25,12 @@
     width: 100%;
 }
 
+.ais-Stats,
+.ais-Hits,
+.ais-RefinementList {
+    color: var(--st-fg-color);
+}
+
 .ais-SearchBox-form {
     display: flex;
 }
@@ -24,26 +38,22 @@
 #stats-container, 
 #searchbox, 
 #current-refinements, 
-#clear-refinements, 
-#range-input {
+#clear-refinements {
     padding: 1em 0 .5em 0;
 }
-#refinement-list-persons,
-#refinement-list-doc-title {
-    padding: 1em .5em 2em .5em;
-    -webkit-box-shadow: -14px 21px 24px -28px rgba(156,156,156,1);
-    -moz-box-shadow: -14px 21px 24px -28px rgba(156,156,156,1);
-    box-shadow: -14px 21px 24px -28px rgba(156,156,156,1);
-    background-color: var(--bv-main-bg-color);
-    border-radius: .10rem;
 
+#clear-refinements {
+	display: flex;
+	justify-content: center;
 }
 
-#refinement-list-doc-type,
-#refinement-list-doc-material,
+#refinement-list-persons {
+    padding: 1em .5em 2em .5em;
+    border-radius: .10rem;
+}
+
 #refinement-range-year {
     padding: 1em .5em 1em .5em;
-    background-color: var(--bv-main-bg-color);
     border-radius: .10rem;
 }
 
@@ -60,9 +70,10 @@
     color: #000;
 }
 
-/* overwriting default colors */
+/* overwriting default colors of pagination */
 li.ais-Pagination-item.page-item > a {
-    background-color: var(--bv-main-bg-color);
+    background-color: var(--st-bg-color);
+	border-color: var(--st-bg-secondary);
 }
 
 ul .ais-Pagination-item--selected .ais-Pagination-link {
@@ -76,52 +87,32 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
     color: #fff !important;
 }
 
-.form-control {
-	background-color: var(--bv-main-bg-color);
-}
-
-
-.form-control:focus {
-    color: #212529;
-    background-color: var(--bv-main-bg-color);
-    border-color: #86b7fe;
-    outline: 0;
-    border: 0.02rem solid var(--bv-big-highlight);
-}
-
 /* change color of filters */
 .ais-CurrentRefinements-item {
 	margin-right: .3rem;
 	margin-top: .3rem;
 	padding: .3rem .5rem;
 	display: flex;
-	background-color: var(--bv-big-highlight);
+	background-color: var(--st-bg-color2);
 	border-radius: 5px;
 }
 
-.ais-CurrentRefinements-label.badge {
-	background-color: var(--st-bg-color2);
-}
-
-.ais-CurrentRefinements-categoryLabel {
-	padding-top: 2px;
-	color:var(--st-bg-color2);
-}
-
-/* change button collor */
-.ais-RangeInput-submit:hover, .ais-RangeInput-submit:focus {
-	background-color: var(--bv-small-highlight);
-}
-
+/* change button color */
 .btn {
-    background-color: var(--bv-darker-lightgray);
-    border-color: var(--bv-darker-lightgray);
     color: #000;
+  &:hover {
+    color: #fff;
+  }
 }
 
-.btn:hover {
+.ais-ClearRefinements-button.btn,
+.ais-RefinementList-showMore.btn {
+	background-color: var(--st-bg-color);
+	color: #000;
+  &:hover {
     color: #fff;
-    background-color: var(--bv-small-highlight);
+    background-color: var(--st-bg-color2);
+  }
 }
 
 .ais-RefinementList-label span {
@@ -129,13 +120,27 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
     text-align: left;
 }
 
-.badge {
-    max-width: 100%;
-    overflow: hidden;
+.ais-RefinementList-list {
+    overflow:auto;
+	height: 19em;
 }
 
 .ais-RefinementList-labelText {
     max-width: 290px;
     overflow: hidden;
     text-align: right;
+}
+
+.badge {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.ais-RangeSlider .rheostat-progress {
+	background-color: var(--st-bg-color2)!important;
+}
+
+.ais-RangeSlider .rheostat-tooltip {
+	color: var(--st-fg-color);
+	min-width: 100px;
 }
