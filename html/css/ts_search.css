@@ -42,6 +42,11 @@ a {
     padding: 1em 0 .5em 0;
 }
 
+#clear-refinements {
+	display: flex;
+	justify-content: center;
+}
+
 #refinement-list-persons {
     padding: 1em .5em 2em .5em;
     border-radius: .10rem;
