@@ -37,6 +37,8 @@ jobs:
         run: ./shellscripts/fetch_data.sh
       - name: process data
         run: shellscripts/process_data.sh
+      - name: Populate typesense index
+        run: ./pyscripts/make_ts_index.py
       - name: Build
         run: ant
       - name: Setup Pages
