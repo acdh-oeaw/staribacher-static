@@ -48,6 +48,10 @@ body * {
 	padding-right: 2rem ;
 }
 
+main a {
+		color: var(--st-bg-color2)!important ;
+}
+
 footer a {
 	color: var(--st-bg-color2)!important ;
 }
