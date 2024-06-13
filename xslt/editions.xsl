@@ -198,7 +198,7 @@
         <xsl:value-of select="./@xml:id"/>
     </xsl:variable>
     <xsl:choose>
-    <xsl:when test="count(preceding-sibling::*) &lt; 1"> <!-- test="preceding::*[1]/self::tei:div"> -->
+    <xsl:when test="count(preceding-sibling::*) &lt; 1 and not(*)"> <!-- test="preceding::*[1]/self::tei:div"> -->
         <p id="{$pid}" class="yes-index date">
             <xsl:apply-templates/>
         </p>
