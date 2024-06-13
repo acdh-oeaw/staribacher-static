@@ -77,7 +77,7 @@ for xml_filepath in tqdm(files, total=len(files)):
     doc = TeiReader(xml=xml_filepath)
     facs = doc.any_xpath(".//tei:body/tei:div/tei:pb/@facs")
     pages = 0
-    for v in facs:
+    for v in tqdm(facs, total=len(facs)):
         p_group = f".//tei:body/tei:div/tei:p[preceding-sibling::tei:pb[1]/@facs='{v}']|"\
             f".//tei:body/tei:div/tei:lg[preceding-sibling::tei:pb[1]/@facs='{v}']"
         body = doc.any_xpath(p_group)
