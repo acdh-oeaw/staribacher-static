@@ -20,7 +20,7 @@
             </head>
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                    <div class="container-fluid">
+                    <div class="flex-grow-1">
                         <div class="search-panel">
                             <div class="search-panel__results">
                                 <div class="row">
