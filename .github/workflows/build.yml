@@ -34,8 +34,6 @@ jobs:
           ./shellscripts/dl_saxon.sh
           pip install -r requirements.txt
       - name: fetch data
-        with:
-          typesense_token: ${{secrets.TYPESENSE_API_KEY}}
         run: ./shellscripts/fetch_data.sh
       - name: process data
         run: shellscripts/process_data.sh
