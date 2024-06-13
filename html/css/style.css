@@ -27,6 +27,9 @@ body * {
 	font-family: sans-serif;
 }
 
+.pb {
+	padding-top: 6em ; 
+}
 .bg-body-tertiary {
 	opacity: 1!important;
 }
