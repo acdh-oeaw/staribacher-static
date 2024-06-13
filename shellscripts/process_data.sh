@@ -13,4 +13,4 @@ echo "populate html/js-data/calendarData.js"
 python pyscripts/make_calendar_data.py
 
 echo "populate fulltext-search index"
-echo "call the correct srcipt" 
+./pyscripts/make_ts_index.py
