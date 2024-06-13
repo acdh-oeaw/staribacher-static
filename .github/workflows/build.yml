@@ -25,6 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANT_OPTS: -Xmx10g
+      TYPESENSE_API_KEY: ${{ secrets.TYPESENSE_API_KEY }}
     steps:
       - name: Perform Checkout
         uses: actions/checkout@v4
