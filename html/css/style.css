@@ -459,7 +459,9 @@ nav {
 	padding-bottom: 1em;
 }
 
-
+.row {
+	margin: 0 ;
+}
 
 @media screen and (max-width: 639px) {
 	body {
@@ -468,9 +470,6 @@ nav {
 		background-size: 0;
 	}
 
-	.row {
-		margin: 0;
-	}
 	.facsimiles {
 		visibility: hidden;
 		padding: 0;
