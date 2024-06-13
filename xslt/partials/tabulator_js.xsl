@@ -34,7 +34,7 @@
                 } else if (data.id != null) {
                     var url = data.id + ".html";
                 }
-                window.location.href = "staribacher-static/" + url;
+                window.location.href = url;
             })
         </script>
     </xsl:template>
