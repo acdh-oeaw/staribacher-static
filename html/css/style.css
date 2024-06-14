@@ -640,6 +640,12 @@ nav {
 	.ais-RangeSlider {
 		width: 80vw ;
 	}
+
+	.rheostat-tooltip {
+		min-width: 0!important;
+		overflow: clip;
+
+	}
 	.container h1 {
 		padding-left: 2rem ;
 		padding-right: 2rem ;
