@@ -585,6 +585,9 @@ nav {
 		padding-top: 0!important;
 	}
 
+	p br{
+			display: none;
+	}
 	.p{
 		margin-bottom: 0!important ;
 	}
