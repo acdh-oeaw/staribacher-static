@@ -96,8 +96,8 @@
                             data-bs-backdrop="false">
                         </div>
                         <div id="editor-widget">
-                                <xsl:call-template name="annotation-options"></xsl:call-template>
-                                </div>
+                            <xsl:call-template name="annotation-options"></xsl:call-template>
+                        </div>
                         <div class="wp-transcript">
                             <div id="container-resize" class="row transcript active">
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
@@ -105,10 +105,11 @@
                                         <div id="container_facs_1" class="osd-container"/>
                                     </div>
                                 </div>
-                                 <div id="text-resize" lang="de"
-                                    class="col-md-6 col-lg-6 col-sm-12 text yes-index">
-                                   <xsl:apply-templates/>
-                                    <p style="margin-bottom:10vw;margin-top:5vw"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
+                                <div id="text-resize" lang="de" class="col-md-6 col-lg-6 col-sm-12 text yes-index">
+                                    <div id="transcript">
+                                        <xsl:apply-templates/>
+                                        <p class="last-paragraph"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
+                                    </div>
                                 </div> 
                             </div>
                         </div>
@@ -198,16 +199,16 @@
         <xsl:value-of select="./@xml:id"/>
     </xsl:variable>
     <xsl:choose>
-    <xsl:when test="count(preceding-sibling::*) &lt; 1 and not(*)"> <!-- test="preceding::*[1]/self::tei:div"> -->
-        <p id="{$pid}" class="yes-index date">
-            <xsl:apply-templates/>
-        </p>
-    </xsl:when>
-    <xsl:otherwise>
-        <p id="{$pid}" class="yes-index">
-            <xsl:apply-templates/>
-        </p>
-    </xsl:otherwise>
+        <xsl:when test="count(preceding-sibling::*) &lt; 1"> <!-- test="preceding::*[1]/self::tei:div"> -->
+            <p id="{$pid}" class="yes-index first-paragraph">
+                <xsl:apply-templates/>
+            </p>
+        </xsl:when>
+        <xsl:otherwise>
+            <p id="{$pid}" class="yes-index">
+                <xsl:apply-templates/>
+            </p>
+        </xsl:otherwise>
     </xsl:choose>
     <!-- <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
