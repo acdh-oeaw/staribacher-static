@@ -600,8 +600,10 @@ nav {
 	}
 	
 	.col-md-2.col-lg-2.col-sm-12{
-		padding: 0;
-		max-width: 2em;
+		padding: 1em;
+		padding-top: 1.5em;
+		padding-bottom: 1.5em;
+		width: 15% ;
 	}
 	.text {
 		padding-left: 1em!important;
@@ -621,7 +623,7 @@ nav {
 		max-width: 100% ;
 	}
 	.col-md-8.col-lg-8.col-sm-12{
-		max-width: 78%;
+		max-width: 70%;
 		padding: 0;
 	}
 	#Hits {
