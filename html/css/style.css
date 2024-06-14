@@ -381,6 +381,12 @@ nav {
 .first-paragraph {
 	padding-top: 6em!important ;
 }
+
+.last-paragraph{
+	margin-bottom: 10vw;
+	margin-top: 5vw ;
+}
+
 .yearscol {
 	background-color: var(--st-bg-color) ;
 	opacity: 0.95!important ;
@@ -496,7 +502,47 @@ nav {
 		padding: 0;
 		max-height: 0;
 	}
+	
+	.col-md-6.col-lg-6.col-sm-12.text {
+		resize: horizontal;
+		font-size: var(--ed-font-size) ;
+		padding-left: 0 !important;
+		padding-top: 0 ;
+		padding-bottom: 0 ;
+		padding-right: 0 ;
+		opacity: 0.95!important ;
+		width: 100vw;  ;
+		font-family: "Courier New" ; 
+	}
+	#transcript{
 
+		width: 100vw;
+		top: 10%;
+		padding-left: .5em ;
+		padding-right: .5em ;
+		padding-top: .5rem;
+		padding-bottom: .5em;
+		background-color: var(--st-bg-text) ;
+		/* max-width: 60vw; */
+	
+		/* max-height: 900px; */
+	}
+	
+    .pb {
+		padding-top: 0!important;
+	}
+
+	.p{
+		margin-bottom: 0!important ;
+	}
+	.first-paragraph {
+		padding-top: 0!important;
+	}
+	.last-paragraph{
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	
 	.col-md-2.col-lg-2.col-sm-12{
 		padding: 0;
 		max-width: 2em;

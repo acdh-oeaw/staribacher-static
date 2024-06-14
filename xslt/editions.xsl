@@ -108,7 +108,7 @@
                                 <div id="text-resize" lang="de" class="col-md-6 col-lg-6 col-sm-12 text yes-index">
                                     <div id="transcript">
                                         <xsl:apply-templates/>
-                                        <p style="margin-bottom:10vw;margin-top:5vw"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
+                                        <p class="last-paragraph"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
                                     </div>
                                 </div> 
                             </div>
