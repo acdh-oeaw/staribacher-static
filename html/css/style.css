@@ -200,8 +200,10 @@ th {
 }
 
 .ais-RefinementList-count {
-	background-color: var(--st-bg-color)!important ;
+	color: var(--st-bg-color) !important;
+	background-color: var(--st-bg-color2)!important ;
 }
+
 
 nav {
 	position:-webkit-sticky!important;
@@ -455,6 +457,12 @@ nav {
 .yearbtn{
 	border: 0;
 	background-color:  inherit;
+}
+
+.yearbtn:focus{
+	border: 0;
+	background-color:  var(--st-bg-color2);
+	border-radius: 1em!important;
 }
 
 .btn {
