@@ -193,10 +193,12 @@ th {
 
 .rheostat-background {
 	background-color: var(--st-bg-color)!important ;
+	border-color: var(--st-bg-color2)!important ;
 }
 
 .rheostat-handle {
 	background-color: var(--st-bg-color2)!important ;
+	border-color: var(--st-bg-color)!important ;
 }
 
 .ais-RefinementList-count {
@@ -536,6 +538,10 @@ nav {
 	margin: 0 ;
 }
 
+.rheostat-background {
+	border-color: var(--st-bg-color2)!important ;
+}
+
 @media screen and (max-width: 639px) {
 	body {
 		/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
@@ -640,7 +646,18 @@ nav {
 	.ais-RangeSlider {
 		width: 80vw ;
 	}
+	.ais-ClearRefinements-button {
+		background-color: var(--st-bg-color2)!important ;
+		border-radius: 1em ;
+		border: 2pt solid var(--st-bg-color2)!important;
+		border-radius: 1em!important ;
+		border-color: var(--st-bg-color2)!important ;
+		box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow);
+	}
 
+	.ais-ClearRefinements-button--disabled {
+		box-shadow: 0 0 0 0!important;
+	}
 	.rheostat-tooltip {
 		min-width: 0!important;
 		overflow: clip;
