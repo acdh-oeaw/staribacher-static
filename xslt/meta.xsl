@@ -28,7 +28,7 @@
                     <div class="container">                        
                         <h1><xsl:value-of select="$doc_title"/></h1>    
                         <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
-                    </div>
+                    </div><br/><br/>
                 </main>
                 <xsl:call-template name="html_footer"/>
             </body>
