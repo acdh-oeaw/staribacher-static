@@ -198,16 +198,16 @@
         <xsl:value-of select="./@xml:id"/>
     </xsl:variable>
     <xsl:choose>
-    <xsl:when test="count(preceding-sibling::*) &lt; 1 and not(*)"> <!-- test="preceding::*[1]/self::tei:div"> -->
-        <p id="{$pid}" class="yes-index date">
-            <xsl:apply-templates/>
-        </p>
-    </xsl:when>
-    <xsl:otherwise>
-        <p id="{$pid}" class="yes-index">
-            <xsl:apply-templates/>
-        </p>
-    </xsl:otherwise>
+        <xsl:when test="count(preceding-sibling::*) &lt; 1"> <!-- test="preceding::*[1]/self::tei:div"> -->
+            <p id="{$pid}" class="yes-index first-paragraph">
+                <xsl:apply-templates/>
+            </p>
+        </xsl:when>
+        <xsl:otherwise>
+            <p id="{$pid}" class="yes-index">
+                <xsl:apply-templates/>
+            </p>
+        </xsl:otherwise>
     </xsl:choose>
     <!-- <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
