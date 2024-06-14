@@ -465,6 +465,12 @@ nav {
 	border-radius: 1em!important;
 }
 
+.day-content:hover {
+	background-color:  var(--st-bg-color2);
+	border-radius: 1em!important;
+}
+
+
 .btn {
     color: unset;
     background-color: unset;
