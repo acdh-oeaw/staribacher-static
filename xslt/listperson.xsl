@@ -89,7 +89,7 @@
                                     <xsl:value-of select="$name"/>
                                 </h1>
                                 <xsl:call-template name="person_detail"/>  
-                            </div>
+                            </div><br/><br/>
                         </main>
                         <xsl:call-template name="html_footer"/>
                     </body>
