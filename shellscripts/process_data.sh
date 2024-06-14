@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "add xml:ids"
 add-attributes -g "./data/editions/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
 add-attributes -g "./data/meta/*.xml" -b "https://staribacher.acdh.oeaw.ac.at"
