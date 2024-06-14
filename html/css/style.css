@@ -643,9 +643,7 @@ nav {
 		max-width: unset ;
 		margin-left: unset ;  
 	}
-	.ais-RangeSlider {
-		width: 80vw ;
-	}
+	
 	.ais-ClearRefinements-button {
 		background-color: var(--st-bg-color2)!important ;
 		border-radius: 1em ;
