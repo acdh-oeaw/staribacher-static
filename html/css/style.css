@@ -51,6 +51,13 @@ body * {
 	padding-right: 2rem ;
 }
 
+.project-title {
+	padding-top: 2em ;
+	padding-bottom: 2em ;
+	font-size: 3em;
+	font-weight: bold ;
+	text-align: center ;
+}
 main a {
 		color: var(--st-bg-color2)!important ;
 }
