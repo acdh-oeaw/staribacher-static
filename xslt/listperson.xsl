@@ -31,11 +31,9 @@
 
                 <main class="flex-grow-1">
                     <div class="container">
-
                         <h1>
                             <xsl:value-of select="$doc_title"/>
                         </h1>
-
                         <table class="table" id="myTable">
                             <thead>
                                 <tr>
@@ -64,7 +62,7 @@
                             </tbody>
                         </table>
                         <xsl:call-template name="tabulator_dl_buttons"/>
-                    </div>
+                    </div><br/><br/>
                 </main>
                 <xsl:call-template name="html_footer"/>
                 <xsl:call-template name="tabulator_js"/>
