@@ -203,6 +203,10 @@ nav {
 
 }
 
+.nav-item{
+	margin-right: .5em;
+	margin-left: .5em;
+}
 
 .logo {
 	max-width: 100px;
@@ -217,34 +221,60 @@ nav {
  	background-color: var(--st-bg-color2) !important;
 }
 
+
+
+
 .dropdown-menu {
 	background: var(--st-bg-color2) none repeat scroll 0% 0%;
 }
 
-.dropdown-menu * {
-	background: var(--st-bg-color2) none repeat scroll 0% 0%;
+.dropdown-menu {
+	background-color: var(--st-bg-color2) ;
 	font-size: 1.2em ;
 	font-family: monospace;
 	font-weight: unset;
-
 }
 
-.dropdown-item {
+
+.dropdown-menu * {
+	background-color: var(--st-bg-color2) ;
+	font-size: 1em ;
+	font-family: monospace;
+	font-weight: unset;
+}
+
+.navbar .dropdown-item {
 	background-color: var(--st-bg-color2);    
 }
 
-.dropdown-item:hover {
+.navbar .dropdown-item:hover {
 	background-color: var(--st-bg-color);    
 }
 
-.dropdown-item:active{
+.navbar .dropdown-item:active {
 	background-color: var(--st-bg-color);
 }
 
-.dropdown-item:focus{
+.navbar .dropdown-item:focus{
 	background-color: var(--st-bg-color);
     color: var(--st-fg-color);
+}
 
+#editor-widget * {
+	font-family: sans-serif ;  
+}
+
+#editor-widget .dropdown-item:hover {
+	background-color: var(--st-bg-color2);    
+}
+
+#editor-widget .dropdown-item:active {
+	color: var(--st-fg-color);    
+}
+
+.custom-select{
+	border-radius: 1em ;
+	background-color: #fff ;
 }
 
 .container {
