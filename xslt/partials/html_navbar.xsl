@@ -30,7 +30,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="toc.html">Editionseinheiten</a>
+                                <a class="nav-link" href="toc.html">Editionen</a>
                             </li>
                             <!-- We just have Persons, there is no need for a drop down -->
                             <!--
