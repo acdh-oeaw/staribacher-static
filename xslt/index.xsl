@@ -37,7 +37,7 @@
                         <lb/>Sie umfassen rund 20.000 Seiten und spiegeln Staribachers 13-jährige Ministertätigkeit unter Bundeskanzler Bruno Kreisky in den Kabinetten Kreisky I bis IV wider.
                         </p>
 			</div>
-                    </div>
+                    </div><br/><br/>
                 </main>
                 <xsl:call-template name="html_footer"/>
             </body>
