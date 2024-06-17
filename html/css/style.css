@@ -108,7 +108,7 @@ footer a {
 .tabulator-headers {
     background-color: var(--st-bg-color)!important ;
     opacity: .95!important;
-    font-size: 1rem!important;
+    font-size: 1.1em!important;
 }
 
 .tabulator-col {
@@ -192,9 +192,16 @@ nav {
 	top: 0; /* required */
 	z-index: 99; /* Ensure it's on top of other content */
 	background-color: var(--st-bg-color2); /* Ensure it has a background */
-	font-size: .8vw ;
+	font-size: 1.5em ;
+	font-weight: bold ;
+
 }
 
+
+.logo {
+	width: 6vw ;
+	margin-right: 2vw ;
+}
 .navbar.navbar-expand-lg {
 	padding: 0;
 	opacity: 1 !important;
@@ -204,12 +211,11 @@ nav {
 
 .dropdown-menu {
 	background: var(--st-bg-color2) none repeat scroll 0% 0%;
-	font-size: .8vw ;
+	font-size: inherit ;
 }
 
 .dropdown-menu a:hover{
-    background-color: var(--st-bg-color);
-    
+    background-color: var(--st-bg-color);    
 }
 
 .dropdown-menu a:active{
@@ -219,6 +225,7 @@ nav {
 .dropdown-menu a:focus{
 	background-color: var(--st-bg-color);
     color: var(--st-fg-color);
+
 }
 
 .container {
@@ -657,5 +664,19 @@ nav {
 		font-size: 2em;
 		font-weight: bold ;
 		text-align: center ;
+	}
+
+	nav {
+		font-size: 1em ;
+		text-align: right ;
+	}
+
+	nav li ul {
+		text-align: inherit !important; 
+	}
+
+	.logo {
+		height: 80%!important ;
+		
 	}
 }
