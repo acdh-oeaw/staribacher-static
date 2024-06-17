@@ -199,7 +199,7 @@ nav {
 
 
 .logo {
-	width: 6vw ;
+	width: 10vw ;;
 	margin-right: 2vw ;
 }
 .navbar.navbar-expand-lg {
@@ -676,7 +676,7 @@ nav {
 	}
 
 	.logo {
-		height: 80%!important ;
-		
+		width: 30vw ;
+
 	}
 }
