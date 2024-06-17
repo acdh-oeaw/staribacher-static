@@ -5,7 +5,6 @@
     --st-bg-color2: rgba(176, 88, 3, 1);
     --st-bg-color2-shadow: rgba(106, 18, 0, 1);
     --st-bg-text: #fffcf3;
-    --ed-font-size: 14px;
 }
 
 body {
@@ -76,26 +75,6 @@ footer a {
   
 .arial-serif * {
     font-family: "Arial", serif !important;
-}
-  
-.font-size-26 * {
-    font-size: 26px !important;
-    --ed-font-size: 26px!important ; 
-}
- 
-.font-size-22 * {
-    font-size: 22px !important;
-    --ed-font-size: 22px!important ;
-}
-  
-.font-size-18 * {
-    font-size: 18px !important;
-    --ed-font-size: 18px!important ;
-}
-  
-.font-size-14 * {
-    font-size: 14px !important;
-    --ed-font-size: 14px!important ;
 }
 
 .table {
@@ -213,6 +192,7 @@ nav {
 	top: 0; /* required */
 	z-index: 99; /* Ensure it's on top of other content */
 	background-color: var(--st-bg-color2); /* Ensure it has a background */
+	font-size: .8vw ;
 }
 
 .navbar.navbar-expand-lg {
@@ -224,6 +204,7 @@ nav {
 
 .dropdown-menu {
 	background: var(--st-bg-color2) none repeat scroll 0% 0%;
+	font-size: .8vw ;
 }
 
 .dropdown-menu a:hover{
@@ -281,11 +262,12 @@ nav {
 #transcript{
     position: sticky;
     top: 10%;
-	padding-left: 6em ;
-	padding-right: 2em ;
-    padding-top: 0rem;
-    padding-bottom: 2em;
+	padding-left: 4vw ;
+	padding-right: 1vw ;
+    padding-top: 0;
+    padding-bottom: 2vw;
 	background-color: var(--st-bg-text) ;
+	width: 37vw ;
     /* max-width: 60vw; */
 
     /* max-height: 900px; */
@@ -307,10 +289,10 @@ nav {
 
 .col-md-6.col-lg-6.col-sm-12.text {
 	resize: horizontal;
-	font-size: var(--ed-font-size) ;
-	padding-left: 6em ;
-	padding-top: 2em ;
-	padding-bottom: 35em ;
+	font-size: .75vw ;
+	padding-left: 6vw ;
+	padding-top: 2vw ;
+	padding-bottom: 40vw ;
 	margin-left: 0;
 	margin-right: 0;
 	padding-right: calc(2*var(--ed-font-size)) ;
@@ -320,7 +302,7 @@ nav {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text * {
-	font-size: var(--ed-font-size) ;
+	font-size: .75vw ;
 	font-family: "Courier New" ; 
 }
 
@@ -424,7 +406,7 @@ nav {
 }
 
 .first-paragraph {
-	padding-top: 6em!important ;
+	padding-top: 4vw!important ;
 }
 
 .last-paragraph{
@@ -451,7 +433,7 @@ nav {
 	padding-left: calc(var(--bs-gutter-x) * .5)!important;
 	padding-top: 0!important ;
 	padding-bottom: 0!important ;
-	margin-left: 1em;
+	margin-left: 1vw;
 	max-width: 68vw ; 
 }
 .month-container {
@@ -566,16 +548,16 @@ nav {
 	}
 	
 	.col-md-6.col-lg-6.col-sm-12.text {
-		resize: horizontal;
-		font-size: var(--ed-font-size) ;
-		padding-left: 0 !important;
-		padding-top: 0 ;
-		padding-bottom: 0 ;
-		padding-right: 0 ;
-		opacity: 0.95!important ;
-		width: 100vw;  ;
-		font-family: "Courier New" ; 
+		padding: 0 !important;
+		width: 100vw;
 	}
+
+
+	.col-md-6.col-lg-6.col-sm-12.text *{
+		font-size: 4vw ;
+	}
+
+	
 	#transcript{
 
 		width: 100vw;
