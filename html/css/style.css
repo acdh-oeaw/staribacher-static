@@ -308,12 +308,12 @@ nav {
 .col-md-6.col-lg-6.col-sm-12.text {
 	resize: horizontal;
 	font-size: var(--ed-font-size) ;
-	padding-left: calc(6*var(--ed-font-size)) ;
-	padding-top: calc(2*var(--ed-font-size)) ;
-	padding-bottom: calc(35*var(--ed-font-size)) ;
+	padding-left: 6em ;
+	padding-top: 2em ;
+	padding-bottom: 35em ;
 	padding-right: calc(2*var(--ed-font-size)) ;
 	opacity: 0.95!important ;
-	width: calc(60 * var(--ed-font-size))  ;
+	width: 60em  ;
 	font-family: "Courier New" ; 
 }
 
@@ -541,6 +541,13 @@ nav {
 .rheostat-background {
 	border-color: var(--st-bg-color2)!important ;
 }
+
+@media screen and (max-width: 1920px) {
+	.col-md-6.col-lg-6.col-sm-12.text {
+		font-size: 12px !important;
+		padding-right: 4em ;
+		width: calc(50 * var(--ed-font-size))  ;
+	}
 
 @media screen and (max-width: 639px) {
 	body {
