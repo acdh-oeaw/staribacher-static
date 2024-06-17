@@ -192,16 +192,24 @@ nav {
 	top: 0; /* required */
 	z-index: 99; /* Ensure it's on top of other content */
 	background-color: var(--st-bg-color2); /* Ensure it has a background */
-	font-size: 1.5em ;
+	font-size: 1.4em ;
 	font-weight: bold ;
+	font-family: monospace;
+}
+
+.nav-link{
+	font-size: 1.4em ;
+	font-family: monospace;
 
 }
 
 
 .logo {
-	width: 10vw ;;
-	margin-right: 2vw ;
+	max-width: 100px;
+	padding-left:0;
+	margin-left: 0;
 }
+
 .navbar.navbar-expand-lg {
 	padding: 0;
 	opacity: 1 !important;
@@ -211,18 +219,29 @@ nav {
 
 .dropdown-menu {
 	background: var(--st-bg-color2) none repeat scroll 0% 0%;
-	font-size: inherit ;
 }
 
-.dropdown-menu a:hover{
-    background-color: var(--st-bg-color);    
+.dropdown-menu * {
+	background: var(--st-bg-color2) none repeat scroll 0% 0%;
+	font-size: 1.2em ;
+	font-family: monospace;
+	font-weight: unset;
+
 }
 
-.dropdown-menu a:active{
+.dropdown-item {
+	background-color: var(--st-bg-color2);    
+}
+
+.dropdown-item:hover {
+	background-color: var(--st-bg-color);    
+}
+
+.dropdown-item:active{
 	background-color: var(--st-bg-color);
 }
 
-.dropdown-menu a:focus{
+.dropdown-item:focus{
 	background-color: var(--st-bg-color);
     color: var(--st-fg-color);
 
@@ -676,7 +695,8 @@ nav {
 	}
 
 	.logo {
-		width: 30vw ;
+		min-width: unset;
+		max-width: 8em ;
 
 	}
 }
