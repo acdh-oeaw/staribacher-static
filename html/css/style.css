@@ -311,10 +311,12 @@ nav {
 	padding-left: 6em ;
 	padding-top: 2em ;
 	padding-bottom: 35em ;
+	margin-left: 0;
+	margin-right: 0;
 	padding-right: calc(2*var(--ed-font-size)) ;
 	opacity: 0.95!important ;
-	width: 60em  ;
-	font-family: "Courier New" ; 
+	width: 50%  ;
+	font-family: "Courier New" ;
 }
 
 .col-md-6.col-lg-6.col-sm-12.text * {
@@ -542,14 +544,8 @@ nav {
 	border-color: var(--st-bg-color2)!important ;
 }
 
-@media screen and (max-width: 1920px) {
-	.col-md-6.col-lg-6.col-sm-12.text {
-		font-size: 12px !important;
-		padding-right: 4em ;
-		width: calc(50 * var(--ed-font-size))  ;
-	}
 
-@media screen and (max-width: 639px) {
+@media screen and (max-width: 800px) {
 	body {
 		/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
 		background-image: none;
