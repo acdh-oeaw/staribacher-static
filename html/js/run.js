@@ -106,10 +106,10 @@ var editor = new LoadEditor({
             chg_citation: "citation-url",
             // default fonts
             fonts: {
-                default: "default",
-                font1: "font-serif",
-                font2: "font-monospace",
-                font3: "font-sans-serif"
+                default: "Courier-New",
+                font1: "Times-New-Roman",
+                font2: "Courier-New",
+                font3: "Arial-serif"
             },
             // default tag-name for text
             paragraph: "p",
@@ -159,4 +159,5 @@ var editor = new LoadEditor({
     // stylesheet provided by bootstrap
     html_class: "custom-select"
 },
+
 })

@@ -154,16 +154,28 @@ input:checked+.i-slider:before {
 
 /* font styles and sizes */
 
-.times-new-roman {
+.Times-New-Roman {
   font-family: "Times New Roman", serif !important;
 }
 
-.courier-new {
+.Times-New-Roman * {
+  font-family: "Times New Roman", serif !important;
+}
+
+.Courier-New {
   font-family: "Courier New", monospace !important;
 }
 
-.arial-serif {
-  font-family: "Arial", serif !important;
+.Courier-New * {
+  font-family: "Courier New", monospace !important;
+}
+
+.Arial-serif {
+  font-family: "Arial", sans-serif !important;
+}
+
+.Arial-serif * {
+  font-family: "Arial", sans-serif !important;
 }
 
 .font-size-26 {
