@@ -37,8 +37,8 @@
                         <table class="table" id="myTable">
                             <thead>
                                 <tr>
-                                    <th scope="col" tabulator-formatter="html" tabulator-headerFilter="input">Nachname</th>
-                                    <th scope="col" tabulator-formatter="html" tabulator-headerFilter="input">Vorname</th>
+                                    <th scope="col" tabulator-formatter="html" tabulator-headerFilter="input" tabulator-responsive="0" tabulator-maxWidth="649px"  tabulator-minWidth="300px">Nachname</th>
+                                    <th scope="col" tabulator-formatter="html" tabulator-responsive="10" tabulator-headerFilter="input" tabulator-autoResize="true" tabulator-maxWidth="649px" tabulator-minWidth="300px">Vorname</th>
                                     <th scope="col" tabulator-headerFilter="input" tabulator-visible="false">ID</th>
                                 </tr>
                             </thead>
