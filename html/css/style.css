@@ -363,7 +363,7 @@ nav {
 
 .col-md-6.col-lg-6.col-sm-12.text {
 	resize: horizontal;
-	font-size: .75vw ;
+	font-size: .70vw ;
 	padding-left: 6vw ;
 	padding-top: 2vw ;
 	padding-bottom: 40vw ;
@@ -376,7 +376,7 @@ nav {
 }
 
 .col-md-6.col-lg-6.col-sm-12.text * {
-	font-size: .75vw ;
+	font-size: inherit ;
 	font-family: "Courier New" ; 
 }
 
@@ -391,8 +391,8 @@ nav {
 	font-family: "Times New-Roman"!important ;
 	text-align:right;
 	font-weight: bold ;
-	display: block ; 
-
+	display: block ;
+	font-size: inherit ;
 }
 .osd-container {
 	height: 80vh!important;
