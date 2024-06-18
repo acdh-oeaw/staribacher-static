@@ -107,9 +107,9 @@ var editor = new LoadEditor({
             // default fonts
             fonts: {
                 default: "default",
-                font1: "Times-New-Roman",
-                font2: "Courier-New",
-                font3: "Arial-serif"
+                font1: "font-serif",
+                font2: "font-monospace",
+                font3: "font-sans-serif"
             },
             // default tag-name for text
             paragraph: "p",

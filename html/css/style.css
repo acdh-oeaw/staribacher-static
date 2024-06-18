@@ -111,7 +111,7 @@ footer a {
 }
 
 .times-new-roman * {
-    font-family: "Times New Roman", serif !important;
+    font-family: "Times New Roman", sans-serif !important;
   }
 
 .courier-new {
