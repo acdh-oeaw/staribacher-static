@@ -200,6 +200,9 @@ th {
 	background-color: var(--st-bg-color2)!important ;
 }
 
+.ais-Pagination-item--disabled * {
+	background-color: var(--st-bg-color)!important ;
+}
 
 nav {
 	position:-webkit-sticky!important;
@@ -703,21 +706,21 @@ nav {
 	.ais-ClearRefinements-button {
 		background-color: var(--st-bg-color2)!important ;
 		border-radius: 1em ;
-		border: 2pt solid var(--st-bg-color2)!important;
+		border: 2pt solid var(#a5abc4)!important;
 		border-radius: 1em!important ;
-		border-color: var(--st-bg-color2)!important ;
+		border-color: var(#a5abc4)!important ;
 		box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow);
 	}
 
 	.ais-ClearRefinements-button--disabled {
 		box-shadow: 0 0 0 0!important;
 	}
+
 	.rheostat-tooltip {
 		min-width: 0!important;
 		overflow: clip;
 
 	}
-
 	
 	.project-title {
 		padding-top: .5em ;
