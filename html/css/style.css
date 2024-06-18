@@ -41,22 +41,22 @@ body * {
 	color: var(--st-bg-color2) ;
 }
 .container .metatext {
-	padding-left: 1vw ;
+	padding-left: 2vw ;
 	padding-right:1vw ;
 }
 
 .container h1 {
-	padding-left: 1vw ;
+	padding-left: 2vw ;
 	padding-right: 1vw ;
 }
 
 .container h4 {
-	padding-left: 1vw ;
+	padding-left: 2vw ;
 	padding-right: 1vw ;
 }
 
 .container .button-group {
-	padding-left: 1vw ;
+	padding-left: 2vw ;
 	padding-right: 1vw ;
 }
 
@@ -96,9 +96,31 @@ footer a {
 .table.tabulator .tabulator-header {                                                                                                                                                                                                                                             
 	background-color:  var(--st-bg-color)!important ;
 	opacity: 0.95 ;
+	border-color: var(--st-bg-color2)!important ;
 }
 
+.tabulator-header .tabulator-header-contents {
+	background-color:  var(--st-bg-color)!important ;
+	opacity: 0.95 ;
+	border-color: var(--st-bg-color2)!important ;
+}
+
+.tabulator-header-contents  .tabulator-headers {
+	background-color: inherit ;
+	padding-bottom: 5em;
+}
+
+.tabulator-headers .tabulator-col {
+	background-color: inherit!important ;
+	border-color: inherit!important; 
+}
 .table.tabulator .tabulator-row {                                                                                                                                                                                                                                             
+	background-color:  var(--st-bg-color)!important ;
+	opacity: 0.95 ;
+	border-color: var(--st-bg-color2)!important ;
+}
+
+.table.tabulator .tabulator-hader {                                                                                                                                                                                                                                             
 	background-color:  var(--st-bg-color)!important ;
 	opacity: 0.95 ;
 	border-color: var(--st-bg-color2)!important ;
@@ -115,6 +137,29 @@ footer a {
 	opacity: 0.95 ;
 	color: inherit!important ;
 }
+
+.button-group {
+	color: var(--st-bg-color2) ;
+}
+
+h4 {
+	color: var(--st-bg-color2) ;
+}
+
+input {
+	background-color: rgb(#fff)!important;
+	opacity: 0.95!important ;
+	border-radius: 1em!important;
+	height: min-content!important ;
+	color: var(--st-fg-color)!important ;
+	
+}
+
+input:focus {
+	border: 2pt solid var(--st-bg-color2)!important;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) !important;
+}
+
 
 td {
     background-color: var(--st-bg-color)!important;
