@@ -37,9 +37,9 @@
                         <table class="table" id="myTable">
                             <thead>
                                 <tr>
-                                    <th scope="col" tabulator-formatter="html" tabulator-headerFilter="input">Nachname</th>
-                                    <th scope="col" tabulator-formatter="html" tabulator-headerFilter="input">Vorname</th>
-                                    <th scope="col" tabulator-headerFilter="input" tabulator-visible="false">ID</th>
+                                    <th scope="col" tabulator-formatter="html" tabulator-responsive: "0" tabulator-headerFilter="input">Nachname</th>
+                                    <th scope="col" tabulator-formatter="html" tabulator-responsive: "10" tabulator-headerFilter="input" tabulator-minWidth="50px" tabulator-autoResize="true" >Vorname</th>
+                                    <!-- <th scope="col" tabulator-headerFilter="input" tabulator-visible="false">ID</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,9 +54,9 @@
                                         <td>
                                             <xsl:value-of select=".//tei:forename/text()"/>
                                         </td>
-                                        <td>
+                                        <!-- <td>
                                             <xsl:value-of select="$id"/>
-                                        </td>
+                                        </td> -->
                                     </tr>
                                 </xsl:for-each>
                             </tbody>
