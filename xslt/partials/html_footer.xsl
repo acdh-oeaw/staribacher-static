@@ -37,7 +37,7 @@
                         </p>
                   </div>
                   <div class="col-lg-2 col-md-3 col-sm-3 text-center">
-                     <a href="http://www.kreisky.org"><img src="images/logo-kreisky-archiv-hell.jpg" title="images/logo-kreisky-archiv-hell.jpg" height="50" alt="Kreisky Archiv"/></a>
+                     <a href="http://www.kreisky.org"><img src="images/logo-kreisky-archiv-hell.jpg" title="Kreisky Archiv" height="50" alt="Kreisky Archiv"/></a>
                   </div>
                   <div class="col-lg-3 col-md-4 col-sm-4 ml-auto">
                      <figure>
