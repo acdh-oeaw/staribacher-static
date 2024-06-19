@@ -96,45 +96,32 @@ var editor = new LoadEditor({
     name: "Change font family",
     variants:  [
         {
-            // must match opt attribute of custom element
-            opt: "select-font",
-            // visible feature title
-            title: "Font family",
-            // default url parameter key
-            urlparam: "font",
-            // default citation url link
+            opt: "ff",
+            title: "Schriftart",
+            urlparam: "ff",
             chg_citation: "citation-url",
-            // default fonts
             fonts: {
-                default: "Courier-New",
+                default: "default",
                 font1: "Times-New-Roman",
                 font2: "Courier-New",
                 font3: "Arial-serif"
             },
             // default tag-name for text
-            paragraph: "p",
-            // default class of paragaph tag
-            p_class: "yes-index",
-            // not required but can be used to create addition styles
+            paragraph: ".yes-index",
+            p_class: "",
             css_class: ""
         }
       ],
-      // class for active state
       active_class: "active",
-      // default class for select dropdown
-      // stylesheet provided by bootstrap
-      html_class: "custom-select"
+      html_class: "form-select"
   },
   fos: {
     name: "Change font size",
     variants:  [
         {
-            // must match opt attribute value of custom element
-            opt: "[opt]",
-            // visible feature title
-            title: "Schriftgröße",
-            // url parameter name
-            urlparam: "fontsize",
+            opt: "fs",
+            title: "Schriftgroße",
+            urlparam: "fs",
             // custom class for citation link
             chg_citation: "citation-url",
             // default font sizes
@@ -154,10 +141,6 @@ var editor = new LoadEditor({
         }
     ],
     // default class for state
-    active_class: "active",
-    // default class for select dropdown
-    // stylesheet provided by bootstrap
-    html_class: "custom-select"
+    active_class: "lang_active",
 },
-up: true,
 })
