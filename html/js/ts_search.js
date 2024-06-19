@@ -100,8 +100,15 @@ search.addWidgets([
           `,
     },
   }),
-    
-    instantsearch.widgets.refinementList({
+  
+  instantsearch.widgets.panel({
+    collapsed: ({ state }) => {
+      return state.query.length === 0;
+    },
+    templates: {
+      header: 'Personen',
+    },
+  })(instantsearch.widgets.refinementList)({
     container: "#refinement-list-persons",
     attribute: "persons",
     attributeName: 'Personen',
