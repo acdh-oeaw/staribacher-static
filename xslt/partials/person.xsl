@@ -37,7 +37,7 @@
             <br/>
             <hr />
             <div id="mentions">
-                <legend>erwähnt in</legend>
+                <legend>Einträge mit Erwähnung:</legend>
                 <ul>
                     <xsl:for-each select="./tei:noteGrp/tei:note">
                         <xsl:variable name="linkToDocument">
