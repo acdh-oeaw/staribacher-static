@@ -26,6 +26,7 @@ body {
 
 body * {
 	font-family: sans-serif;
+	color: var(--st-fg-color) ;
 }
 
 p .person {
@@ -53,9 +54,14 @@ p .person {
 	padding-right: 1vw ;
 }
 
-.container .button-group {
+.button-group {
 	padding-left: 2vw ;
 	padding-right: 1vw ;
+	color: var(--st-bg-color2) ;
+}
+
+.button-group * {
+	color: var(--st-bg-color2) ;
 }
 
 .project-title {
@@ -133,12 +139,16 @@ a:not(.nav-link, .dropdown-item):focus {
 	color: inherit!important ;
 }
 
-.button-group {
-	color: var(--st-bg-color2) ;
+
+.ais-Panel-header {
+	border-bottom: 1px solid var(--st-fg-color-light)!important;
+}
+.ais-Panel * {
+	color: var(--st-fg-color-light) ;
 }
 
-h4 {
-	color: var(--st-bg-color2) ;
+h4{
+	color: var(--st-fg-color-light) ; 
 }
 
 input {
