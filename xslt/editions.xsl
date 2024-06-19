@@ -95,10 +95,10 @@
                             aria-labelledby="offcanvasOptionsLabel" data-bs-scroll="true"
                             data-bs-backdrop="false">
                         </div>
-                        <div id="editor-widget">
-                            <xsl:call-template name="annotation-options"></xsl:call-template>
-                        </div>
                         <div class="wp-transcript">
+                            <div id="editor-widget">
+                                <xsl:call-template name="annotation-options"></xsl:call-template>
+                            </div>
                             <div id="container-resize" class="row transcript active">
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
                                     <div id="viewer">
