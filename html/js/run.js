@@ -106,7 +106,7 @@ var editor = new LoadEditor({
             chg_citation: "citation-url",
             // default fonts
             fonts: {
-                default: "default",
+                default: "Courier-New",
                 font1: "Times-New-Roman",
                 font2: "Courier-New",
                 font3: "Arial-serif"
@@ -132,7 +132,7 @@ var editor = new LoadEditor({
             // must match opt attribute value of custom element
             opt: "[opt]",
             // visible feature title
-            title: "Font size",
+            title: "Schriftgröße",
             // url parameter name
             urlparam: "fontsize",
             // custom class for citation link
@@ -159,4 +159,5 @@ var editor = new LoadEditor({
     // stylesheet provided by bootstrap
     html_class: "custom-select"
 },
+up: true,
 })

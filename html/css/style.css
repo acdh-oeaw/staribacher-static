@@ -110,18 +110,31 @@ footer a {
 	color: var(--st-bg-color2)!important ;
 }
 
-.times-new-roman * {
-    font-family: "Times New Roman", serif !important;
+.times-new-roman {
+	font-family: "Times New Roman", Times, serif !important;
+  }
+  
+  .times-new-roman * {
+	font-family: "Times New Roman", Times, serif !important;
+  }
+  
+  .courier-New {
+	font-family: "Courier New", monospace !important;
+  }
+  
+  .courier-New * {
+	font-family: "Courier New", monospace !important;
+  }
+  
+  .arial-serif {
+	font-family: "Arial", Arial, Helvetica, sans-serif !important;
+  }
+  
+  .arial-serif * {
+	font-family: "Arial", Arial, Helvetica, sans-serif !important;
   }
 
-.courier-new {
-	font-family: "Courier New", monospace !important;
-}
   
-.arial-serif * {
-    font-family: "Arial", serif !important;
-}
-
 .container .table.tabulator {                                                                                                                                                                                                                                             
 	background-color: var(--st-bg-color) ;
 	opacity: 0.95 ;
@@ -423,7 +436,7 @@ nav {
 }
 
 .pb {
-	font-family: "Times New-Roman"!important ;
+	font-family: "Times New Roman"!important ;
 	text-align:right;
 	font-weight: bold ;
 	display: block ;
