@@ -110,28 +110,28 @@ footer a {
 	color: var(--st-bg-color2)!important ;
 }
 
-.Times-New-Roman {
-	font-family: "Times New Roman", serif !important;
+.times-new-roman {
+	font-family: "Times New Roman", Times, serif !important;
   }
   
-  .Times-New-Roman * {
-	font-family: "Times New Roman", serif !important;
+  .times-new-roman * {
+	font-family: "Times New Roman", Times, serif !important;
   }
   
-  .Courier-New {
+  .courier-New {
 	font-family: "Courier New", monospace !important;
   }
   
-  .Courier-New * {
+  .courier-New * {
 	font-family: "Courier New", monospace !important;
   }
   
-  .Arial-serif {
-	font-family: "Arial", sans-serif !important;
+  .arial-serif {
+	font-family: "Arial", Arial, Helvetica, sans-serif !important;
   }
   
-  .Arial-serif * {
-	font-family: "Arial", sans-serif !important;
+  .arial-serif * {
+	font-family: "Arial", Arial, Helvetica, sans-serif !important;
   }
 
   
