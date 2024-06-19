@@ -16,10 +16,10 @@
                <div class="row">
                   <div class="col-lg-1 col-md-auto col-sm-2 col-xs-6 ml-auto text-center">
                      <div class="py-3">
-                        <a href="https://www.oeaw.ac.at/acdh"><img src="images/acdh_logo-VECTOR_white.png" width="40"/></a>
+                        <a href="https://www.oeaw.ac.at/acdh"><img src="images/acdh_logo-VECTOR_white.png" width="40" alt="Austrian Centre for Digital Humanities" title="Austrian Centre for Digital Humanities"/></a>
                      </div>
                      <div class="py-3">
-                        <a href="http://www.oeaw.ac.at/oesterreichische-akademie-der-wissenschaften/"><img src="images/OEAW_Logo_Kurzform_white.png" width="60"/></a>
+                        <a href="http://www.oeaw.ac.at/oesterreichische-akademie-der-wissenschaften/"><img src="images/OEAW_Logo_Kurzform_white.png" width="60" alt="Österreichische Akademie der Wissenschaften" title="Österreichische Akademie der Wissenschaften"/></a>
                      </div>
                   </div>
                   <div class="col-lg-4 col-md-3 col-sm-3">
@@ -37,16 +37,16 @@
                         </p>
                   </div>
                   <div class="col-lg-2 col-md-3 col-sm-3 text-center">
-                     <a href="http://www.kreisky.org"><img src="images/logo-kreisky-archiv-hell.jpg" height="50"/></a>
+                     <a href="http://www.kreisky.org"><img src="images/logo-kreisky-archiv-hell.jpg" title="images/logo-kreisky-archiv-hell.jpg" height="50" alt="Kreisky Archiv"/></a>
                   </div>
                   <div class="col-lg-3 col-md-4 col-sm-4 ml-auto">
                      <figure>
                         <figcaption>Unterstützt durch Fördergelder des Jubiläumsfonds der Oesterreichischen Nationalbank (Projektnummer: 16468).</figcaption><br/>
-                        <a href="https://www.oenb.at"><img src="images/logo_oenb.png" height="50"/></a>
+                        <a href="https://www.oenb.at"><img src="images/logo_oenb.png" height="50" title="Österreichische Nationalbank" alt="Österreichische Nationalbank"/></a>
                     </figure>
                   </div>
                   <div class="col-lg-2 col-md-2 col-xs-6 ml-auto text-center">
-                     <a href="{$github_url}"><i class="bi bi-github"></i></a>
+                     <a href="{$github_url}"><i class="bi bi-github" title="GitHub" alt="GitHub"></i></a>
                   </div>
                </div>
             </div>
