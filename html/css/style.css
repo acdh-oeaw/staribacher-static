@@ -1,8 +1,10 @@
 :root {
-    --st-fg-color: #222;
+    --st-fg-color: #110;
+	--st-fg-color-light: rgb(72, 36, 3);
     --st-bg-color: #e3c18F;
     --st-bg-secondary:  #B3915F;
     --st-bg-color2: rgba(176, 88, 3, 1);
+	--st-bg-color2-hell: rgba(196, 108, 23, 1);
     --st-bg-color2-shadow: rgba(106, 18, 0, 1);
     --st-bg-text: #fffcf3;
 }
@@ -37,12 +39,21 @@ p .person {
 }
 
 #page a {
-		color: var(--st-bg-color2) ;
+	color: var(--st-bg-color2) ;
+}
+
+#page a:hover {
+	color: var(--st-bg-color2-shadow) ;
 }
 
 .modal a {
 	color: var(--st-bg-color2) ;
 }
+
+.modal a:hover {
+	color: var(--st-bg-color2-shadow) ;
+}
+
 .container .metatext {
 	padding-left: 2vw ;
 	padding-right:1vw ;
@@ -74,10 +85,16 @@ main a {
 		color: var(--st-bg-color2)!important ;
 }
 
+main a:hover {
+	color: var(--st-bg-color2-shadow)!important ;
+}
 footer a {
 	color: var(--st-bg-color2)!important ;
 }
 
+footer a:hover {
+	color: var(--st-bg-color2-shadow) !important;
+}
   
 .container .table.tabulator {                                                                                                                                                                                                                                             
 	background-color: var(--st-bg-color) ;
@@ -210,7 +227,11 @@ nav {
 .nav-link{
 	font-size: 1.4em ;
 	font-family: monospace;
+	color: var(--st-fg-color-light)
+}
 
+.nav-link:hover{
+	color: var(--st-fg-color)
 }
 
 .nav-item{
@@ -255,15 +276,16 @@ nav {
 }
 
 .navbar .dropdown-item:hover {
-	background-color: var(--st-bg-color);    
+	background-color: var(--st-bg-color2-hell);
+	border-radius: 1em ; 
 }
 
 .navbar .dropdown-item:active {
-	background-color: var(--st-bg-color);
+	background-color: var(--st-bg-color2-hell);
 }
 
 .navbar .dropdown-item:focus{
-	background-color: var(--st-bg-color);
+	background-color: var(--st-bg-color2-hell);
     color: var(--st-fg-color);
 }
 
