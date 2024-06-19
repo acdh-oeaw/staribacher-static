@@ -38,22 +38,6 @@ p .person {
 	opacity: 1!important;
 }
 
-#page a {
-	color: var(--st-bg-color2) ;
-}
-
-#page a:hover {
-	color: var(--st-bg-color2-shadow) ;
-}
-
-.modal a {
-	color: var(--st-bg-color2) ;
-}
-
-.modal a:hover {
-	color: var(--st-bg-color2-shadow) ;
-}
-
 .container .metatext {
 	padding-left: 2vw ;
 	padding-right:1vw ;
@@ -81,21 +65,23 @@ p .person {
 	font-weight: bold ;
 	text-align: center ;
 }
-main a {
+
+a:not(.nav-link, .dropdown-item)  {
 		color: var(--st-bg-color2)!important ;
 }
 
-main a:hover {
+a:not(.nav-link, .dropdown-item):hover {
 	color: var(--st-bg-color2-shadow)!important ;
 }
-footer a {
-	color: var(--st-bg-color2)!important ;
+
+a:not(.nav-link, .dropdown-item):active {
+	color: var(--st-bg-color2-shadow)!important ;
 }
 
-footer a:hover {
-	color: var(--st-bg-color2-shadow) !important;
+a:not(.nav-link, .dropdown-item):focus {
+	color: var(--st-bg-color2-shadow)!important ;
 }
-  
+
 .container .table.tabulator {                                                                                                                                                                                                                                             
 	background-color: var(--st-bg-color) ;
 	opacity: 0.95 ;
