@@ -745,4 +745,15 @@ nav {
 		max-width: 8em ;
 
 	}
+
+	.table.tabulator .tabulator-row .tabulator-cell {
+		color: var(--st-bg-color2)!important ;
+	}
+	.table.tabulator .tabulator-row .tabulator-cell:focus {
+
+		color: var(--st-bg-color2-shadow)!important ;
+	}
+	.table.tabulator .tabulator-row .tabulator-cell:active {
+		color: var(--st-bg-color2-shadow)!important ;
+	}
 }
