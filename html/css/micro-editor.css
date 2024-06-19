@@ -154,44 +154,73 @@ input:checked+.i-slider:before {
 
 /* font styles and sizes */
 
-.Times-New-Roman {
-  font-family: "Times New Roman", serif !important;
-}
-
-.Times-New-Roman * {
-  font-family: "Times New Roman", serif !important;
-}
-
-.Courier-New {
+.standardschriftart {
   font-family: "Courier New", monospace !important;
 }
 
-.Courier-New * {
+.standardschriftart {
   font-family: "Courier New", monospace !important;
 }
 
-.Arial-serif {
-  font-family: "Arial", sans-serif !important;
+.times-new-roman {
+	font-family: "Times New Roman", Times, serif !important;
+}
+  
+.times-new-roman * {
+	font-family: "Times New Roman", Times, serif !important;
+}
+  
+.courier-New {
+	font-family: "Courier New", monospace !important;
 }
 
-.Arial-serif * {
-  font-family: "Arial", sans-serif !important;
+.courier-New * {
+	font-family: "Courier New", monospace !important;
+}
+  
+.arial-serif {
+	font-family: "Arial", Arial, Helvetica, sans-serif !important;
+}
+  
+.arial-serif * {
+  font-family: "Arial", Arial, Helvetica, sans-serif !important;
 }
 
-.font-size-26 {
-  font-size: 26px !important;
-}
 
-.font-size-22 {
-  font-size: 22px !important;
-}
-
-.font-size-18 {
-  font-size: 18px !important;
+.font-size-standard {
+	font-size: default!important;
 }
 
 .font-size-14 {
-  font-size: 14px !important;
+	font-size: 14px!important ;
+}
+
+.font-size-14 * {
+	font-size: 14px!important ;
+}
+
+.font-size-18 {
+	font-size: 18px!important ;
+}
+
+.font-size-18 * {
+	font-size: 18px!important ;
+}
+
+.font-size-22 {
+	font-size: 22px!important ;
+}
+
+.font-size-22 * {
+	font-size: 22px!important ;
+}
+
+.font-size-26 {
+	font-size: 26px ;
+}
+
+.font-size-26 * {
+	font-size: 26px!important ;
 }
 
 /* Fullsize mode */
