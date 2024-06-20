@@ -248,8 +248,7 @@ nav {
 	padding: 0.2rem;
 	padding-top: 1rem ;
 	padding-bottom: 1rem ;
-	border-bottom-left-radius: 1em ;
-	border-bottom-right-radius: 1em ; 
+	border-radius: 1em ;
 }
 
 .footer {

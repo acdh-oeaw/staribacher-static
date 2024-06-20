@@ -41,7 +41,7 @@
             
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                <main class="flex-grow-1">
+                <main class="flex-grow-1"><br/><br/>
                     <div class="container">
                         <h1>Inhaltsverzeichnis</h1>
                         <table class="table" id="myTable">
