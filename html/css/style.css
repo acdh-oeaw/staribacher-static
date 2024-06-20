@@ -214,13 +214,15 @@ nav {
 	font-size: inherit ;
 	font-family: inherit;
 	font-weight: unset;
+	color: var(--st-fg-color-light)
 }
 
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item:active,
 .navbar .dropdown-item:focus {
 	background-color: var(--st-bg-color2-hell);
-	border-radius: 1em ; 
+	border-radius: 1em ;
+	color: var(--st-fg-color)
 }
 
 #editor-widget * {
@@ -278,6 +280,8 @@ nav {
 #transcript{
     padding-left: 4vw ;
     padding-right: 1vw ;
+	min-width: 800px!important ;
+	margin: 0;
     background-color: var(--st-bg-text) ;
     width: 37vw ;
 }
@@ -300,15 +304,12 @@ nav {
     max-width: 25% ;
 }
 
-.col-md-6.col-lg-6.col-sm-12.text {
+.col-md-6.text {
 	resize: horizontal;
-	font-size: .70vw ;
-	padding-left: 6vw ;
-	padding-top: 2vw ;
+	font-size: .8em ;
 	padding-bottom: 40vw ;
 	margin-left: 0;
 	margin-right: 0;
-	padding-right: calc(2*var(--ed-font-size)) ;
 	opacity: 0.95!important ;
 	width: 50%  ;
 	font-family: "Courier New" ;
@@ -527,10 +528,9 @@ nav {
 
 	.facsimiles, .facsimiles * {
 		display: none!important;
-		position: unset!important ;
 	}
 
-	.col-md-6.col-lg-6.col-sm-12.text {
+	.col-md-6.text {
 		padding: 0 !important;
 		width: 100vw;
 	}
