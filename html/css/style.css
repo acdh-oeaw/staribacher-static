@@ -107,6 +107,9 @@ a:not(.nav-link, .dropdown-item):focus * {
 	background-color:  var(--st-bg-color)!important ;
 	border-color: var(--st-bg-color2)!important ;
 }
+.tabulator-header {
+	border-top: none!important;
+}
 
 .tabulator-header-contents  .tabulator-headers {
 	background-color: inherit ;
@@ -297,7 +300,7 @@ nav {
     padding-left: 4vw ;
     padding-right: 1vw ;
 	padding-bottom: 2em ;
-	min-width: 800px!important ;
+	min-width: auto!important ;
     background-color: var(--st-bg-text) ;
     max-width: 37vw ;
 }
@@ -324,9 +327,10 @@ nav {
 	resize: horizontal;
 	margin-left: 0;
 	margin-right: 0;
+	padding-right: .5em ;
 	opacity: 0.95!important ;
 	font-family: "Courier New" ;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 
@@ -533,6 +537,12 @@ nav {
 	background-image: url('/staribacher-static/images/staribacher_hintergrund_final.jpg') ;
 	background-repeat: no-repeat;
 	background-position: left;
+}
+
+@media screen and (max-width: 1920px) {
+	.col-md-6.text,  .col-md-6.text *{
+		font-size: 12px;
+	}
 }
 
 @media screen and (max-width: 800px) {
