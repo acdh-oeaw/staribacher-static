@@ -11,10 +11,8 @@
 
 body {
 	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
-	background-image: url("/staribacher-static/images/staribacher_hintergrund_final.jpg");
-	background-size: 100% auto;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-image: url('/staribacher-static/images/bg-tile.jpg') ;
+	background-repeat: repeat;
 	font-family: sans-serif;
 	font-size: 1.2em;
 	line-height: 1.6;
@@ -511,11 +509,20 @@ nav {
 	border-color: var(--st-bg-color2)!important ;
 }
 
+.main-landing {
+	background-image: url('/staribacher-static/images/staribacher_hintergrund_final.jpg') ;
+	background-repeat: no-repeat;
+	background-position: left;
+}
 
 @media screen and (max-width: 800px) {
 	body {
 		background-image: none;
 		background-size: 0;
+	}
+
+	.main-landing {
+		background-image: none ;
 	}
 
 	.facsimiles, .facsimiles * {
