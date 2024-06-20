@@ -262,6 +262,7 @@ nav {
 	padding-top: 0;
 	margin-top: 0;
 	font-weight: 300;
+	z-index: 99; 
 	color: var(--st-fg-color);
     	background: var(--st-bg-color) ;
     	opacity: 1;
@@ -271,19 +272,17 @@ nav {
 #transcript {
     position: sticky;
     top: 10%;
-    padding: 2em;
-    padding-top: 0;
-    padding-bottom: 2em;
-    margin-left: auto;
+    padding: 0;
+	margin: 0;
 }
 
 #transcript{
     padding-left: 4vw ;
     padding-right: 1vw ;
+	padding-bottom: 2em ;
 	min-width: 800px!important ;
-	margin: 0;
     background-color: var(--st-bg-text) ;
-    width: 37vw ;
+    max-width: 37vw ;
 }
 
 .person {
@@ -304,21 +303,14 @@ nav {
     max-width: 25% ;
 }
 
-.col-md-6.text {
+.col-md-6.text,  .col-md-6.text *{
 	resize: horizontal;
-	font-size: .8em ;
-	padding-bottom: 40vw ;
 	margin-left: 0;
 	margin-right: 0;
 	opacity: 0.95!important ;
-	width: 50%  ;
 	font-family: "Courier New" ;
 }
 
-.col-md-6.col-lg-6.col-sm-12.text * {
-	font-size: inherit ;
-	font-family: "Courier New" ; 
-}
 
 .hline:after {
 	width:100%;
@@ -531,32 +523,33 @@ nav {
 	}
 
 	.col-md-6.text {
-		padding: 0 !important;
-		width: 100vw;
-	}
-
-	.col-md-6.col-lg-6.col-sm-12.text *{
-		font-size: 4vw ;
-	}
-
-	
-	#transcript {
-		width: 100vw;
-		top: 10%;
-		padding-left: .5em ;
-		padding-right: .5em ;
-		padding-top: .5rem;
-		padding-bottom: .5em;
 		background-color: var(--st-bg-text) ;
+		width: 100vw ;
+		max-width: 100vw!important;
+	}
+
+	.col-md-6.text * {
+		font-size: 4vw ;
+		width: unset!important ;
 	}
 	
-    	.pb, .first-paragraph {
+
+	#transcript {
+		top: 10%;
+		padding: 0!important;
+		min-width: 100%!important;
+	}
+	
+    .pb, .first-paragraph {
 		padding-top: 0!important;
+		padding-bottom: 0!important;
 	}
 
 	#transcript p br {
 		display: none;
 		position: unset ;
+		max-width: unset;
+		width: 100%!important ;
 	}
 
 	.p {
