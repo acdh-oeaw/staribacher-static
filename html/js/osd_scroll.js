@@ -63,7 +63,7 @@ var viewer = OpenSeadragon({
     id: 'container_facs_1',
     prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/',
     sequenceMode: true,
-    showNavigator: true,
+    showNavigator: false,
     tileSources: tileSources
 });
 /*
