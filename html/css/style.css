@@ -539,9 +539,10 @@ nav {
 }
 
 .main-landing {
-	background-image: url('/staribacher-static/images/staribacher_hintergrund_final.jpg') ;
+	background-image: url('/staribacher-static/images/stari.png') ;
 	background-repeat: no-repeat;
-	background-position: left;
+	background-position: bottom left;
+	background-size: 40%;
 }
 
 @media screen and (max-width: 1920px) {
