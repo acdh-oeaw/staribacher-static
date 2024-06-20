@@ -14,6 +14,7 @@ body {
 	background-image: url('/staribacher-static/images/bg-tile.jpg') ;
 	background-repeat: repeat;
 	font-family: sans-serif;
+	background-attachment: fixed;
 	font-size: 1.2em;
 	line-height: 1.6;
 	font-weight: 400;
@@ -74,17 +75,36 @@ a:not(.nav-link, .dropdown-item):focus * {
 	color: var(--st-bg-color2-shadow)!important ;
 }
 
+#myTable {
+	text-align: center;
+}
+
+
 .container .table.tabulator {
-	background-color: var(--st-bg-color) ;
-	opacity: 0.95 ;
+	background-color: inherit;
 	font-size: 1.1em ;
+}
+
+.tabulator-table {
+	background-color: inherit!important;
+}
+
+
+.tabulator-responsive-collapse, .tabulator-responsive-collapse td {
+	border: none!important;
+}
+
+
+.container .table.tabulator:hover,
+.container .table.tabulator:focus,
+.container .table.tabulator:active {
+	background-color: var(--st-bg-color);
 }
 
 .table.tabulator .tabulator-header,
 .tabulator-header .tabulator-header-contents,
 .table.tabulator .tabulator-row {
 	background-color:  var(--st-bg-color)!important ;
-	opacity: 0.95 ;
 	border-color: var(--st-bg-color2)!important ;
 }
 
@@ -95,20 +115,20 @@ a:not(.nav-link, .dropdown-item):focus * {
 
 .tabulator-headers .tabulator-col {
 	background-color: inherit!important ;
-	border-color: inherit!important; 
+	border-color: inherit!important;
+	text-align: left ;
 }
 
-
 .table.tabulator .tabulator-row:hover {
+	border-radius: 1em!important;
 	background-color:  var(--st-bg-color2)!important ;
-	opacity: 0.95 ;
 	color: var(--st-fg-color)!important ;
 }
 
 .tabulator-row .tabulator-cell {
-	background-color:  inherit!important ;
-	opacity: 0.95 ;
+	text-align: left ;
 	color: inherit!important ;
+	background-color: inherit!important ;
 }
 
 .ais-Panel-header {

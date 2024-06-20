@@ -2,7 +2,7 @@
 
 var config = {
     height: 800,
-    layout: "fitColumns",
+    layout: "fitDataTable",
     tooltips: true,
     dataLoader: true,
     responsiveLayout: "collapse",
