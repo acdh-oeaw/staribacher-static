@@ -48,6 +48,11 @@ p .person {
 	padding-right:1vw ;
 }
 
+h1 {
+	padding-top: 1em ;
+	padding-bottom: 1em ;
+}
+
 .button-group,
 .button-group * {
 	color: var(--st-bg-color2) ;
