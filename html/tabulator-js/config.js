@@ -6,4 +6,5 @@ var config = {
     tooltips: true,
     dataLoader: true,
     responsiveLayout: "collapse",
+    maxWidth:"100%",
 };

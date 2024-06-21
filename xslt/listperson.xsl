@@ -39,6 +39,7 @@
                                 <tr>
                                     <th scope="col" tabulator-formatter="html" tabulator-headerFilter="input" tabulator-responsive="0" >Nachname</th>
                                     <th scope="col" tabulator-formatter="html" tabulator-responsive="10" tabulator-headerFilter="input">Vorname</th>
+                                    <th scope="col" tabulator-formatter="html" tabulator-responsive="20" tabulator-headerFilter="input">Tätigkeit</th>
                                 </tr>
                             </thead>
                             <xsl:for-each select=".//tei:person[@xml:id]">
@@ -55,6 +56,11 @@
                                         <td>
                                             <a href="{$filename}">
                                                 <xsl:value-of select=".//tei:forename/text()"/>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{$filename}">
+                                                 <xsl:value-of select="tokenize(./tei:occupation, '/')[last()]"/>
                                             </a>
                                         </td>
                                     </tr>
