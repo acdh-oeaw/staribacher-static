@@ -41,27 +41,27 @@
                                     <th scope="col" tabulator-formatter="html" tabulator-responsive="10" tabulator-headerFilter="input">Vorname</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <xsl:for-each select=".//tei:person[@xml:id]">
+                            <xsl:for-each select=".//tei:person[@xml:id]">
                                     <xsl:variable name="id">
-                                        <xsl:value-of select="data(@xml:id)"/>
-                                    </xsl:variable>
-                                    <xsl:variable name="full_path">
-                                        <xsl:value-of select="document-uri(/)"/>
-                                    </xsl:variable> 
+                                      <xsl:value-of select="data(@xml:id)"/>
+                                     </xsl:variable>
+                                    <xsl:variable name="filename" select="concat($id, '.html')"/>
                                     <tr>
                                         <td>
-                                            <xsl:value-of select=".//tei:surname/text()"/>
+                                            <a href="{$filename}">
+                                                <xsl:value-of select=".//tei:surname/text()"/>
+                                            </a>
                                         </td>
                                         <td>
-                                            <xsl:value-of select=".//tei:forename/text()"/>
+                                            <a href="{$filename}">
+                                                <xsl:value-of select=".//tei:forename/text()"/>
+                                            </a>
                                         </td>
                                     </tr>
                                 </xsl:for-each>
-                            </tbody>
                         </table>
                         <xsl:call-template name="tabulator_dl_buttons"/>
-                    </div><br/><br/>
+                    </div>
                 </main>
                 <xsl:call-template name="html_footer"/>
                 <xsl:call-template name="tabulator_js"/>
@@ -70,8 +70,11 @@
 
 
         <xsl:for-each select=".//tei:person[@xml:id]">
-            <xsl:variable name="filename" select="concat(./@xml:id, '.html')"/>
-            <xsl:variable name="name" select="normalize-space(string-join(./tei:persName[1]//text()))"></xsl:variable>
+            <xsl:variable name="id">
+                <xsl:value-of select="data(@xml:id)"/>
+            </xsl:variable>
+            <xsl:variable name="filename" select="concat(@xml:id, '.html')"/>
+            <xsl:variable name="name" select="normalize-space(string-join(tei:persName[1]//text(), ' '))"/>
             <xsl:result-document href="{$filename}">
                 <html  class="h-100">
                     <head>
@@ -79,7 +82,6 @@
                             <xsl:with-param name="html_title" select="$name"></xsl:with-param>
                         </xsl:call-template>
                     </head>
-
                     <body class="d-flex flex-column h-100">
                         <xsl:call-template name="nav_bar"/>
                         <main class="flex-grow-1">
@@ -88,7 +90,7 @@
                                     <xsl:value-of select="$name"/>
                                 </h1>
                                 <xsl:call-template name="person_detail"/>  
-                            </div><br/><br/>
+                            </div>
                         </main>
                         <xsl:call-template name="html_footer"/>
                     </body>
