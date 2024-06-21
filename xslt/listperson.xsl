@@ -37,34 +37,31 @@
                         <table class="table" id="myTable">
                             <thead>
                                 <tr>
-                                    <th scope="col" tabulator-formatter="html" tabulator-headerFilter="input" tabulator-responsive="0" >Nachname</th>
-                                    <th scope="col" tabulator-formatter="html" tabulator-responsive="10" tabulator-headerFilter="input">Vorname</th>
-                                    <th scope="col" tabulator-formatter="html" tabulator-responsive="20" tabulator-headerFilter="input">Tätigkeit</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="0" >Nachname</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="10">Vorname</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="20">Tätigkeit</th>
+                                    <th scope="col" tabulator-responsive="99" tabulator-visible="false">id</th>
                                 </tr>
                             </thead>
                             <xsl:for-each select=".//tei:person[@xml:id]">
-                                    <xsl:variable name="id">
-                                      <xsl:value-of select="data(@xml:id)"/>
-                                     </xsl:variable>
-                                    <xsl:variable name="filename" select="concat($id, '.html')"/>
-                                    <tr>
-                                        <td>
-                                            <a href="{$filename}">
-                                                <xsl:value-of select=".//tei:surname/text()"/>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="{$filename}">
-                                                <xsl:value-of select=".//tei:forename/text()"/>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="{$filename}">
-                                                 <xsl:value-of select="tokenize(./tei:occupation, '/')[last()]"/>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </xsl:for-each>
+                                <xsl:variable name="full_path">
+                                    <xsl:value-of select="current()/@xml:id" />
+                                </xsl:variable>
+                                <tr>
+                                    <td>
+                                            <xsl:value-of select=".//tei:surname/text()"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select=".//tei:forename/text()"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="tokenize(./tei:occupation, '/')[last()]"/>
+                                    </td>
+                                    <td>
+                                        <xsl:value-of select="$full_path"/>
+                                    </td>
+                                </tr>
+                            </xsl:for-each>
                         </table>
                         <xsl:call-template name="tabulator_dl_buttons"/>
                     </div>

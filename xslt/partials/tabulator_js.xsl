@@ -28,12 +28,7 @@
             
             table.on("rowClick", function(e, row) {
                 var data = row.getData();
-                if (data.datum != null) {
-                    date = data.datum.split("-").join("")
-                    var url = "staribacher__" + date + ".html";
-                } else if (data.id != null) {
-                    var url = data.id + ".html";
-                }
+                var url = data.id + ".html" ;
                 window.location.href = url;
             })
         </script>

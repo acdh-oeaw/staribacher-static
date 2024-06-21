@@ -47,15 +47,16 @@
                         <table class="table" id="myTable">
                             <thead>
                                 <tr>
-                                    <th scope="col" tabulator-headerFilter="input"  tabulator-responsive="10" atabulator-formatter="html">Titel</th>
-                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="0" tabulator-formatter="html">Datum</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="10">Titel</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="0">Datum</th>
+                                    <th scope="col" tabulator-responsive="99" tabulator-visible="false">id</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <xsl:for-each
                                     select="collection('../data/editions?select=*.xml')//tei:TEI">
                                     <xsl:variable name="full_path">
-                                        <xsl:value-of select="document-uri(/)"/>
+                                        <xsl:value-of select="replace(current()/@xml:id, '.xml', '')"/>
                                     </xsl:variable>
                                     <tr>
                                         <td>
@@ -63,6 +64,9 @@
                                         </td>
                                         <td>
                                             <xsl:call-template name="getDate"/>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="$full_path"/>
                                         </td>
                                     </tr>
                                 </xsl:for-each>
