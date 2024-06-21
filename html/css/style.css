@@ -32,7 +32,60 @@ p .person {
 	font-size: inherit ;
 }
 
+.container > .table.tabulator {
+	background-color: var(--st-bg-color);
+	border-color: var(--st-bg-color2)!important ;
+	color: inherit ;
+	
+}
 
+.table.tabulator *:not(input)  {
+	font-size: 1em ;
+	background-color: inherit!important;
+	text-align: center;
+
+}
+
+.tabulator-col-content > .tabulator-col-title-holder >  .tabulator-col-sorter {
+	border: none !important;
+}
+
+.tabulator-header {
+	border-top: none!important;
+	border-color: inherit!important ;
+}
+
+.tabulator-tableholder * {
+	color: var(--st-fg-color-light)! important ;
+	text-decoration: none! important;
+	border-color: inherit!important ;
+}
+
+
+.table.tabulator .tabulator-row:hover,
+.table.tabulator .tabulator-row:active,
+.table.tabulator .tabulator-row:focus
+ {
+	border-radius: 1em!important;
+	background-color:  var(--st-bg-color2)!important ;
+	color: var(--st-fg-color)!important ;
+}
+
+.table.tabulator .tabulator-row:hover *,
+.table.tabulator .tabulator-row:active *,
+.table.tabulator .tabulator-row:focus *
+ {
+	background-color: inherit!important ;
+	color: inherit!important ;
+}
+
+.tabulator-responsive-collapse, .tabulator-responsive-collapse td {
+	border: none!important;
+}
+
+.tabulator-arrow {
+	border-bottom-color: var(--st-fg-color-light)! important;
+}
 
 .pb {
 	padding-top: 6em ; 
@@ -68,78 +121,21 @@ h1 {
 	text-align: center ;
 }
 
-a:not(.nav-link, .dropdown-item),
-a:not(.nav-link, .dropdown-item) * {
+a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a),
+a:not(.nav-link, .dropdown-item) i {
 		color: var(--st-bg-color2)!important ;
 }
 
-a:not(.nav-link, .dropdown-item):hover,
-a:not(.nav-link, .dropdown-item):hover *,
-a:not(.nav-link, .dropdown-item):active,
-a:not(.nav-link, .dropdown-item):active *,
-a:not(.nav-link, .dropdown-item):focus,
-a:not(.nav-link, .dropdown-item):focus * {
+a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a):hover,
+a:not(.nav-link, .dropdown-item):hover i,
+a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a):active,
+a:not(.nav-link, .dropdown-item):active i,
+a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a):focus,
+a:not(.nav-link, .dropdown-item):focus i {
 	color: var(--st-bg-color2-shadow)!important ;
 }
 
-#myTable {
-	text-align: center;
-}
 
-
-.container .table.tabulator {
-	background-color: inherit;
-	font-size: 1.1em ;
-}
-
-.tabulator-table {
-	background-color: inherit!important;
-}
-
-
-.tabulator-responsive-collapse, .tabulator-responsive-collapse td {
-	border: none!important;
-}
-
-
-.container .table.tabulator:hover,
-.container .table.tabulator:focus,
-.container .table.tabulator:active {
-	background-color: var(--st-bg-color);
-}
-
-.table.tabulator .tabulator-header,
-.tabulator-header .tabulator-header-contents,
-.table.tabulator .tabulator-row {
-	background-color:  var(--st-bg-color)!important ;
-	border-color: var(--st-bg-color2)!important ;
-}
-.tabulator-header {
-	border-top: none!important;
-}
-
-.tabulator-header-contents  .tabulator-headers {
-	background-color: inherit ;
-	padding-bottom: 5em;
-}
-
-.tabulator-headers .tabulator-col {
-	background-color: inherit!important ;
-	border-color: inherit!important;
-	text-align: left ;
-}
-
-.table.tabulator .tabulator-row:hover {
-	border-radius: 1em!important;
-	background-color:  var(--st-bg-color2)!important ;
-	color: var(--st-fg-color)!important ;
-}
-
-.tabulator-row .tabulator-cell {
-	text-align: left ;
-	color: inherit!important ;
-	background-color: inherit!important ;
-}
 
 .ais-Panel-header {
 	border-bottom: 1px solid var(--st-fg-color-light)!important;
@@ -693,18 +689,12 @@ nav {
 
 	}
 
-	.table.tabulator .tabulator-row .tabulator-cell {
-		color: var(--st-bg-color2)!important ;
-	}
-
-	.table.tabulator .tabulator-row .tabulator-cell:focus,
-	.table.tabulator .tabulator-row .tabulator-cell:active  {
-		color: var(--st-bg-color2-shadow)!important ;
-	}
 
 	.footer * {
 		text-align: center ;
 	}
+
+
 
 	.col-lg-1 {
 			display: flex;                  /* establish flex container */
