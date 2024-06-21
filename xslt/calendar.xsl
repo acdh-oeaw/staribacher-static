@@ -20,25 +20,17 @@
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
                 </xsl:call-template>
-            </head>
-
-
-
-
-
-            <body class="d-flex flex-column h-100">
-                <xsl:call-template name="nav_bar"/>
-                <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
-                <script src="https://unpkg.com/js-year-calendar@latest/locales/js-year-calendar.de.js"></script>
+                <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js" />
+                <script src="https://unpkg.com/js-year-calendar@latest/locales/js-year-calendar.de.js" />
                 <link rel="stylesheet" type="text/css" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
                 <script src="js-data/calendarData.js"></script>
+            </head>
+            <body class="d-flex flex-column h-100">
+                <xsl:call-template name="nav_bar"/>
                 <main class="flex-grow-1">
                     <div class="container">
                         <h1>Kalender</h1>
-                        <a style="padding-left:5px;" href="js-data/calendarData.js">
-                            <i class="fas fa-download" title="Data"/>
-                        </a>
-                        <div class="hfeed site flex-grow-1" id="page">                  
+                       
                             <div class="containingloader">
                                 <div class="row">
                                     <div class="col-sm-2 yearscol">
@@ -61,7 +53,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </main>
                 <script type="text/javascript" src="./js/calendar.js" charset="UTF-8"/>
                 <div id="loadModal"/>

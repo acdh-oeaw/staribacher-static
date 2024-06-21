@@ -56,6 +56,11 @@ p .person {
 	border-color: inherit!important ;
 }
 
+.tabulator-headers {
+overflow: hidden ;
+}
+
+
 .tabulator-tableholder * {
 	color: var(--st-fg-color-light)! important ;
 	text-decoration: none! important;
@@ -431,8 +436,8 @@ nav {
 	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
 }
 
-.containingloader{
-	padding:1em;
+.container .containingloader{
+	padding-top:0 ;
 }
 
 .first-paragraph {
@@ -442,15 +447,6 @@ nav {
 .last-paragraph{
 	margin-bottom: 10vw;
 	margin-top: 5vw ;
-}
-
-.yearscol {
-	background-color: var(--st-bg-color) ;
-	opacity: 0.95!important ;
-	border: 2pt solid var(--st-bg-color2) ;
-	border-radius: 1em ;
-	height: min-content ;
-	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ;
 }
 
 .calendar {
@@ -467,6 +463,16 @@ nav {
 	max-width: 68vw ; 
 }
 
+.yearscol {
+	background-color: var(--st-bg-color) ;
+	opacity: 0.95!important ;
+	border: 2pt solid var(--st-bg-color2) ;
+	border-radius: 1em ;
+	height: min-content ;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ;
+	padding-top: 1em;
+}
+
 .month-container {
 	width: 16.66666667% ;
 }
@@ -477,6 +483,17 @@ nav {
 }
 
 .yearbtn:focus,
+
+.months-container {
+	padding-bottom: 1em;
+	padding-top: 1em ;
+}
+
+.row .calendar .months-container .month-container {
+	padding-bottom: .5em;
+	padding-top: .5em ;
+}
+
 .day-content:hover {
 	border: 0;
 	background-color:  var(--st-bg-color2);
