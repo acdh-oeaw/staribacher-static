@@ -39,6 +39,13 @@ p .person {
 	
 }
 
+.project-title.landing {
+	text-align: center ;
+	font-family: monospace!important ;
+	font-weight: bolder ;
+	font-size: 3em;
+}
+
 .table.tabulator *:not(input)  {
 	font-size: 1em ;
 	background-color: inherit!important;
@@ -208,9 +215,13 @@ nav {
 	font-family: monospace;
 }
 
+
+nav *{
+	font-family: inherit!important;
+}
+
 .nav-link{
-	font-size: 1.4em ;
-	font-family: monospace;
+	font-size: inherit ;
 	color: var(--st-fg-color-light)
 }
 
@@ -223,6 +234,7 @@ nav {
 .nav-item {
 	margin-right: .5em;
 	margin-left: .5em;
+	
 }
 
 .logo {
@@ -245,8 +257,7 @@ nav {
 .navbar .dropdown-menu,
 .navbar .dropdown-menu * {
 	background-color: var(--st-bg-color2) ;
-	font-size: inherit ;
-	font-family: inherit;
+	font-size: .9em ;
 	font-weight: unset;
 	color: var(--st-fg-color-light)
 }
@@ -347,8 +358,6 @@ nav {
 .col-md-6.text {
 	margin-bottom: 20vh ;
 }
-
-
 
 .hline:after {
 	width:100%;
@@ -552,12 +561,13 @@ nav {
 	padding: 0!important ;
 }
 
-.col-lg-1.col-md-2.col-sm-2.col-xs-6,
-.col-lg-3.col-md-4.col-sm-4,
-.col-lg-2.col-md-2.col-xs-6,
-.col-lg-2.col-md-3.col-sm-3 {
+.col-lg-1,
+.col-lg-3,
+.col-lg-2 {
 	padding-top: 0;
 	padding-bottom: 1em;
+	margin-left: auto ;
+	margin-right: auto ;
 }
 
 .row {
@@ -570,14 +580,17 @@ nav {
 
 .main-landing {
 	background-image: url('/staribacher-static/images/stari.png') ;
-	background-repeat: no-repeat;
-	background-position: bottom right;
-	background-size: %;
+	background-repeat: no-repeat ;
+	background-position: bottom right ;
 }
 
 @media screen and (max-width: 1920px) {
 	.col-md-6.text,  .col-md-6.text *{
 		font-size: 12px;
+	}
+	nav {
+		font-size: .9em ;
+		text-align: right ;
 	}
 }
 
@@ -701,12 +714,13 @@ nav {
 		overflow: clip;
 	}
 	
-	.project-title {
+	.project-title.landing {
 		padding-top: .5em ;
 		padding-bottom: .5em ;
 		font-size: 2em;
-		font-weight: bold ;
 		text-align: center ;
+		font-family: monospace!important ;
+		font-weight: bold ;
 	}
 
 	nav {
@@ -729,13 +743,12 @@ nav {
 		text-align: center ;
 	}
 
-
-
 	.col-lg-1 {
 			display: flex;                  /* establish flex container */
 			flex-direction: row;            /* default value; can be omitted */
 			flex-wrap: nowrap;              /* default value; can be omitted */
 			justify-content: space-between; /* switched from default (flex-start, see below) */
+			margin: unset ;
 	}
 
 	.col-lg-1  > .py-3 {
@@ -753,5 +766,4 @@ nav {
 	.container {
 		margin: unset ; 
 	}
-	
 }
