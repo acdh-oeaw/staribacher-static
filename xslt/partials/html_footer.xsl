@@ -10,7 +10,7 @@
          <div class="wrapper" id="wrapper-footer-full">
             <div class="container" id="footer-full-content" tabindex="-1">
                <div class="footer-separator">
-                  KONTAKT
+                  <span class="texts">KONTAKT</span>
                   <hr/>
                </div>
                <div class="row">

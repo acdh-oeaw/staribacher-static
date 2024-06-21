@@ -513,9 +513,16 @@ nav {
 	margin: 0 ;
 }
 
+
+#footer-full-content {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+
+}
 .mt-auto.py-3 {
-	padding-top: 0!important;
 	margin-top: 0!important;
+	padding: 0!important ;
 }
 
 .col-lg-1.col-md-2.col-sm-2.col-xs-6,
@@ -711,7 +718,7 @@ nav {
 		display: none;
 	}
 
-	.footer .texts, .footer-separator {
+	.footer .texts {
 		display: none ;
 	}
 
