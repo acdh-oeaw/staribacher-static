@@ -29,7 +29,7 @@
             
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                <main class="flex-grow-1"><br/><br/>
+                <main class="flex-grow-1">
                     <div class="container">
                         <h1><xsl:value-of select="$doc_title"/></h1>
                         <xsl:for-each select=".//div">
@@ -37,7 +37,7 @@
                                 <xsl:copy-of select="."/>
                             </xsl:copy>
                         </xsl:for-each>                          
-                    </div><br/><br/>
+                    </div>
                 </main>
                 <xsl:call-template name="html_footer"/>
             </body>
