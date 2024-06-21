@@ -57,7 +57,11 @@ p .person {
 }
 
 .tabulator-headers {
-overflow: hidden ;
+overflow: hidden!important ;
+}
+
+.tabulator-headers * {
+	overflow: inherit!important ;
 }
 
 
