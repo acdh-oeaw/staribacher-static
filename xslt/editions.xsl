@@ -32,9 +32,6 @@
     <xsl:variable name="link">
         <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
     </xsl:variable>
-    <xsl:param name="mybreak"><![CDATA[<br/>]]></xsl:param>
-    <xsl:param name="mytab"><![CDATA[&emsp;]]></xsl:param>
-    <xsl:param name="myplaceholder"><![CDATA[&zwnj;]]></xsl:param>   
     <xsl:template match="/">    
         <html class="h-100" lang="de">
             <head>
@@ -108,7 +105,7 @@
                                 <div id="text-resize" lang="de" class="col-md-6 col-lg-6 col-sm-12 text yes-index">
                                     <div id="transcript">
                                         <xsl:apply-templates/>
-                                        <p class="last-paragraph"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></p>
+                                        <p class="last-paragraph"><br /></p>
                                     </div>
                                 </div> 
                             </div>
@@ -174,25 +171,20 @@
 <xsl:template match="tei:pb">
     <xsl:choose>
         <xsl:when test="preceding-sibling::tei:lb or preceding-sibling::tei:p or ancestor::tei:back">
-            <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-            <span class="hline"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></span>
+            <br />
+            <span class="hline"><br/></span>
         </xsl:when>
     </xsl:choose>
     <span class="pb" source="{@facs}">
         <xsl:value-of select="./@n" />
     </span>
-    <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+    <br/>
 </xsl:template>
 <xsl:template match="tei:lb">
     <xsl:if test="@break='no'">
         <xsl:text>-</xsl:text>
     </xsl:if>
-     <xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
-     <!-- <xsl:choose>
-        <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
-            <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
-        </xsl:when>
-    </xsl:choose> -->
+     <br/>
      </xsl:template>
 <xsl:template match="tei:p">
     <xsl:variable name="pid">
@@ -210,11 +202,6 @@
             </p>
         </xsl:otherwise>
     </xsl:choose>
-    <!-- <xsl:choose>
-        <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
-            <xsl:for-each select="1 to 45"><xsl:value-of select="$mybreak" disable-output-escaping="yes"/></xsl:for-each>
-        </xsl:when>
-    </xsl:choose> -->
 </xsl:template>
 
 
@@ -239,7 +226,7 @@
         <xsl:choose>
         <xsl:when test="not(following::tei:pb) and not(following::tei:lb) and not(following::tei:head) and not(following::tei:p)">
             <!-- <xsl:for-each select="1 to 45"> -->
-		<xsl:value-of select="$mybreak" disable-output-escaping="yes"/>
+		<br/>
 	    <!-- </xsl:for-each> -->
         </xsl:when>
     </xsl:choose>
