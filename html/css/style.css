@@ -324,9 +324,7 @@ nav {
     max-width: 30rem;
 }
 
-.col-md-2 {
-    max-width: 25% ;
-}
+
 
 .col-md-6.text,  .col-md-6.text *{
 	resize: horizontal;
@@ -542,7 +540,7 @@ nav {
 	background-image: url('/staribacher-static/images/stari.png') ;
 	background-repeat: no-repeat;
 	background-position: bottom left;
-	background-size: 40%;
+	background-size: %;
 }
 
 @media screen and (max-width: 1920px) {
@@ -624,6 +622,10 @@ nav {
 		max-width: 100% ;
 	}
 
+	.col-md-2:has(>a.bi-github) {
+		max-width: unset ;
+	}
+
 	.col-md-8.col-lg-8.col-sm-12{
 		max-width: 70%;
 		padding: 0;
@@ -692,4 +694,20 @@ nav {
 	.table.tabulator .tabulator-row .tabulator-cell:active  {
 		color: var(--st-bg-color2-shadow)!important ;
 	}
+
+	.footer * {
+		text-align: center ;
+	}
+
+	.col-lg-1 {
+			display: flex;                  /* establish flex container */
+			flex-direction: row;            /* default value; can be omitted */
+			flex-wrap: nowrap;              /* default value; can be omitted */
+			justify-content: space-between; /* switched from default (flex-start, see below) */
+	}
+
+	.col-lg-1  > .py-3 {
+			width: 50%;
+		  }
+	
 }
