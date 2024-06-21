@@ -29,7 +29,7 @@
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
 
-                <main class="flex-grow-1"><br/><br/>
+                <main class="flex-grow-1">
                     <div class="container">
                         <h1>
                             <xsl:value-of select="$doc_title"/>
@@ -39,23 +39,22 @@
                                 <tr>
                                     <th scope="col" tabulator-formatter="html" tabulator-headerFilter="input" tabulator-responsive="0" >Nachname</th>
                                     <th scope="col" tabulator-formatter="html" tabulator-responsive="10" tabulator-headerFilter="input">Vorname</th>
-                                    <th scope="col" tabulator-headerFilter="input" tabulator-visible="false">ID</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <xsl:for-each select=".//tei:person[@xml:id]">
                                     <xsl:variable name="id">
                                         <xsl:value-of select="data(@xml:id)"/>
-                                    </xsl:variable>            
+                                    </xsl:variable>
+                                    <xsl:variable name="full_path">
+                                        <xsl:value-of select="document-uri(/)"/>
+                                    </xsl:variable> 
                                     <tr>
                                         <td>
                                             <xsl:value-of select=".//tei:surname/text()"/>
                                         </td>
                                         <td>
                                             <xsl:value-of select=".//tei:forename/text()"/>
-                                        </td>
-                                        <td>
-                                            <xsl:value-of select="$id"/>
                                         </td>
                                     </tr>
                                 </xsl:for-each>

@@ -29,7 +29,7 @@
             </head>            
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                <main class="flex-grow-1 main-landing"><br/><br/>
+                <main class="flex-grow-1 main-landing">
                     <div class="container">
                         <h1 class="project-title landing"><xsl:value-of select="$project_title"/></h1>
 			            <div class="metatext landing">
@@ -37,7 +37,7 @@
                                 <lb/>Sie umfassen rund 20.000 Seiten und spiegeln Staribachers 13-jährige Ministertätigkeit unter Bundeskanzler Bruno Kreisky in den Kabinetten Kreisky I bis IV wider.
                             </p>
 			            </div>
-                    </div><br/><br/>
+                    </div>
                 </main>
                 <xsl:call-template name="html_footer"/>
             </body>

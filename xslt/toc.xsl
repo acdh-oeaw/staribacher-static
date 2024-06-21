@@ -41,7 +41,7 @@
             
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                <main class="flex-grow-1"><br/><br/>
+                <main class="flex-grow-1">
                     <div class="container">
                         <h1>Inhaltsverzeichnis</h1>
                         <table class="table" id="myTable">
@@ -69,7 +69,7 @@
                             </tbody>
                         </table>
                         <xsl:call-template name="tabulator_dl_buttons"/>
-                    </div><br/><br/>
+                    </div>
                 </main>
                 <xsl:call-template name="html_footer"/>
                 <xsl:call-template name="tabulator_js"/>

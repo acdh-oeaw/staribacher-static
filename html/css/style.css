@@ -32,6 +32,8 @@ p .person {
 	font-size: inherit ;
 }
 
+
+
 .pb {
 	padding-top: 6em ; 
 }
@@ -549,6 +551,11 @@ nav {
 	}
 }
 
+.container {
+	margin-top: 2em ;
+	margin-bottom: 2em ;
+}
+
 @media screen and (max-width: 800px) {
 	body {
 		background-image: none;
@@ -709,5 +716,17 @@ nav {
 	.col-lg-1  > .py-3 {
 			width: 50%;
 		  }
+
+	figcaption {
+		display: none;
+	}
+
+	.footer .texts, .footer-separator {
+		display: none ;
+	}
+
+	.container {
+		margin: unset ; 
+	}
 	
 }
