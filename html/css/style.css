@@ -43,6 +43,7 @@ p .person {
 	font-size: 1em ;
 	background-color: inherit!important;
 	text-align: center;
+	overflow-x: hidden ; 
 
 }
 
