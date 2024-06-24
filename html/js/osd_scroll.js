@@ -191,8 +191,8 @@ function isInViewport(element) {
     // console.log("Bottom");
     // console.log(bounding.bottom);
     if (
-        bounding.top <= 180 &&
-        bounding.bottom <= 210 &&
+        bounding.top <= 1200 &&
+        bounding.bottom <= 600 &&
         bounding.top >= 0 &&
         bounding.bottom >= 0
     ) {
