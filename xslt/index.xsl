@@ -16,7 +16,7 @@
 
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select='"Joseph Staribacher – Tagebücher"'/>
+            Joseph Staribacher<span class="title-separator"> – </span>Tagebücher
         </xsl:variable>
         <html class="h-100">
     
@@ -29,7 +29,7 @@
                 <xsl:call-template name="nav_bar"/>
                 <main class="flex-grow-1 main-landing">
                     <div class="container">
-                        <h1 class="project-title landing"><xsl:value-of select="$project_title"/></h1>
+                        <h1 class="project-title landing"><xsl:value-of select="$doc_title"/></h1>
 			            <div class="metatext landing">
                             <p>Dies sind die digitalisierten Tagebücher von Josef Staribacher, österreichischer Handelsminister von 1970 bis 1983.
                                 <lb/>Sie umfassen rund 20.000 Seiten und spiegeln Staribachers 13-jährige Ministertätigkeit unter Bundeskanzler Bruno Kreisky in den Kabinetten Kreisky I bis IV wider.
