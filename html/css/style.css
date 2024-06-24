@@ -117,7 +117,7 @@ overflow: hidden!important ;
 .container h4,
 .button-group {
 	padding-left: 2vw ;
-	padding-right:1vw ;
+	padding-right:2vw ;
 }
 
 h1 {
@@ -584,6 +584,10 @@ nav *{
 	background-position: bottom right ;
 }
 
+.metatext.landing {
+	text-align: center ; 
+}
+
 @media screen and (max-width: 1920px) {
 	.col-md-6.text,  .col-md-6.text *{
 		font-size: 12px;
@@ -599,7 +603,7 @@ nav *{
 	margin-bottom: 2em ;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 911px) {
 	body {
 		background-image: none;
 		background-size: 0;
@@ -607,6 +611,10 @@ nav *{
 
 	.main-landing {
 		background-image: none ;
+	}
+
+	.container {
+		max-width: unset ;
 	}
 
 	.facsimiles, .facsimiles * {
@@ -619,6 +627,22 @@ nav *{
 		max-width: 100vw!important;
 		margin-bottom: unset;
 	}
+
+	#myTable {
+		padding-left: 1em!important ;
+		padding-right: 1.5em!important ;
+		max-width: 100vw ;
+	}
+	.table.tabulator {
+		width: 100vw ; 
+	}
+
+	.table.tabulator .tabulator-row:hover,
+	.table.tabulator .tabulator-row:active,
+	.table.tabulator .tabulator-row:focus
+ 	{
+	border-radius: unset!important;
+ 	}
 
 	.col-md-6.text * {
 		font-size: 4vw ;
