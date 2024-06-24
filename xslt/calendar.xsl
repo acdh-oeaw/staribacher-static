@@ -13,7 +13,7 @@
 
 
     <xsl:template match="/">
-        <xsl:variable name="doc_title" select="'Briefkalender'"/>
+        <xsl:variable name="doc_title" select="'Kalender'"/>
         <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
         <html lang="de" class="h-100">
             <head>
@@ -29,7 +29,7 @@
                 <xsl:call-template name="nav_bar"/>
                 <main class="flex-grow-1">
                     <div class="container">
-                        <h1>Kalender</h1>
+                        <h1><xsl:value-of select="$doc_title"/></h1>
                        
                             <div class="containingloader">
                                 <div class="row">

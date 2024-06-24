@@ -11,7 +11,7 @@
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="partials/html_footer.xsl"/>
     <xsl:template match="/">
-        <xsl:variable name="doc_title" select="'Volltextsuche'"/>
+        <xsl:variable name="doc_title" select="'Suche'"/>
         <html  class="h-100">
             <head>
                 <xsl:call-template name="html_head">

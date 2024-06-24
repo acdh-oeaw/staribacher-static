@@ -16,10 +16,8 @@
 
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select='"STB"'/>
+            <xsl:value-of select='"Joseph Staribacher – Tagebücher"'/>
         </xsl:variable>
-
-    
         <html class="h-100">
     
             <head>

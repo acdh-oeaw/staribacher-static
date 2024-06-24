@@ -29,7 +29,7 @@
     </xsl:template>
 
     <xsl:template match="/">
-        <xsl:variable name="doc_title" select="'Inhaltsverzeichnis'"/>
+        <xsl:variable name="doc_title" select="'Tagebucheintrage'"/>
     
         <html class="h-100">
     
@@ -43,7 +43,7 @@
                 <xsl:call-template name="nav_bar"/>
                 <main class="flex-grow-1">
                     <div class="container">
-                        <h1>Inhaltsverzeichnis</h1>
+                        <h1><xsl:value-of select="$doc_title"/></h1>
                         <table class="table" id="myTable">
                             <thead>
                                 <tr>
