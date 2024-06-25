@@ -56,7 +56,11 @@ function renameLabel(label) {
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
+    placeholderSearch: true ,
+    searchable: true ,
+    searchablePlaceholder: "Volltextsuche",
     autofocus: true,
+    label: "Volltextsuche",
     cssClasses: {
       form: "form-inline",
       input: "form-control col-md-11",

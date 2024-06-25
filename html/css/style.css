@@ -26,6 +26,11 @@ body {
 body * {
 	font-family: sans-serif;
 	color: var(--st-fg-color) ;
+		max-width: 100% ;
+}
+
+.dropdown-menu {
+	max-width: unset ;
 }
 
 p .person {
@@ -46,12 +51,20 @@ p .person {
 	font-size: 3em;
 }
 
+
+#myTable {
+	border-bottom: 2px solid var(--st-bg-color2);
+}
 .table.tabulator *:not(input)  {
 	font-size: 1em ;
 	background-color: inherit!important;
 	text-align: center;
 	overflow-x: hidden ; 
 
+}
+
+.table-h4 {
+	font-size: .8em!important ;
 }
 
 .tabulator-col-content > .tabulator-col-title-holder >  .tabulator-col-sorter {
@@ -138,16 +151,16 @@ h1 {
 	text-align: center ;
 }
 
-a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a),
+a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a),
 a:not(.nav-link, .dropdown-item) i {
 		color: var(--st-bg-color2)!important ;
 }
 
-a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a):hover,
+a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a):hover,
 a:not(.nav-link, .dropdown-item):hover i,
-a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a):active,
+a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a):active,
 a:not(.nav-link, .dropdown-item):active i,
-a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a):focus,
+a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a):focus,
 a:not(.nav-link, .dropdown-item):focus i {
 	color: var(--st-bg-color2-shadow)!important ;
 }
@@ -156,52 +169,35 @@ a:not(.nav-link, .dropdown-item):focus i {
 
 .ais-Panel-header {
 	border-bottom: 1px solid var(--st-fg-color-light)!important;
+	border-top: 1px solid var(--st-fg-color-light)!important;
 }
 
 h4, .ais-Panel * {
 	color: var(--st-fg-color-light) ;
 }
 
+
+.tabulator-header-filter {
+	padding: .5em ;
+}
 input {
 	background-color: rgb(#fff)!important;
 	opacity: 0.95!important ;
 	border-radius: 1em!important;
 	height: min-content!important ;
 	color: var(--st-fg-color)!important ;
-	
 }
 
 input:focus {
+	box-shadow: 0 0.2rem 0.5rem 0 var(--st-bg-color2-shadow) !important;
 	border: 2pt solid var(--st-bg-color2)!important;
-	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) !important;
+	border-radius: 1em!important ;
 }
 
 
-td, th, .rheostat-background, .ais-RefinementList-count {
-    background-color: var(--st-bg-color)!important;
+td, th{
+	background-color: var(--st-bg-color)!important;
     border-bottom: 1pt solid var(--st-bg-color2)!important;
-}
-
-.ais-SearchBox-input {
-	opacity: 0.95!important ;
-	border-radius: 1em!important;
-	height: min-content!important ;
-	
-}
-
-.ais-SearchBox-input:focus {
-	background-color: rgb(#fff)!important;
-	border: 2pt solid var(--st-bg-color2) ;
-	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) !important;
-}
-
-.rheostat-handle {
-	background-color: var(--st-bg-color2)!important ;
-	border-color: var(--st-bg-color)!important ;
-}
-
-.ais-Pagination-item--disabled * {
-	background-color: var(--st-bg-color)!important ;
 }
 
 nav {
@@ -347,6 +343,8 @@ nav *{
 	padding: 4rem ;
 }
 
+
+
 .col-md-4 {
     max-width: 30rem;
 }
@@ -460,6 +458,18 @@ nav *{
 	border: 2pt solid var(--st-bg-color2)!important;
 	border-radius: 1em ;
 	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
+}
+
+.ais-Pagination-item--selected .ais-Pagination-link {
+	color: var(--st-bg-color)!important ;
+}
+
+.ais-CurrentRefinements-label.badge{
+	color: var(--st-bg-color2-shadow)!important ;
+}
+
+.ais-CurrentRefinements-categoryLabel {
+	color: var(--st-bg-color)!important ;
 }
 
 .container .containingloader{
@@ -639,17 +649,15 @@ nav *{
 	#myTable {
 		padding-left: 1em!important ;
 		padding-right: 1.5em!important ;
-		max-width: 100vw ;
 	}
-	.table.tabulator {
-		width: 100vw ; 
-	}
+	
 
 	.table.tabulator .tabulator-row:hover,
 	.table.tabulator .tabulator-row:active,
 	.table.tabulator .tabulator-row:focus
  	{
 	border-radius: unset!important;
+	box-shadow: unset !important;
  	}
 
 	.col-md-6.text * {
@@ -699,11 +707,10 @@ nav *{
 
 	.col-md-8 {
 		padding-top: 0;
-		padding-bottom: 0;
+		padding-bottom: 1em;
 		padding-left: 1em;
 		padding-right: 1em ;
-		max-width: 100% ;
-	}
+		}
 
 	.col-md-2:has(>a.bi-github) {
 		max-width: unset ;
@@ -727,24 +734,12 @@ nav *{
 		max-width: unset ;
 		margin-left: unset ;  
 	}
-	
-	.ais-ClearRefinements-button {
-		background-color: var(--st-bg-color2)!important ;
-		border-radius: 1em ;
-		border: 2pt solid var(#a5abc4)!important;
-		border-radius: 1em!important ;
-		border-color: var(#a5abc4)!important ;
-		box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow);
-	}
-
-	.ais-ClearRefinements-button--disabled {
-		box-shadow: 0 0 0 0!important;
-	}
 
 	.rheostat-tooltip {
 		min-width: 0!important;
 		overflow: clip;
 	}
+
 	
 	.project-title.landing {
 		padding-top: .5em ;
