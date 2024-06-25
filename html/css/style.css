@@ -748,12 +748,16 @@ nav *{
 	}
 
 	nav {
-		font-size: 1em ;
+		font-size: 1.4em ;
 		text-align: right ;
 	}
 
 	nav li ul {
 		text-align: inherit !important; 
+	}
+	.navbar .dropdown-menu, .navbar .dropdown-menu * {
+		font-size: 1em;
+		font-weight: normal ; 
 	}
 
 	.logo {
