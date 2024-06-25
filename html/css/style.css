@@ -270,6 +270,14 @@ nav *{
 	color: var(--st-fg-color)
 }
 
+
+
+
+
+.navbar-toggler:focus {
+	box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) var(--st-fg-color-light) ;
+}
+
 #editor-widget * {
 	font-family: sans-serif ;  
 }
@@ -677,7 +685,7 @@ nav *{
 		margin-top: 0;
 	}
 	
-	.col-md-2.col-lg-2.col-sm-12{
+	.col-md-2.col-lg-2.col-sm-12 {
 		padding: 1em;
 		padding-top: 1.5em;
 		padding-bottom: 1.5em;
@@ -765,7 +773,6 @@ nav *{
 		max-width: 8em ;
 
 	}
-
 
 	.footer * {
 		text-align: center ;
