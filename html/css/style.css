@@ -2,6 +2,8 @@
 	--st-fg-color: #110;
 	--st-fg-color-light: rgb(72, 36, 3);
 	--st-bg-color: #e3c18F;
+	--st-bg-color: #e3c18F;
+	--st-bg-white: #ffffff;
 	--st-bg-secondary:  #B3915F;
 	--st-bg-color2: rgba(176, 88, 3, 1);
 	--st-bg-color2-hell: rgba(196, 108, 23, 1);
@@ -11,15 +13,12 @@
 
 body {
 	/* background-image: url("/images/staribacher_hintergrund_final.jpg"); */
-	background-image: url('/staribacher-static/images/bg-tile.jpg') ;
-	background-repeat: repeat;
 	font-family: sans-serif;
-	background-attachment: fixed;
 	font-size: 1.2em;
 	line-height: 1.6;
 	font-weight: 400;
 	color: var(--st-fg-color);
-	background-color: var(--st-bg-color) ;
+	background-color: var(--st-bg-white) ;
 	overflow: visible ;
 }
 
@@ -38,17 +37,18 @@ p .person {
 }
 
 .container > .table.tabulator {
-	background-color: var(--st-bg-color);
 	border-color: var(--st-bg-color2)!important ;
 	color: inherit ;
 	
 }
 
-.project-title.landing {
-	text-align: center ;
-	font-family: monospace!important ;
-	font-weight: bolder ;
-	font-size: 3em;
+
+@media screen and (min-width: 992px) {
+.container h1.project-title.landing,
+.container h2.project-title.landing
+ {
+	display: none ;
+}
 }
 
 
@@ -131,6 +131,7 @@ overflow: hidden!important ;
 .button-group {
 	padding-left: 2vw ;
 	padding-right:2vw ;
+	padding-top: 2vh ;
 }
 
 h1 {
@@ -143,12 +144,50 @@ h1 {
 	color: var(--st-bg-color2) ;
 }
 
+
+.row.title {
+	background-image: url('/staribacher-static/images/bg-tile.jpg') ;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	padding-left: 1em;
+	padding-right: 1em;
+	height: 12em;
+}
 .project-title {
-	padding-top: 2em ;
-	padding-bottom: 2em ;
-	font-size: 2.5em;
+	padding-top:5em;
+	padding-bottom: 5em;
 	font-weight: bold ;
-	text-align: center ;
+	width: auto ;
+
+}
+
+.col-lg-2.title {
+	height: 100%;
+	width: auto ;
+	margin: 0;
+}
+
+.col-md-auto.picture {
+	text-align: right ;
+	min-width: 35% ;
+	background-image: url('/staribacher-static/images/stari.png') ;
+	background-repeat: no-repeat ;
+	background-position: bottom right ;
+	background-size: 17em;
+}
+
+.row.title > .col-lg-2.title > *{
+	padding-top: 0;
+	padding-bottom: 0;
+	font-family: monospace ;
+}
+.row.title > .col-lg-2.title > h1  {
+	font-size: 4em!important ;
+}
+
+.row.title > .col-lg-2.title > h2 {
+	font-size: 2em ;
+	font-weight: normal ;
 }
 
 a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a),
@@ -181,11 +220,11 @@ h4, .ais-Panel * {
 	padding: .5em ;
 }
 input {
-	background-color: rgb(#fff)!important;
 	opacity: 0.95!important ;
 	border-radius: 1em!important;
 	height: min-content!important ;
 	color: var(--st-fg-color)!important ;
+	border: 1pt solid var(--st-bg-color2)!important;
 }
 
 input:focus {
@@ -196,7 +235,6 @@ input:focus {
 
 
 td, th{
-	background-color: var(--st-bg-color)!important;
     border-bottom: 1pt solid var(--st-bg-color2)!important;
 }
 
@@ -294,7 +332,6 @@ nav *{
 .container {
 	width: 100% ;
 	padding: .2rem;
-	background-color: var(--st-bg-color);
 	opacity: .95!important;
 	padding: 0.2rem;
 	padding-top: 1rem ;
@@ -452,26 +489,6 @@ nav *{
 	text-align: justify;
 }
 
-.ais-Hits-item {
-	background-color: var(--st-bg-color)!important ;
-	opacity: 0.95!important ;
-	border: 2pt solid var(--st-bg-color2)!important;
-	border-radius: 1em ;
-	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
-}
-
-.ais-Pagination-item--selected .ais-Pagination-link {
-	color: var(--st-bg-color)!important ;
-}
-
-.ais-CurrentRefinements-label.badge{
-	color: var(--st-bg-color2-shadow)!important ;
-}
-
-.ais-CurrentRefinements-categoryLabel {
-	color: var(--st-bg-color)!important ;
-}
-
 .container .containingloader{
 	padding-top:0 ;
 }
@@ -486,7 +503,6 @@ nav *{
 }
 
 .calendar {
-	background-color: var(--st-bg-color)!important ;
 	opacity: 0.95!important ;
 	border: 2pt solid var(--st-bg-color2)!important;
 	border-radius: 1em!important ;
@@ -500,7 +516,6 @@ nav *{
 }
 
 .yearscol {
-	background-color: var(--st-bg-color) ;
 	opacity: 0.95!important ;
 	border: 2pt solid var(--st-bg-color2) ;
 	border-radius: 1em ;
@@ -596,16 +611,6 @@ nav *{
 	border-color: var(--st-bg-color2)!important ;
 }
 
-.main-landing {
-	background-image: url('/staribacher-static/images/stari.png') ;
-	background-repeat: no-repeat ;
-	background-position: bottom right ;
-}
-
-.metatext.landing {
-	text-align: center ; 
-}
-
 @media screen and (max-width: 1920px) {
 	.col-md-6.text,  .col-md-6.text *{
 		font-size: 12px;
@@ -621,14 +626,32 @@ nav *{
 	margin-bottom: 2em ;
 }
 
-@media screen and (max-width: 911px) {
-	body {
-		background-image: none;
-		background-size: 0;
+@media screen and (max-width: 991px) {
+
+	.row.title > .col-lg-2.title {
+		display: none !important;
+	}
+
+	.row.title > .col-lg-2.title > h2 {
+		display: none!important ;
+	}
+
+	.col-md-auto.picture {
+		width: 100% ;
+		height: 25vh ;
+		background-image: url('/staribacher-static/images/stari.png') ;
+		background-repeat: no-repeat ;
+		background-position: bottom center ;
+		background-size: 35vh;
 	}
 
 	.main-landing {
 		background-image: none ;
+	}
+
+	.metatext.landing {
+		text-align: center ;
+
 	}
 
 	.container {
@@ -649,6 +672,7 @@ nav *{
 	#myTable {
 		padding-left: 1em!important ;
 		padding-right: 1.5em!important ;
+		border-radius: 1em ;
 	}
 	
 
@@ -742,9 +766,8 @@ nav *{
 
 	
 	.project-title.landing {
-		padding-top: .5em ;
-		padding-bottom: .5em ;
-		font-size: 2em;
+		padding-top: 0;
+		padding-bottom: 0 ;
 		text-align: center ;
 		font-family: monospace!important ;
 		font-weight: bold ;

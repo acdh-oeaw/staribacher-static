@@ -69,9 +69,7 @@ a {
 }
 
 .rheostat-handle {
-	background-color: var(--st-bg-color2)!important ;
-	border-color: var(--st-bg-color)!important ;
-}
+	background-color: var(--st-bg-color2)!important ;}
 
 .page-link:focus,
 .page-link:active,
@@ -79,12 +77,9 @@ a {
 	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) !important;
 	}
 
-.ais-Pagination-item--disabled * {
-	background-color: var(--st-bg-color)!important ;
-}
+
 
 .ais-ClearRefinements-button {
-	color: var(--st-bg-color)!important ;
 	background-color: var(--st-bg-color2)!important ;
 	border: 2pt solid var(--st-bg-color2)!important;
 	border-radius: 1em!important ;
@@ -94,7 +89,6 @@ a {
 .ais-ClearRefinements-button--disabled {
 	box-shadow: 0 0 0 0!important;
 	color: #a5abc4!important;
-	background-color: background-color: var(--st-bg-color)!important ;
 	border: 1pt solid #a5abc4!important ;
 	border-radius: 1em!important ;
 }
@@ -102,7 +96,6 @@ a {
 rheostat-background, .ais-RefinementList-count {
     background-color: var(--st-bg-color2)!important;
     box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) !important;
-	color:  var(--st-bg-color)!important ;
 }
 
 .refinements-panel {
@@ -137,9 +130,6 @@ rheostat-background, .ais-RefinementList-count {
     margin-top: 1em;
 }
 
-.ais-Hits-item {
-    background-color: var(--bv-main-bg-color);
-}
 
 .page-link {
     color: #000;
@@ -152,7 +142,6 @@ rheostat-background, .ais-RefinementList-count {
 }
 /* overwriting default colors of pagination */
 li.ais-Pagination-item.page-item > a {
-    background-color: var(--st-bg-color);
 	border-color: var(--st-bg-secondary);
 }
 
@@ -187,7 +176,6 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
 
 .ais-ClearRefinements-button.btn,
 .ais-RefinementList-showMore.btn {
-	background-color: var(--st-bg-color);
 	color: #000;
   &:hover {
     color: #fff;
@@ -237,4 +225,15 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
     font-size: .8rem;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.ais-Hits-item {
+	opacity: 0.95!important ;
+	border: 2pt solid var(--st-bg-color2)!important;
+	border-radius: 1em ;
+	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
+}
+
+.ais-CurrentRefinements-label.badge{
+	color: var(--st-bg-color2-shadow)!important ;
 }
