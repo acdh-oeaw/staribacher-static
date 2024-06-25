@@ -21,19 +21,20 @@
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
                     <div class="flex-grow-1">
-                        <div class="search-panel">
+                        <div class="container">
+                            <h1><xsl:value-of select="$doc_title"/></h1>
                             <div class="search-panel__results">
                                 <div class="row">
                                     <!-- <div class="col-md-2 col-lg-2 col-sm-12" />      -->    
                                     <div class="col-md-4">
-                                        <div id="stats-container" />
-                                        <h4>Volltextsuche</h4>
-                                        <div id="searchbox"/>
-                                        <h4>Beteiligte Personen</h4>
-                                        <div id="refinement-list-persons" />
-                                        <h4>Datum</h4>
-                                        <div id="refinement-range-year" />
-                                        <div id="clear-refinements" />
+                                        <div class="refinements-panel">
+                                            <div id="stats-container" />
+                                            <h5 class="searchtitle">Volltextsuche</h5>
+                                            <div id="searchbox"/>
+                                            <div id="refinement-list-persons" />
+                                            <div id="refinement-range-year" />
+                                            <div id="clear-refinements" />
+                                        </div>
                                     </div>
                                     <div class="col-md-8">
                                         <!--<div id="sort-by"></div>-->

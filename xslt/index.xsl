@@ -16,7 +16,7 @@
 
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            Joseph Staribacher<span class="title-separator"> – </span>Tagebücher
+            Josef Staribacher<span class="title-separator"> – </span>Tagebücher
         </xsl:variable>
         <html class="h-100">
     
