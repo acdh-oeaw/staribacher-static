@@ -682,9 +682,7 @@ nav *{
 	.main-landing {
 		background-image: none ;
 	}
-	#footer-full-content .row > * {
-		margin:  unset ;
-	}
+
 	.col-lg-2.title {
 		background-image: unset ;
 		background-repeat: unset ;
