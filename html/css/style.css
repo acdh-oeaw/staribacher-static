@@ -498,7 +498,7 @@ nav *{
 	opacity: 0.95!important ;
 	border: 2pt solid var(--st-bg-color2)!important;
 	border-radius: 1em!important ;
-	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
+	/* box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important; */
 	padding-right: calc(var(--bs-gutter-x) * .5)!important;
 	padding-left: calc(var(--bs-gutter-x) * .5)!important;
 	padding-top: 0!important ;
@@ -512,7 +512,7 @@ nav *{
 	border: 2pt solid var(--st-bg-color2) ;
 	border-radius: 1em ;
 	height: min-content ;
-	box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ;
+	/*  box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ; */
 	padding-top: 1em;
 }
 
@@ -591,12 +591,17 @@ nav *{
 	padding: 0!important ;
 }
 
+
+#footer-full-content .row > * {
+	margin-left: auto ;
+	margin-right: auto ;
+}
+
 .col-lg-1,
 .col-lg-3,
 .col-lg-2 {
 	padding-top: 0;
 	padding-bottom: 1em;
-	padding:
 }
 
 .row {
@@ -653,14 +658,33 @@ nav *{
 	.col-lg-2.title {
 		background-size: 18em ;
 	}
+	.col-lg-1 {
+		display: flex;                  /* establish flex container */
+		flex-direction: row;            /* default value; can be omitted */
+		flex-wrap: nowrap;              /* default value; can be omitted */
+		justify-content: space-between; /* switched from default (flex-start, see below) */
+		margin: unset ;
+}
+	.footer .texts {
+		display: none ;
+	}
 
+	figcaption {
+		display: none;
+	}
+
+	.col-lg-1  > .py-3 {
+		width: 50%;
+	  }
 }
 /* Mobile phones w < 768px */
 @media screen and (max-width: 767px) {
 	.main-landing {
 		background-image: none ;
 	}
-
+	#footer-full-content .row > * {
+		margin:  unset ;
+	}
 	.col-lg-2.title {
 		background-image: unset ;
 		background-repeat: unset ;
@@ -819,26 +843,6 @@ nav *{
 
 	.footer * {
 		text-align: center ;
-	}
-
-	.col-lg-1 {
-			display: flex;                  /* establish flex container */
-			flex-direction: row;            /* default value; can be omitted */
-			flex-wrap: nowrap;              /* default value; can be omitted */
-			justify-content: space-between; /* switched from default (flex-start, see below) */
-			margin: unset ;
-	}
-
-	.col-lg-1  > .py-3 {
-			width: 50%;
-		  }
-
-	figcaption {
-		display: none;
-	}
-
-	.footer .texts {
-		display: none ;
 	}
 
 	.container {
