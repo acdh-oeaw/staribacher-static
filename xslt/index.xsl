@@ -15,21 +15,30 @@
     <xsl:import href="./partials/html_footer.xsl"/>
 
     <xsl:template match="/">
-        <xsl:variable name="doc_title">
-            Josef Staribacher<span class="title-separator"> – </span>Tagebücher
-        </xsl:variable>
+        <xsl:variable name="doc_title">Josef Staribacher</xsl:variable>
+        <xsl:variable name="doc_subtitle">Tagebücher</xsl:variable>
         <html class="h-100">
     
             <head>
                 <xsl:call-template name="html_head">
-                    <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
+                    <xsl:with-param name="html_title" select="concat($doc_title, ': ', $doc_subtitle)" />
                 </xsl:call-template>
             </head>            
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
                 <main class="flex-grow-1 main-landing">
+                    <div class="row title">
+                        <div class="col-lg-2 title">
+                            <h1 class="project-title landing"><xsl:value-of select="$doc_title"/></h1>
+                            <h2 class="project-title landing"><xsl:value-of select="$doc_subtitle"/></h2>
+                        </div>
+                        <div class="col-md-auto">
+                            <div class="picture" />
+                        </div>
+                    </div>
                     <div class="container">
                         <h1 class="project-title landing"><xsl:value-of select="$doc_title"/></h1>
+                        <h2 class="project-title landing"><xsl:value-of select="$doc_subtitle"/></h2>
 			            <div class="metatext landing">
                             <p>Dies sind die digitalisierten Tagebücher von Josef Staribacher, österreichischer Handelsminister von 1970 bis 1983.
                                 <lb/>Sie umfassen rund 20.000 Seiten und spiegeln Staribachers 13-jährige Ministertätigkeit unter Bundeskanzler Bruno Kreisky in den Kabinetten Kreisky I bis IV wider.
