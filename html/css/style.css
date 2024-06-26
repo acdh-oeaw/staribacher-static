@@ -349,8 +349,7 @@ nav *{
 	font-weight: 300;
 	z-index: 99; 
 	color: var(--st-fg-color);
-    	background: var(--st-bg-color) ;
-    	opacity: 1;
+	opacity: 1;
 }
 
 #viewer,
