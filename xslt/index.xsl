@@ -32,7 +32,9 @@
                             <h1 class="project-title landing"><xsl:value-of select="$doc_title"/></h1>
                             <h2 class="project-title landing"><xsl:value-of select="$doc_subtitle"/></h2>
                         </div>
-                        <div class="col-md-auto picture" />
+                        <div class="col-md-auto">
+                            <div class="picture" />
+                        </div>
                     </div>
                     <div class="container">
                         <h1 class="project-title landing"><xsl:value-of select="$doc_title"/></h1>
