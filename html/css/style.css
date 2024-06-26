@@ -615,8 +615,12 @@ nav *{
 		max-width: unset ;
 		margin-top: 2em ;
 		margin-bottom: 2em ;
+		padding-left: 1em ;
+		padding-right: 1em ;
 	}
-
+	.containingloader {
+		padding: 0;
+	}
 	.col-md-6.text,  .col-md-6.text *{
 		font-size: 12px;
 	}
@@ -663,6 +667,10 @@ nav *{
 		background-position: unset ;
 		background-size:unset ;
 		padding: unset ;
+	}
+
+	.col-md-4 {
+		padding: 0 ;
 	}
 
 	.row.title {
@@ -742,7 +750,7 @@ nav *{
 		width: 15% ;
 	}
 
-	.text, .col-md-4 {
+	.text {
 		padding-left: 1em!important;
 		padding-right: 1em!important;
 	}
