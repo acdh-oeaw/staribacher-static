@@ -376,7 +376,7 @@ nav *{
 .col-md-4,
 .col-md-2,
 .col-md-8 {
-	padding: 4rem ;
+	padding: 1vw ;
 }
 
 
@@ -609,8 +609,8 @@ nav *{
 .rheostat-background {
 	border-color: var(--st-bg-color2)!important ;
 }
-
-@media screen and (max-width: 1920px) {
+/* Tablets */
+@media screen and (max-width: 911px) {
 	.col-md-6.text,  .col-md-6.text *{
 		font-size: 12px;
 	}
@@ -620,13 +620,13 @@ nav *{
 	}
 }
 
+/* Mobile phones */
 .container {
 	margin-top: 2em ;
 	margin-bottom: 2em ;
 }
 
-@media screen and (max-width: 991px) {
-
+@media screen and (max-width: 767px) {
 	.row.title > .col-lg-2.title {
 		display: none !important;
 	}
