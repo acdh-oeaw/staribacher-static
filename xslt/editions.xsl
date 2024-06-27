@@ -50,7 +50,7 @@
                                             <xsl:attribute name="href">
                                                 <xsl:value-of select="$prev"/>
                                             </xsl:attribute>
-                                            <i class="bi bi-chevron-left" title="zurück"/>
+                                            <i class="fas fa-chevron-left" title="zurück"/>
                                         </a>
                                     </h1>
                                 </xsl:if>
@@ -62,8 +62,9 @@
                                 <xsl:value-of select="$doc_title"/>
                             </h1>
                             <h3 align="center">
-                                <a href="{$teiSource}">
-                                    <i class="bi bi-download" title="TEI/XML"/>
+                                <div class="table-h4">XML-TEI</div>
+                                <a href="{$teiSource}" title="TEI/XML Quelle anzeigen">
+                                    <i class="fas fa-download" />
                                 </a>
                             </h3>
                         </div>
@@ -74,7 +75,7 @@
                                             <xsl:attribute name="href">
                                                 <xsl:value-of select="$next"/>
                                             </xsl:attribute>
-                                            <i class="bi bi-chevron-right" title="weiter"/>
+                                            <i class="fas fa-chevron-right" title="weiter"/>
                                         </a>
                                     </h1>
                                 </xsl:if>

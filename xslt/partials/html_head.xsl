@@ -46,5 +46,6 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
         <link rel="stylesheet" href="css/style.css" type="text/css"></link>
         <link rel="stylesheet" href="css/micro-editor.css" type="text/css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </xsl:template>
 </xsl:stylesheet>
