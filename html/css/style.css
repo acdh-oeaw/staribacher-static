@@ -6,7 +6,8 @@
 	--st-bg-white: #ffffff;
 	--st-bg-secondary:  #B3915F;
 	--st-bg-color2: rgba(176, 88, 3, 1);
-	--st-bg-color2-hell: rgba(196, 108, 23, 1);
+	--st-bg-color2-light: rgba(196, 108, 23, 1);
+	--st-bg-color-lighter: rgba(203, 175,115, 1) ;
 	--st-bg-color2-shadow: rgba(106, 18, 0, 1);
 	--st-bg-text: #fffcf3;
 }
@@ -67,7 +68,7 @@ p .person {
 }
 
 .container > .table.tabulator {
-	border-color: var(--st-bg-color2)!important ;
+	border-color: var(--st-bg-color-lighter)!important ;
 	color: inherit ;
 	
 }
@@ -79,7 +80,7 @@ p .person {
 	}
 
 #myTable {
-	border-bottom: 2px solid var(--st-bg-color2);
+	border-bottom: 2px solid var(--st-bg-color-lighter);
 }
 .table.tabulator *:not(input)  {
 	font-size: 1em ;
@@ -124,7 +125,7 @@ overflow: hidden!important ;
 .table.tabulator .tabulator-row:focus
  {
 	border-radius: 1em!important;
-	background-color:  var(--st-bg-color2)!important ;
+	background-color:  var(--st-bg-color-lighter)!important ;
 	color: var(--st-fg-color)!important ;
 }
 
@@ -164,7 +165,7 @@ overflow: hidden!important ;
 
 .button-group,
 .button-group * {
-	color: var(--st-bg-color2) ;
+	color: var(--st-bg-color-lighter) ;
 }
 
 
@@ -208,7 +209,7 @@ overflow: hidden!important ;
 
 a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a),
 a:not(.nav-link, .dropdown-item) i {
-		color: var(--st-bg-color2)!important ;
+		color: var(--st-bg-color-lighter)!important ;
 }
 
 a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a):hover,
@@ -240,26 +241,29 @@ input {
 	border-radius: 1em!important;
 	height: min-content!important ;
 	color: var(--st-fg-color)!important ;
-	border: 1pt solid var(--st-bg-color2)!important;
+	border: 1pt solid var(--st-bg-color-light)!important;
 }
 
 input:focus {
 	box-shadow: 0 0.2rem 0.5rem 0 var(--st-bg-color2-shadow) !important;
-	border: 2pt solid var(--st-bg-color2)!important;
+	border: 2pt solid var(--st-bg-color-lighter)!important;
 	border-radius: 1em!important ;
 }
 
 
 td, th{
-    border-bottom: 1pt solid var(--st-bg-color2)!important;
+    border-bottom: 1pt solid var(--st-bg-color-lighter)!important;
 }
 
 nav {
 	position:-webkit-sticky!important;
 	position: sticky!important;
+	background-image: url('/staribacher-static/images/bg-tile.jpg') ;
+	background-repeat: repeat;
+	background-attachment: fixed;
 	top: 0; /* required */
 	z-index: 99; /* Ensure it's on top of other content */
-	background-color: var(--st-bg-color2-hell); /* Ensure it has a background */
+	background-color: var(--st-bg-color-lighter); /* Ensure it has a background */
 	font-size: 1.4em ;
 	font-weight: bold ;
 	font-family: monospace;
@@ -294,19 +298,22 @@ nav *{
 }
 
 .navbar.navbar-expand-lg {
+	background-image: url('/staribacher-static/images/bg-tile.jpg') ;
+	background-repeat: repeat;
+	background-attachment: fixed;
 	padding: 0;
 	opacity: 1 !important;
- 	border: 1rem solid var(--st-bg-color2-hell);
- 	background-color: var(--st-bg-color2-hell) !important;
+ 	/*border: 1rem solid var(--st-bg-color-lighter);*/
+ 	background-color: var(--st-bg-color-lighter) !important;
 }
 
 .dropdown-menu {
-	background: var(--st-bg-color2) none repeat scroll 0% 0%;
+	background: var(--st-bg-color-lighter) none repeat scroll 0% 0%;
 }
 
 .navbar .dropdown-menu,
 .navbar .dropdown-menu * {
-	background-color: var(--st-bg-color2) ;
+	background-color: var(--st-bg-color-lighter) ;
 	font-size: .9em ;
 	font-weight: unset;
 	color: var(--st-fg-color-light)
@@ -315,7 +322,7 @@ nav *{
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item:active,
 .navbar .dropdown-item:focus {
-	background-color: var(--st-bg-color2-hell);
+	background-color: var(--st-bg-color-lighter);
 	border-radius: 1em ;
 	color: var(--st-fg-color)
 }
@@ -333,7 +340,7 @@ nav *{
 }
 
 #editor-widget .dropdown-item:hover {
-	background-color: var(--st-bg-color2-hell);    
+	background-color: var(--st-bg-color-lighter);    
 }
 
 #editor-widget .dropdown-item:active {
@@ -527,7 +534,7 @@ nav *{
 
 .calendar {
 	opacity: 0.95!important ;
-	border: 2pt solid var(--st-bg-color2)!important;
+	border: 2pt solid var(--st-bg-color-lighter)!important;
 	border-radius: 1em!important ;
 	/* box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow)!important; */
 	padding-right: calc(var(--bs-gutter-x) * .5)!important;
@@ -540,7 +547,7 @@ nav *{
 
 .yearscol {
 	opacity: 0.95!important ;
-	border: 2pt solid var(--st-bg-color2) ;
+	border: 2pt solid var(--st-bg-color-lighter) ;
 	border-radius: 1em ;
 	height: min-content ;
 	/*  box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ; */
@@ -570,7 +577,7 @@ nav *{
 
 .day-content:hover {
 	border: 0;
-	background-color:  var(--st-bg-color2);
+	background-color:  var(--st-bg-color-lighter);
 	border-radius: 1em!important;
 }
 
@@ -640,7 +647,7 @@ nav *{
 }
 
 .rheostat-background {
-	border-color: var(--st-bg-color2-hell)!important ;
+	border-color: var(--st-bg-color-lighter)!important ;
 }
 
 /* MEdium desktops w < 1200px */
