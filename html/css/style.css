@@ -28,6 +28,36 @@ body * {
 		max-width: 100% ;
 }
 
+
+@media (min-width: 1400px) {
+.col-lg-2.title {
+	width: 100%;
+	max-width: 1320px ;
+	}
+}
+
+@media (min-width: 1200px) {
+	.col-lg-2.title {
+		width: 100%;
+		max-width: 1140px ;
+		}
+
+}
+
+
+@media (min-width: 992px) {
+	.col-lg-2.title {
+		width: 100%;
+		max-width: 960px ;
+		}
+
+}
+
+.col-md-auto.filler {
+	width: auto ;
+	flex-grow: 1;
+}
+
 .dropdown-menu {
 	max-width: unset ;
 }
@@ -229,7 +259,7 @@ nav {
 	position: sticky!important;
 	top: 0; /* required */
 	z-index: 99; /* Ensure it's on top of other content */
-	background-color: var(--st-bg-color2); /* Ensure it has a background */
+	background-color: var(--st-bg-color2-hell); /* Ensure it has a background */
 	font-size: 1.4em ;
 	font-weight: bold ;
 	font-family: monospace;
@@ -266,8 +296,8 @@ nav *{
 .navbar.navbar-expand-lg {
 	padding: 0;
 	opacity: 1 !important;
- 	border: 1rem solid var(--st-bg-color2);
- 	background-color: var(--st-bg-color2) !important;
+ 	border: 1rem solid var(--st-bg-color2-hell);
+ 	background-color: var(--st-bg-color2-hell) !important;
 }
 
 .dropdown-menu {
@@ -303,7 +333,7 @@ nav *{
 }
 
 #editor-widget .dropdown-item:hover {
-	background-color: var(--st-bg-color2);    
+	background-color: var(--st-bg-color2-hell);    
 }
 
 #editor-widget .dropdown-item:active {
@@ -610,7 +640,7 @@ nav *{
 }
 
 .rheostat-background {
-	border-color: var(--st-bg-color2)!important ;
+	border-color: var(--st-bg-color2-hell)!important ;
 }
 
 /* MEdium desktops w < 1200px */

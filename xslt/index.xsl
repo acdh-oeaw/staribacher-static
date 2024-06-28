@@ -28,13 +28,12 @@
                 <xsl:call-template name="nav_bar"/>
                 <main class="flex-grow-1 main-landing">
                     <div class="row title">
+                        <div class="col-md-auto filler" />
                         <div class="col-lg-2 title">
                             <h1 class="project-title landing"><xsl:value-of select="$doc_title"/></h1>
                             <h2 class="project-title landing"><xsl:value-of select="$doc_subtitle"/></h2>
                         </div>
-                        <div class="col-md-auto">
-                            <div class="picture" />
-                        </div>
+                        <div class="col-md-auto filler" />
                     </div>
                     <div class="container">
                         <h1 class="project-title landing"><xsl:value-of select="$doc_title"/></h1>
