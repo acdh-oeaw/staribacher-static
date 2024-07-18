@@ -60,7 +60,8 @@ a {
 }
 
 .rheostat-handle {
-	background-color: var(--st-bg-color-lighter)!important ;}
+	background-color: var(--st-bg-color-light)!important;
+}
 
 .page-link:focus,
 .page-link:active,
@@ -69,18 +70,18 @@ a {
 	}
 
 rheostat-background, .ais-RefinementList-count {
-    background-color: var(--st-bg-color-lighter)!important;
+    background-color: var(--st-bg-color-light)!important;
     box-shadow: 0 0.01rem 0.5rem 0px var(--st-bg-color2-shadow) !important;
 }
 
 .refinements-panel {
-	border: 2pt solid var(--st-bg-color-lighter) ;
+	border: 2pt solid var(--st-bg-color-light) ;
 	border-radius: 1em!important ;
 	padding: 1.5em ;
 }
 .refinements-panel > *:not(#clear-refinements, h5){
-	padding-bottom: 2em!important ;
-    padding-top: 0!important ;
+	padding-bottom: 2em!important;
+    padding-top: 0!important;
 }
 
 #refinement-range-year {
@@ -104,13 +105,13 @@ li.ais-Pagination-item.page-item > a {
 }
 
 ul .ais-Pagination-item--selected .ais-Pagination-link {
-    background-color: var(--st-bg-color-lighter)!important;
-    border-color: var(--st-bg-color-lighter) !important;
+    background-color: var(--st-bg-color-light)!important;
+    border-color: var(--st-bg-color-light) !important;
 }
 
 ul .ais-Pagination-item .ais-Pagination-link:hover {
-    background-color: var(--st-bg-color-lighter) !important;
-    border-color: var(--st-bg-color-lighter) !important;
+    background-color: var(--st-bg-color-light) !important;
+    border-color: var(--st-bg-color-light) !important;
     color: #fff !important;
 }
 
@@ -156,8 +157,7 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
 
 /* rangeslider */ 
 .ais-RangeSlider .rheostat-progress {
-	background-color: var(--st-bg-color-lighter)!important;
-    box-shadow: 0 0.01rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
+	background-color: var(--st-bg-color-light)!important;
 }
 
 .ais-RangeSlider .rheostat-tooltip {
@@ -172,8 +172,8 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
 
 /* current refinements */
 .ais-CurrentRefinements-item {
-    border: 2pt solid var(--st-bg-color-lighter)!important;
-	background-color: var(--st-bg-color-lighter);
+    border: 2pt solid var(--st-bg-color-light)!important;
+	background-color: var(--st-bg-color-light);
     border-radius: 1em!important;
     box-shadow: 0 0.01rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
 }
@@ -194,8 +194,8 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
 
 .ais-ClearRefinements-button,
 .ais-RefinementList-showMore {
-	background-color: var(--st-bg-color-lighter)!important ;
-	border: 2pt solid var(--st-bg-color-lighter)!important;
+	background-color: var(--st-bg-color-light)!important ;
+	border: 2pt solid var(--st-bg-color-light)!important;
 	border-radius: 1em!important ;
 	box-shadow: 0 0.01rem 0.5rem 0px var(--st-bg-color2-shadow);
 }
@@ -209,7 +209,7 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
 
 .ais-Hits-item {
 	opacity: 0.95!important ;
-	border: 2pt solid var(--st-bg-color-lighter)!important;
+	border: 2pt solid var(--st-bg-color-light)!important;
 	border-radius: 1em ;
 	box-shadow: 0 0.01rem 0.5rem 0px var(--st-bg-color2-shadow)!important;
 }
