@@ -2,12 +2,10 @@
 	--st-fg-color: #110;
 	--st-fg-color-light: rgb(72, 36, 3);
 	--st-bg-color: #e3c18F;
-	--st-bg-color: #e3c18F;
-	--st-bg-white: #ffffff;
+	--st-bg-color-lighter: rgba(203, 175,115, 1);
 	--st-bg-secondary:  #B3915F;
 	--st-bg-color2: rgba(176, 88, 3, 1);
 	--st-bg-color2-light: rgba(196, 108, 23, 1);
-	--st-bg-color-lighter: rgba(203, 175,115, 1) ;
 	--st-bg-color2-shadow: rgba(106, 18, 0, 1);
 	--st-bg-text: #fffcf3;
 }
@@ -19,7 +17,7 @@ body {
 	line-height: 1.6;
 	font-weight: 400;
 	color: var(--st-fg-color);
-	background-color: var(--st-bg-white) ;
+	background-color: white;
 	overflow: visible ;
 }
 
@@ -28,7 +26,6 @@ body * {
 	color: var(--st-fg-color) ;
 		max-width: 100% ;
 }
-
 
 @media (min-width: 1400px) {
 .col-lg-2.title {
@@ -684,8 +681,7 @@ nav *{
 		font-size: 3.5em;
 	}
 
-	.row.title > .col-lg-2.title > h2,
-	{
+	.row.title > .col-lg-2.title > h2 {
 		font-size: 2em!important;
 	}
 
