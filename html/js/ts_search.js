@@ -30,16 +30,26 @@ function isNumeric(value) {
     return /^-?\d+$/.test(value);
 }
 
-function formatDate(timestamp) {
+function formatDate(timestamp, operator) {
 	if (isNumeric(timestamp)) {
-	var date = new Date(timestamp * 1000)
-	let year = date.getFullYear()
-	let month  = date.getMonth() + 1
-	let day = date.getDay() + 1
-	date = day + "-" + month + "-" + year ;
-	} else
-	{
-		date = timestamp }
+	  var date = new Date(timestamp * 1000);
+	  let year = date.getFullYear();
+	  let month  = date.getMonth() + 1;
+	  let day = date.getDay() + 1;
+    if (operator) {
+      var date_rel = "";
+      if (operator == "<=") {
+        date_rel = "bis ";
+      } else if (operator == ">=") {
+        date_rel = "ab ";
+      }
+      date = date_rel + day + "-" + month + "-" + year;
+    } else {
+	  date = day + "-" + month + "-" + year;
+    } 
+	} else {
+		date = timestamp 
+  }
   return date
 }
 
@@ -189,7 +199,7 @@ search.addWidgets([
             refinements: item.refinements.map(
               iitem => (
                 {...iitem,
-                label: formatDate(iitem.value),}
+                label: formatDate(iitem.value, iitem.operator)}
               ),
             ),
           }
