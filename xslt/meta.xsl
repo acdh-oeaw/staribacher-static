@@ -51,9 +51,22 @@
         <li><xsl:apply-templates/></li>
     </xsl:template>
     <xsl:template match="tei:ul">
-        <ul><xsl:apply-templates/></ul>
     </xsl:template>
-    <xsl:template match="tei:a">
-        <a><xsl:copy-of select="@*"/><xsl:apply-templates/></a>
+    <xsl:template match="tei:list">
+        <ul>
+            <xsl:for-each select="tei:item">
+            <li>
+                <xsl:value-of select="."/>
+            </li>
+            </xsl:for-each>
+        </ul>
+    </xsl:template>
+    <xsl:template match="tei:ref">
+        <a>
+            <xsl:attribute name="href">
+                <xsl:value-of select="@target"/>
+            </xsl:attribute>
+            <xsl:value-of select="."/>
+        </a>
     </xsl:template>
 </xsl:stylesheet>
