@@ -29,7 +29,7 @@
     </xsl:template>
 
     <xsl:template match="/">
-        <xsl:variable name="doc_title" select="'Tagebucheintrage'"/>
+        <xsl:variable name="doc_title" select="'Tagebucheinträge'"/>
     
         <html class="h-100">
     

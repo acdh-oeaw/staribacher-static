@@ -23,8 +23,8 @@ body {
 
 body * {
 	font-family: sans-serif;
-	color: var(--st-fg-color) ;
-		max-width: 100% ;
+	color: var(--st-fg-color-light);
+	max-width: 100% ;
 }
 
 @media (min-width: 1400px) {
