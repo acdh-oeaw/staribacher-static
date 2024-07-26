@@ -5,7 +5,7 @@ get container for osd viewer
 get container wrapper of osd viewer
 ##################################################################
 */
-// var container = document.getElementById("container_facs_2");
+
 // container.style.display = "none";
 var height = screen.height;
 var container = document.getElementById("container_facs_1");
@@ -60,12 +60,25 @@ initialize osd
 ##################################################################
 */
 var viewer = OpenSeadragon({
+    crossOriginPolicy: "Anonymous",
     id: 'container_facs_1',
     prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/',
     sequenceMode: true,
     showNavigator: false,
     tileSources: tileSources
 });
+
+// add download button
+let downloadButton = new OpenSeadragon.Button({
+    tooltip: 'Download',
+    srcRest: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_rest.png`,
+    srcGroup: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_grouphover.png`,
+    srcHover: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_hover.png`,
+    srcDown: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_pressed.png`,
+});
+
+viewer.addButton(downloadButton); //, '<i class="bi bi-arrow-down"></i>'
+
 /*
 ##################################################################
 remove container holding the images url
@@ -152,13 +165,17 @@ function loadNewImage(new_item) {
 ##################################################################
 accesses osd viewer prev and next button to switch image and
 scrolls to next or prev span element with class pb (pagebreak)
+function for downloading current image
 ##################################################################
 */
 var element_a = document.getElementsByClassName('pb');
 var prev = document.querySelector("div[title='Previous page']");
 var next = document.querySelector("div[title='Next page']");
+var download = document.querySelector("div[title='Download']");
 prev.style.opacity = 1;
 next.style.opacity = 1;
+download.style.opacity = 1;
+
 prev.addEventListener("click", () => {
     if (prev_idx >= 0) {
         element_a[prev_idx].scrollIntoView();
@@ -167,15 +184,34 @@ prev.addEventListener("click", () => {
     }
 });
 
-
 next.addEventListener("click", () => {
     if (idx < element_a.length) {
         element_a[idx].scrollIntoView();
     } else {
         element_a[idx-1].scrollIntoView();
-    }
-    
+    }    
 });
+
+download.addEventListener("click", () => {
+    var current_image = viewer.drawer.canvas.toDataURL("image/png");
+    var link=document.createElement('a');
+    link.href = current_image;
+    
+    /* handling index 0 */
+    let download_idx = 0; 
+    idx == 0 ? download_idx = 1 : download_idx = idx;
+    let source = element_a[download_idx-1].getAttribute("source");
+
+    /* creating file name for download */ 
+    let begin = source.indexOf("staribacher");
+    let end = source.indexOf(".jp2");
+    let reg = /\/Band\d\d\//;
+    let download_filename = source.substring(begin, end).replace(reg, "_");
+    link.download = download_filename;
+
+    link.click();
+})
+
 
 /*
 ##################################################################
