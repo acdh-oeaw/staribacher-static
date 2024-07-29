@@ -4,7 +4,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="#all" version="2.0">
     <xsl:template match="/" name="nav_bar">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary nav-main">
                 <div class="container-fluid">
                     <a href="index.html" class="navbar-brand custom-logo-link" rel="home" itemprop="url">
                         <img src="{$project_logo}" class="img-fluid logo" title="{$project_title}" alt="{$project_title}" itemprop="logo" />
