@@ -14,6 +14,7 @@
     <xsl:import href="./partials/osd-container.xsl"/>
     <xsl:import href="./partials/aot-options.xsl"/>
     <xsl:import href="./partials/person.xsl"/>
+    <xsl:import href="./partials/html_optionsbar.xsl"/>
     <xsl:variable name="prev">
         <xsl:value-of
             select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
@@ -31,6 +32,19 @@
     </xsl:variable>
     <xsl:variable name="link">
         <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
+    </xsl:variable>
+        <xsl:variable name="quotationString">
+        <xsl:value-of
+            select="concat(normalize-space(//tei:titleStmt/tei:title[@level = 'a']), '. In: Arthur Schnitzler: Briefwechsel mit Autorinnen und Autoren. Digitale Edition. Hg. Martin Anton Müller, Gerd Hermann Susen und Laura Untner, ', $quotationURL, ' (Abfrage ', $currentDate, ')')"
+        />
+    </xsl:variable>
+    <xsl:variable name="quotationURL">
+        <xsl:value-of
+            select="concat('https://github.com/fun-with-editions/staribacher-static', replace(tokenize(base-uri(), '/')[last()], '.xml', '.html'))"
+        />
+    </xsl:variable>
+    <xsl:variable name="currentDate">
+        <xsl:value-of select="format-date(current-date(), '[D1].&#160;[M1].&#160;[Y4]')"/>
     </xsl:variable>
     <xsl:template match="/">    
         <html class="h-100" lang="de">
@@ -144,6 +158,7 @@
                         </div>
                     </div>
                 </xsl:for-each>
+                <xsl:call-template name="html_optionsbar"/>
                 <xsl:call-template name="html_footer"/>
              
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/openseadragon.min.js"/>
