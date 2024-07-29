@@ -6,6 +6,14 @@
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
    exclude-result-prefixes="#all"
    version="2.0">
+   <xsl:variable name="quotationURL">
+      <xsl:value-of
+         select="concat('https://fun-with-editions.github.io/staribacher-static/', replace(tokenize(base-uri(), '/')[last()], '.xml', '.html'))"
+      />
+   </xsl:variable>
+   <xsl:variable name="currentDate">
+      <xsl:value-of select="format-date(current-date(), '[D1].[M1].[Y4]')"/>
+   </xsl:variable>
    <xsl:template match="/" name="html_optionsbar">
       <div class="card-footer" style="clear: both;">
          <nav class="navbar navbar-expand-lg" style="box-shadow: none;">
@@ -13,16 +21,15 @@
                <div id="navbarSupportedContent">
                   <ul class="navbar-nav mb-2 mb-lg-0" id="secondary-menu">
                      <li class="nav-item">
-                        <a href="#" data-bs-target="#einstellungen" type="button" data-bs-toggle="modal">
-                           <i class="fas fa-solid fa-screwdriver-wrench"/>
-                           EINSTELLUNGEN
+                        <xsl:call-template name="annotation-options" />
+                     </li>
+                     <li class="nav-item">
+                        <a href="#" data-bs-target="#zitat" type="button" data-bs-toggle="modal" title="Zitieren"><i class="fa-solid fa-quote-left" /></a>
+                     </li>
+                     <li class="nav-item">
+                     <a href="{$teiSource}" title="TEI/XML Quelle anzeigen" target="_blank">
+                     <i class="fa-solid fa-file-code" />
                         </a>
-                     </li>
-                     <li class="nav-item">
-                        <a href="#" data-bs-target="#zitat" type="button" data-bs-toggle="modal"> <i class="fas fa-quote-right"/> ZITIEREN</a>
-                     </li>
-                     <li class="nav-item">
-                        <a href="#" data-bs-target="#downloadModal" type="button" data-bs-toggle="modal"><i class="fas fa-solid fa-download"/> DOWNLOAD </a>
                      </li>
                   </ul>
                </div>
@@ -36,12 +43,6 @@
             </div>
          </xsl:if>
       </div>
-      <div id="einstellungen" class="modal fade">
-         <xsl:call-template name="annotation-options" />
-      </div>
-      <div class="modal fade" id="einstellungen" tabindex="-1">
-         <a href="{$teiSource}" title="TEI/XML Quelle anzeigen" />
-      </div>
       <div class="modal fade" id="zitat" tabindex="-1" aria-labelledby="zitatModalLabel" aria-hidden="true">  
          <div class="modal-dialog">
             <div class="modal-content">
@@ -51,7 +52,17 @@
                </div>
                <div class="modal-body">
                   <p>Eine zitierfähige Angabe dieser Seite lautet:</p>
-                  <blockquote><xsl:value-of select="$quotationString"/></blockquote>
+                  <blockquote>
+                     <xsl:value-of select="concat('„', $doc_title, '“. In: ')" />
+                     <span style="font-style:italic;">
+                        <xsl:value-of select="'Josef Staribacher – Tagebücher'" />
+                     </span>
+                     <xsl:value-of select=". Digitale Edition. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, '" />
+                     <a href="$quotationURL">
+                        <xsl:value-of select="$quotationURL" />
+                     </a>
+                     <xsl:value-of select="concat(' (Abfrage ', $currentDate, ')')"/>                  
+                  </blockquote>
                   <p/>
                   <p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
                      »<b><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></b>«.
@@ -59,11 +70,9 @@
                   <p>Für Belege in der Wikipedia kann diese Vorlage benutzt werden:</p>
                   <blockquote>
                      <code>{{Internetquelle
-                        |url=https://schnitzler-briefe.acdh.oeaw.ac.at/<xsl:value-of
+                        |url=https://fun-with-editions.github.io/staribacher-static/<xsl:value-of
                         select="$link"/> |titel=<xsl:value-of
-                        select="$doc_title"/> |werk=Arthur Schnitzler:
-                        Briefwechsel mit Autorinnen und Autoren |hrsg=Martin Anton
-                        Müller, Gerd-Hermann Susen, Laura Untner |sprache=de
+                        select="$doc_title"/> |werk=Josef Staribacher – Tagebücher | hrsg= Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus|sprache=de
                         |datum=<xsl:value-of
                         select="//tei:titleStmt/tei:title[@type = 'iso-date']/@when-iso"
                         /> |abruf=<xsl:value-of
