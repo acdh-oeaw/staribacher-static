@@ -641,23 +641,13 @@ nav * {
 	border-color: var(--st-bg-color-light)!important ;
 }
 
-.growl-notice {
-    display:none;
-    font-family:Helvetica,Verdana,sans-serif;
-    width: 300px;
-    height: 65px;
-    padding: 5px 10px;
-    border-radius: 4px;
-    opacity: .97;
-    font-size: 14px;
-    color: #fff;
-    background: #BF0025;
-    position: fixed;
-    right: 10px;
-    bottom: 34px;
-    line-height:60px;
+#edition_metadata{
+	padding: 2em;
 }
 
+#secondary-menu{
+	flex-direction: unset ;
+}
 /* MEdium desktops w < 1200px */
 
 /* Tablets w < 912px */
@@ -747,7 +737,6 @@ nav * {
 		width: 100% ;
 
 	}
-
 	.metatext.landing {
 		text-align: center ;
 
