@@ -44,44 +44,12 @@
                 <xsl:call-template name="nav_bar"/>
                 <div class="hfeed site flex-grow-1" id="page">
                     <div class="row" id="edition_metadata">
-                        <div class="col-md-2 col-lg-2 col-sm-12">
-                                <xsl:if test="ends-with($prev,'.html')">
-                                    <h1>
-                                        <a>
-                                            <xsl:attribute name="href">
-                                                <xsl:value-of select="$prev"/>
-                                            </xsl:attribute>
-                                            <i class="fas fa-chevron-left" title="zurück"/>
-                                        </a>
-                                    </h1>
-                                </xsl:if>
-                            </div>
-                        <div class="col-md-8 col-lg-8 col-sm-12 docinfo">
-                            <xsl:variable name="doc_type"
+                        <xsl:variable name="doc_type"
                                 select="//tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/@form[1]"/>
                             <h1 align="center">
                                 <xsl:value-of select="$doc_title"/>
                             </h1>
                             <xsl:call-template name="html_optionsbar"/>
-                            <!-- <h3 align="center">
-                                <div class="table-h4">XML-TEI</div>
-                                <a href="{$teiSource}" title="TEI/XML Quelle anzeigen">
-                                    <i class="fas fa-download" />
-                                </a>
-                            </h3> -->
-                        </div>
-                        <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right">
-                                <xsl:if test="ends-with($next, '.html')">
-                                    <h1>
-                                        <a>
-                                            <xsl:attribute name="href">
-                                                <xsl:value-of select="$next"/>
-                                            </xsl:attribute>
-                                            <i class="fas fa-chevron-right" title="weiter"/>
-                                        </a>
-                                    </h1>
-                                </xsl:if>
-                            </div>
                     </div>
                         
                     <div class="edition_container ">

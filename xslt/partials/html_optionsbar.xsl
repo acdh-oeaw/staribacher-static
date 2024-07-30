@@ -28,6 +28,16 @@
             <div class="container-fluid" style="display: flex; justify-content: center; align-items: center;">
                <div id="navbarSupportedContent">
                   <ul class="navbar-nav mb-2 mb-lg-0" id="secondary-menu">
+                     <xsl:if test="ends-with($prev,'.html')">
+                        <li class="nav-item">
+                           <a>
+                              <xsl:attribute name="href">
+                                 <xsl:value-of select="$prev"/>
+                              </xsl:attribute>
+                              <i class="fa-solid fa-caret-left" title="Vorheriger Eintrag"/>
+                           </a>
+                        </li>
+                     </xsl:if>
                      <li class="nav-item">
                         <xsl:call-template name="annotation-options" />
                      </li>
@@ -42,6 +52,16 @@
                      <li class="nav-item">
                          <a href="#" data-bs-target="#zitatkopieren" type="button" onclick="copyTextToClipboard('{$plainText}')"  title="Zitat kopieren"><i class="fa-solid fa-copy" /></a>
                      </li>
+                     <xsl:if test="ends-with($next, '.html')">
+                        <li>
+                           <a>
+                              <xsl:attribute name="href">
+                                 <xsl:value-of select="$next"/>
+                              </xsl:attribute>
+                              <i class="fa-solid fa-caret-right" title="Nächster Eintrag"/>
+                           </a>
+                        </li>
+                     </xsl:if>
                   </ul>
                </div>
             </div>
