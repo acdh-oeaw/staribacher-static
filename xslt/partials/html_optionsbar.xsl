@@ -14,6 +14,14 @@
    <xsl:variable name="currentDate">
       <xsl:value-of select="format-date(current-date(), '[D1].[M1].[Y4]')"/>
    </xsl:variable>
+   <xsl:variable name="plainText">
+      <xsl:value-of select="concat('Josef Staribacher – Tagebücher. Digitale Edition. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, ',
+         $quotationURL,
+         ' (Abfrage ',
+         $currentDate,
+         ')'
+         )" />
+   </xsl:variable>
    <xsl:template match="/" name="html_optionsbar">
       <div class="card-footer" style="clear: both;">
          <nav class="navbar navbar-expand-lg" style="box-shadow: none;">
@@ -24,12 +32,15 @@
                         <xsl:call-template name="annotation-options" />
                      </li>
                      <li class="nav-item">
-                        <a href="#" data-bs-target="#zitat" type="button" data-bs-toggle="modal" title="Zitieren"><i class="fa-solid fa-quote-left" /></a>
-                     </li>
-                     <li class="nav-item">
                      <a href="{$teiSource}" title="TEI/XML Quelle anzeigen" target="_blank">
                      <i class="fa-solid fa-file-code" />
                         </a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="#" data-bs-target="#zitat" type="button" data-bs-toggle="modal" title="Zitieren"><i class="fa-solid fa-quote-left" /></a>
+                     </li>
+                     <li class="nav-item">
+                         <a href="#" data-bs-target="#zitatkopieren" type="button" onclick="copyTextToClipboard('{$plainText}')"  title="Zitat kopieren"><i class="fa-solid fa-copy" /></a>
                      </li>
                   </ul>
                </div>
@@ -57,13 +68,13 @@
                      <span style="font-style:italic;">
                         <xsl:value-of select="'Josef Staribacher – Tagebücher'" />
                      </span>
-                     <xsl:value-of select=". Digitale Edition. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, '" />
+                     <xsl:value-of select="'. Digitale Edition. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, '" />
                      <a href="$quotationURL">
                         <xsl:value-of select="$quotationURL" />
                      </a>
                      <xsl:value-of select="concat(' (Abfrage ', $currentDate, ')')"/>                  
                   </blockquote>
-                  <p/>
+                  <p/>                    
                   <p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
                      »<b><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></b>«.
                   </p>
