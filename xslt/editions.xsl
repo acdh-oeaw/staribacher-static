@@ -14,6 +14,7 @@
     <xsl:import href="./partials/osd-container.xsl"/>
     <xsl:import href="./partials/aot-options.xsl"/>
     <xsl:import href="./partials/person.xsl"/>
+    <xsl:import href="./partials/html_optionsbar.xsl"/>
     <xsl:variable name="prev">
         <xsl:value-of
             select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
@@ -61,12 +62,13 @@
                             <h1 align="center">
                                 <xsl:value-of select="$doc_title"/>
                             </h1>
-                            <h3 align="center">
+                            <xsl:call-template name="html_optionsbar"/>
+                            <!-- <h3 align="center">
                                 <div class="table-h4">XML-TEI</div>
                                 <a href="{$teiSource}" title="TEI/XML Quelle anzeigen">
                                     <i class="fas fa-download" />
                                 </a>
-                            </h3>
+                            </h3> -->
                         </div>
                         <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right">
                                 <xsl:if test="ends-with($next, '.html')">
@@ -94,9 +96,9 @@
                             data-bs-backdrop="false">
                         </div>
                         <div class="wp-transcript">
-                            <div id="editor-widget">
+                            <!-- <div id="editor-widget">
                                 <xsl:call-template name="annotation-options"></xsl:call-template>
-                            </div>
+                            </div> -->
                             <div id="container-resize" class="row transcript active">
                                 <div id="img-resize" class="col-md-6 col-lg-6 col-sm-12 facsimiles">
                                     <div id="viewer">

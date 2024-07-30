@@ -252,6 +252,12 @@ td, th{
 }
 
 nav {
+	font-size: 1.4em ;
+	font-weight: bold ;
+	font-family: monospace;
+}
+
+.nav-main {
 	position:-webkit-sticky!important;
 	position: sticky!important;
 	background-image: url('/staribacher-static/images/bg-tile.jpg') ;
@@ -260,14 +266,11 @@ nav {
 	top: 0; /* required */
 	z-index: 99; /* Ensure it's on top of other content */
 	background-color: var(--st-bg-color-light); /* Ensure it has a background */
-	font-size: 1.4em ;
-	font-weight: bold ;
-	font-family: monospace;
 }
 
+nav * {
+	font-family: inherit ;
 
-nav *{
-	font-family: inherit!important;
 }
 
 .nav-link{
@@ -293,22 +296,14 @@ nav *{
 	margin-left: 0;
 }
 
-.navbar.navbar-expand-lg {
-	background-image: url('/staribacher-static/images/bg-tile.jpg') ;
-	background-repeat: repeat;
-	background-attachment: fixed;
-	padding: 0;
-	opacity: 1 !important;
- 	/*border: 1rem solid var(--st-bg-color-light);*/
- 	background-color: var(--st-bg-color-light) !important;
-}
+
 
 .dropdown-menu {
 	background: var(--st-bg-color-light) none repeat scroll 0% 0%;
 }
 
-.navbar .dropdown-menu,
-.navbar .dropdown-menu * {
+.navbar.nav-main .dropdown-menu,
+.navbar.navbar-main .dropdown-menu * {
 	background-color: var(--st-bg-color-light) ;
 	font-size: .9em ;
 	font-weight: unset;
@@ -367,6 +362,15 @@ nav *{
 	margin-top: 0;
 	font-weight: 300;
 	z-index: 99; 
+	color: var(--st-fg-color);
+	opacity: 1;
+}
+
+.optionsbar {
+	width: 100% ;
+	font-family: sans-serif;
+	padding-top: 0;
+	margin-top: 0; 
 	color: var(--st-fg-color);
 	opacity: 1;
 }

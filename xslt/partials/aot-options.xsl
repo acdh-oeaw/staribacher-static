@@ -15,7 +15,7 @@
         <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart">
             <!-- Your menu goes here -->
             <a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button">
-                <i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i>
+                <i class="fas fa-screwdriver-wrench" title="Menü zur Anpassung der Anzeige"></i>
             </a>                  
             <ul class="dropdown-menu">
                 <li class="dropdown-item">
