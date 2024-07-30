@@ -1,10 +1,4 @@
-function displayGrowl(message) {
-  $('.growl-notice').fadeIn().html(message);
-  setTimeout(function(){ 
-    $('.growl-notice').fadeOut();
-  }, 20000);
-}
-
+// From https://stackoverflow.com/a/45308151
 const copyTextToClipboard = (function initClipboardText() {
   const textarea = document.createElement('textarea');
 
