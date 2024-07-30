@@ -48,11 +48,6 @@
     <xsl:template match="tei:lb">
         <br/>
     </xsl:template>
-    <xsl:template match="tei:li">
-        <li><xsl:apply-templates/></li>
-    </xsl:template>
-    <xsl:template match="tei:ul">
-    </xsl:template>
     <xsl:template match="tei:list">
         <ul>
             <xsl:for-each select="tei:item">
