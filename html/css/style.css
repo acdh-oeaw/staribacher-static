@@ -296,8 +296,6 @@ nav * {
 	margin-left: 0;
 }
 
-
-
 .dropdown-menu {
 	background: var(--st-bg-color-light) none repeat scroll 0% 0%;
 }
@@ -317,10 +315,6 @@ nav * {
 	border-radius: 1em ;
 	color: var(--st-fg-color)
 }
-
-
-
-
 
 .navbar-toggler:focus {
 	box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) var(--st-fg-color-light) ;
@@ -407,16 +401,13 @@ nav * {
 .col-md-4,
 .col-md-2,
 .col-md-8 {
-	padding: 1vw ;
+	padding-left: 1vw ;
+	padding-right: 1vw ;
 }
-
-
 
 .col-md-4 {
     max-width: 30rem;
 }
-
-
 
 .col-md-6.text,  .col-md-6.text *{
 	resize: horizontal;
@@ -648,6 +639,23 @@ nav * {
 
 .rheostat-background {
 	border-color: var(--st-bg-color-light)!important ;
+}
+
+.growl-notice {
+    display:none;
+    font-family:Helvetica,Verdana,sans-serif;
+    width: 300px;
+    height: 65px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: .97;
+    font-size: 14px;
+    color: #fff;
+    background: #BF0025;
+    position: fixed;
+    right: 10px;
+    bottom: 34px;
+    line-height:60px;
 }
 
 /* MEdium desktops w < 1200px */
