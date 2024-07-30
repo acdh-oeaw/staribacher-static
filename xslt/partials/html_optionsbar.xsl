@@ -42,7 +42,7 @@
                         <xsl:call-template name="annotation-options" />
                      </li>
                      <li class="nav-item">
-                     <a href="{$teiSource}" title="TEI/XML Quelle anzeigen" target="_blank">
+                     <a href="{$teiSource}" title="XML-TEI Quelle anzeigen" target="_blank">
                      <i class="fa-solid fa-file-code" />
                         </a>
                      </li>
