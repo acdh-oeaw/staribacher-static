@@ -652,7 +652,6 @@ nav * {
 .modal-content, .modal-content *{
 	font-size: 1em ;
 	font-weight: unset ;
-	font-family: monospace;
 	list-style: none ;
 }
 

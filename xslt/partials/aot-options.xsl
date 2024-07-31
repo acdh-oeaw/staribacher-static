@@ -61,34 +61,53 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"/>
                 </div>
                 <div class="modal-body">
-                    <p>Eine zitierfähige Angabe dieser Seite lautet:</p>
-                    <blockquote>
-                        <xsl:value-of select="concat('„', $doc_title, '“. In: ')" />
+                    <p>APA:</p>
+                    <blockquote style="text-indent: -36px; padding-left: 36px;">
+                         <xsl:text>Staribacher, J. (2024). </xsl:text>
                         <span style="font-style:italic;">
-                            <xsl:value-of select="'Josef Staribacher – Tagebücher'" />
+                            <xsl:value-of select="$doc_title" />
                         </span>
-                        <xsl:value-of select="'. Digitale Edition. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, '" />
+
+                            <xsl:value-of select="'. Josef Staribacher – Tagebücher'" />
+                        <xsl:value-of select="'. Digitale Edition (R. Gazzari, G. Graf, M. Mesner, M. Steiner, T. Tretzmüller und M. Trinkaus (Hrsg.). '" />
                         <a href="$quotationURL">
                             <xsl:value-of select="$quotationURL" />
-                        </a>
-                        <xsl:value-of select="concat(' (Abfrage ', $currentDate, ')')"/>                  
+                        </a>            
                     </blockquote>
                     <p/>                    
                     <p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
-                        »<b><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></b>«.
+                        »<span style="font-style:italic;" ><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></span>«.
                     </p>
-                    <p>Für Belege in der Wikipedia kann diese Vorlage benutzt werden:</p>
+                    <p>Wikitext:</p>
                     <blockquote>
-                        <code>{{Internetquelle
-                            |url=https://fun-with-editions.github.io/staribacher-static/<xsl:value-of
-                            select="$link"/> |titel=<xsl:value-of
-                            select="$doc_title"/> |werk=Josef Staribacher – Tagebücher | hrsg= Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus|sprache=de
-                            |datum=<xsl:value-of
-                            select="//tei:titleStmt/tei:title[@type = 'iso-date']/@when-iso"
-                            /> |abruf=<xsl:value-of
-                            select="format-date(current-date(), '[Y4]-[M02]-[D02]')"
-                            /> }}
+                        <code  style="font-family:monospace;">{{cite web<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|url=https://fun-with-editions.github.io/staribacher-static/<xsl:value-of select="$link"/><br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|title=<xsl:value-of select="$doc_title"/><br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|last=Staribacher<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|first=Josef<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|website=Josef Staribacher – Tagebücher<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|editor= Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|sprache=de<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|year = 2024<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|orig-date=<xsl:value-of select="//tei:creation/tei:date/@when" /><br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|acces-date=<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/><br/>
+                            }}
                         </code>
+                    </blockquote>
+                    <p>BibTeX:</p>
+                    <blockquote>
+                    <code  style="font-family:monospace;">
+                        @misc{<xsl:value-of select="data(tei:TEI/@xml:id)"/>,<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;author          =   {Josef Staribacher},<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;title           =   {<xsl:value-of select="$doc_title"/>},<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;howpublished    =   {Josef Staribacher – Tagebücher},<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;year            =   {2024},<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;url             =   {https://fun-with-editions.github.io/staribacher-static/<xsl:value-of select="$link"/>},<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;editor          =   {Remigio Gazzari AND Gustav Graf AND Maria Mesner AND Maria Steiner AND Thomas Tretzmüller AND Matthias Trinkaus},<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}<br/>
+                        }
+                    </code>
                     </blockquote>
                 </div>
                 <div class="modal-footer">
