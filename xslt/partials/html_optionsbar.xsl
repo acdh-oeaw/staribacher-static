@@ -39,7 +39,7 @@
                         </li>
                      </xsl:if>
                      <li class="nav-item">
-                        <xsl:call-template name="annotation-options" />
+                        <a href="#" data-bs-target="#aot-options" type="button" data-bs-toggle="modal" title="Anpassung der Anzeige"><i class="fas fa-screwdriver-wrench" /></a>
                      </li>
                      <li class="nav-item">
                      <a href="{$teiSource}" title="XML-TEI Quelle anzeigen" target="_blank">
@@ -74,49 +74,11 @@
             </div>
          </xsl:if>
       </div>
+       <div class="modal fade" id="aot-options" tabindex="-1" aria-labelledby="optionsModalLabel" aria-hidden="true">
+         <xsl:call-template name="anotations" />
+      </div>
       <div class="modal fade" id="zitat" tabindex="-1" aria-labelledby="zitatModalLabel" aria-hidden="true">  
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Zitat</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"/>
-               </div>
-               <div class="modal-body">
-                  <p>Eine zitierfähige Angabe dieser Seite lautet:</p>
-                  <blockquote>
-                     <xsl:value-of select="concat('„', $doc_title, '“. In: ')" />
-                     <span style="font-style:italic;">
-                        <xsl:value-of select="'Josef Staribacher – Tagebücher'" />
-                     </span>
-                     <xsl:value-of select="'. Digitale Edition. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, '" />
-                     <a href="$quotationURL">
-                        <xsl:value-of select="$quotationURL" />
-                     </a>
-                     <xsl:value-of select="concat(' (Abfrage ', $currentDate, ')')"/>                  
-                  </blockquote>
-                  <p/>                    
-                  <p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
-                     »<b><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></b>«.
-                  </p>
-                  <p>Für Belege in der Wikipedia kann diese Vorlage benutzt werden:</p>
-                  <blockquote>
-                     <code>{{Internetquelle
-                        |url=https://fun-with-editions.github.io/staribacher-static/<xsl:value-of
-                        select="$link"/> |titel=<xsl:value-of
-                        select="$doc_title"/> |werk=Josef Staribacher – Tagebücher | hrsg= Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus|sprache=de
-                        |datum=<xsl:value-of
-                        select="//tei:titleStmt/tei:title[@type = 'iso-date']/@when-iso"
-                        /> |abruf=<xsl:value-of
-                        select="format-date(current-date(), '[Y4]-[M02]-[D02]')"
-                        /> }}
-                     </code>
-                  </blockquote>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
-               </div>
-            </div>
-         </div>
+         <xsl:call-template name="zitate" />
       </div>
    </xsl:template>
 </xsl:stylesheet>

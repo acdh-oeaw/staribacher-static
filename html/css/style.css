@@ -648,6 +648,27 @@ nav * {
 #secondary-menu{
 	flex-direction: unset ;
 }
+
+.modal-content, .modal-content *{
+	font-size: 1em ;
+	font-weight: unset ;
+	font-family: monospace;
+	list-style: none ;
+}
+
+.modal-ul {
+	padding: 0;
+}
+
+.modal-li {
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
+
+.modal-title {
+	font-weight: bold;
+	font-size: 1.1em ;
+}
 /* MEdium desktops w < 1200px */
 
 /* Tablets w < 912px */
