@@ -1,8 +1,5 @@
 # Staribacher Tagebuch
 
-> [!CAUTION]
-> This repo has been moved to https://github.com/acdh-oeaw/staribacher-static
-
 application repo for the digital edition of ["Staribacher Tagebücher"](https://staribacher.acdh.oeaw.ac.at)
 
 ## install
