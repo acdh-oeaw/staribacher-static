@@ -22,7 +22,7 @@ Application repo for the digital edition of ["Staribacher Tagebücher"](https://
 ```bash
 python -m http.server
 ```
-* Ppen http://127.0.0.1:8000/
+* Open http://127.0.0.1:8000/
 
 
 ----
