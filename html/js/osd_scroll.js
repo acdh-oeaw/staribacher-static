@@ -59,6 +59,7 @@ tileSources.push(imageURL);
 initialize osd
 ##################################################################
 */
+
 var viewer = OpenSeadragon({
     crossOriginPolicy: "Anonymous",
     id: 'container_facs_1',
@@ -77,7 +78,7 @@ let downloadButton = new OpenSeadragon.Button({
     srcDown: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_pressed.png`,
 });
 
-viewer.addButton(downloadButton); //, '<i class="bi bi-arrow-down"></i>'
+viewer.addButton(downloadButton);
 
 /*
 ##################################################################
@@ -175,6 +176,7 @@ var download = document.querySelector("div[title='Download']");
 prev.style.opacity = 1;
 next.style.opacity = 1;
 download.style.opacity = 1;
+download.innerHTML += '<i class="bi bi-download"></i>';
 
 prev.addEventListener("click", () => {
     if (prev_idx >= 0) {
@@ -260,5 +262,59 @@ function isInViewportAll(element) {
         return true;
     } else {
         return false;
+    }
+}
+
+/* 
+##################################################################
+function for generating pdf with all scans of current day
+##################################################################
+*/
+
+async function getdu(imgUrl) {
+    let blob = await fetch(imgUrl).then(r => r.blob());
+    let dataUrl = await new Promise(resolve => {
+      let reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(blob);
+    });
+    return dataUrl;
+}
+
+function createFilename() {
+    let url = element_a[0].getAttribute("source");
+    let begin = url.indexOf("staribacher");
+    let end = /_\d{4}\.jp2/.exec(url).index;
+    let reg = /\/Band\d{2}\/\d{2}_/;
+    download_filename = url.substring(begin, end).replace(reg, "_");
+    return download_filename;
+}
+
+async function generatePDF() {
+    var doc = new jsPDF("p", "mm", "a4");
+    var width = doc.internal.pageSize.getWidth();
+    var height = doc.internal.pageSize.getHeight();
+
+    // Create an array of promises to fetch all images
+    const promises = Array.from(element_a).map(async (element) => {
+        let imgUrl = element.getAttribute("source");
+        return getdu(imgUrl); // Get the dataUrl for each image
+    });
+
+    try {
+        // Wait for all promises to resolve
+        const dataUrls = await Promise.all(promises);
+
+        // Add each image to the PDF
+        dataUrls.forEach((dataUrl, index) => {
+            if (index > 0) {
+                doc.addPage();
+            }
+            doc.addImage(dataUrl, 'JPEG', 0, 0, width, height);
+        });
+
+        doc.save(createFilename() + ".pdf");
+    } catch (error) {
+        console.error('Error generating PDF:', error);
     }
 }
