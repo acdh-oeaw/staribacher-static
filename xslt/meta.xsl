@@ -10,7 +10,7 @@
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="partials/html_footer.xsl"/>
-
+    <xsl:import href="partials/shared.xsl"/>
 
     <xsl:template match="/">
         <xsl:variable name="doc_title">
@@ -41,18 +41,13 @@
     <xsl:template match="tei:div">
         <div id="{generate-id()}"><xsl:apply-templates/></div>
     </xsl:template>
-    <xsl:template match="tei:div[@class = 'metatext']">
+    <xsl:template match="tei:div[@type = 'metatext']">
         <div id="{generate-id()}" class="metatext"><xsl:apply-templates/></div>
     </xsl:template>
     <xsl:template match="tei:lb">
         <br/>
     </xsl:template>
-    <xsl:template match="tei:li">
-        <li><xsl:apply-templates/></li>
-    </xsl:template>
-    <xsl:template match="tei:ul">
-    </xsl:template>
-    <xsl:template match="tei:list">
+    <!-- <xsl:template match="tei:list">
         <ul>
             <xsl:for-each select="tei:item">
             <li>
@@ -60,7 +55,7 @@
             </li>
             </xsl:for-each>
         </ul>
-    </xsl:template>
+    </xsl:template> -->
     <xsl:template match="tei:ref">
         <a>
             <xsl:attribute name="href">
