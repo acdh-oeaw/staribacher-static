@@ -23,15 +23,15 @@
                      </div>
                   </div>
                   <div class="col-lg-4 col-md-3 col-sm-3 texts">
-                        <p class="py-2">
+                        <p>
                            ACDH-CH OEAW<br/>
                            Austrian Centre for Digital Humanities and Cultural Heritage<br/>
                            Österreichische Akademie der Wissenschaften
                         </p>
-                        <p class="py-2">
+                        <p>
                            Bäckerstraße 13, 1010 Wien
                         </p>
-                        <p class="py-2 link-in-footer">
+                        <p class="link-in-footer">
                            T: <a href="tel:+431515812200">+43 1 51581-2200</a><br/>
                            E: <a href="mailto:acdh-ch-helpdesk@oeaw.ac.at">acdh-ch-helpdesk@oeaw.ac.at</a>
                         </p>
