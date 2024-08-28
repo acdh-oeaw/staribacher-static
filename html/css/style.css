@@ -641,6 +641,14 @@ nav * {
 	border-color: var(--st-bg-color-light)!important ;
 }
 
+i.bi.bi-download {
+	position:absolute;
+	color: black;
+	left: 9px;
+	top: 2.5px;
+	font-size: 16px;
+}
+
 #edition_metadata{
 	padding: 2em;
 }
@@ -668,7 +676,7 @@ nav * {
 	font-weight: bold;
 	font-size: 1.1em ;
 }
-/* MEdium desktops w < 1200px */
+/* Medium desktops w < 1200px */
 
 /* Tablets w < 912px */
 @media screen and (max-width: 911px) {

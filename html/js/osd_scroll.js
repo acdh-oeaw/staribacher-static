@@ -5,7 +5,7 @@ get container for osd viewer
 get container wrapper of osd viewer
 ##################################################################
 */
-// var container = document.getElementById("container_facs_2");
+
 // container.style.display = "none";
 var height = screen.height;
 var container = document.getElementById("container_facs_1");
@@ -59,13 +59,27 @@ tileSources.push(imageURL);
 initialize osd
 ##################################################################
 */
+
 var viewer = OpenSeadragon({
+    crossOriginPolicy: "Anonymous",
     id: 'container_facs_1',
     prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/',
     sequenceMode: true,
     showNavigator: false,
     tileSources: tileSources
 });
+
+// add download button
+let downloadButton = new OpenSeadragon.Button({
+    tooltip: 'Download',
+    srcRest: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_rest.png`,
+    srcGroup: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_grouphover.png`,
+    srcHover: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_hover.png`,
+    srcDown: `https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/button_pressed.png`,
+});
+
+viewer.addButton(downloadButton);
+
 /*
 ##################################################################
 remove container holding the images url
@@ -152,13 +166,18 @@ function loadNewImage(new_item) {
 ##################################################################
 accesses osd viewer prev and next button to switch image and
 scrolls to next or prev span element with class pb (pagebreak)
+function for downloading current image
 ##################################################################
 */
 var element_a = document.getElementsByClassName('pb');
 var prev = document.querySelector("div[title='Previous page']");
 var next = document.querySelector("div[title='Next page']");
+var download = document.querySelector("div[title='Download']");
 prev.style.opacity = 1;
 next.style.opacity = 1;
+download.style.opacity = 1;
+download.innerHTML += '<i class="bi bi-download"></i>';
+
 prev.addEventListener("click", () => {
     if (prev_idx >= 0) {
         element_a[prev_idx].scrollIntoView();
@@ -167,15 +186,34 @@ prev.addEventListener("click", () => {
     }
 });
 
-
 next.addEventListener("click", () => {
     if (idx < element_a.length) {
         element_a[idx].scrollIntoView();
     } else {
         element_a[idx-1].scrollIntoView();
-    }
-    
+    }    
 });
+
+download.addEventListener("click", () => {
+    var current_image = viewer.drawer.canvas.toDataURL("image/png");
+    var link=document.createElement('a');
+    link.href = current_image;
+    
+    /* handling index 0 */
+    let download_idx = 0; 
+    idx == 0 ? download_idx = 1 : download_idx = idx;
+    let source = element_a[download_idx-1].getAttribute("source");
+
+    /* creating file name for download */ 
+    let begin = source.indexOf("staribacher");
+    let end = source.indexOf(".jp2");
+    let reg = /\/Band\d\d\//;
+    let download_filename = source.substring(begin, end).replace(reg, "_");
+    link.download = download_filename;
+
+    link.click();
+})
+
 
 /*
 ##################################################################
@@ -224,5 +262,59 @@ function isInViewportAll(element) {
         return true;
     } else {
         return false;
+    }
+}
+
+/* 
+##################################################################
+function for generating pdf with all scans of current day
+##################################################################
+*/
+
+async function getdu(imgUrl) {
+    let blob = await fetch(imgUrl).then(r => r.blob());
+    let dataUrl = await new Promise(resolve => {
+      let reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(blob);
+    });
+    return dataUrl;
+}
+
+function createFilename() {
+    let url = element_a[0].getAttribute("source");
+    let begin = url.indexOf("staribacher");
+    let end = /_\d{4}\.jp2/.exec(url).index;
+    let reg = /\/Band\d{2}\/\d{2}_/;
+    download_filename = url.substring(begin, end).replace(reg, "_");
+    return download_filename;
+}
+
+async function generatePDF() {
+    var doc = new jsPDF("p", "mm", "a4");
+    var width = doc.internal.pageSize.getWidth();
+    var height = doc.internal.pageSize.getHeight();
+
+    // Create an array of promises to fetch all images
+    const promises = Array.from(element_a).map(async (element) => {
+        let imgUrl = element.getAttribute("source");
+        return getdu(imgUrl); // Get the dataUrl for each image
+    });
+
+    try {
+        // Wait for all promises to resolve
+        const dataUrls = await Promise.all(promises);
+
+        // Add each image to the PDF
+        dataUrls.forEach((dataUrl, index) => {
+            if (index > 0) {
+                doc.addPage();
+            }
+            doc.addImage(dataUrl, 'JPEG', 0, 0, width, height);
+        });
+
+        doc.save(createFilename() + ".pdf");
+    } catch (error) {
+        console.error('Error generating PDF:', error);
     }
 }

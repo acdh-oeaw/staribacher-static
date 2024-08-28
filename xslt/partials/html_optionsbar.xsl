@@ -42,9 +42,10 @@
                         <a href="#" data-bs-target="#aot-options" type="button" data-bs-toggle="modal" title="Anpassung der Anzeige"><i class="fas fa-screwdriver-wrench" /></a>
                      </li>
                      <li class="nav-item">
-                     <a href="{$teiSource}" title="XML-TEI Quelle anzeigen" target="_blank">
-                     <i class="fa-solid fa-file-code" />
-                        </a>
+                        <a href="{$teiSource}" title="XML-TEI Quelle anzeigen" target="_blank"><i class="fa-solid fa-file-code" /></a>
+                     </li>
+                     <li class="nav-item">
+                        <a href="#" title="PDF herunterladen" onClick="generatePDF()"><i class="fa-solid fa-download" /></a>
                      </li>
                      <li class="nav-item">
                         <a href="#" data-bs-target="#zitat" type="button" data-bs-toggle="modal" title="Zitieren"><i class="fa-solid fa-quote-left" /></a>
@@ -68,7 +69,7 @@
          </nav>
          <xsl:if test="descendant::tei:note[@type = 'textConst' or @type = 'commentary']">
             <div class="card-body-anhang">
-               <dl class="kommentarhang">
+               <dl class="kommentaranhang">
                   <xsl:apply-templates select="descendant::tei:note[@type = 'textConst' or @type = 'commentary']" mode="kommentaranhang"/>
                </dl>
             </div>
