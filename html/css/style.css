@@ -27,6 +27,20 @@ body * {
 	max-width: 100% ;
 }
 
+#fader {
+	text-align: center;
+	z-index: 1000;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+}
+#fader i {
+	margin-top: 20%; 
+}
+
 @media (min-width: 1400px) {
 .col-lg-2.title {
 	width: 100%;

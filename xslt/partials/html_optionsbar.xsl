@@ -44,8 +44,8 @@
                      <li class="nav-item">
                         <a href="{$teiSource}" title="XML-TEI Quelle anzeigen" target="_blank"><i class="fa-solid fa-file-code" /></a>
                      </li>
-                     <li class="nav-item">
-                        <a href="#" title="PDF herunterladen" onClick="generatePDF()"><i class="fa-solid fa-download" /></a>
+                     <li class="nav-item"><div id="fader"><i class="fa-spin fa-solid fa-spinner"></i></div>
+                        <a href="#" title="PDF herunterladen" onClick="generatePDF()" id="downloadLink"><i class="fa-solid fa-download" /></a>
                      </li>
                      <li class="nav-item">
                         <a href="#" data-bs-target="#zitat" type="button" data-bs-toggle="modal" title="Zitieren"><i class="fa-solid fa-quote-left" /></a>
