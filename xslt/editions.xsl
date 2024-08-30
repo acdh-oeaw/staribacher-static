@@ -118,6 +118,7 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/openseadragon.min.js"/>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
                 <script type="text/javascript" src="js/osd_scroll.js"></script>
+                <script type="text/javascript" src="js/pdf_export.js"></script>
                 <script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js" />
                 <script type="text/javascript" src="js/run.js"></script>
                 <script type="text/javascript" src="js/copycitation.js"></script>
