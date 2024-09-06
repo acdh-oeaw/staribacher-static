@@ -21,7 +21,7 @@
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
                     <div class="flex-grow-1">
-                        <div class="container">
+                        <div class="container search_title">
                             <h1><xsl:value-of select="$doc_title"/></h1>
                             <div class="search-panel__results">
                                 <div class="row">
