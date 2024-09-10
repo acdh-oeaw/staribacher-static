@@ -2,8 +2,9 @@ name: Build and publish
 
 on:
   workflow_dispatch:
-  schedule:
-  - cron: '04 00 * * *'
+  # deactivated cron job because data does not change much any more
+  # schedule:
+  # - cron: '04 00 * * *'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
