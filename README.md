@@ -14,6 +14,7 @@ Application repo for the digital edition of ["Staribacher Tagebücher"](https://
 
 * Fetch the data `./shellscripts/fetch_data.sh`
 * Enrich/process the data `./shellscripts/process_data.sh`
+* Build fulltext-search index with `python pyscripts/make_ts_index.py`
 * Build the app with `ant`
 
 ## run the app
