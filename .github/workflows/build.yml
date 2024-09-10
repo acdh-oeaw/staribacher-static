@@ -41,6 +41,8 @@ jobs:
         run: ./shellscripts/fetch_data.sh
       - name: process data
         run: shellscripts/process_data.sh
+      - name: build search index
+        run: python ./pyscripts/make_ts_index.py
       - name: Build
         run: ant
       - name: Setup Pages
