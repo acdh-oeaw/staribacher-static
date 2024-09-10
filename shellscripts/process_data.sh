@@ -13,7 +13,7 @@ python pyscripts/rm_notegrps.py
 echo "populate html/js-data/calendarData.js"
 python pyscripts/make_calendar_data.py
 
-if [[ "$1" != "nots" ]] ; then
-	echo "populate fulltext-search index"
-	./pyscripts/make_ts_index.py
-fi
+# if [[ "$1" != "nots" ]] ; then
+# 	echo "populate fulltext-search index"
+# 	./pyscripts/make_ts_index.py
+# fi

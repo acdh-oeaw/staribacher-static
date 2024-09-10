@@ -204,7 +204,7 @@ nav {
 .nav-main {
 	position:-webkit-sticky!important;
 	position: sticky!important;
-	background-image: url('/staribacher-static/images/bg-tile.jpg');
+	background-image: url('../images/bg-tile.jpg');
 	background-repeat: repeat;
 	background-attachment: fixed;
 	top: 0; /* required */
