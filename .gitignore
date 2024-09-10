@@ -153,3 +153,4 @@ desktop.ini
 # MacOS
 .DS_Store
 html/no_dates.csv
+secret.sh
