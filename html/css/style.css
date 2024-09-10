@@ -523,6 +523,14 @@ nav * {
     border-color: unset;
 }
 
+.navbar-btn,
+.navbar-btn>span {
+	color: var(--st-fg-color-light)!important;
+  &:hover {
+    color: var(--st-fg-color-light-hover)!important;
+  }
+}
+
 .containingloader {
 	padding: 2em;
 }

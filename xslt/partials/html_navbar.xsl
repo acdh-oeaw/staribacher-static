@@ -28,29 +28,9 @@
                                     </li>
                                 </ul>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="toc.html">Tagebucheinträge</a>
                             </li>
-                            <!-- We just have Persons, there is no need for a drop down -->
-                            <!--
-                            <li class="nav-item dropdown disabled">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="listperson.html">Personen</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="listplace.html">Orte</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="listorg.html">Organisationen</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="listbibl.html">Werke</a>
-                                    </li>
-                                </ul>
-                            </li> -->
                              <li class="nav-item">
                                 <a title="Personen" class="nav-link" href="listperson.html">Personen</a>
                             </li>
@@ -60,6 +40,12 @@
                             <li class="nav-item">
                                 <a title="Suche" class="nav-link" href="search.html">Suche</a>
                             </li>
+                        </ul>
+                        <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+                            <form class="d-flex" role="search" method="GET" action="search.html">
+                                <input class="form-control me-2" type="search" placeholder="Suche" aria-label="Suche" name="STB[query]"></input>
+                                <button class="btn navbar-btn" type="submit">Suche</button>
+                            </form>
                         </ul>
                     </div>
                 </div>

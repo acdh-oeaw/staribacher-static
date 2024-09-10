@@ -24,6 +24,10 @@ const searchClient = typesenseInstantsearchAdapter.searchClient;
 const search = instantsearch({
   searchClient,
   indexName: project_collection_name,
+  routing: {
+    router: instantsearch.routers.history(),
+    stateMapping: instantsearch.stateMappings.simple(),
+  },
 });
 
 function isNumeric(value) {
@@ -67,8 +71,8 @@ function renameLabel(label) {
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: "#searchbox",
-    placeholderSearch: true ,
-    searchable: true ,
+    placeholderSearch: true,
+    searchable: true,
     searchablePlaceholder: "Volltextsuche",
     autofocus: true,
     label: "Volltextsuche",
