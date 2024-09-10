@@ -55,6 +55,9 @@
                             <tbody>
                                 <xsl:for-each
                                     select="collection('../data/editions?select=*.xml')//tei:TEI">
+                                    <xsl:sort>
+                                        <xsl:value-of select="current()/@xml:id"/>
+                                    </xsl:sort>
                                     <xsl:variable name="full_path">
                                         <xsl:value-of select="replace(current()/@xml:id, '.xml', '')"/>
                                     </xsl:variable>
