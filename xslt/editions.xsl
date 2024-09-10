@@ -149,6 +149,9 @@
         </xsl:when>
     </xsl:choose>
     <span class="pb" source="{@facs}">
+        <xsl:attribute name="id">
+            <xsl:value-of select="count(.//preceding::tei:pb) + 1"/>
+        </xsl:attribute>
         <xsl:value-of select="./@n" />
     </span>
     <br/>

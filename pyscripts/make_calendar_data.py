@@ -4,7 +4,6 @@ import glob
 import os
 import json
 from acdh_tei_pyutils.tei import TeiReader
-from tqdm import tqdm
 
 file_list = sorted(glob.glob("./data/editions/*.xml"))
 data_dir = os.path.join("html", "js-data")
