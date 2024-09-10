@@ -192,6 +192,14 @@ ul .ais-Pagination-item .ais-Pagination-link:hover {
   }
 }
 
+.navbar-btn,
+.navbar-btn>span {
+	color: var(--st-fg-color-light)!important;
+  &:hover {
+    color: var(--st-fg-color-light-hover)!important;
+  }
+}
+
 .ais-ClearRefinements-button,
 .ais-RefinementList-showMore {
 	background-color: var(--st-bg-color-light)!important ;
