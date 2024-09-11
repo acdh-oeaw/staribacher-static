@@ -95,8 +95,8 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title">
                                             <xsl:value-of select="normalize-space(string-join(.//tei:persName[1]//text()))"/>
+						<xsl:text> </xsl:text>
                                         <a href="{concat($xmlId, '.html')}">
-					    <xsl:text> </xsl:text>
                                             <i class="fas fa-external-link-alt"></i>
                                         </a>
                                     </h5>                                
