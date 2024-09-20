@@ -1,6 +1,6 @@
 # bin/bash
 echo "fetching transkriptions from data_repo"
-curl -LO https://github.com/fun-with-editions/staribacher-data/archive/refs/heads/main.zip
+curl -LO https://github.com/acdh-oeaw/staribacher-data/archive/refs/heads/main.zip
 unzip ./main
 rm -rf data
 mv ./staribacher-data-main/data .

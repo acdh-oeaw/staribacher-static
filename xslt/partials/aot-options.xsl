@@ -81,7 +81,7 @@
                     <p>Wikitext:</p>
                     <blockquote>
                         <code  style="font-family:monospace;">{{cite web<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|url=https://fun-with-editions.github.io/staribacher-static/<xsl:value-of select="$link"/><br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|url=https://acdh-oeaw.github.io/staribacher-static/<xsl:value-of select="$link"/><br/>
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|title=<xsl:value-of select="$doc_title"/><br/>
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|last=Staribacher<br/>
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|first=Josef<br/>
@@ -102,7 +102,7 @@
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;title           =   {<xsl:value-of select="$doc_title"/>},<br/>
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;howpublished    =   {Josef Staribacher – Tagebücher},<br/>
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;year            =   {2024},<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;url             =   {https://fun-with-editions.github.io/staribacher-static/<xsl:value-of select="$link"/>},<br/>
+                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;url             =   {https://acdh-oeaw.github.io/staribacher-static/<xsl:value-of select="$link"/>},<br/>
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;editor          =   {Remigio Gazzari AND Gustav Graf AND Maria Mesner AND Maria Steiner AND Thomas Tretzmüller AND Matthias Trinkaus},<br/>
                             <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}<br/>

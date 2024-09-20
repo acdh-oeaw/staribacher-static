@@ -8,7 +8,7 @@
    version="2.0">
    <xsl:variable name="quotationURL">
       <xsl:value-of
-         select="concat('https://fun-with-editions.github.io/staribacher-static/', replace(tokenize(base-uri(), '/')[last()], '.xml', '.html'))"
+         select="concat('https://acdh-oeaw.github.io/staribacher-static/', replace(tokenize(base-uri(), '/')[last()], '.xml', '.html'))"
       />
    </xsl:variable>
    <xsl:variable name="currentDate">

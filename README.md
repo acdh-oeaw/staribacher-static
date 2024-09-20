@@ -29,5 +29,5 @@ python -m http.server
 
 ----
 
-* Data is fetched from https://github.com/fun-with-editions/staribacher-data
+* Data is fetched from https://github.com/acdh-oeaw/staribacher-data
 * Build with [DSE-Static-Cookiecutter](https://github.com/acdh-oeaw/dse-static-cookiecutter)
