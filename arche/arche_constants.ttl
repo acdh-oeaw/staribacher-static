@@ -91,3 +91,17 @@ acdhi:ttretzmueller a acdh:Person ; # Thomas Tretzmüller
 acdhi:mtrinkaus a acdh:Person ;  # Matthias Trinkaus
     acdh:hasFirstName "Matthias"@de ;
     acdh:hasFirstName "Trinkaus"@de .
+
+acdhi:kreiskyarchiv a acdh:Organisation ;
+    acdh:hasTitle "Stiftung Bruno-Kreisky-Archiv"@de ,
+        "Bruno Kreisky Archive Foundation"@en ;
+    acdh:hasUrl <https://www.kreisky.org> ;
+    acdh:hasCity "Wien"@de ,
+        "Vienna"@en ;
+    acdh:hasCountry "Austria"@en ,
+        "Österreich"@de ;
+    acdh:hasRegion "Wien"@de ,
+        "Vienna"@en ;
+    acdh:hasPostCode "1050" ;
+    acdh:hasEmail "archiv@kreisky.org" ;
+    acdh:hasIdentifier <http://d-nb.info/gnd/1099300-9> .
