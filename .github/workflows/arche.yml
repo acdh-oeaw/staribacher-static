@@ -18,10 +18,10 @@ jobs:
     - name: install python things
       run: pip install -r requirements.txt
     - name: Fetch the data
-      run: ./fetch_data.sh
+      run: ./shellscripts/fetch_data.sh
     - name: process data
       run: shellscripts/process_data.sh
     - name: create arche metadata
-      run: python arche/make_metadata.py
+      run: ./arche/make_metadata.py
     - name: run metadata import
       run: ./arche/arche__ingest_md.sh
