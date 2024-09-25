@@ -1,0 +1,66 @@
+@prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
+@prefix acdhi: <https://id.acdh.oeaw.ac.at/> .
+
+<https://id.acdh.oeaw.ac.at/staribacher> a acdh:TopCollection ;
+    acdh:hasTitle "Josef Staribacher – Tagebücher"@de ,
+	  "Josef Staribacher – Diaries";
+    acdh:hasDescription "Digitalisierte Tagebücher von Josef Staribacher, österreichischer Handelsminister von 1970 bis 1983. Sie umfassen rund 20.000 Seiten und spiegeln Staribachers 13-jährige Ministertätigkeit unter Bundeskanzler Bruno Kreisky in den Kabinetten Kreisky I bis IV wider."@de ,
+		"Digitised diaries of Josef Staribacher, Austrian Minister of Trade and Commerce from 1970 to 1983. They comprise some 20,000 pages and reflect Staribacher's 13 years in office under Chancellor Bruno Kreisky in the Kreisky I to IV cabinets."@en ;
+    acdh:hasTemporalCoverage "1970-1983"@und;
+    acdh:hasSubject "Tagebuch"@de,
+	"Diary"@en ;
+    acdh:hasCoverageStartDate "1970-04-23"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:hasCoverageEndDate "1983-05-24"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:hasActor <https://d-nb.info/gnd/125942052> ; # Staribacher
+    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
+    acdh:hasRelatedDiscipline <https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/506011> , # 506011Political
+		<https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601022> . # Contemporary history   
+
+
+<https://id.acdh.oeaw.ac.at/staribacher/meta/schema.xsd> a acdh:Resource ;
+    acdh:hasTitle "XSD-Schema für die in TEI/XML kodierten Tagebucheinträgen"@de , ;
+    acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/other> ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher/meta> .
+
+<https://id.acdh.oeaw.ac.at/staribacher/editions> a acdh:Collection ;
+    acdh:hasTitle "Editionen"@de ;
+    acdh:hasDescription "TEI/XML Dokumente der editierten Tagebucheinträgen"@de ,
+	"TEI/XML documents of the edited diary entries"@en ;
+    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
+    acdh:hasCoverageStartDate "1970-04-23"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:hasCoverageEndDate "1983-05-24"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher> .
+
+<https://id.acdh.oeaw.ac.at/staribacher/indices> a acdh:Collection ;
+    acdh:hasTitle "Register"@de ;
+    acdh:hasDescription "TEI/XML kodiertes Personenregister"@de ,
+	"TEI/XML encoded register of persons"@en ;
+    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
+    acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher> .
+
+<https://d-nb.info/gnd/1043833846> a acdh:Person ;
+    acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/pandorfer> ;
+    acdh:hasFirstName "Peter"@de ;
+    acdh:hasLastName "Andorfer"@de .
+
+<https://d-nb.info/gnd/1297553608> a acdh:Person ;
+    acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/fsanzlazaro> ;
+    acdh:hasFirstName "Fernando"@und ;
+    acdh:hasLastName "Sanz-Lázaro"@und .
+
+<https://id.acdh.oeaw.ac.at/cfhaak>
+    acdh:hasIdentifier <https://orcid.org/0009-0006-7740-542X> ;
+    acdh:hasFirstName "Carl Friedrich"@de ;
+    acdh:hasLastName "Haak"@de .
+
+<https//id.acdh.oeaw.ac.at/mrauschsupola>
+    acdh:hasIdentifier <https://orcid.org/0000-0001-6580-5182> ;
+    acdh:hasFirstName "Michaela"@de ;
+    acdh:hasLastName "Rausch-Supola"@de .
+
