@@ -3,7 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-<https://id.acdh.oeaw.ac.at/staribacher/title-img.jpg> a acdh:Resource ;
+<https://id.acdh.oeaw.ac.at/staribacher/title-img.png> a acdh:Resource ;
     acdh:hasTitle """Titelbild zu: Josef Staribacher – Tagebücher"""@de ,
         """Titelbild zu: Josef Staribacher – Diaries"""@en ,;
     acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher/meta> ;
