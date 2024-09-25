@@ -1,7 +1,7 @@
 @prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
 @prefix acdhi: <https://id.acdh.oeaw.ac.at/> .
 
-<https://id.acdh.oeaw.ac.at/staribacher> a acdh:TopCollection ;
+acdhi:staribacher a acdh:TopCollection ;
     acdh:hasTitle "Josef Staribacher – Tagebücher"@de ,
 	  "Josef Staribacher – Diaries";
     acdh:hasDescription "Digitalisierte Tagebücher von Josef Staribacher, österreichischer Handelsminister von 1970 bis 1983. Sie umfassen rund 20.000 Seiten und spiegeln Staribachers 13-jährige Ministertätigkeit unter Bundeskanzler Bruno Kreisky in den Kabinetten Kreisky I bis IV wider."@de ,
@@ -33,7 +33,7 @@
     acdh:hasCoverageEndDate "1983-05-24"^^<http://www.w3.org/2001/XMLSchema#date> ;
     acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
     acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher> .
+    acdh:isPartOf acdhi:staribacher .
 
 <https://id.acdh.oeaw.ac.at/staribacher/indices> a acdh:Collection ;
     acdh:hasTitle "Register"@de ;
@@ -42,25 +42,51 @@
     acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
     acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
     acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher> .
+    acdh:isPartOf acdhi:staribacher .
 
 <https://d-nb.info/gnd/1043833846> a acdh:Person ;
-    acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/pandorfer> ;
+    acdh:hasIdentifier acdhi:pandorfer ;
     acdh:hasFirstName "Peter"@de ;
     acdh:hasLastName "Andorfer"@de .
 
 <https://d-nb.info/gnd/1297553608> a acdh:Person ;
-    acdh:hasIdentifier <https://id.acdh.oeaw.ac.at/fsanzlazaro> ;
+    acdh:hasIdentifier acdhi:fsanzlazaro ;
     acdh:hasFirstName "Fernando"@und ;
     acdh:hasLastName "Sanz-Lázaro"@und .
 
-<https://id.acdh.oeaw.ac.at/cfhaak>
+acdhi:cfhaak a acdh:Person ;
     acdh:hasIdentifier <https://orcid.org/0009-0006-7740-542X> ;
     acdh:hasFirstName "Carl Friedrich"@de ;
     acdh:hasLastName "Haak"@de .
 
-<https//id.acdh.oeaw.ac.at/mrauschsupola>
+acdhi:mrauschsupola a acdh:Person ;
     acdh:hasIdentifier <https://orcid.org/0000-0001-6580-5182> ;
     acdh:hasFirstName "Michaela"@de ;
     acdh:hasLastName "Rausch-Supola"@de .
 
+acdhi:mmesner a acdh:Person ;  #  Maria Mesner
+    acdh:hasIdentifier <http://d-nb.info/gnd/133693945> ,
+        <https://orcid.org/0000-0002-0224-2367> ;
+    acdh:hasFirstName "Maria"@de ;
+    acdh:hasLastName "Mesner"@de .
+
+acdhi:ggazzari a acdh:Person ; # Remigio Gazzari
+    acdh:hasIdentifier <https://d-nb.info/gnd/1316837874> ;
+    acdh:hasFirstName "Remigio"@de ;
+    acdh:hasFirstName "Gazzari"@de .
+
+acdhi:ggraf a acdh:Person ; # Gustav Graf
+    acdh:hasFirstName "Gustav"@de ;
+    acdh:hasFirstName "Graf"@de .
+
+acdhi:msteiner a acdh:Person ; # Maria Steiner
+    acdh:hasFirstName "Maria"@de ;
+    acdh:hasFirstName "Steiner"@de .
+
+acdhi:ttretzmueller a acdh:Person ; # Thomas Tretzmüller
+    acdh:hasFirstName "Thomas"@de ;
+    acdh:hasFirstName "Tretzmüller"@de .
+
+acdhi:mtrinkaus a acdh:Person ;  # Matthias Trinkaus
+    acdh:hasFirstName "Matthias"@de ;
+    acdh:hasFirstName "Trinkaus"@de .
