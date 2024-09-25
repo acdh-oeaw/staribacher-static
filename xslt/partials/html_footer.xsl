@@ -32,8 +32,8 @@
                            Bäckerstraße 13, 1010 Wien
                         </p>
                         <p class="link-in-footer">
-                           <i class="bi bi-telephone"/> <a href="tel:+431515812200">+43 1 51581-2200</a><br/>
-                           <i class="bi bi-envelope-at"/> <a href="mailto:acdh-ch-helpdesk@oeaw.ac.at">acdh-ch-helpdesk@oeaw.ac.at</a>
+                           <i class="bi bi-telephone"/>&#160;<a href="tel:+431515812200">+43 1 51581-2200</a><br/>
+                           <i class="bi bi-envelope-at"/>&#160;<a href="mailto:acdh-ch-helpdesk@oeaw.ac.at">acdh-ch-helpdesk@oeaw.ac.at</a>
                         </p>
                   </div>
                   <div class="col-lg-2 col-md-3 col-sm-3 text-center">
