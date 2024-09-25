@@ -17,7 +17,7 @@ TO_INGEST = "to_ingest"
 
 shutil.rmtree(TO_INGEST, ignore_errors=True)
 os.makedirs(TO_INGEST, exist_ok=True)
-shutil.copy("html/img/title-img.jpg", "to_ingest/title-img.jpg")
+shutil.copy("html/images/title-img.png", "to_ingest/title-img.png")
 
 print("processing data/indices")
 files = glob.glob("data/indices/*.xml")
