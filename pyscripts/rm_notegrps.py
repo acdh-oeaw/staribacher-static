@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import glob
 from tqdm import tqdm
 from acdh_tei_pyutils.tei import TeiReader
