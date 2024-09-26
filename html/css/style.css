@@ -54,14 +54,26 @@ p .person {
 	font-size: inherit ;
 }
 
-.container > .table.tabulator {
-	border-color: var(--st-bg-color-light)!important ;
-	color: inherit ;
-}
+
 
 #myTable {
 	border-bottom: 2px solid var(--st-bg-color-light);
+	display: none ;
 }
+
+.container > .tabulator {
+	border-color: var(--st-bg-color-light)!important ;
+	color: inherit ;
+	display: block!important ;
+	opacity: 0.95!important ;
+	border: 2pt solid var(--st-bg-color-light) ;
+	border-radius: 1em ;
+	height: min-content ;
+	/*  box-shadow: 0 0.2rem 0.5rem 0px var(--st-bg-color2-shadow) ; */
+	padding-top: 1em;
+
+}
+
 
 .table.tabulator *:not(input)  {
 	font-size: 1em ;
@@ -80,10 +92,12 @@ p .person {
 }
 
 .tabulator-header {
-	border-top: none!important;
+	border: none!important;
 	border-color: inherit!important ;
 }
 
+.tabulator-row {
+border: 0 !important;}
 .tabulator-headers {
 overflow: hidden!important ;
 }
@@ -98,21 +112,10 @@ overflow: hidden!important ;
 	border-color: inherit!important ;
 }
 
-.table.tabulator .tabulator-row:hover,
-.table.tabulator .tabulator-row:active,
-.table.tabulator .tabulator-row:focus
  {
 	border-radius: 1em!important;
 	background-color:  var(--st-bg-color-light)!important ;
 	color: var(--st-fg-color)!important ;
-}
-
-.table.tabulator .tabulator-row:hover *,
-.table.tabulator .tabulator-row:active *,
-.table.tabulator .tabulator-row:focus *
- {
-	background-color: inherit!important ;
-	color: inherit!important ;
 }
 
 .tabulator-responsive-collapse, .tabulator-responsive-collapse td {
@@ -145,15 +148,15 @@ overflow: hidden!important ;
 	color: var(--st-bg-color-light) ;
 }
 
-a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a),
+a:not(.nav-link, .dropdown-item, td a, .ais-Pagination-item--selected a),
 a:not(.nav-link, .dropdown-item) i {
 		color: var(--st-bg-secondary)!important;
 }
-a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a):hover,
+a:not(.nav-link, .dropdown-item, td a, .ais-Pagination-item--selected a):hover,
 a:not(.nav-link, .dropdown-item):hover i,
-a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a):active,
+a:not(.nav-link, .dropdown-item, td a, .ais-Pagination-item--selected a):active,
 a:not(.nav-link, .dropdown-item):active i,
-a:not(.nav-link, .dropdown-item, .tabulator-cell a, td a, .ais-Pagination-item--selected a):focus,
+a:not(.nav-link, .dropdown-item, td a, .ais-Pagination-item--selected a):focus,
 a:not(.nav-link, .dropdown-item):focus i {
 	color: var(--st-bg-color2-shadow)!important;
 }
@@ -222,10 +225,20 @@ nav * {
 	color: var(--st-fg-color-light);
 }
 
+.tabulator-cell {
+	font-weight: bold ;
+	color: var(--st-bg-color-light)!important ;
+}
+
+.tabulator-cell:hover {
+	color: var(--st-bg-color2-shadow)!important;
+}
+
 .nav-link:hover,
 .nav-link:active,
-.nav-link:focus {
-	color: var(--st-fg-color-light-hover);
+.nav-link:focus
+{
+	color: var(--st-fg-color-light-hover)!important;
 }
 
 .nav-item {
@@ -498,7 +511,6 @@ nav * {
 	background-color:  inherit;
 }
 
-.yearbtn:focus,
 
 .months-container {
 	padding-bottom: 1em;
@@ -545,14 +557,22 @@ nav * {
 	padding: 0;
 }
 
-#years-table .col-xs-6:hover {
+
+#years-table .col-xs-6:hover,
+#years-table .col-xs-6:active,
+#years-table .col-xs-6:focus,
+#years-table .col-xs-6:target,
+.yearbtn:focus {
 	background: rgba(0,0,0,.2);
 	border-radius: 1em;
+	background-color:  rgba(0,0,0,.2)!important ;  
 }
+
 
 .col-xs-6 .btn{
 	padding: .5em;
 	margin: 0 ;
+	border-radius: 1em!important;
 }
 
 

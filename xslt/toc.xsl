@@ -44,7 +44,7 @@
                 <main class="flex-grow-1">
                     <div class="container">
                         <h1><xsl:value-of select="$doc_title"/></h1>
-                        <table class="table" id="myTable">
+                        <table class="table hide" id="myTable" >
                             <thead>
                                 <tr>
                                     <th scope="col" tabulator-headerFilter="input" tabulator-responsive="10">Titel</th>
