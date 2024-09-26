@@ -9,6 +9,7 @@
     <xsl:param name="github_url">https://github.com/acdh-oeaw/staribacher-static</xsl:param>
     <xsl:param name="html_title">STB</xsl:param>
     <xsl:param name="project_logo">images/logo.png</xsl:param>
+    <xsl:param name="project_favicon">images/favicons/favicon-16x16.png</xsl:param>
     <xsl:param name="base_url">acdh-oeaw.github.io/staribacher-static/</xsl:param>
     <xsl:param name="data_repo">https://github.com/acdh-oeaw/staribacher-data</xsl:param>
 </xsl:stylesheet>

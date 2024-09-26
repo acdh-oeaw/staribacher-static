@@ -39,7 +39,7 @@
         <link rel="None" type="image/png" href="images/favicons/mstile-310x150.png" />
         <link rel="shortcut icon" type="image/png" href="images/favicons/favicon-196x196.png" /> -->
     <!-- favicon end -->
-        <link rel="icon" type="image/svg+xml" href="{$project_logo}" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="{$project_favicon}" sizes="any" />
         <link rel="profile" href="http://gmpg.org/xfn/11"></link>
         <title><xsl:value-of select="$html_title"/></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
