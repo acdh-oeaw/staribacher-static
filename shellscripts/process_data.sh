@@ -8,7 +8,7 @@ echo "denormalize indices"
 denormalize-indices -f "./data/editions/*.xml" -i "./data/indices/*.xml" -m ".//*[@ref]/@ref | .//*/@source" -x ".//tei:titleStmt/tei:title[@type='main']/text()"
 
 echo "remove notegrps from index entries in editions"
-python pyscripts/rm_notegrps.py
+./pyscripts/rm_notegrps.py
 
 echo "populate html/js-data/calendarData.js"
-python pyscripts/make_calendar_data.py
+./pyscripts/make_calendar_data.py
