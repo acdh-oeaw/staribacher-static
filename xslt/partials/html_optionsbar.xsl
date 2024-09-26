@@ -34,24 +34,42 @@
                               <xsl:attribute name="href">
                                  <xsl:value-of select="$prev"/>
                               </xsl:attribute>
-                              <i class="fa-solid fa-caret-left" title="Vorheriger Eintrag"/>
+                              <i class="fa-solid fa-caret-left" title="Vorheriger Eintrag" aria-hidden="true"/>
+                              <span class="visually-hidden">Vorheriger Eintrag</span>
                            </a>
                         </li>
                      </xsl:if>
                      <li class="nav-item">
-                        <a href="#" data-bs-target="#aot-options" type="button" data-bs-toggle="modal" title="Anpassung der Anzeige"><i class="fas fa-screwdriver-wrench" /></a>
+                        <a href="#" data-bs-target="#aot-options" type="button" data-bs-toggle="modal" title="Anpassung der Anzeige">
+                           <i class="fas fa-screwdriver-wrench" aria-hidden="true"/>
+                           <span class="visually-hidden">Anpassung der Anzeige</span>
+                        </a>
                      </li>
                      <li class="nav-item">
-                        <a href="{$teiSource}" title="XML-TEI Quelle anzeigen" target="_blank"><i class="fa-solid fa-file-code" /></a>
+                        <a href="{$teiSource}" title="XML-TEI Quelle anzeigen" target="_blank">
+                           <i class="fa-solid fa-file-code" aria-hidden="true"/>
+                           <span class="visually-hidden">XML-TEI Quelle anzeigen</span>
+                        </a>
                      </li>
-                     <li class="nav-item"><div id="fader"><i class="fa-spin fa-solid fa-spinner"></i></div>
-                        <a href="#" title="PDF herunterladen" onClick="generatePDF()" id="downloadLink"><i class="fa-solid fa-download" /></a>
+                     <li class="nav-item"><div id="fader">
+                        <i class="fa-spin fa-solid fa-spinner" aria-hidden="true"/>
+                        </div>
+                        <a href="#" title="PDF herunterladen" onClick="generatePDF()" id="downloadLink">
+                           <i class="fa-solid fa-download" aria-hidden="true"/>
+                           <span class="visually-hidden">PDF herunterladen</span>
+                        </a>
                      </li>
                      <li class="nav-item">
-                        <a href="#" data-bs-target="#zitat" type="button" data-bs-toggle="modal" title="Zitieren"><i class="fa-solid fa-quote-left" /></a>
+                        <a href="#" data-bs-target="#zitat" type="button" data-bs-toggle="modal" title="Zitieren">
+                           <i class="fa-solid fa-quote-left" aria-hidden="true" />
+                           <span class="visually-hidden">Zitieren</span>
+                        </a>
                      </li>
                      <li class="nav-item">
-                         <a href="#" data-bs-target="#zitatkopieren" type="button" onclick="copyTextToClipboard('{$plainText}')"  title="Zitat kopieren"><i class="fa-solid fa-copy" /></a>
+                         <a href="#" data-bs-target="#zitatkopieren" type="button" onclick="copyTextToClipboard('{$plainText}')"  title="Zitat kopieren">
+                           <i class="fa-solid fa-copy" aria-hidden="true" />
+                           <span class="visually-hidden">Zitat kopieren</span>
+                        </a>
                      </li>
                      <xsl:if test="ends-with($next, '.html')">
                         <li>
@@ -59,7 +77,8 @@
                               <xsl:attribute name="href">
                                  <xsl:value-of select="$next"/>
                               </xsl:attribute>
-                              <i class="fa-solid fa-caret-right" title="Nächster Eintrag"/>
+                              <i class="fa-solid fa-caret-right" title="Nächster Eintrag" aria-hidden="true" />
+                              <span class="visually-hidden">Nächster Eintrag</span>
                            </a>
                         </li>
                      </xsl:if>
