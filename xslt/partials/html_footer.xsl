@@ -32,8 +32,8 @@
                            Bäckerstraße 13, 1010 Wien
                         </p>
                         <p class="link-in-footer">
-                           <i class="bi bi-telephone"/>&#160;<a href="tel:+431515812200">+43 1 51581-2200</a><br/>
-                           <i class="bi bi-envelope-at"/>&#160;<a href="mailto:acdh-ch-helpdesk@oeaw.ac.at">acdh-ch-helpdesk@oeaw.ac.at</a>
+                           <i class="bi bi-telephone" aria-hidden="true"><span class="visually-hidden">Telefon</span></i>&#160;<a href="tel:+431515812200">+43 1 51581-2200</a><br/>
+                           <i class="bi bi-envelope-at" aria-hidden="true"><span class="visually-hidden">E-Mail</span></i>&#160;<a href="mailto:acdh-ch-helpdesk@oeaw.ac.at">acdh-ch-helpdesk@oeaw.ac.at</a>
                         </p>
                   </div>
                   <div class="col-lg-2 col-md-3 col-sm-3 text-center">
@@ -49,7 +49,7 @@
             </div>
          </div>
          <div class="footer-imprint-bar hide-reading" id="wrapper-footer-secondary"
-         style="text-align:center; padding:0.4rem 0; font-size: 0.9rem;"> © 2024 OEAW | <a href="imprint.html">Impressum</a> |  <a href="{$github_url}"><i class="bi bi-github" title="GitHub" alt="GitHub"></i></a>
+         style="text-align:center; padding:0.4rem 0; font-size: 0.9rem;"> © 2024 OEAW | <a href="imprint.html">Impressum</a> |  <a href="{$github_url}"><i class="bi bi-github" title="GitHub" alt="GitHub" aria-hidden="true"><span class="visually-hidden">GitHub</span></i></a>
          </div>
         </footer>
          
