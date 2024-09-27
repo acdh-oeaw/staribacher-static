@@ -568,7 +568,19 @@ nav * {
 	background-color:  rgba(0,0,0,.2)!important ;  
 }
 
+.indent1 {
+padding-left: 2rem ;
+}
 
+.citation {
+	font-family: monospace ;
+	text-indent: -2rem ;
+	padding-left: 2rem ;
+}
+
+.code{
+ font-family: monospace;
+}
 .col-xs-6 .btn{
 	padding: .5em;
 	margin: 0 ;

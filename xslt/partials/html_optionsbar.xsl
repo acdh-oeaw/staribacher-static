@@ -6,22 +6,22 @@
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
    exclude-result-prefixes="#all"
    version="2.0">
-   <xsl:variable name="quotationURL">
-      <xsl:value-of
-         select="concat('https://acdh-oeaw.github.io/staribacher-static/', replace(tokenize(base-uri(), '/')[last()], '.xml', '.html'))"
-      />
-   </xsl:variable>
    <xsl:variable name="currentDate">
       <xsl:value-of select="format-date(current-date(), '[D1].[M1].[Y4]')"/>
    </xsl:variable>
+   <xsl:param name="quotationURL">
+      <span id="currentURL" />
+      <xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '.html')" />
+      <p id="currentURL"></p>
+   </xsl:param>
+  
+    
    <xsl:variable name="plainText">
-      <xsl:value-of select="concat('Josef Staribacher – Tagebücher. Digitale Edition. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, ',
-         $quotationURL,
-         ' (Abfrage ',
-         $currentDate,
-         ')'
-         )" />
+      <i>Josef Staribacher – Tagebücher. Digitale Edition</i>
+      <xsl:value-of select="concat('. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, ', $quotationURL, ' (Abfrage ', $currentDate, ')')" />
    </xsl:variable>
+  
+   
    <xsl:template match="/" name="html_optionsbar">
       <div class="card-footer" style="clear: both;">
          <nav class="navbar navbar-expand-lg" style="box-shadow: none;">
