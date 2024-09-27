@@ -1,4 +1,7 @@
 // From https://stackoverflow.com/a/45308151
+var currentUrl = window.location.href.replace(/#+$/g, ''); ;
+var currentDate = new Date().toLocaleDateString() ;
+
 const copyTextToClipboard = (function initClipboardText() {
   const textarea = document.createElement('textarea');
 
@@ -12,8 +15,7 @@ const copyTextToClipboard = (function initClipboardText() {
   document.body.appendChild(textarea);
 
   return function setClipboardText(text) {
-    textarea.value = text;
-
+    textarea.value = text.concat(" ", currentUrl, " (Abfrage ", currentDate, ")")  ;
     // Check if there is any content selected previously.
     const selected = document.getSelection().rangeCount > 0 ?
       document.getSelection().getRangeAt(0) : false;
@@ -43,7 +45,7 @@ const copyTextToClipboard = (function initClipboardText() {
         document.getSelection().removeAllRanges();
         document.getSelection().addRange(selected);
       }
-      displayGrowl(text) ;
+      displayGrowl(textarea.value) ;
       return result;
     }
     catch (err) {
@@ -52,3 +54,26 @@ const copyTextToClipboard = (function initClipboardText() {
     }
   };
 })();
+
+function displayGrowl(text) {
+  // Create a growl notification (customizable as needed)
+  const notification = document.createElement('div');
+  notification.textContent = `Copied: ${text}`;
+  notification.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0.9;
+    z-index: 1000;
+  `;
+  document.body.appendChild(notification);
+
+  // Remove the notification after 3 seconds
+  setTimeout(() => {
+    document.body.removeChild(notification);
+  }, 3000);
+}

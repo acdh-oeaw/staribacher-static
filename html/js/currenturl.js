@@ -1,7 +1,7 @@
 function showCurrentUrl() {
     var currentUrlElements = document.querySelectorAll('#currentURL');
     currentUrlElements.forEach(function(element) {
-        element.textContent = window.location.href;
+        element.textContent = window.location.href.replace(/#+$/g, ''); ;
     });
 }
 
