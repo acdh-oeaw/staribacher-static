@@ -1,5 +1,5 @@
 // From https://stackoverflow.com/a/45308151
-var currentUrl = window.location.href ;
+var currentUrl = window.location.href.replace(/#+$/g, ''); ;
 var currentDate = new Date().toLocaleDateString() ;
 
 const copyTextToClipboard = (function initClipboardText() {
