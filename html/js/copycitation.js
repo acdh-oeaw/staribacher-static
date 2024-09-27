@@ -61,12 +61,12 @@ function displayGrowl(text) {
   notification.textContent = `Copied: ${text}`;
   notification.style.cssText = `
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 200px;
+    font-size: .65em ;
     background: #333;
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: .65em .65em;
+    border-radius: 6px;
     opacity: 0.9;
     z-index: 1000;
   `;
