@@ -17,8 +17,10 @@
   
     
    <xsl:variable name="plainText">
-      <i>Josef Staribacher – Tagebücher. Digitale Edition</i>
-      <xsl:value-of select="concat('. Hg. Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, ', $quotationURL, ' (Abfrage ', $currentDate, ')')" />
+       <xsl:text>Staribacher, J. (2024). </xsl:text>
+                        <xsl:value-of select="concat('»', $doc_title, '«', '. ')" />
+                        <i><xsl:value-of select="'Josef Staribacher – Tagebücher. Digitale Edition'"/></i>
+                        <xsl:value-of select="'. R. Gazzari, G. Graf, M. Mesner, M. Steiner, T. Tretzmüller und M. Trinkaus (Hrsg.). '" />
    </xsl:variable>
   
    

@@ -64,11 +64,9 @@
                     <xsl:text>APA:</xsl:text>
                     <blockquote class="citation">
                          <xsl:text>Staribacher, J. (2024). </xsl:text>
-                        <i class="code">
-                            <xsl:value-of select="$doc_title" />
-                        </i>
-                            <xsl:value-of select="'. Josef Staribacher – Tagebücher'" />
-                        <xsl:value-of select="'. Digitale Edition (R. Gazzari, G. Graf, M. Mesner, M. Steiner, T. Tretzmüller und M. Trinkaus (Hrsg.). '" />
+                            <xsl:value-of select="concat($doc_title, '. ')" />
+                            <i class="code">Josef Staribacher – Tagebücher. Digitale Edition</i>
+                        <xsl:value-of select="'. R. Gazzari, G. Graf, M. Mesner, M. Steiner, T. Tretzmüller und M. Trinkaus (Hrsg.). '" />
                         <a href="{quotationURL}">
                              <span id="currentURL" class="code"/>
                         </a>            
