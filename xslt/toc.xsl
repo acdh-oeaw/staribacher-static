@@ -47,8 +47,8 @@
                         <table class="table hide" id="myTable" >
                             <thead>
                                 <tr>
-                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="10">Titel</th>
-                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="0">Datum</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="0" tabulator-minWidth="300">Titel</th>
+                                    <th scope="col" tabulator-headerFilter="input" tabulator-responsive="10" tabulator-minWidth="100">Datum</th>
                                     <th scope="col" tabulator-responsive="99" tabulator-visible="false">id</th>
                                 </tr>
                             </thead>
