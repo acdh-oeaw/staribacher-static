@@ -5,6 +5,6 @@ var config = {
     layout: "fitColumns",
     tooltips: true,
     dataLoader: true,
-    responsiveLayout: "collapse",
+    responsiveLayout: true,
     maxWidth:"100%",
 };
