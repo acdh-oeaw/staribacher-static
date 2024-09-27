@@ -66,7 +66,7 @@
                          <xsl:text>Staribacher, J. (2024). </xsl:text>
                             <xsl:value-of select="concat($doc_title, '. ')" />
                             <i class="code">Josef Staribacher – Tagebücher. Digitale Edition</i>
-                        <xsl:value-of select="'. R. Gazzari, G. Graf, M. Mesner, M. Steiner, T. Tretzmüller und M. Trinkaus (Hrsg.). '" />
+                        <xsl:value-of select="'. M. Mesner, R. Gazzari, G. Graf,  M. Steiner, T. Tretzmüller und M. Trinkaus (Hrsg.). '" />
                         <a href="{quotationURL}">
                              <span id="currentURL" class="code"/>
                         </a>            
@@ -83,7 +83,7 @@
                             |last=Staribacher<br/>
                             |first=Josef<br/>
                             |website=Josef Staribacher – Tagebücher<br/>
-                            |editor= Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus<br/>
+                            |editor= Maria Mesner, Remigio Gazzari, Gustav Graf, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus<br/>
                             |language=de<br/>
                             |year = 2024<br/>
                             |orig-date=<xsl:value-of select="//tei:creation/tei:date/@when" /><br/>
@@ -102,7 +102,7 @@
                             year            =   {2024},<br/>
                             url            =   {<span id='currentURL' class="code" />},<br/>
                             urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
-                            editor          =   {Remigio Gazzari AND Gustav Graf AND Maria Mesner AND Maria Steiner AND Thomas Tretzmüller AND Matthias Trinkaus},<br/>
+                            editor          =   {Maria Mesner AND Remigio Gazzari AND Gustav Graf AND Maria Steiner AND Thomas Tretzmüller AND Matthias Trinkaus},<br/>
                             origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}<br/>
                         </p>
                         }
