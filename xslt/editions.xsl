@@ -33,6 +33,8 @@
     <xsl:variable name="link">
         <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
     </xsl:variable>
+    <xsl:variable name="quotationURL" select="replace(tokenize(base-uri(), '/')[last()], '.xml', '.html')"/>
+ 
     <xsl:template match="/">    
         <html class="h-100" lang="de">
             <head>
@@ -40,7 +42,7 @@
                     <xsl:with-param name="html_title" select="$doc_title"/>
                 </xsl:call-template>
             </head>
-            <body class="d-flex flex-column">
+            <body class="d-flex flex-column" >
                 <xsl:call-template name="nav_bar"/>
                 <div class="hfeed site flex-grow-1" id="page">
                     <div class="row" id="edition_metadata">
@@ -121,6 +123,7 @@
                 <script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js" />
                 <script type="text/javascript" src="js/run.js"></script>
                 <script type="text/javascript" src="js/copycitation.js"></script>
+                <script type="text/javascript" src="js/currenturl.js"></script>
             </body>
         </html>
     </xsl:template>

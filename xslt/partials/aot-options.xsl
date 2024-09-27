@@ -61,53 +61,53 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"/>
                 </div>
                 <div class="modal-body">
-                    <p>APA:</p>
-                    <blockquote style="text-indent: -36px; padding-left: 36px;">
+                    <xsl:text>APA:</xsl:text>
+                    <blockquote class="citation">
                          <xsl:text>Staribacher, J. (2024). </xsl:text>
-                        <span style="font-style:italic;">
+                        <i class="code">
                             <xsl:value-of select="$doc_title" />
-                        </span>
-
+                        </i>
                             <xsl:value-of select="'. Josef Staribacher – Tagebücher'" />
                         <xsl:value-of select="'. Digitale Edition (R. Gazzari, G. Graf, M. Mesner, M. Steiner, T. Tretzmüller und M. Trinkaus (Hrsg.). '" />
-                        <a href="$quotationURL">
-                            <xsl:value-of select="$quotationURL" />
+                        <a href="{quotationURL}">
+                             <span id="currentURL" class="code"/>
                         </a>            
                     </blockquote>
                     <p/>                    
-                    <p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
+                    <!--<p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
                         »<span style="font-style:italic;" ><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></span>«.
-                    </p>
-                    <p>Wikitext:</p>
-                    <blockquote>
-                        <code  style="font-family:monospace;">{{cite web<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|url=https://acdh-oeaw.github.io/staribacher-static/<xsl:value-of select="$link"/><br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|title=<xsl:value-of select="$doc_title"/><br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|last=Staribacher<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|first=Josef<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|website=Josef Staribacher – Tagebücher<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|editor= Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|sprache=de<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|year = 2024<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|orig-date=<xsl:value-of select="//tei:creation/tei:date/@when" /><br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;|acces-date=<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/><br/>
+                    </p> -->
+ 
+                    <xsl:text>Wikitext:</xsl:text>
+                    <blockquote class="code">
+                       {{cite web<br/><p class="indent1 code">
+                            |title=<xsl:value-of select="$doc_title"/><br></br>
+                            |last=Staribacher<br/>
+                            |first=Josef<br/>
+                            |website=Josef Staribacher – Tagebücher<br/>
+                            |editor= Remigio Gazzari, Gustav Graf, Maria Mesner, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus<br/>
+                            |language=de<br/>
+                            |year = 2024<br/>
+                            |orig-date=<xsl:value-of select="//tei:creation/tei:date/@when" /><br/>
+                            |url=<span id='currentURL' class="code" /><br/>
+                            |acces-date=<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/></p>
                             }}
-                        </code>
                     </blockquote>
-                    <p>BibTeX:</p>
-                    <blockquote>
-                    <code  style="font-family:monospace;">
-                        @misc{<xsl:value-of select="data(tei:TEI/@xml:id)"/>,<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;author          =   {Josef Staribacher},<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;title           =   {<xsl:value-of select="$doc_title"/>},<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;howpublished    =   {Josef Staribacher – Tagebücher},<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;year            =   {2024},<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;url             =   {https://acdh-oeaw.github.io/staribacher-static/<xsl:value-of select="$link"/>},<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;editor          =   {Remigio Gazzari AND Gustav Graf AND Maria Mesner AND Maria Steiner AND Thomas Tretzmüller AND Matthias Trinkaus},<br/>
-                            <xsl:text disable-output-escaping="yes">&amp;</xsl:text>nbsp;origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}<br/>
+                    
+		    <xsl:text>BibTeX:</xsl:text> 
+                    <blockquote class="code">
+                        @misc{<xsl:value-of select="data(tei:TEI/@xml:id)"/>,
+                            <p class="indent1 code">
+                            author          =   {Josef Staribacher},<br/>
+                            title           =   {<xsl:value-of select="$doc_title"/>},<br/>
+                            howpublished    =   {Josef Staribacher – Tagebücher},<br/>
+                            year            =   {2024},<br/>
+                            url            =   {<span id='currentURL' class="code" />},<br/>
+                            urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
+                            editor          =   {Remigio Gazzari AND Gustav Graf AND Maria Mesner AND Maria Steiner AND Thomas Tretzmüller AND Matthias Trinkaus},<br/>
+                            origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}<br/>
+                        </p>
                         }
-                    </code>
                     </blockquote>
                 </div>
                 <div class="modal-footer">
@@ -115,5 +115,6 @@
                 </div>
             </div>
         </div>
+    <script type="text/javascript" src="js/currenturl.js"></script>
     </xsl:template>
 </xsl:stylesheet>
