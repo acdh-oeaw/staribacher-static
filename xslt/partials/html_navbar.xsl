@@ -38,7 +38,7 @@
                                 <a title="Kalender" class="nav-link" href="calendar.html">Kalender</a>
                             </li>
                             <li class="nav-item">
-                                <a title="Suche" class="nav-link" href="search.html">Suche</a>
+                                <a title="Textsuche" class="nav-link" href="search.html">Suche</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav me-2 mb-2 mb-lg-0">

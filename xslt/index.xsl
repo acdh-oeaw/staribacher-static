@@ -26,10 +26,10 @@
             </head>            
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                <div class="container col-xxl-8 px-4 py-5">
-                    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                        <div class="col-10 col-sm-8 col-lg-6">
-                            <img src="images/title-img.png" class="d-block mx-lg-auto img-fluid" alt="Staribacher" width="700" height="500" loading="lazy"></img>
+                <div class="flex-grow-1">
+                    <div class="row flex-grow-1 align-items-center g-5 container">
+                        <div class="col-10 col-md-8 col-sm-8 col-lg-6">
+                            <img src="images/title-img.png" class="d-block mx-lg-auto" alt="Staribacher" style="max-width='100%';"  loading="lazy"></img>
                         </div>
                         <div class="col-lg-6">
                             <h1 class="display-5 fw-bold"><xsl:value-of select="$doc_title"/></h1>

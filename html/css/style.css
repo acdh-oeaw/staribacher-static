@@ -24,9 +24,12 @@ body {
 body * {
 	font-family: sans-serif;
 	color: var(--st-fg-color-light);
-	max-width: 100% ;
 }
 
+
+img {
+	max-width: 100%;
+}
 #fader {
 	text-align: center;
 	z-index: 1000;
@@ -568,6 +571,16 @@ nav * {
 	background-color:  rgba(0,0,0,.2)!important ;  
 }
 
+.py-5 {
+	padding: 0!important;
+	padding-top: 5% !important;
+	padding-bottom: 5% !important ;
+}
+
+.container {
+	height: 100% ;
+	margin: auto ;
+}
 .indent1 {
 padding-left: 2rem ;
 }
@@ -617,9 +630,7 @@ padding-left: 2rem ;
 	padding-bottom: 1em;
 }
 
-.row {
-	margin: 0 ;
-}
+
 
 .rheostat-background {
 	border-color: var(--st-bg-color-light)!important ;
@@ -659,6 +670,10 @@ i.bi.bi-download {
 .modal-title {
 	font-weight: bold;
 	font-size: 1.1em ;
+}
+
+.col-lg-6 {
+	margin: 0 ;
 }
 /* Medium desktops w < 1200px */
 
@@ -710,7 +725,8 @@ i.bi.bi-download {
 	.col-md-4 {
 		padding: 0 ;
 	}
-
+    
+	
 	.facsimiles, .facsimiles * {
 		display: none!important;
 	}
