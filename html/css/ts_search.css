@@ -35,9 +35,6 @@ a {
     display: flex;
 }
 
-.ais-SearchBox-input {
-	box-shadow: 0 0.01rem 0.5rem 0 var(--st-bg-color2-shadow) !important;
-}
 
 #stats-container, 
 #searchbox, 
