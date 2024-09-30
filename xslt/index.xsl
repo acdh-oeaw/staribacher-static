@@ -27,7 +27,7 @@
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
                 <div class="flex-grow-1">
-                    <div class="row flex-grow-1 align-items-center g-5 container">
+                    <div class="row flex-grow-1 align-items-center justify-content-center g-5 container">
                         <div class="col-10 col-md-8 col-sm-8 col-lg-4 nopadding">
                             <img src="images/title-img.png" class="d-block mx-lg-auto" alt="Staribacher" style="max-width='100%';"  loading="lazy"></img>
                         </div>
