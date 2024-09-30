@@ -49,6 +49,8 @@ img {
 	flex-grow: 1;
 }
 
+.row {
+	width: 100% ;}
 .dropdown-menu {
 	max-width: unset ;
 }
