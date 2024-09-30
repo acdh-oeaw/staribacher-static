@@ -20,13 +20,13 @@
             </head>
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                    <div class="flex-grow-1">
-                        <div class="container search_title">
-                            <h1><xsl:value-of select="$doc_title"/></h1>
+                <main class="flex-grow-1">
+                    <div class="container">
+                        <h1><xsl:value-of select="$doc_title"/></h1>
                             <div class="search-panel__results">
                                 <div class="row">
                                     <!-- <div class="col-md-2 col-lg-2 col-sm-12" />      -->    
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 nopadding-left">
                                         <div class="refinements-panel">
                                             <div id="stats-container" />
                                             <h5 class="searchtitle">Volltextsuche</h5>
@@ -36,7 +36,7 @@
                                             <div id="clear-refinements" />
                                         </div>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-8 nopadding-right">
                                         <!--<div id="sort-by"></div>-->
                                         <div id="current-refinements" />
                                         <div id="hits" />
@@ -45,8 +45,8 @@
                                     <!-- <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right" /> -->
                                 </div>
                             </div>
-                        </div>
                     </div>
+                </main>
                 <xsl:call-template name="html_footer"/>
             </body>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.1.0/themes/algolia-min.css" />
