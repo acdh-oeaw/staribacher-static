@@ -40,6 +40,11 @@ img {
 	left: 0;
 	display: none;
 }
+
+.modal-dialog {
+	font-size: smaller ;
+}
+
 #fader i {
 	margin-top: 20%; 
 }
