@@ -43,6 +43,7 @@ img {
 
 .modal-dialog {
 	font-size: smaller ;
+	line-height: 1em;
 }
 
 #fader i {
