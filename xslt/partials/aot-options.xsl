@@ -72,7 +72,19 @@
                         </a>            
                     </blockquote>
                     <p/>                    
-                    <!--<p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
+                    <xsl:text>MLA:</xsl:text>
+                    <blockquote class="citation">
+                         <xsl:text>Staribacher, Josef. </xsl:text>
+                            <xsl:value-of select="concat('„', $doc_title, '.“ ')" />
+                            <i class="code">Josef Staribacher – Tagebücher. Digitale Edition</i>
+                        <xsl:value-of select="', herausgegeben von Maria Mesner, Remigio Gazzari, Gustav Graf,  Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, 2024. '" />
+                        <a href="{quotationURL}">
+                             <span id="currentURL" class="code"/>
+                        </a>            
+                    </blockquote>
+                    <p/>
+                    
+		    <!--<p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
                         »<span style="font-style:italic;" ><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></span>«.
                     </p> -->
  
@@ -88,8 +100,7 @@
                             |year = 2024<br/>
                             |orig-date=<xsl:value-of select="//tei:creation/tei:date/@when" /><br/>
                             |url=<span id='currentURL' class="code" /><br/>
-                            |acces-date=<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/></p>
-                            }}
+                            |acces-date=<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>}}</p>
                     </blockquote>
                     
 		    <xsl:text>BibTeX:</xsl:text> 
@@ -103,9 +114,7 @@
                             url            =   {<span id='currentURL' class="code" />},<br/>
                             urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
                             editor          =   {Maria Mesner AND Remigio Gazzari AND Gustav Graf AND Maria Steiner AND Thomas Tretzmüller AND Matthias Trinkaus},<br/>
-                            origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}<br/>
-                        </p>
-                        }
+                            origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}}</p>
                     </blockquote>
                 </div>
                 <div class="modal-footer">
