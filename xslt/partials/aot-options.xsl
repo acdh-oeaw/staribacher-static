@@ -66,7 +66,7 @@
                          <xsl:text>Staribacher, J. (2024). </xsl:text>
                             <xsl:value-of select="concat($doc_title, '. ')" />
                             <i class="code">Josef Staribacher – Tagebücher. Digitale Edition</i>
-                        <xsl:value-of select="'. M. Mesner, R. Gazzari, G. Graf,  M. Steiner, T. Tretzmüller und M. Trinkaus (Hrsg.). '" />
+                        <xsl:value-of select="'. Kreisky-Archiv (Hrsg.). '" />
                         <a href="{quotationURL}">
                              <span id="currentURL" class="code"/>
                         </a>            
@@ -77,7 +77,7 @@
                          <xsl:text>Staribacher, Josef. </xsl:text>
                             <xsl:value-of select="concat('„', $doc_title, '.“ ')" />
                             <i class="code">Josef Staribacher – Tagebücher. Digitale Edition</i>
-                        <xsl:value-of select="', herausgegeben von Maria Mesner, Remigio Gazzari, Gustav Graf,  Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus, 2024. '" />
+                        <xsl:value-of select="', herausgegeben von Kreisky-Archiv, 2024. '" />
                         <a href="{quotationURL}">
                              <span id="currentURL" class="code"/>
                         </a>            
@@ -95,7 +95,7 @@
                             |last=Staribacher<br/>
                             |first=Josef<br/>
                             |website=Josef Staribacher – Tagebücher<br/>
-                            |editor= Maria Mesner, Remigio Gazzari, Gustav Graf, Maria Steiner, Thomas Tretzmüller und Matthias Trinkaus<br/>
+                            |editor=Kreisky-Archiv<br/>
                             |language=de<br/>
                             |year = 2024<br/>
                             |orig-date=<xsl:value-of select="//tei:creation/tei:date/@when" /><br/>
@@ -111,9 +111,9 @@
                             title           =   {<xsl:value-of select="$doc_title"/>},<br/>
                             howpublished    =   {Josef Staribacher – Tagebücher},<br/>
                             year            =   {2024},<br/>
-                            url            =   {<span id='currentURL' class="code" />},<br/>
+                            url             =   {<span id='currentURL' class="code" />},<br/>
                             urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
-                            editor          =   {Maria Mesner AND Remigio Gazzari AND Gustav Graf AND Maria Steiner AND Thomas Tretzmüller AND Matthias Trinkaus},<br/>
+                            editor          =   {Kreisky-Archiv},
                             origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}}</p>
                     </blockquote>
                 </div>
