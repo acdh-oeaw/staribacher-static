@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 REDMINE_ID="18716?format=xhtml&locale="
 IMPRINT_XML=./data/imprint.xml
