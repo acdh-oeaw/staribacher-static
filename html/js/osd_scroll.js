@@ -46,6 +46,15 @@ creates an array for osd viewer with static images
 ##################################################################
 */
 var element = document.getElementsByClassName('pb');
+for (var i = 0; i < element.length; i++) {
+    var elem = element[i];
+    var source = elem.getAttribute('source');
+        if (source && source.includes('/full/pct:100/0/default.jpg')) {
+        var newSource = source.replace('/full/pct:100/0/default.jpg', '/full/!1024,1024/0/default.jpg');
+        elem.setAttribute('source', newSource);
+    }
+}
+
 var tileSources = [];
 var img = element[0].getAttribute("source");
 var imageURL = {
@@ -53,7 +62,6 @@ var imageURL = {
     url: img
 };
 tileSources.push(imageURL);
-
 /*
 ##################################################################
 initialize osd
@@ -105,6 +113,7 @@ viewport position of next and previous element with class pb
 pb = pagebreaks
 ##################################################################
 */
+
 window.addEventListener("scroll", function(event) {
     // elements in view
     var esiv = [];
@@ -170,6 +179,18 @@ function for downloading current image
 ##################################################################
 */
 var element_a = document.getElementsByClassName('pb');
+
+for (var i = 0; i < element_a.length; i++) {
+    var elem = element_a[i];
+    var source = elem.getAttribute('source');
+    if (source && source.includes('/full/pct:100/0/default.jpg')) {
+        var newSource = source.replace('/full/pct:100/0/default.jpg', '/full/!1024,1024/0/default.jpg');
+        elem.setAttribute('source', newSource);
+        console.log(`Element_a ${i}:`, elem);
+    }
+}
+
+//var element_a = document.getElementsByClassName('pb');
 var prev = document.querySelector("div[title='Previous page']");
 var next = document.querySelector("div[title='Next page']");
 var download = document.querySelector("div[title='Download']");
@@ -220,14 +241,9 @@ download.addEventListener("click", () => {
 function to check if element is close to top of window viewport
 ##################################################################
 */
-function isInViewport(element) {
+function isInViewport(elem) {
     // Get the bounding client rectangle position in the viewport
-    var bounding = element.getBoundingClientRect();
-    // Checking part. Here the code checks if el is close to top of viewport.
-    // console.log("Top");
-    // console.log(bounding.top);
-    // console.log("Bottom");
-    // console.log(bounding.bottom);
+    var bounding = elem.getBoundingClientRect();
     if (
         bounding.top <= 1200 &&
         bounding.bottom <= 600 &&
@@ -245,9 +261,9 @@ function isInViewport(element) {
 function to check if element is anywhere in window viewport
 ##################################################################
 */
-function isInViewportAll(element) {
+function isInViewportAll(elem) {
     // Get the bounding client rectangle position in the viewport
-    var bounding = element.getBoundingClientRect();
+    var bounding = elem.getBoundingClientRect();
     // Checking part. Here the code checks if el is close to top of viewport.
     // console.log("Top");
     // console.log(bounding.top);
