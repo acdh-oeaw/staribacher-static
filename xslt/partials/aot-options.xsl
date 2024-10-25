@@ -91,7 +91,7 @@
                     <xsl:text>Wikitext:</xsl:text>
                     <blockquote class="code">
                        {{cite web<br/><p class="indent1 code">
-                            |title=<xsl:value-of select="$doc_title"/><br></br>
+                            |title=<xsl:value-of select="$doc_title"/><br>
                             |last=Staribacher<br/>
                             |first=Josef<br/>
                             |website=Josef Staribacher – Tagebücher<br/>
@@ -113,7 +113,7 @@
                             year            =   {2024},<br/>
                             url             =   {<span id='currentURL' class="code" />},<br/>
                             urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
-                            editor          =   {Kreisky-Archiv},
+                            editor          =   {Kreisky-Archiv},<br/>
                             origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}}</p>
                     </blockquote>
                 </div>
