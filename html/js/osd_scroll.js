@@ -10,6 +10,17 @@ get container wrapper of osd viewer
 var height = screen.height;
 var container = document.getElementById("container_facs_1");
 var wrapper = document.getElementsByClassName("facsimiles")[0];
+let isManualNavigation = false; // Flag to disable scroll event temporarily
+
+function disableScrollEvent() {
+    isManualNavigation = true;
+}
+
+function enableScrollEvent() {
+    setTimeout(() => {
+        isManualNavigation = false;
+    }, 300); // Adjust the timeout as needed to match scroll behavior
+}
 
 /*
 ##################################################################
@@ -104,8 +115,7 @@ locate index of anchor element
 ##################################################################
 */
 var idx = 0;
-var prev_idx = -1;
-
+var prev_idx = -1 ;
 /*
 ##################################################################
 triggers on scroll and switches osd viewer image base on 
@@ -115,25 +125,26 @@ pb = pagebreaks
 */
 
 window.addEventListener("scroll", function(event) {
-    // elements in view
+    if (isManualNavigation) return;
     var esiv = [];
     for (let el of element) {
         if (isInViewportAll(el)) {
             esiv.push(el);
         }
     }
+    
     if (esiv.length != 0) {
         // first element in view
         var eiv = esiv[0];
-        // get idx of element
         var eiv_idx = Array.from(element).findIndex((el) => el === eiv);
-        idx = eiv_idx + 1;
-        prev_idx = eiv_idx - 1
+        
+        idx = eiv_idx + 1;    
         // test if element is in viewport position to load correct image
         if (isInViewport(element[eiv_idx])) {
             loadNewImage(element[eiv_idx]);
         }
     }
+    
 });
 
 /*
@@ -186,7 +197,6 @@ for (var i = 0; i < element_a.length; i++) {
     if (source && source.includes('/full/pct:100/0/default.jpg')) {
         var newSource = source.replace('/full/pct:100/0/default.jpg', '/full/!1024,1024/0/default.jpg');
         elem.setAttribute('source', newSource);
-        console.log(`Element_a ${i}:`, elem);
     }
 }
 
@@ -200,20 +210,31 @@ download.style.opacity = 1;
 download.innerHTML += '<i class="bi bi-download"></i>';
 
 prev.addEventListener("click", () => {
-    if (prev_idx >= 0) {
-        element_a[prev_idx].scrollIntoView();
+    disableScrollEvent();
+    if (idx > 0) {
+        idx -= 1 ;
+        element_a[prev_idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
-        element_a[0].scrollIntoView();
+        element_a[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        idx = 0 ;
     }
+    prev_idx -= 1 ;
+    enableScrollEvent();
 });
 
 next.addEventListener("click", () => {
-    if (idx < element_a.length) {
+    if (idx == 0 ) {
+        element_a[1].scrollIntoView();
+    }
+    else if (idx < element_a.length) {
         element_a[idx].scrollIntoView();
     } else {
-        element_a[idx-1].scrollIntoView();
-    }    
+        element_a[idx - 1].scrollIntoView();
+        idx -= 1 ;
+    }
+    prev_idx = idx - 1 ;
 });
+
 
 download.addEventListener("click", () => {
     var current_image = viewer.drawer.canvas.toDataURL("image/png");
