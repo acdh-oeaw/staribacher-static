@@ -83,7 +83,19 @@
                         </a>            
                     </blockquote>
                     <p/>
-                    
+
+                    <xsl:text>Harvard:</xsl:text>
+                    <blockquote class="citation">
+                         <xsl:text>Staribacher, J., 2024. </xsl:text>
+                            <xsl:value-of select="concat('„', $doc_title, '“. In: ')" />
+                            <i class="code">Josef Staribacher – Tagebücher. Digitale Edition</i>
+                        <xsl:value-of select="'. Hrsg. vom Kreisky-Archiv. Verfügbar unter:'" />
+                        <a href="{quotationURL}">
+                             <span id="currentURL" class="code"/>
+                        </a>
+                        <xsl:value-of select="'.'" />
+                    </blockquote>
+                    <p/>
 		    <!--<p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
                         »<span style="font-style:italic;" ><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></span>«.
                     </p> -->
