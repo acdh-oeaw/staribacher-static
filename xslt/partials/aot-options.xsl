@@ -91,7 +91,7 @@
                     <xsl:text>Wikitext:</xsl:text>
                     <blockquote class="code">
                        {{cite web<br/><p class="indent1 code">
-                            |title=<xsl:value-of select="$doc_title"/><br>
+                            |title=<xsl:value-of select="$doc_title"/><br />
                             |last=Staribacher<br/>
                             |first=Josef<br/>
                             |website=Josef Staribacher – Tagebücher<br/>
