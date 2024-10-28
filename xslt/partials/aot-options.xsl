@@ -71,20 +71,23 @@
                              <span id="currentURL" class="code"/>
                         </a>            
                     </blockquote>
-                    <p/>                    
-                    <xsl:text>MLA:</xsl:text>
-                    <blockquote class="citation">
-                         <xsl:text>Staribacher, Josef. </xsl:text>
-                            <xsl:value-of select="concat('„', $doc_title, '.“ ')" />
-                            <i class="code">Josef Staribacher – Tagebücher. Digitale Edition</i>
-                        <xsl:value-of select="', herausgegeben von Kreisky-Archiv, 2024. '" />
-                        <a href="{quotationURL}">
-                             <span id="currentURL" class="code"/>
-                        </a>            
-                    </blockquote>
-                    <p/>
+                    <p/>         
 
-                    <xsl:text>Harvard:</xsl:text>
+                    <xsl:text>BibTeX:</xsl:text> 
+                    <blockquote class="code">
+                        @misc{<xsl:value-of select="data(tei:TEI/@xml:id)"/>,
+                            <p class="indent1 code">
+                            author          =   {Josef Staribacher},<br/>
+                            title           =   {<xsl:value-of select="$doc_title"/>},<br/>
+                            howpublished    =   {Josef Staribacher – Tagebücher},<br/>
+                            year            =   {2024},<br/>
+                            url             =   {<span id='currentURL' class="code" />},<br/>
+                            urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
+                            editor          =   {Kreisky-Archiv},<br/>
+                            origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}}</p>
+                    </blockquote>
+
+                     <xsl:text>Harvard:</xsl:text>
                     <blockquote class="citation">
                          <xsl:text>Staribacher, J., 2024. </xsl:text>
                             <xsl:value-of select="concat('„', $doc_title, '“. In: ')" />
@@ -96,10 +99,22 @@
                         <xsl:value-of select="'.'" />
                     </blockquote>
                     <p/>
+
+                    <xsl:text>MLA:</xsl:text>
+                    <blockquote class="citation">
+                         <xsl:text>Staribacher, Josef. </xsl:text>
+                            <xsl:value-of select="concat('„', $doc_title, '.“ ')" />
+                            <i class="code">Josef Staribacher – Tagebücher. Digitale Edition</i>
+                        <xsl:value-of select="', herausgegeben vom Kreisky-Archiv, 2024. '" />
+                        <a href="{quotationURL}">
+                             <span id="currentURL" class="code"/>
+                        </a>            
+                    </blockquote>
+                    <p/>
+                   
 		    <!--<p>Für gekürzte Zitate reicht die Angabe der Briefnummer aus, die eindeutig und persistent ist:
                         »<span style="font-style:italic;" ><xsl:value-of select="replace(tokenize(base-uri(), '/')[last()], '.xml', '')"/></span>«.
                     </p> -->
- 
                     <xsl:text>Wikitext:</xsl:text>
                     <blockquote class="code">
                        {{cite web<br/><p class="indent1 code">
@@ -113,20 +128,6 @@
                             |orig-date=<xsl:value-of select="//tei:creation/tei:date/@when" /><br/>
                             |url=<span id='currentURL' class="code" /><br/>
                             |acces-date=<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>}}</p>
-                    </blockquote>
-                    
-		    <xsl:text>BibTeX:</xsl:text> 
-                    <blockquote class="code">
-                        @misc{<xsl:value-of select="data(tei:TEI/@xml:id)"/>,
-                            <p class="indent1 code">
-                            author          =   {Josef Staribacher},<br/>
-                            title           =   {<xsl:value-of select="$doc_title"/>},<br/>
-                            howpublished    =   {Josef Staribacher – Tagebücher},<br/>
-                            year            =   {2024},<br/>
-                            url             =   {<span id='currentURL' class="code" />},<br/>
-                            urldate         =   {<xsl:value-of select="format-date(current-date(), '[Y4]-[M02]-[D02]')"/>},<br/>
-                            editor          =   {Kreisky-Archiv},<br/>
-                            origdate        =   {<xsl:value-of select="//tei:creation/tei:date/@when" />}}</p>
                     </blockquote>
                 </div>
                 <div class="modal-footer">
