@@ -25,35 +25,26 @@ acdhi:staribacher a acdh:TopCollection ;
     acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/other> ;
     acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher/meta> .
 
-<https://id.acdh.oeaw.ac.at/staribacher/editions> a acdh:Collection ;
-    acdh:hasTitle "Editionen"@de ;
-    acdh:hasDescription "TEI/XML Dokumente der editierten Tagebucheinträgen"@de ,
-	"TEI/XML documents of the edited diary entries"@en ;
-    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
-    acdh:hasCoverageStartDate "1970-04-23"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    acdh:hasCoverageEndDate "1983-05-24"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    acdh:isPartOf acdhi:staribacher .
+# <https://id.acdh.oeaw.ac.at/staribacher/editions> a acdh:Collection ;
+#    acdh:hasTitle "Editionen"@de ;
+#    acdh:hasDescription "TEI/XML Dokumente der editierten Tagebucheinträgen"@de ,
+#	"TEI/XML documents of the edited diary entries"@en ;
+#    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
+#    acdh:hasCoverageStartDate "1970-04-23"^^<http://www.w3.org/2001/XMLSchema#date> ;
+#    acdh:hasCoverageEndDate "1983-05-24"^^<http://www.w3.org/2001/XMLSchema#date> ;
+#    acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+#    acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
+#    acdh:isPartOf acdhi:staribacher .
 
-<https://id.acdh.oeaw.ac.at/staribacher/indices> a acdh:Collection ;
-    acdh:hasTitle "Register"@de ;
-    acdh:hasDescription "TEI/XML kodiertes Personenregister"@de ,
-	"TEI/XML encoded register of persons"@en ;
-    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
-    acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    acdh:isPartOf acdhi:staribacher .
+# <https://id.acdh.oeaw.ac.at/staribacher/indices> a acdh:Collection ;
+#    acdh:hasTitle "Register"@de ;
+#    acdh:hasDescription "TEI/XML kodiertes Personenregister"@de ,
+#	"TEI/XML encoded register of persons"@en ;
+#    acdh:hasLanguage <https://vocabs.acdh.oeaw.ac.at/iso6393/deu> ;
+#    acdh:hasCreatedStartDate "2022-06-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+#    acdh:hasCreatedEndDate "2024-09-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
+#    acdh:isPartOf acdhi:staribacher .
 
-<https://d-nb.info/gnd/1043833846> a acdh:Person ;
-    acdh:hasIdentifier acdhi:pandorfer ;
-    acdh:hasFirstName "Peter"@de ;
-    acdh:hasLastName "Andorfer"@de .
-
-<https://d-nb.info/gnd/1297553608> a acdh:Person ;
-    acdh:hasIdentifier acdhi:fsanzlazaro ;
-    acdh:hasFirstName "Fernando"@und ;
-    acdh:hasLastName "Sanz-Lázaro"@und .
 
 acdhi:cfhaak a acdh:Person ;
     acdh:hasIdentifier <https://orcid.org/0009-0006-7740-542X> ;
@@ -68,12 +59,15 @@ acdhi:mrauschsupola a acdh:Person ;
 acdhi:mmesner a acdh:Person ;  #  Maria Mesner
     acdh:hasIdentifier <http://d-nb.info/gnd/133693945> ,
         <https://orcid.org/0000-0002-0224-2367> ;
+    acdh::isMemberOf acdhi:kreiskyarchiv ;
+    acdh:hasPersonalTitle "Univ.-Doz. Mag.a Dr.in" ;
     acdh:hasFirstName "Maria"@de ;
     acdh:hasLastName "Mesner"@de .
 
 acdhi:ggazzari a acdh:Person ; # Remigio Gazzari
     acdh:hasIdentifier <https://d-nb.info/gnd/1316837874> ;
     acdh:hasFirstName "Remigio"@de ;
+    acdh::isMemberOf acdhi:kreiskyarchiv ;
     acdh:hasFirstName "Gazzari"@de .
 
 acdhi:ggraf a acdh:Person ; # Gustav Graf

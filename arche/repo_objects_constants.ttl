@@ -1,23 +1,24 @@
 @prefix acdh: <https://vocabs.acdh.oeaw.ac.at/schema#> .
 @prefix acdhi: <https://id.acdh.oeaw.ac.at/> .
 
-<https://foo/bar> acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0> ;
+acdhi:staribacher acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0> ;
     acdh:hasLicensor acdhi:acdh ;
     acdh:hasContact acdhi:acdh ;
     acdh:hasOwner acdhi:acdh ;
     acdh:hasRightsHolder acdhi:oeaw ;
     acdh:hasRelatedDiscipline <https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/506011> , # 506011Political history
 	<https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601022> ; # Contemporary history   
-    acdh:hasCreator acdhi:mmesner ; # Maria Mesner
+    acdh:hasCreator acdhi:kreiskyarchiv ;
     acdh:hasCurator acdhi:fsanzlazaro ;
-    acdh:hasContributor acdhi:pandorfer , # Peter Andorfer
-			acdhi:fsanzlazaro , # Fernando Sanz-Lázaro
-			acdhi:mrauschsupola , # Michaela Rausch-Supola
-                        acdhi:chaak ,  # Carl Friedrich Haak 
-                        acdhi:ggazzari , # Remigio Gazzari
-                        acdhi:mtrinkaus ,
-                        acdhi:ttretzmueller ,
-                        acdhi:msteiner ,
-                        acdhi:ggraf ;
-    acdh:hasDepositor acdhi:mmesner ;
-    acdh:hasMetadataCreator acdhi:fsanzlazaro . # FSL
+    acdh:hasContributor acdhi:pandorfer ,
+            acdhi:chaak ,
+            acdhi:ggazzari ,
+            acdhi:ggraf ,
+            acdhi:mrauschsupola ,
+			acdhi:fsanzlazaro ,
+            acdhi:msteiner ,
+            acdhi:ttretzmueller ,
+            acdhi:mtrinkaus ;
+    acdh:hasPrincipalInvestigator acdhi:mmesner ;
+    acdh:hasDepositor acdhi:kreiskyarchiv ;
+    acdh:hasMetadataCreator acdhi:fsanzlazaro .

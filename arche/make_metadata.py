@@ -19,6 +19,7 @@ shutil.rmtree(TO_INGEST, ignore_errors=True)
 os.makedirs(TO_INGEST, exist_ok=True)
 shutil.copy("html/images/title-img.png", "to_ingest/title-img.png")
 
+
 print("processing data/indices")
 files = glob.glob("data/indices/*.xml")
 for x in tqdm(files, total=len(files)):
@@ -58,18 +59,30 @@ with open("date_issues.txt", "w") as fp:
         fname = os.path.split(x)[-1]
         shutil.copyfile(x, os.path.join(TO_INGEST, fname))
         doc = TeiReader(x)
-        uri = URIRef(f"{ID}/editions/{fname}")
+        collection = URIRef(f"{ID}/editions/{fname.split('.')[-2]}")
+        g.add((collection, RDF.type, ACDH["Collection"]))
+        uri = URIRef(f"{ID}/{collection}/{fname}")
         try:
             pid = doc.any_xpath(".//tei:idno[@type='handle']/text()")[0]
         except IndexError:
             pid = "XXXX"
+        coverage = doc.any_xpath(".//tei:creation/tei:date/@when")
+        if coverage:
+            coverageStart = coverageEnd = Literal(coverage[0], datatype=XSD.date)
+        else:
+            coverageStart = Literal(doc.any_xpath(".//tei:creation/tei:date/@from")[0], datatype=XSD.date)
+            coverageEnd = Literal(doc.any_xpath(".//tei:creation/tei:date/@to")[0], datatype=XSD.date)
+        g.add((collection, ACDH["hasCoverageStartDate"], coverageStart))
+        g.add((collection, ACDH["hasCoverageEndDate"], coverageEnd))
         if pid.startswith("http"):
             g.add((uri, ACDH["hasPid"], Literal(pid)))
         g.add((uri, RDF.type, ACDH["Resource"]))
         url = f"https://staribacher.acdh.oeaw.ac.at/{fname.replace('.xml', '.html')}"
         g.add((uri, ACDH["hasUrl"], Literal(url, datatype=XSD.anyURI)))
-        g.add((uri, ACDH["isPartOf"], URIRef(f"{ID}/editions")))
+        g.add((uri, ACDH["isPartOf"], URIRef(f"{ID}/{collection}")))
         g.add((uri, ACDH["hasIdentifier"], URIRef(f"{ID}/{fname}")))
+        g.add((uri, ACDH["hasCoverageStartDate"], coverageStart))
+        g.add((uri, ACDH["hasCoverageEndDate"], coverageEnd))
         g.add(
             (
                 uri,
@@ -85,7 +98,9 @@ with open("date_issues.txt", "w") as fp:
             has_title = normalize_string(
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[1]/text()")[0]
             )
+        g.add((collection, ACDH["hasTitle"], Literal(has_title, lang="de")))
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="de")))
+
         # PDFS
         # pdf_fname = fname.replace(".xml", ".pdf")
         # shutil.copyfile(os.path.join("html", pdf_fname), os.path.join(TO_INGEST, pdf_fname))
@@ -160,16 +175,17 @@ with open("date_issues.txt", "w") as fp:
             fp.write(f"{fname}: {e}\n")
 
         # ENTITIES
-        for y in doc.any_xpath(".//tei:back//tei:person[./tei:idno[@subtype='d-nb']]"):
+        for y in doc.any_xpath(".//tei:back//tei:person[./tei:idno[@type='GND']]"):
             person_uri = URIRef(
                 get_normalized_uri(
-                    y.xpath("./tei:idno[@subtype='d-nb']/text()", namespaces=nsmap)[0]
+                    y.xpath("./tei:idno[@type='GND']/text()", namespaces=nsmap)[0]
                 )
             )
             has_title = make_entity_label(
                 y.xpath("./*[1]", namespaces=nsmap)[0], default_lang="de"
             )
             g.add((uri, ACDH["hasActor"], person_uri))
+            g.add((collection, ACDH["hasActor"], person_uri))
             g.add((person_uri, RDF.type, ACDH["Person"]))
             g.add((person_uri, ACDH["hasTitle"], Literal(has_title[0], lang=has_title[1])))
             xml_id = get_xmlid(y)
@@ -177,14 +193,14 @@ with open("date_issues.txt", "w") as fp:
                 (
                     person_uri,
                     ACDH["hasUrl"],
-                    Literal(f"https://schnitzler-briefe.acdh.oeaw.ac.at/{xml_id}.html"),
+                    Literal(f"https://staribacher.acdh.oeaw.ac.at/{xml_id}.html"),
                 )
             )
 
-        for y in doc.any_xpath(".//tei:back//tei:place[./tei:idno[@subtype='geonames']]"):
+        for y in doc.any_xpath(".//tei:back//tei:place[./tei:idno[@type='GEONAMES']]"):
             place_uri = URIRef(
                 get_normalized_uri(
-                    y.xpath("./tei:idno[@subtype='geonames']/text()", namespaces=nsmap)[0]
+                    y.xpath("./tei:idno[@type='GEONAMES']/text()", namespaces=nsmap)[0]
                 )
             )
             has_title = make_entity_label(
@@ -194,18 +210,19 @@ with open("date_issues.txt", "w") as fp:
             g.add((place_uri, RDF.type, ACDH["Place"]))
             g.add((place_uri, ACDH["hasTitle"], Literal(has_title[0], lang=has_title[1])))
             xml_id = get_xmlid(y)
-            g.add((place_uri, ACDH["hasUrl"], Literal(f"https://schnitzler-briefe.acdh.oeaw.ac.at/{xml_id}.html")))
+            g.add((place_uri, ACDH["hasUrl"], Literal(f"https://staribacher.acdh.oeaw.ac.at/{xml_id}.html")))
 
-        for y in doc.any_xpath(".//tei:back//tei:org[./tei:idno[@subtype='d-nb']]"):
+        for y in doc.any_xpath(".//tei:back//tei:org[./tei:idno[@type='GND']]"):
             org_uri = URIRef(
                 get_normalized_uri(
-                    y.xpath("./tei:idno[@subtype='d-nb']/text()", namespaces=nsmap)[0]
+                    y.xpath("./tei:idno[@type='GND']/text()", namespaces=nsmap)[0]
                 )
             )
             has_title = make_entity_label(
                 y.xpath("./*[1]", namespaces=nsmap)[0], default_lang="und"
             )
             g.add((uri, ACDH["hasActor"], org_uri))
+            g.add((collection, ACDH["hasActor"], org_uri))
             g.add((org_uri, RDF.type, ACDH["Organisation"]))
             g.add((org_uri, ACDH["hasTitle"], Literal(has_title[0], lang=has_title[1])))
             xml_id = get_xmlid(y)
@@ -213,7 +230,7 @@ with open("date_issues.txt", "w") as fp:
                 (
                     org_uri,
                     ACDH["hasUrl"],
-                    Literal(f"https://schnitzler-briefe.acdh.oeaw.ac.at/{xml_id}.html"),
+                    Literal(f"https://staribacher.acdh.oeaw.ac.at/{xml_id}.html"),
                 )
             )
 
