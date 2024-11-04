@@ -8,9 +8,11 @@ from acdh_tei_pyutils.tei import TeiReader
 from acdh_tei_pyutils.utils import normalize_string, make_entity_label, nsmap, get_xmlid
 from rdflib import Graph, Namespace, URIRef, RDF, Literal, XSD
 from tqdm import tqdm
+nsmap = {"tei": "http://www.tei-c.org/ns/1.0"}
 
 g = Graph().parse("arche/arche_constants.ttl")
 ACDH = Namespace("https://vocabs.acdh.oeaw.ac.at/schema#")
+ACDHI = Namespace("https://id.acdh.oeaw.ac.at/") 
 G_REPO_OBJECTS = Graph().parse("arche/repo_objects_constants.ttl")
 ID = Namespace("https://id.acdh.oeaw.ac.at/staribacher")
 TO_INGEST = "to_ingest"
@@ -19,6 +21,36 @@ shutil.rmtree(TO_INGEST, ignore_errors=True)
 os.makedirs(TO_INGEST, exist_ok=True)
 shutil.copy("html/images/title-img.png", "to_ingest/title-img.png")
 
+def make_pic_resources(doc, collection):
+    pictures = doc.any_xpath(".//tei:pb/@facs")
+    subcollection = URIRef(f"{collection}/facsimiles")
+    g.add((subcollection, RDF.type, ACDH["Collection"]))
+    g.add((subcollection, ACDH["isPartOf"], URIRef(collection)))
+    g.add((subcollection, ACDH["hasTitle"], Literal("Faksimiles", lang="de")))
+    for pic in pictures:
+        resource = pic.split("/")[-5].strip()
+        basename = resource.split('.')[-2]
+        resource = URIRef(f"{collection}/facsimiles/{pic}")
+        g.add((resource, RDF.type, ACDH["Collection"]))
+        g.add((resource, ACDH["hasTitle"], Literal(basename, lang="und")))
+        g.add((resource, ACDH["hasFileName"], Literal(pic, lang="und")))
+    return True
+
+def get_creators(doc):
+    creators = doc.any_xpath(".//tei:respStmt")
+    c_dict = {'Gustav Graf': ACDHI['ggraf'], 'Matthias Trinkaus': ACDHI['mtrinkaus'], 'Thomas Tretzmüller': ACDHI['ttretzmueller'], 'Maria Steiner': ACDHI['msteiner']}
+    resps = {'digitisers': [], 'tei_creators': [], 'others': []}
+    for creator in creators:
+        if creator.xpath('./tei:resp[contains(text(),"TEI")]', namespaces=nsmap):
+            r = 'tei_creators'
+        elif creator.xpath('./tei:resp[contains(text(),"OCR")]', namespaces=nsmap):
+            r = 'digitisers'
+        else:
+            r = 'others'
+        contributors = creator.xpath('./tei:persName/text()', namespaces=nsmap)
+        for contributor in contributors:
+            resps[r].append(c_dict[contributor.strip()])
+    return resps
 
 print("processing data/indices")
 files = glob.glob("data/indices/*.xml")
@@ -49,7 +81,8 @@ for x in tqdm(files, total=len(files)):
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[1]/text()")[0]
             )
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="de")))
-
+        creators = get_creators(doc)
+        print(creators)
 
 print("processing data/editions")
 files = glob.glob("data/editions/*.xml")
@@ -59,21 +92,18 @@ with open("date_issues.txt", "w") as fp:
         fname = os.path.split(x)[-1]
         shutil.copyfile(x, os.path.join(TO_INGEST, fname))
         doc = TeiReader(x)
-        collection = URIRef(f"{ID}/editions/{fname.split('.')[-2]}")
+        creators = get_creators(doc)
+        print(creators)
+        # col = f"{ID}/editions/{fname.split('.')[-2]}"
+        shelfmark =  doc.any_xpath('.//tei:idno[@type="signature"]/text()')[0]
+        collection = URIRef(f"{ID}/{shelfmark}")
         g.add((collection, RDF.type, ACDH["Collection"]))
+        make_pic_resources(doc, f"{ID}/{shelfmark}")
         uri = URIRef(f"{ID}/{collection}/{fname}")
         try:
             pid = doc.any_xpath(".//tei:idno[@type='handle']/text()")[0]
         except IndexError:
             pid = "XXXX"
-        coverage = doc.any_xpath(".//tei:creation/tei:date/@when")
-        if coverage:
-            coverageStart = coverageEnd = Literal(coverage[0], datatype=XSD.date)
-        else:
-            coverageStart = Literal(doc.any_xpath(".//tei:creation/tei:date/@from")[0], datatype=XSD.date)
-            coverageEnd = Literal(doc.any_xpath(".//tei:creation/tei:date/@to")[0], datatype=XSD.date)
-        g.add((collection, ACDH["hasCoverageStartDate"], coverageStart))
-        g.add((collection, ACDH["hasCoverageEndDate"], coverageEnd))
         if pid.startswith("http"):
             g.add((uri, ACDH["hasPid"], Literal(pid)))
         g.add((uri, RDF.type, ACDH["Resource"]))
@@ -81,8 +111,6 @@ with open("date_issues.txt", "w") as fp:
         g.add((uri, ACDH["hasUrl"], Literal(url, datatype=XSD.anyURI)))
         g.add((uri, ACDH["isPartOf"], URIRef(f"{ID}/{collection}")))
         g.add((uri, ACDH["hasIdentifier"], URIRef(f"{ID}/{fname}")))
-        g.add((uri, ACDH["hasCoverageStartDate"], coverageStart))
-        g.add((uri, ACDH["hasCoverageEndDate"], coverageEnd))
         g.add(
             (
                 uri,
@@ -98,8 +126,23 @@ with open("date_issues.txt", "w") as fp:
             has_title = normalize_string(
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[1]/text()")[0]
             )
-        g.add((collection, ACDH["hasTitle"], Literal(has_title, lang="de")))
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="de")))
+        # Collections
+        coverage = doc.any_xpath(".//tei:creation/tei:date/@when")
+        if coverage:
+            coverageStart = coverageEnd = Literal(coverage[0], datatype=XSD.date)
+        else:
+            coverageStart = Literal(doc.any_xpath(".//tei:creation/tei:date/@from")[0], datatype=XSD.date)
+            coverageEnd = Literal(doc.any_xpath(".//tei:creation/tei:date/@to")[0], datatype=XSD.date)
+        g.add((collection, ACDH["hasTitle"], Literal(shelfmark, lang="de")))
+        for subject in [collection, uri]:
+            g.add((subject, ACDH["hasCoverageStartDate"], coverageStart))
+            g.add((subject, ACDH["hasCoverageEndDate"], coverageEnd))
+            g.add((subject, ACDH["hasNonLinkedIdentifier"], Literal(shelfmark)))
+            for digitiser in creators['digitisers']:
+                g.add((subject, ACDH["hasDigitisingAgent"], digitiser))
+            for creator in creators['tei_creators']:
+                g.add((subject, ACDH["hasCreator"], creator))
 
         # PDFS
         # pdf_fname = fname.replace(".xml", ".pdf")
