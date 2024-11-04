@@ -28,9 +28,9 @@ def make_pic_resources(doc, collection):
     g.add((subcollection, ACDH["isPartOf"], URIRef(collection)))
     g.add((subcollection, ACDH["hasTitle"], Literal("Faksimiles", lang="de")))
     for pic in pictures:
-        resource = pic.split("/")[-5].strip()
-        basename = resource.split('.')[-2]
-        resource = URIRef(f"{collection}/facsimiles/{pic}")
+        resourcename = pic.split("/")[-5].strip()
+        basename = resourcename.split('.')[-2]
+        resource = URIRef(f"{collection}/facsimiles/{resourcename}")
         g.add((resource, RDF.type, ACDH["Collection"]))
         g.add((resource, ACDH["hasTitle"], Literal(basename, lang="und")))
         g.add((resource, ACDH["hasFileName"], Literal(pic, lang="und")))
@@ -82,7 +82,6 @@ for x in tqdm(files, total=len(files)):
             )
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="de")))
         creators = get_creators(doc)
-        print(creators)
 
 print("processing data/editions")
 files = glob.glob("data/editions/*.xml")
@@ -93,7 +92,6 @@ with open("date_issues.txt", "w") as fp:
         shutil.copyfile(x, os.path.join(TO_INGEST, fname))
         doc = TeiReader(x)
         creators = get_creators(doc)
-        print(creators)
         # col = f"{ID}/editions/{fname.split('.')[-2]}"
         shelfmark =  doc.any_xpath('.//tei:idno[@type="signature"]/text()')[0]
         collection = URIRef(f"{ID}/{shelfmark}")

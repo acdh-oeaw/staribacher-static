@@ -8,17 +8,17 @@ acdhi:staribacher acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/
     acdh:hasRightsHolder acdhi:oeaw ;
     acdh:hasRelatedDiscipline <https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/506011> , # 506011Political history
 	<https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601022> ; # Contemporary history   
-    acdh:hasCreator acdhi:kreiskyarchiv ;
+    acdh:hasCreator acdhi:kreiskyarchiv ;   # J Staribacher???? None???
     acdh:hasCurator acdhi:fsanzlazaro ;
     acdh:hasContributor acdhi:pandorfer ,
             acdhi:chaak ,
             acdhi:ggazzari ,
-            acdhi:ggraf ,
+            acdhi:ggraf ,   ### Remove when creator in the TEIS
             acdhi:mrauschsupola ,
 			acdhi:fsanzlazaro ,
-            acdhi:msteiner ,
-            acdhi:ttretzmueller ,
-            acdhi:mtrinkaus ;
+            acdhi:msteiner , ###
+            acdhi:ttretzmueller , ### 
+            acdhi:mtrinkaus ;  ###
     acdh:hasPrincipalInvestigator acdhi:mmesner ;
     acdh:hasDepositor acdhi:kreiskyarchiv ;
     acdh:hasMetadataCreator acdhi:fsanzlazaro .
