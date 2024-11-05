@@ -118,6 +118,7 @@ with open("date_issues.txt", "w") as fp:
         g.add((uri, ACDH["hasUrl"], Literal(url, datatype=XSD.anyURI)))
         g.add((uri, ACDH["isPartOf"], URIRef(f"{ID}/{collection}")))
         g.add((uri, ACDH["hasIdentifier"], URIRef(f"{ID}/{fname}")))
+        g.add((uri, ACDH["hasFileName"], Literal(fname)))
         g.add(
             (
                 uri,
@@ -152,6 +153,7 @@ with open("date_issues.txt", "w") as fp:
         for creator in creators['tei_creators']:
             g.add((uri, ACDH["hasCreator"], creator))
             g.add((collection, ACDH["hasContributor"], creator))
+        g.add((uri,ACDH["hasCategory"], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/image")))
 
         # PDFS
         # pdf_fname = fname.replace(".xml", ".pdf")
