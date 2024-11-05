@@ -59,7 +59,7 @@ acdhi:mrauschsupola a acdh:Person ;
 acdhi:mmesner a acdh:Person ;  #  Maria Mesner
     acdh:hasIdentifier <http://d-nb.info/gnd/133693945> ,
         <https://orcid.org/0000-0002-0224-2367> ;
-    acdh::isMemberOf acdhi:kreiskyarchiv ;
+    acdh:isMemberOf acdhi:kreiskyarchiv ;
     acdh:hasPersonalTitle "Univ.-Doz. Mag.a Dr.in" ;
     acdh:hasFirstName "Maria"@und ;
     acdh:hasLastName "Mesner"@und .
@@ -67,7 +67,7 @@ acdhi:mmesner a acdh:Person ;  #  Maria Mesner
 acdhi:ggazzari a acdh:Person ; # Remigio Gazzari
     acdh:hasIdentifier <https://d-nb.info/gnd/1316837874> ;
     acdh:hasFirstName "Remigio"@und ;
-    acdh::isMemberOf acdhi:kreiskyarchiv ;
+    acdh:isMemberOf acdhi:kreiskyarchiv ;
     acdh:hasFirstName "Gazzari"@und .
 
 acdhi:ggraf a acdh:Person ; # Gustav Graf
@@ -89,13 +89,13 @@ acdhi:mtrinkaus a acdh:Person ;  # Matthias Trinkaus
 acdhi:kreiskyarchiv a acdh:Organisation ;
     acdh:hasTitle "Stiftung Bruno-Kreisky-Archiv"@de ,
         "Bruno Kreisky Archive Foundation"@und ;
-    acdh:hasUrl <https://www.kreisky.org> ;
+    acdh:hasUrl "https://www.kreisky.org" ;
     acdh:hasCity "Wien"@de ,
         "Vienna"@en ;
     acdh:hasCountry "Austria"@en ,
         "Österreich"@de ;
     acdh:hasRegion "Wien"@de ,
         "Vienna"@en ;
-    acdh:hasPostCode "1050" ;
+    acdh:hasPostcode "1050" ;
     acdh:hasEmail "archiv@kreisky.org" ;
     acdh:hasIdentifier <http://d-nb.info/gnd/1099300-9> .
