@@ -24,10 +24,11 @@ shutil.copy("html/images/title-img.png", "to_ingest/title-img.png")
 kreisky_contributors = [ACDHI['ggazzari'], ACDHI['ggraf'], ACDHI['msteiner'], ACDHI['ttretzmueller'], ACDHI['mtrinkaus']]
 acdh_contributors = [ACDHI['pandorfer'], ACDHI['chaak'], ACDHI['mrauschsupola']]          
 
-def make_pic_resources(doc, collection, digitisers):
+def make_pic_resources(doc, collection, digitisers, uri):
     pictures = doc.any_xpath(".//tei:pb/@facs")
     subcollection = URIRef(f"{collection}/facsimiles")
     g.add((subcollection, RDF.type, ACDH["Collection"]))
+    [g.add((subcollection, ACDH["hasDigitisingAgent"], digitiser)) for digitiser in digitisers]
     g.add((subcollection, ACDH["isPartOf"], URIRef(collection)))
     g.add((subcollection, ACDH["hasTitle"], Literal("Faksimiles", lang="de")))
     for pic in pictures:
@@ -38,6 +39,8 @@ def make_pic_resources(doc, collection, digitisers):
         g.add((resource, ACDH["hasTitle"], Literal(basename, lang="und")))
         g.add((resource, ACDH["hasFileName"], Literal(resourcename, lang="und")))
         [g.add((resource, ACDH["hasDigitisingAgent"], digitiser)) for digitiser in digitisers]
+        g.add((resource, ACDH["isPartOf"], subcollection))
+        g.add((resource, ACDH["isSourceOf"], uri))
     return True
 
 def get_creators(doc):
@@ -102,8 +105,8 @@ with open("date_issues.txt", "w") as fp:
         shelfmark =  doc.any_xpath('.//tei:idno[@type="signature"]/text()')[0]
         collection = URIRef(f"{ID}/{shelfmark}")
         g.add((collection, RDF.type, ACDH["Collection"]))
-        make_pic_resources(doc, f"{ID}/{shelfmark}", creators['digitisers'])
-        uri = URIRef(f"{ID}/{collection}/{fname}")
+        uri = URIRef(f"{ID}/{shelfmark}/{fname}")
+        make_pic_resources(doc, f"{ID}/{shelfmark}", creators['digitisers'], uri)
         try:
             pid = doc.any_xpath(".//tei:idno[@type='handle']/text()")[0]
         except IndexError:
@@ -143,10 +146,12 @@ with open("date_issues.txt", "w") as fp:
             g.add((subject, ACDH["hasCoverageStartDate"], coverageStart))
             g.add((subject, ACDH["hasCoverageEndDate"], coverageEnd))
             g.add((subject, ACDH["hasNonLinkedIdentifier"], Literal(shelfmark)))
-            for digitiser in creators['digitisers']:
-                g.add((subject, ACDH["hasDigitisingAgent"], digitiser))
-            for creator in creators['tei_creators']:
-                g.add((subject, ACDH["hasCreator"], creator))
+        for digitiser in creators['digitisers']:
+            g.add((uri, ACDH["hasDigitisingAgent"], digitiser))
+            g.add((collection, ACDH["hasContributor"], digitiser))
+        for creator in creators['tei_creators']:
+            g.add((uri, ACDH["hasCreator"], creator))
+            g.add((collection, ACDH["hasContributor"], creator))
 
         # PDFS
         # pdf_fname = fname.replace(".xml", ".pdf")
