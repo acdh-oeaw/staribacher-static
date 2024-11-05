@@ -21,7 +21,10 @@ shutil.rmtree(TO_INGEST, ignore_errors=True)
 os.makedirs(TO_INGEST, exist_ok=True)
 shutil.copy("html/images/title-img.png", "to_ingest/title-img.png")
 
-def make_pic_resources(doc, collection):
+kreisky_contributors = [ACDHI['ggazzari'], ACDHI['ggraf'], ACDHI['msteiner'], ACDHI['ttretzmueller'], ACDHI['mtrinkaus']]
+acdh_contributors = [ACDHI['pandorfer'], ACDHI['chaak'], ACDHI['mrauschsupola']]          
+
+def make_pic_resources(doc, collection, digitisers):
     pictures = doc.any_xpath(".//tei:pb/@facs")
     subcollection = URIRef(f"{collection}/facsimiles")
     g.add((subcollection, RDF.type, ACDH["Collection"]))
@@ -31,9 +34,10 @@ def make_pic_resources(doc, collection):
         resourcename = pic.split("/")[-5].strip()
         basename = resourcename.split('.')[-2]
         resource = URIRef(f"{collection}/facsimiles/{resourcename}")
-        g.add((resource, RDF.type, ACDH["Collection"]))
+        g.add((resource, RDF.type, ACDH["Resource"]))
         g.add((resource, ACDH["hasTitle"], Literal(basename, lang="und")))
-        g.add((resource, ACDH["hasFileName"], Literal(pic, lang="und")))
+        g.add((resource, ACDH["hasFileName"], Literal(resourcename, lang="und")))
+        [g.add((resource, ACDH["hasDigitisingAgent"], digitiser)) for digitiser in digitisers]
     return True
 
 def get_creators(doc):
@@ -54,6 +58,8 @@ def get_creators(doc):
 
 print("processing data/indices")
 files = glob.glob("data/indices/*.xml")
+
+[g.add((URIRef(ID), ACDH['hasContributor'], contributor)) for contributor in kreisky_contributors + acdh_contributors]
 for x in tqdm(files, total=len(files)):
     if "siglen" in x:
         continue
@@ -96,7 +102,7 @@ with open("date_issues.txt", "w") as fp:
         shelfmark =  doc.any_xpath('.//tei:idno[@type="signature"]/text()')[0]
         collection = URIRef(f"{ID}/{shelfmark}")
         g.add((collection, RDF.type, ACDH["Collection"]))
-        make_pic_resources(doc, f"{ID}/{shelfmark}")
+        make_pic_resources(doc, f"{ID}/{shelfmark}", creators['digitisers'])
         uri = URIRef(f"{ID}/{collection}/{fname}")
         try:
             pid = doc.any_xpath(".//tei:idno[@type='handle']/text()")[0]

@@ -48,47 +48,47 @@ acdhi:staribacher a acdh:TopCollection ;
 
 acdhi:cfhaak a acdh:Person ;
     acdh:hasIdentifier <https://orcid.org/0009-0006-7740-542X> ;
-    acdh:hasFirstName "Carl Friedrich"@de ;
-    acdh:hasLastName "Haak"@de .
+    acdh:hasFirstName "Carl Friedrich"@und ;
+    acdh:hasLastName "Haak"@und .
 
 acdhi:mrauschsupola a acdh:Person ;
     acdh:hasIdentifier <https://orcid.org/0000-0001-6580-5182> ;
-    acdh:hasFirstName "Michaela"@de ;
-    acdh:hasLastName "Rausch-Supola"@de .
+    acdh:hasFirstName "Michaela"@und ;
+    acdh:hasLastName "Rausch-Supola"@und .
 
 acdhi:mmesner a acdh:Person ;  #  Maria Mesner
     acdh:hasIdentifier <http://d-nb.info/gnd/133693945> ,
         <https://orcid.org/0000-0002-0224-2367> ;
     acdh::isMemberOf acdhi:kreiskyarchiv ;
     acdh:hasPersonalTitle "Univ.-Doz. Mag.a Dr.in" ;
-    acdh:hasFirstName "Maria"@de ;
-    acdh:hasLastName "Mesner"@de .
+    acdh:hasFirstName "Maria"@und ;
+    acdh:hasLastName "Mesner"@und .
 
 acdhi:ggazzari a acdh:Person ; # Remigio Gazzari
     acdh:hasIdentifier <https://d-nb.info/gnd/1316837874> ;
-    acdh:hasFirstName "Remigio"@de ;
+    acdh:hasFirstName "Remigio"@und ;
     acdh::isMemberOf acdhi:kreiskyarchiv ;
-    acdh:hasFirstName "Gazzari"@de .
+    acdh:hasFirstName "Gazzari"@und .
 
 acdhi:ggraf a acdh:Person ; # Gustav Graf
-    acdh:hasFirstName "Gustav"@de ;
-    acdh:hasFirstName "Graf"@de .
+    acdh:hasFirstName "Gustav"@und ;
+    acdh:hasFirstName "Graf"@und .
 
 acdhi:msteiner a acdh:Person ; # Maria Steiner
-    acdh:hasFirstName "Maria"@de ;
-    acdh:hasFirstName "Steiner"@de .
+    acdh:hasFirstName "Maria"@und ;
+    acdh:hasFirstName "Steiner"@und .
 
 acdhi:ttretzmueller a acdh:Person ; # Thomas Tretzmüller
-    acdh:hasFirstName "Thomas"@de ;
-    acdh:hasFirstName "Tretzmüller"@de .
+    acdh:hasFirstName "Thomas"@und ;
+    acdh:hasFirstName "Tretzmüller"@und .
 
 acdhi:mtrinkaus a acdh:Person ;  # Matthias Trinkaus
-    acdh:hasFirstName "Matthias"@de ;
-    acdh:hasFirstName "Trinkaus"@de .
+    acdh:hasFirstName "Matthias"@und ;
+    acdh:hasFirstName "Trinkaus"@und .
 
 acdhi:kreiskyarchiv a acdh:Organisation ;
     acdh:hasTitle "Stiftung Bruno-Kreisky-Archiv"@de ,
-        "Bruno Kreisky Archive Foundation"@en ;
+        "Bruno Kreisky Archive Foundation"@und ;
     acdh:hasUrl <https://www.kreisky.org> ;
     acdh:hasCity "Wien"@de ,
         "Vienna"@en ;
