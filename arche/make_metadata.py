@@ -37,7 +37,7 @@ def make_pic_resources(doc, collection, digitisers, uri):
         resource = URIRef(f"{collection}/facsimiles/{resourcename}")
         g.add((resource, RDF.type, ACDH["Resource"]))
         g.add((resource, ACDH["hasTitle"], Literal(basename, lang="und")))
-        g.add((resource, ACDH["hasFileName"], Literal(resourcename, lang="und")))
+        g.add((resource, ACDH["hasFileName"], Literal(resourcename)))
         [g.add((resource, ACDH["hasDigitisingAgent"], digitiser)) for digitiser in digitisers]
         g.add((resource, ACDH["isPartOf"], subcollection))
         g.add((resource, ACDH["isSourceOf"], uri))

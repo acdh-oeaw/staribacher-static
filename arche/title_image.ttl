@@ -5,7 +5,7 @@
 
 <https://id.acdh.oeaw.ac.at/staribacher/title-img.png> a acdh:Resource ;
     acdh:hasTitle """Titelbild zu: Josef Staribacher – Tagebücher"""@de ,
-        """Titelbild zu: Josef Staribacher – Diaries"""@en ;
+        """Title image of Josef Staribacher – Diaries"""@en ;
     acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher/meta> ;
     acdh:isTitleImageOf <https://id.acdh.oeaw.ac.at/staribacher/meta> ;
     acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0> ;
