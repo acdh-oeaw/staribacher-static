@@ -22,7 +22,7 @@ os.makedirs(TO_INGEST, exist_ok=True)
 shutil.copy("html/images/title-img.png", "to_ingest/title-img.png")
 
 kreisky_contributors = [ACDHI['ggazzari'], ACDHI['ggraf'], ACDHI['msteiner'], ACDHI['ttretzmueller'], ACDHI['mtrinkaus']]
-acdh_contributors = [ACDHI['pandorfer'], ACDHI['chaak'], ACDHI['mrauschsupola']]          
+acdh_contributors = [ACDHI['pandorfer'], ACDHI['cfhaak'], ACDHI['mrauschsupola']]          
 
 def make_pic_resources(doc, collection, digitisers, uri):
     pictures = doc.any_xpath(".//tei:pb/@facs")
@@ -37,10 +37,11 @@ def make_pic_resources(doc, collection, digitisers, uri):
         resource = URIRef(f"{collection}/facsimiles/{resourcename}")
         g.add((resource, RDF.type, ACDH["Resource"]))
         g.add((resource, ACDH["hasTitle"], Literal(basename, lang="und")))
-        g.add((resource, ACDH["hasFileName"], Literal(resourcename)))
+        g.add((resource, ACDH["hasFilename"], Literal(resourcename)))
         [g.add((resource, ACDH["hasDigitisingAgent"], digitiser)) for digitiser in digitisers]
         g.add((resource, ACDH["isPartOf"], subcollection))
         g.add((resource, ACDH["isSourceOf"], uri))
+        g.add((resource, ACDH['hasCategory'], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/image")))
     return True
 
 def get_creators(doc):
@@ -74,14 +75,8 @@ for x in tqdm(files, total=len(files)):
         g.add((uri, RDF.type, ACDH["Resource"]))
         g.add((uri, ACDH["isPartOf"], URIRef(f"{ID}/indices")))
         g.add((uri, ACDH["hasIdentifier"], URIRef(f"{ID}/{fname}")))
-        g.add((uri, ACDH["hasFileName"], Literal(fname)))
-        g.add(
-            (
-                uri,
-                ACDH["hasCategory"],
-                URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"),
-            )
-        )
+        g.add((uri, ACDH["hasFilename"], Literal(fname)))
+        g.add((uri, ACDH["hasCategory"], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei")))
         try:
             has_title = normalize_string(
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[@level='a']/text()")[0]
@@ -119,14 +114,8 @@ with open("date_issues.txt", "w") as fp:
         g.add((uri, ACDH["hasUrl"], Literal(url, datatype=XSD.anyURI)))
         g.add((uri, ACDH["isPartOf"], URIRef(f"{ID}/{collection}")))
         g.add((uri, ACDH["hasIdentifier"], URIRef(f"{ID}/{fname}")))
-        g.add((uri, ACDH["hasFileName"], Literal(fname)))
-        g.add(
-            (
-                uri,
-                ACDH["hasCategory"],
-                URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"),
-            )
-        )
+        g.add((uri, ACDH["hasFilename"], Literal(fname)))
+        g.add((uri, ACDH["hasCategory"], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei")))
         try:
             has_title = normalize_string(
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[@level='a']/text()")[0]
@@ -154,7 +143,6 @@ with open("date_issues.txt", "w") as fp:
         for creator in creators['tei_creators']:
             g.add((uri, ACDH["hasCreator"], creator))
             g.add((collection, ACDH["hasContributor"], creator))
-        g.add((uri,ACDH["hasCategory"], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/image")))
 
         # PDFS
         # pdf_fname = fname.replace(".xml", ".pdf")
