@@ -3,7 +3,7 @@
 
 acdhi:staribacher a acdh:TopCollection ;
     acdh:hasTitle "Josef Staribacher – Tagebücher"@de ,
-	  "Josef Staribacher – Diaries";
+	  "Josef Staribacher – Diaries"@en;
     acdh:hasDescription "Digitalisierte Tagebücher von Josef Staribacher, österreichischer Handelsminister von 1970 bis 1983. Sie umfassen rund 20.000 Seiten und spiegeln Staribachers 13-jährige Ministertätigkeit unter Bundeskanzler Bruno Kreisky in den Kabinetten Kreisky I bis IV wider."@de ,
 		"Digitised diaries of Josef Staribacher, Austrian Minister of Trade and Commerce from 1970 to 1983. They comprise some 20,000 pages and reflect Staribacher's 13 years in office under Chancellor Bruno Kreisky in the Kreisky I to IV cabinets."@en ;
     acdh:hasTemporalCoverage "1970-1983"@und;

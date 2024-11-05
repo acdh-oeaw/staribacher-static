@@ -74,6 +74,7 @@ for x in tqdm(files, total=len(files)):
         g.add((uri, RDF.type, ACDH["Resource"]))
         g.add((uri, ACDH["isPartOf"], URIRef(f"{ID}/indices")))
         g.add((uri, ACDH["hasIdentifier"], URIRef(f"{ID}/{fname}")))
+        g.add((uri, ACDH["hasFileName"], Literal(fname)))
         g.add(
             (
                 uri,
