@@ -8,6 +8,9 @@ from acdh_tei_pyutils.tei import TeiReader
 from acdh_tei_pyutils.utils import normalize_string, make_entity_label, nsmap, get_xmlid
 from rdflib import Graph, Namespace, URIRef, RDF, Literal, XSD
 from tqdm import tqdm
+from datetime import datetime
+
+hodie = datetime.today().strftime('%Y-%m-%d')
 nsmap = {"tei": "http://www.tei-c.org/ns/1.0"}
 
 g = Graph().parse("arche/arche_constants.ttl")
@@ -16,7 +19,7 @@ ACDHI = Namespace("https://id.acdh.oeaw.ac.at/")
 G_REPO_OBJECTS = Graph().parse("arche/repo_objects_constants.ttl")
 ID = Namespace("https://id.acdh.oeaw.ac.at/staribacher")
 TO_INGEST = "to_ingest"
-
+break_count = 0
 shutil.rmtree(TO_INGEST, ignore_errors=True)
 os.makedirs(TO_INGEST, exist_ok=True)
 shutil.copy("html/images/title-img.png", "to_ingest/title-img.png")
@@ -31,17 +34,23 @@ def make_pic_resources(doc, collection, digitisers, uri):
     [g.add((subcollection, ACDH["hasDigitisingAgent"], digitiser)) for digitiser in digitisers]
     g.add((subcollection, ACDH["isPartOf"], URIRef(collection)))
     g.add((subcollection, ACDH["hasTitle"], Literal("Faksimiles", lang="de")))
-    for pic in pictures:
+    g.add((subcollection, ACDH["hasTitle"], Literal("Facsimiles", lang="en")))
+    next_item = False
+    for pic in pictures[::-1]:
         resourcename = pic.split("/")[-5].strip()
         basename = resourcename.split('.')[-2]
         resource = URIRef(f"{collection}/facsimiles/{resourcename}")
         g.add((resource, RDF.type, ACDH["Resource"]))
+        if next_item:
+            g.add((resource, ACDH["hasNextItem"], next_item))
+        next_item = URIRef(f"{collection}/facsimiles/{resourcename}")
         g.add((resource, ACDH["hasTitle"], Literal(basename, lang="und")))
         g.add((resource, ACDH["hasFilename"], Literal(resourcename)))
         [g.add((resource, ACDH["hasDigitisingAgent"], digitiser)) for digitiser in digitisers]
         g.add((resource, ACDH["isPartOf"], subcollection))
         g.add((resource, ACDH["isSourceOf"], uri))
         g.add((resource, ACDH['hasCategory'], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/image")))
+    # g.add((subcollection, ACDH["hasNextItem"], resource))
     return True
 
 def get_creators(doc):
@@ -86,23 +95,49 @@ for x in tqdm(files, total=len(files)):
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[1]/text()")[0]
             )
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="de")))
+        g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="en")))
         creators = get_creators(doc)
 
 print("processing data/editions")
 files = glob.glob("data/editions/*.xml")
 files = files
+volumes = []
+band_coverage = {}
+band_volumes = {}
 with open("date_issues.txt", "w") as fp:
     for x in tqdm(files, total=len(files)):
+        #if break_count > 3 :
+        #    break
+        #else:
+        #    break_count += 1
         fname = os.path.split(x)[-1]
         shutil.copyfile(x, os.path.join(TO_INGEST, fname))
         doc = TeiReader(x)
         creators = get_creators(doc)
         # col = f"{ID}/editions/{fname.split('.')[-2]}"
-        shelfmark =  doc.any_xpath('.//tei:idno[@type="signature"]/text()')[0]
-        collection = URIRef(f"{ID}/{shelfmark}")
+        shelfmark =  doc.any_xpath('.//tei:idno[@type="signature"]/text()')[0].lower().split("_")
+        volume = shelfmark[0].strip("band")
+        if volume not in ['01', '02']:
+            continue
+        entry = ''.join(shelfmark[1:])
+        volume_col = URIRef(f"{ID}/{volume}")
+        if volume not in volumes:
+            volumes.append(volume)
+            band_coverage[volume] = []
+            band_volumes[volume] = []
+            g.add((volume_col, RDF.type, ACDH["Collection"]))
+            g.add((volume_col, ACDH["hasTitle"], Literal(f"Band {volume}", lang="de")))
+            g.add((volume_col, ACDH["hasTitle"], Literal(f"Volume {volume}", lang="en")))
+            g.add((volume_col, ACDH["hasDescription"], Literal(f"Band {volume}", lang="de")))
+            g.add((volume_col, ACDH["hasDescription"], Literal(f"Volume {volume}", lang="en")))
+            g.add((volume_col, ACDH["isPartOf"], URIRef(ID)))
+        if entry not in band_volumes[volume]:
+            band_volumes[volume].append(entry)
+        collection = URIRef(f"{ID}/{volume}/{entry}")
         g.add((collection, RDF.type, ACDH["Collection"]))
-        uri = URIRef(f"{ID}/{shelfmark}/{fname}")
-        make_pic_resources(doc, f"{ID}/{shelfmark}", creators['digitisers'], uri)
+        uri = URIRef(f"{ID}/{volume}/{entry}/{fname}")
+        g.add((collection, ACDH["isPartOf"], volume_col))
+        make_pic_resources(doc, f"{ID}/{volume}/{entry}", creators['digitisers'], uri)
         try:
             pid = doc.any_xpath(".//tei:idno[@type='handle']/text()")[0]
         except IndexError:
@@ -112,10 +147,11 @@ with open("date_issues.txt", "w") as fp:
         g.add((uri, RDF.type, ACDH["Resource"]))
         url = f"https://staribacher.acdh.oeaw.ac.at/{fname.replace('.xml', '.html')}"
         g.add((uri, ACDH["hasUrl"], Literal(url, datatype=XSD.anyURI)))
-        g.add((uri, ACDH["isPartOf"], URIRef(f"{ID}/{collection}")))
-        g.add((uri, ACDH["hasIdentifier"], URIRef(f"{ID}/{fname}")))
+        g.add((uri, ACDH["isPartOf"], collection))
+        g.add((uri, ACDH["hasIdentifier"], URIRef(f"{ID}/{volume}/{entry}/{fname}")))
         g.add((uri, ACDH["hasFilename"], Literal(fname)))
         g.add((uri, ACDH["hasCategory"], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei")))
+        g.add((uri, ACDH["hasAuthor"], URIRef("https://d-nb.info/gnd/125942052")))
         try:
             has_title = normalize_string(
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[@level='a']/text()")[0]
@@ -125,18 +161,19 @@ with open("date_issues.txt", "w") as fp:
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[1]/text()")[0]
             )
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="de")))
+        g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="en")))
         # Collections
-        coverage = doc.any_xpath(".//tei:creation/tei:date/@when")
-        if coverage:
-            coverageStart = coverageEnd = Literal(coverage[0], datatype=XSD.date)
-        else:
-            coverageStart = Literal(doc.any_xpath(".//tei:creation/tei:date/@from")[0], datatype=XSD.date)
-            coverageEnd = Literal(doc.any_xpath(".//tei:creation/tei:date/@to")[0], datatype=XSD.date)
-        g.add((collection, ACDH["hasTitle"], Literal(shelfmark, lang="de")))
+        coverage = doc.any_xpath(".//tei:creation/tei:date/@*")
+        coverage.sort()
+        coverageStart = Literal(coverage[0], datatype=XSD.date)
+        coverageEnd = Literal(coverage[-1], datatype=XSD.date)
+        band_coverage[volume] += coverage
+        g.add((collection, ACDH["hasTitle"], Literal(f"{has_title}", lang="de")))
+        g.add((collection, ACDH["hasTitle"], Literal(f"{has_title}", lang="en")))
         for subject in [collection, uri]:
             g.add((subject, ACDH["hasCoverageStartDate"], coverageStart))
             g.add((subject, ACDH["hasCoverageEndDate"], coverageEnd))
-            g.add((subject, ACDH["hasNonLinkedIdentifier"], Literal(shelfmark)))
+            g.add((subject, ACDH["hasNonLinkedIdentifier"], Literal('_'.join(shelfmark))))
         for digitiser in creators['digitisers']:
             g.add((uri, ACDH["hasDigitisingAgent"], digitiser))
             g.add((collection, ACDH["hasContributor"], digitiser))
@@ -196,7 +233,7 @@ with open("date_issues.txt", "w") as fp:
                     (
                         uri,
                         ACDH["hasCreatedEndDate"],
-                        Literal("2024-09-17", datatype=XSD.date),
+                        Literal(hodie, datatype=XSD.date),
                     )
                 )
             else:
@@ -276,6 +313,23 @@ with open("date_issues.txt", "w") as fp:
                     Literal(f"https://staribacher.acdh.oeaw.ac.at/{xml_id}.html"),
                 )
             )
+#volumes.sort()
+#[band_coverage[vol].sort() for vol in volumes]
+#[band_volumes[vol].sort() for vol in volumes]
+#nextvol = False
+#for vol in volumes[::-1]:
+#    volume = URIRef(f"{ID}/{vol}")
+#    if nextvol:
+#        g.add((volume, ACDH["hasNextItem"], nextvol))
+#    nextvol = URIRef(f"{ID}/{vol}")
+#    g.add((volume, ACDH["hasCoverageStartDate"], Literal(band_coverage[vol][0], datatype=XSD.date)))
+#    g.add((volume, ACDH["hasCoverageEndDate"], Literal(band_coverage[vol][-1], datatype=XSD.date)))
+#    nextitem = False
+#    for sign in band_volumes[vol][::-1]:
+#        item =  URIRef(f"{ID}/{vol}/{sign}")
+#        if nextitem:
+#            g.add((item, ACDH["hasNextItem"], nextitem))
+#        nextitem = URIRef(f"{ID}/{vol}/{sign}")
 
 print("adding repo objects constants now")
 COLS = [ACDH["TopCollection"], ACDH["Collection"], ACDH["Resource"]]
