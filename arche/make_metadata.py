@@ -35,6 +35,8 @@ def make_pic_resources(doc, collection, digitisers, uri):
     g.add((subcollection, ACDH["isPartOf"], URIRef(collection)))
     g.add((subcollection, ACDH["hasTitle"], Literal("Faksimiles", lang="de")))
     g.add((subcollection, ACDH["hasTitle"], Literal("Facsimiles", lang="en")))
+    g.add((subcollection, ACDH["hasArrangement"], Literal(f"Die Sammlung enthält {len(pictures)} Bilddateien.", lang="de")))
+    g.add((subcollection, ACDH["hasArrangement"], Literal(f"The collection contains {len(pictures)} picture files.", lang="en")))
     next_item = False
     for pic in pictures[::-1]:
         resourcename = pic.split("/")[-5].strip()
@@ -51,7 +53,7 @@ def make_pic_resources(doc, collection, digitisers, uri):
         g.add((resource, ACDH["isSourceOf"], uri))
         g.add((resource, ACDH['hasCategory'], URIRef("https://vocabs.acdh.oeaw.ac.at/archecategory/image")))
     # g.add((subcollection, ACDH["hasNextItem"], resource))
-    return True
+    return len(pictures)
 
 def get_creators(doc):
     creators = doc.any_xpath(".//tei:respStmt")
@@ -69,7 +71,6 @@ def get_creators(doc):
             resps[r].append(c_dict[contributor.strip()])
     return resps
 
-print("processing data/indices")
 files = glob.glob("data/indices/*.xml")
 
 [g.add((URIRef(ID), ACDH['hasContributor'], contributor)) for contributor in kreisky_contributors + acdh_contributors]
@@ -98,7 +99,6 @@ for x in tqdm(files, total=len(files)):
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="en")))
         creators = get_creators(doc)
 
-print("processing data/editions")
 files = glob.glob("data/editions/*.xml")
 files = files
 volumes = []
@@ -137,7 +137,7 @@ with open("date_issues.txt", "w") as fp:
         g.add((collection, RDF.type, ACDH["Collection"]))
         uri = URIRef(f"{ID}/{volume}/{entry}/{fname}")
         g.add((collection, ACDH["isPartOf"], volume_col))
-        make_pic_resources(doc, f"{ID}/{volume}/{entry}", creators['digitisers'], uri)
+        n_pics = make_pic_resources(doc, f"{ID}/{volume}/{entry}", creators['digitisers'], uri)
         try:
             pid = doc.any_xpath(".//tei:idno[@type='handle']/text()")[0]
         except IndexError:
@@ -160,7 +160,8 @@ with open("date_issues.txt", "w") as fp:
             has_title = normalize_string(
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[1]/text()")[0]
             )
-        g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="de")))
+        g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="und")))
+        print(f'<{uri}> acdh:hasTitle "{has_title}"@en , "{has_title}"@de .')
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="en")))
         # Collections
         coverage = doc.any_xpath(".//tei:creation/tei:date/@*")
@@ -168,8 +169,10 @@ with open("date_issues.txt", "w") as fp:
         coverageStart = Literal(coverage[0], datatype=XSD.date)
         coverageEnd = Literal(coverage[-1], datatype=XSD.date)
         band_coverage[volume] += coverage
-        g.add((collection, ACDH["hasTitle"], Literal(f"{has_title}", lang="de")))
-        g.add((collection, ACDH["hasTitle"], Literal(f"{has_title}", lang="en")))
+        g.add((collection, ACDH["hasTitle"], Literal(f"{coverage[0]}", lang="und")))
+        print(f'<{collection}> acdh:hasTitle "{has_title}"@de , "{has_title}"@en .')
+        g.add((collection, ACDH["hasArrangement"], Literal("Die Sammlung enthält eine XML-TEI-Edition vom Tagebucheintrag und eine Untersammlung mit den Faksimiles.", lang="de")))
+        g.add((collection, ACDH["hasArrangement"], Literal("The collections contains a XML-TEI edition of the diary entry and a subcollection with the facsimiles.", lang="en")))
         for subject in [collection, uri]:
             g.add((subject, ACDH["hasCoverageStartDate"], coverageStart))
             g.add((subject, ACDH["hasCoverageEndDate"], coverageEnd))
@@ -313,25 +316,29 @@ with open("date_issues.txt", "w") as fp:
                     Literal(f"https://staribacher.acdh.oeaw.ac.at/{xml_id}.html"),
                 )
             )
-#volumes.sort()
-#[band_coverage[vol].sort() for vol in volumes]
-#[band_volumes[vol].sort() for vol in volumes]
+volumes.sort()
+[band_coverage[vol].sort() for vol in volumes]
+[band_volumes[vol].sort() for vol in volumes]
 #nextvol = False
-#for vol in volumes[::-1]:
-#    volume = URIRef(f"{ID}/{vol}")
+for vol in volumes[::-1]:
+    volume = URIRef(f"{ID}/{vol}")
 #    if nextvol:
+#        print(f"<{volume}> acdh:hasNextItem <{nextvol}> .")
 #        g.add((volume, ACDH["hasNextItem"], nextvol))
+    g.add((volume, ACDH["hasArrangement"], Literal(f"Die Sammlung enthält {len(band_volumes[vol])} Untersammlungen „JJJJ-MM-TT“, die den Tagebucheinträgen entsprechen, jede mit einer XML-TEI-codierten digitalen Ausgabe des Eintrags und einer Untersammlung „Faksimiles“ mit Faksimiles der Seiten.", lang="de")))
+    g.add((volume, ACDH["hasArrangement"], Literal(f"The collection contains {len(band_volumes[vol])} subcollections 'YYYY-MM-DD' corresponding to the diary entries, each of them with a XML-TEI encoded digital edition of the entry and a subcollection 'Facsimiles' with facsimiles of the pages.", lang="en")))
 #    nextvol = URIRef(f"{ID}/{vol}")
-#    g.add((volume, ACDH["hasCoverageStartDate"], Literal(band_coverage[vol][0], datatype=XSD.date)))
-#    g.add((volume, ACDH["hasCoverageEndDate"], Literal(band_coverage[vol][-1], datatype=XSD.date)))
+    g.add((volume, ACDH["hasCoverageStartDate"], Literal(band_coverage[vol][0], datatype=XSD.date)))
+    g.add((volume, ACDH["hasCoverageEndDate"], Literal(band_coverage[vol][-1], datatype=XSD.date)))
 #    nextitem = False
 #    for sign in band_volumes[vol][::-1]:
 #        item =  URIRef(f"{ID}/{vol}/{sign}")
 #        if nextitem:
 #            g.add((item, ACDH["hasNextItem"], nextitem))
+#            print(f"<{item}> acdh:hasNextItem <{nextitem}> .")
 #        nextitem = URIRef(f"{ID}/{vol}/{sign}")
 
-print("adding repo objects constants now")
+
 COLS = [ACDH["TopCollection"], ACDH["Collection"], ACDH["Resource"]]
 COL_URIS = set()
 for x in COLS:
