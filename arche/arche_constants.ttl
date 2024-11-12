@@ -40,7 +40,18 @@ acdhi:staribacher a acdh:TopCollection ;
         "The subcollection 'Additional resources' contains XML schemas and a picture file."@en ;
     acdh:isPartOf acdhi:staribacher .
 
-
+<https://id.acdh.oeaw.ac.at/staribacher/meta/title-img.png> a acdh:Resource ;
+    acdh:hasTitle """Titelbild zu: Josef Staribacher – Tagebücher"""@de ,
+        """Title image of Josef Staribacher – Diaries"""@en ;
+    acdh:isPartOf <https://id.acdh.oeaw.ac.at/staribacher/meta> ;
+    acdh:isTitleImageOf <https://id.acdh.oeaw.ac.at/staribacher> ;
+    acdh:hasLicense <https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0> ;
+    acdh:hasLicensor acdhi:kreiskyarchiv ;
+    acdh:hasOwner acdhi:kreiskyarchiv ;
+    acdh:hasCategory <https://vocabs.acdh.oeaw.ac.at/archecategory/image> ;
+    acdh:hasDepositor acdhi:kreiskyarchiv ;
+    acdh:hasMetadataCreator acdhi:fsanzlazaro ;
+    acdh:hasRightsHolder acdhi:kreiskyarchiv .
 
 <https://id.acdh.oeaw.ac.at/staribacher/meta/schema.rng> a acdh:Resource ;
     acdh:hasTitle "RNG-Schema für die in TEI/XML kodierten Tagebucheinträgen"@de ,

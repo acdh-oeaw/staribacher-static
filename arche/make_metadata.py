@@ -38,16 +38,18 @@ def make_pic_resources(doc, collection, digitisers, uri):
     g.add((subcollection, ACDH["hasArrangement"], Literal(f"Die Sammlung enthält {len(pictures)} Bilddateien.", lang="de")))
     g.add((subcollection, ACDH["hasArrangement"], Literal(f"The collection contains {len(pictures)} picture files.", lang="en")))
     next_item = False
+    pictures = pictures[:3]
     for pic in pictures[::-1]:
         resourcename = pic.split("/")[-5].strip()
-        basename = resourcename.split('.')[-2]
-        resource = URIRef(f"{collection}/facsimiles/{resourcename}")
+        print(resourcename)
+        basename = resourcename.split('.')[-2].strip()
+        resource = URIRef(f"{collection}/facsimiles/{basename}.jpg")
         g.add((resource, RDF.type, ACDH["Resource"]))
         if next_item:
             g.add((resource, ACDH["hasNextItem"], next_item))
-        next_item = URIRef(f"{collection}/facsimiles/{resourcename}")
+        next_item = URIRef(f"{collection}/facsimiles/{basename}.jpg")
         g.add((resource, ACDH["hasTitle"], Literal(basename, lang="und")))
-        g.add((resource, ACDH["hasFilename"], Literal(resourcename)))
+        g.add((resource, ACDH["hasFilename"], Literal(f"{basename}.jpg")))
         [g.add((resource, ACDH["hasDigitisingAgent"], digitiser)) for digitiser in digitisers]
         g.add((resource, ACDH["isPartOf"], subcollection))
         g.add((resource, ACDH["isSourceOf"], uri))
@@ -100,16 +102,10 @@ for x in tqdm(files, total=len(files)):
         creators = get_creators(doc)
 
 files = glob.glob("data/editions/*.xml")
-files = files
-volumes = []
 band_coverage = {}
 band_volumes = {}
 with open("date_issues.txt", "w") as fp:
     for x in tqdm(files, total=len(files)):
-        #if break_count > 3 :
-        #    break
-        #else:
-        #    break_count += 1
         fname = os.path.split(x)[-1]
         shutil.copyfile(x, os.path.join(TO_INGEST, fname))
         doc = TeiReader(x)
@@ -121,8 +117,7 @@ with open("date_issues.txt", "w") as fp:
             continue
         entry = ''.join(shelfmark[1:])
         volume_col = URIRef(f"{ID}/{volume}")
-        if volume not in volumes:
-            volumes.append(volume)
+        if volume not in band_coverage:
             band_coverage[volume] = []
             band_volumes[volume] = []
             g.add((volume_col, RDF.type, ACDH["Collection"]))
@@ -133,6 +128,8 @@ with open("date_issues.txt", "w") as fp:
             g.add((volume_col, ACDH["isPartOf"], URIRef(ID)))
         if entry not in band_volumes[volume]:
             band_volumes[volume].append(entry)
+        if len(band_volumes[volume]) > 3:
+            continue
         collection = URIRef(f"{ID}/{volume}/{entry}")
         g.add((collection, RDF.type, ACDH["Collection"]))
         uri = URIRef(f"{ID}/{volume}/{entry}/{fname}")
@@ -161,7 +158,6 @@ with open("date_issues.txt", "w") as fp:
                 doc.any_xpath(".//tei:titleStmt[1]/tei:title[1]/text()")[0]
             )
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="und")))
-        print(f'<{uri}> acdh:hasTitle "{has_title}"@en , "{has_title}"@de .')
         g.add((uri, ACDH["hasTitle"], Literal(has_title, lang="en")))
         # Collections
         coverage = doc.any_xpath(".//tei:creation/tei:date/@*")
@@ -170,7 +166,6 @@ with open("date_issues.txt", "w") as fp:
         coverageEnd = Literal(coverage[-1], datatype=XSD.date)
         band_coverage[volume] += coverage
         g.add((collection, ACDH["hasTitle"], Literal(f"{coverage[0]}", lang="und")))
-        print(f'<{collection}> acdh:hasTitle "{has_title}"@de , "{has_title}"@en .')
         g.add((collection, ACDH["hasArrangement"], Literal("Die Sammlung enthält eine XML-TEI-Edition vom Tagebucheintrag und eine Untersammlung mit den Faksimiles.", lang="de")))
         g.add((collection, ACDH["hasArrangement"], Literal("The collections contains a XML-TEI edition of the diary entry and a subcollection with the facsimiles.", lang="en")))
         for subject in [collection, uri]:
@@ -316,11 +311,13 @@ with open("date_issues.txt", "w") as fp:
                     Literal(f"https://staribacher.acdh.oeaw.ac.at/{xml_id}.html"),
                 )
             )
-volumes.sort()
-[band_coverage[vol].sort() for vol in volumes]
-[band_volumes[vol].sort() for vol in volumes]
+[band_coverage[vol].sort() for vol in band_coverage]
+[band_volumes[vol].sort() for vol in band_volumes]
 #nextvol = False
-for vol in volumes[::-1]:
+
+
+
+for vol in sorted(band_coverage)[::-1]:
     volume = URIRef(f"{ID}/{vol}")
 #    if nextvol:
 #        print(f"<{volume}> acdh:hasNextItem <{nextvol}> .")
