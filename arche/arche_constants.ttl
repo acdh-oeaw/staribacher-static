@@ -36,8 +36,8 @@ acdhi:staribacher a acdh:TopCollection ;
     acdh:hasDescription "TEI/XML Schemas"@de ,
 	"TEI/XML schemas"@en ;
      acdh:hasArrangement
-        "Die Untersammlung „Ergänzende Materialien“ enthält XML-Schemas und eine Bilddatei."@de ,
-        "The subcollection 'Additional resources' contains XML schemas and a picture file."@en ;
+        "Die Untersammlung „Ergänzende Materialien“ enthält zwei ML-Schemas und eine Bilddatei."@de ,
+        "The subcollection 'Additional resources' contains two XML schemas and a picture file."@en ;
     acdh:isPartOf acdhi:staribacher .
 
 <https://id.acdh.oeaw.ac.at/staribacher/meta/title-img.png> a acdh:Resource ;
