@@ -44,6 +44,8 @@ jobs:
         run: ./shellscripts/process_data.sh
       - name: build search index
         run: ./pyscripts/make_ts_index.py
+      - name: oai-pmh
+        run: python oai-pmh/make_files.py 
       - name: Build
         run: ant
       - name: Setup Pages
