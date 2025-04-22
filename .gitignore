@@ -13,6 +13,7 @@ html/js-data/calendarData.js
 
 html/*.xml
 html/*.html
+/html/oai-pmh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
