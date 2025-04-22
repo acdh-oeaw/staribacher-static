@@ -2,9 +2,7 @@ name: Build and publish
 
 on:
   workflow_dispatch:
-  # deactivated cron job because data does not change much any more
-  # schedule:
-  # - cron: '04 00 * * *'
+
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -32,7 +30,7 @@ jobs:
     steps:
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - name: Perform Checkout
         uses: actions/checkout@v4
       - name: Install Ant, Saxon and Python
@@ -46,8 +44,6 @@ jobs:
         run: ./shellscripts/process_data.sh
       - name: build search index
         run: ./pyscripts/make_ts_index.py
-      - name: Update favicons
-        run: ./pyscripts/update_favicons.py
       - name: Build
         run: ant
       - name: Setup Pages

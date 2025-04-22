@@ -2,5 +2,3 @@ acdh-tei-pyutils
 acdh-arche-assets
 acdh-cfts-pyutils
 rdflib
-meson
-favicons
