@@ -24,7 +24,7 @@
                   </div>
                   <div class="col-lg-4 col-md-3 col-sm-3 texts">
                         <p>
-                           ACDH-CH OEAW<br/>
+                           ACDH ÖAW<br/>
                            Austrian Centre for Digital Humanities and Cultural Heritage<br/>
                            Österreichische Akademie der Wissenschaften
                         </p>
