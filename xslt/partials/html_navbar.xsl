@@ -26,6 +26,9 @@
                                     <li>
                                         <a class="dropdown-item" href="imprint.html">Impressum</a>
                                     </li>
+									<li>
+                                        <a class="dropdown-item" href="https://dse-static-oai-pmh.acdh-dev.oeaw.ac.at/staribacher/oai-pmh">API</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item">
