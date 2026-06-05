@@ -1,0 +1,13 @@
+[project]
+name = "staribacher-static"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "acdh-arche-assets>=3.30.1",
+    "acdh-cfts-pyutils>=0.2",
+    "acdh-tei-pyutils>=2.3.1",
+    "jinja2>=3.1.6",
+    "rdflib>=7.6.0",
+]
