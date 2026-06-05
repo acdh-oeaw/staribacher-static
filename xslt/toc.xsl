@@ -31,7 +31,7 @@
     <xsl:template match="/">
         <xsl:variable name="doc_title" select="'Tagebucheinträge'"/>
     
-        <html class="h-100">
+        <html class="h-100" lang="de">
     
             <head>
                 <xsl:call-template name="html_head">
