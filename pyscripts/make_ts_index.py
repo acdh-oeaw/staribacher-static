@@ -16,6 +16,7 @@ from acdh_cfts_pyutils import CFTS_COLLECTION
 
 files = glob.glob("./data/editions/*.xml")
 dateformat = "%Y-%m-%d"
+
 current_schema = {
     "name": "STB",
     "fields": [
@@ -29,6 +30,11 @@ current_schema = {
         {"name": "year", "type": "string", "facet": True, "optional": True},
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
+    "metadata": {
+        "owners": ["Michaela Rausch-Suppola", "Fernando Sanz-Lázaro"],
+        "description": "Used for Register of https://staribacher.acdh.oeaw.ac.at/",
+        "service_ids": [23089]
+    }
 }
 
 
