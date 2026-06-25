@@ -31,7 +31,7 @@ current_schema = {
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
     ],
     "metadata": {
-        "owners": ["Michaela Rausch-Supola", "Fernando Sanz-Lázaro"],
+        "owners": ["Peter Andorfer", "Carl Friedrich Haak", "Michaela Rausch-Supola", "Fernando Sanz-Lázaro"],
         "description": "Used for Register of https://staribacher.acdh.oeaw.ac.at/",
         "service_ids": [23089]
     }
